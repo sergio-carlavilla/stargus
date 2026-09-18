@@ -1,0 +1,155 @@
+name: linux
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Ubuntu / GCC
+    runs-on: ubuntu-latest
+
+    env:
+      BUILD_TYPE: Debug
+      STRATAGUS_SOURCE_DIR: ${{ github.workspace }}/stratagus-engine
+      STRATAGUS_BUILD_DIR: ${{ github.workspace }}/stratagus-engine/build
+      STARGUS_BUILD_DIR: ${{ github.workspace }}/build
+      STARGUS_INSTALL_DIR: ${{ runner.temp }}/stargus-install
+
+    steps:
+      - name: Checkout Stargus
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Checkout Stratagus
+        uses: actions/checkout@v4
+        with:
+          repository: sergio-carlavilla/stratagus
+          path: stratagus-engine
+          submodules: recursive
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            build-essential \
+            pkg-config \
+            zlib1g-dev \
+            libpng-dev \
+            libbz2-dev \
+            libmng-dev \
+            libvorbis-dev \
+            libtheora-dev \
+            libsdl2-dev \
+            libsdl2-mixer-dev \
+            libsdl2-image-dev \
+            libstorm-dev \
+            libcppunit-dev \
+            libmagick++-dev \
+            nlohmann-json3-dev \
+            imagemagick
+
+      - name: Install CMake 4.3
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: '4.3.x'
+
+      - name: Show tool versions
+        run: |
+          cmake --version
+          gcc --version
+          make --version
+
+      - name: Configure Stratagus
+        run: |
+          cmake \
+            -S "${STRATAGUS_SOURCE_DIR}" \
+            -B "${STRATAGUS_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            -DBUILD_VENDORED_LUA=ON
+
+      - name: Build Stratagus
+        run: |
+          cmake --build "${STRATAGUS_BUILD_DIR}" --parallel
+
+      - name: Locate Stratagus executable
+        id: stratagus
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -x "${STRATAGUS_BUILD_DIR}/stratagus-dbg" ]]; then
+            executable="${STRATAGUS_BUILD_DIR}/stratagus-dbg"
+          elif [[ -x "${STRATAGUS_BUILD_DIR}/stratagus" ]]; then
+            executable="${STRATAGUS_BUILD_DIR}/stratagus"
+          else
+            echo "Unable to find the Stratagus executable."
+            find "${STRATAGUS_BUILD_DIR}" -maxdepth 3 -type f -perm -111 -print
+            exit 1
+          fi
+
+          echo "executable=${executable}" >> "${GITHUB_OUTPUT}"
+          "${executable}" --help >/dev/null
+
+      - name: Configure Stargus
+        run: |
+          cmake \
+            -S "${GITHUB_WORKSPACE}" \
+            -B "${STARGUS_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            -DCMAKE_INSTALL_PREFIX="${STARGUS_INSTALL_DIR}" \
+            -DWITH_CASCLIB=OFF \
+            -DStratagus_EXECUTABLE="${{ steps.stratagus.outputs.executable }}" \
+            -DStratagus_INCLUDE_DIR="${STRATAGUS_SOURCE_DIR}/gameheaders"
+
+      - name: Build Stargus
+        run: |
+          cmake --build "${STARGUS_BUILD_DIR}" --parallel
+
+      - name: Run tests
+        run: |
+          ctest \
+            --test-dir "${STARGUS_BUILD_DIR}" \
+            --build-config "${BUILD_TYPE}" \
+            --output-on-failure
+
+      - name: Install Stargus
+        run: |
+          cmake --install "${STARGUS_BUILD_DIR}"
+
+      - name: Verify installation
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -x "${STARGUS_INSTALL_DIR}/bin/startool"
+          test -x "${STARGUS_INSTALL_DIR}/bin/scdat2json"
+          test -x "${STARGUS_INSTALL_DIR}/bin/grptool"
+          test -x "${STARGUS_INSTALL_DIR}/bin/sauwetter"
+          test -x "${STARGUS_INSTALL_DIR}/games/stargus"
+
+          test -f "${STARGUS_INSTALL_DIR}/share/pixmaps/stargus.png"
+          test -f "${STARGUS_INSTALL_DIR}/share/pixmaps/stargus.xpm"
+          test -f "${STARGUS_INSTALL_DIR}/share/applications/stargus.desktop"
+          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/mpqlist.txt"
+          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/dataset/palettes.json"
+          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/dataset/units.json"
+          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/scripts/sc.lua"
+
+          "${STARGUS_INSTALL_DIR}/bin/startool" --help >/dev/null
+          "${STARGUS_INSTALL_DIR}/bin/scdat2json" --help >/dev/null
+          "${STARGUS_INSTALL_DIR}/bin/grptool" --help >/dev/null
+
+          expected_exec="Exec=${STARGUS_INSTALL_DIR}/games/stargus"
+          grep -Fx "${expected_exec}" \
+            "${STARGUS_INSTALL_DIR}/share/applications/stargus.desktop"
+
+          echo "Stargus CMake build, tests, and installation succeeded."
