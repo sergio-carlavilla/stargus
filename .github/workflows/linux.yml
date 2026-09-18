@@ -14,7 +14,7 @@ permissions:
 jobs:
   build:
     name: Ubuntu / GCC
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     env:
       BUILD_TYPE: Debug
@@ -25,12 +25,12 @@ jobs:
 
     steps:
       - name: Checkout Stargus
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: recursive
 
       - name: Checkout Stratagus
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: sergio-carlavilla/stratagus
           path: stratagus-engine
@@ -78,7 +78,7 @@ jobs:
 
       - name: Build Stratagus
         run: |
-          cmake --build "${STRATAGUS_BUILD_DIR}" --parallel
+          cmake --build "${STRATAGUS_BUILD_DIR}" --parallel 2
 
       - name: Locate Stratagus executable
         id: stratagus
