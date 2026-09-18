@@ -21,7 +21,7 @@ jobs:
       STRATAGUS_SOURCE_DIR: ${{ github.workspace }}/stratagus-engine
       STRATAGUS_BUILD_DIR: ${{ github.workspace }}/stratagus-engine/build
       STARGUS_BUILD_DIR: ${{ github.workspace }}/build
-      STARGUS_INSTALL_DIR: ${{ runner.temp }}/stargus-install
+      STARGUS_INSTALL_DIR: ${{ github.workspace }}/install
 
     steps:
       - name: Checkout Stargus
