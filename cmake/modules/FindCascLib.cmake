@@ -1,34 +1,37 @@
-# - Try to find the CascLib library
-# Once done this will define
-#
-#  CASCLIB_FOUND - system has CascLib
-#  CASCLIB_INCLUDE_DIR - the CASCLIB include directory
-#  CASCLIB_LIBRARY - The CASCLIB library
+# SPDX-FileCopyrightText: 2026 Sergio Carlavilla Delgado <sergio.carlavilla91@gmail.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
 
-# Copyright (c) 2015, cybermind <cybermindid@gmail.com>
-#
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+include(FindPackageHandleStandardArgs)
 
-if(CASCLIB_INCLUDE_DIR AND CASCLIB_LIBRARY AND (NOT UNIX OR BZIP2_FOUND))
-	set(CASCLIB_FOUND true)
-else()
-	find_path(CASCLIB_INCLUDE_DIR CascLib.h)
-	find_library(CASCLIB_LIBRARY NAMES casc)
-	if (UNIX)
-		find_package(BZip2)
-	endif()
+find_path(
+    CascLib_INCLUDE_DIR
+    NAMES CascLib.h
+)
 
-	if(CASCLIB_INCLUDE_DIR AND CASCLIB_LIBRARY AND (NOT UNIX OR BZIP2_FOUND))
-		set(CASCLIB_FOUND true)
-		message(STATUS "Found CascLib: ${CASCLIB_LIBRARY}")
-	elseif(UNIX AND NOT BZIP2_FOUND)
-		set(CASCLIB_FOUND false)
-		message(STATUS "Could not find BZip2 required for CascLib")
-	else()
-		set(CASCLIB_FOUND false)
-		message(STATUS "Could not find CascLib")
-	endif()
+find_library(
+    CascLib_LIBRARY
+    NAMES casc CascLib
+)
 
-	mark_as_advanced(CASCLIB_INCLUDE_DIR CASCLIB_LIBRARY)
+find_package_handle_standard_args(
+    CascLib
+    REQUIRED_VARS
+        CascLib_LIBRARY
+        CascLib_INCLUDE_DIR
+)
+
+if(CascLib_FOUND AND NOT TARGET CascLib::CascLib)
+    add_library(CascLib::CascLib UNKNOWN IMPORTED)
+
+    set_target_properties(
+        CascLib::CascLib
+        PROPERTIES
+            IMPORTED_LOCATION "${CascLib_LIBRARY}"
+            INTERFACE_INCLUDE_DIRECTORIES "${CascLib_INCLUDE_DIR}"
+    )
 endif()
+
+mark_as_advanced(
+    CascLib_INCLUDE_DIR
+    CascLib_LIBRARY
+)

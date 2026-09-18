@@ -1,28 +1,70 @@
-# - Try to find the stratagus executable and game headers
-# Once done this will define
-#
-#  STRATAGUS_FOUND - system has stratagus
-#  STRATAGUS - the stratagus executable
-#  STRATAGUS_INCLUDE_DIR - the stratagus include directory
+# SPDX-FileCopyrightText: 2026 Sergio Carlavilla Delgado <sergio.carlavilla91@gmail.com>
+# SPDX-License-Identifier: GPL-2.0-or-later
 
-# Copyright (c) 2011, Pali Rohár <pali.rohar@gmail.com>
-#
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+include(FindPackageHandleStandardArgs)
 
-if(STRATAGUS AND STRATAGUS_INCLUDE_DIR)
-	set(STRATAGUS_FOUND true)
-else()
-	find_program(STRATAGUS NAMES stratagus PATH_SUFFIXES games)
-	find_path(STRATAGUS_INCLUDE_DIR stratagus-game-launcher.h)
+set(
+    Stratagus_ROOT
+    ""
+    CACHE PATH
+    "Installation prefix or root directory containing Stratagus"
+)
 
-	if(STRATAGUS AND STRATAGUS_INCLUDE_DIR)
-		set(STRATAGUS_FOUND true)
-		message(STATUS "Found stratagus: ${STRATAGUS}:${STRATAGUS_INCLUDE_DIR}")
-	else()
-		set(STRATAGUS_FOUND false)
-		message(WARNING "Could not find stratagus, not building launcher")
-	endif()
+find_path(
+    Stratagus_INCLUDE_DIR
+    NAMES stratagus-game-launcher.h
+    HINTS
+        "${Stratagus_ROOT}"
+    PATH_SUFFIXES
+        include
+        include/stratagus
+        gameheaders
+)
 
-	mark_as_advanced(STRATAGUS STRATAGUS_INCLUDE_DIR)
+find_program(
+    Stratagus_EXECUTABLE
+    NAMES
+        stratagus
+        stratagus-dbg
+    HINTS
+        "${Stratagus_ROOT}"
+    PATH_SUFFIXES
+        bin
+        games
+)
+
+find_package_handle_standard_args(
+    Stratagus
+    REQUIRED_VARS
+        Stratagus_EXECUTABLE
+        Stratagus_INCLUDE_DIR
+)
+
+if(Stratagus_FOUND)
+    if(NOT TARGET Stratagus::GameHeaders)
+        add_library(Stratagus::GameHeaders INTERFACE IMPORTED)
+
+        set_target_properties(
+            Stratagus::GameHeaders
+            PROPERTIES
+                INTERFACE_INCLUDE_DIRECTORIES
+                    "${Stratagus_INCLUDE_DIR}"
+        )
+    endif()
+
+    if(NOT TARGET Stratagus::stratagus)
+        add_executable(Stratagus::stratagus IMPORTED)
+
+        set_target_properties(
+            Stratagus::stratagus
+            PROPERTIES
+                IMPORTED_LOCATION
+                    "${Stratagus_EXECUTABLE}"
+        )
+    endif()
 endif()
+
+mark_as_advanced(
+    Stratagus_INCLUDE_DIR
+    Stratagus_EXECUTABLE
+)
