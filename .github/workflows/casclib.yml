@@ -1,0 +1,210 @@
+name: CascLib
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  casclib:
+    name: Linux / CascLib
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+
+    env:
+      BUILD_TYPE: Debug
+      STRATAGUS_SOURCE_DIR: ${{ github.workspace }}/stratagus-engine
+      STRATAGUS_BUILD_DIR: ${{ github.workspace }}/stratagus-engine/build
+      CASCLIB_SOURCE_DIR: ${{ github.workspace }}/casclib-source
+      CASCLIB_BUILD_DIR: ${{ github.workspace }}/casclib-source/build
+      CASCLIB_INSTALL_DIR: ${{ runner.temp }}/casclib-install
+      STARGUS_BUILD_DIR: ${{ github.workspace }}/build-casclib
+
+    steps:
+      - name: Checkout Stargus
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Checkout Stratagus
+        uses: actions/checkout@v7
+        with:
+          repository: sergio-carlavilla/stratagus
+          path: stratagus-engine
+          submodules: recursive
+
+      - name: Checkout CascLib
+        uses: actions/checkout@v7
+        with:
+          repository: ladislav-zezula/CascLib
+          ref: "3.0"
+          path: casclib-source
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            build-essential \
+            pkg-config \
+            zlib1g-dev \
+            libpng-dev \
+            libbz2-dev \
+            libmng-dev \
+            libvorbis-dev \
+            libtheora-dev \
+            libsdl2-dev \
+            libsdl2-mixer-dev \
+            libsdl2-image-dev \
+            libstorm-dev \
+            libcppunit-dev \
+            libmagick++-dev \
+            nlohmann-json3-dev \
+            imagemagick
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: "4.3.4"
+
+      - name: Show build environment
+        run: |
+          uname -a
+          gcc --version
+          g++ --version
+          cmake --version
+          make --version
+
+      - name: Configure CascLib
+        run: |
+          cmake \
+            -S "${CASCLIB_SOURCE_DIR}" \
+            -B "${CASCLIB_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_INSTALL_PREFIX="${CASCLIB_INSTALL_DIR}" \
+            -DCASC_BUILD_SHARED_LIB=ON \
+            -DCASC_BUILD_STATIC_LIB=OFF \
+            -DCASC_BUILD_TESTS=OFF
+
+      - name: Build and install CascLib
+        run: |
+          cmake --build "${CASCLIB_BUILD_DIR}" --parallel 2
+          cmake --install "${CASCLIB_BUILD_DIR}"
+
+      - name: Locate CascLib runtime library
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          casc_library="$(
+            find "${CASCLIB_INSTALL_DIR}" -type f \
+              \( -name 'libcasc.so' -o -name 'libcasc.so.*' \) \
+              -print -quit
+          )"
+
+          if [[ -z "${casc_library}" ]]; then
+            echo "Unable to find the installed CascLib shared library."
+            find "${CASCLIB_INSTALL_DIR}" -maxdepth 4 -type f | sort
+            exit 1
+          fi
+
+          casc_library_dir="$(dirname "${casc_library}")"
+
+          echo "CascLib runtime library: ${casc_library}"
+          echo "LD_LIBRARY_PATH=${casc_library_dir}${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}" >> "${GITHUB_ENV}"
+
+      - name: Configure Stratagus
+        run: |
+          cmake \
+            -S "${STRATAGUS_SOURCE_DIR}" \
+            -B "${STRATAGUS_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            -DBUILD_VENDORED_LUA=ON \
+            -DBUILD_VENDORED_SDL=OFF \
+            -DBUILD_VENDORED_MEDIA_LIBS=OFF \
+            -DBUILD_TESTING=OFF \
+            -DENABLE_NSIS=OFF \
+            -DWITH_MNG=OFF \
+            -DWITH_OGGVORBIS=OFF \
+            -DWITH_THEORA=OFF \
+            -DWITH_STACKTRACE=OFF
+
+      - name: Build Stratagus
+        run: |
+          cmake --build "${STRATAGUS_BUILD_DIR}" --parallel 2
+
+      - name: Locate Stratagus
+        id: stratagus
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          executable=""
+
+          while IFS= read -r candidate; do
+            if [[ -x "${candidate}" ]]; then
+              executable="$(cd "$(dirname "${candidate}")" && pwd)/$(basename "${candidate}")"
+              break
+            fi
+          done < <(
+            find "${STRATAGUS_BUILD_DIR}" -type f \
+              \( -name 'stratagus' -o -name 'stratagus-dbg' \)
+          )
+
+          if [[ -z "${executable}" ]]; then
+            echo "Stratagus executable was not found."
+            find "${STRATAGUS_BUILD_DIR}" -type f | sort
+            exit 1
+          fi
+
+          include_dir="${STRATAGUS_SOURCE_DIR}/gameheaders"
+
+          if [[ ! -d "${include_dir}" ]]; then
+            echo "Stratagus include directory was not found: ${include_dir}"
+            exit 1
+          fi
+
+          echo "executable=${executable}" >> "${GITHUB_OUTPUT}"
+          echo "include_dir=${include_dir}" >> "${GITHUB_OUTPUT}"
+
+      - name: Configure Stargus with CascLib
+        run: |
+          cmake \
+            -S "${GITHUB_WORKSPACE}" \
+            -B "${STARGUS_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            -DCMAKE_PREFIX_PATH="${CASCLIB_INSTALL_DIR}" \
+            -DWITH_CASCLIB=ON \
+            -DStratagus_EXECUTABLE="${{ steps.stratagus.outputs.executable }}" \
+            -DStratagus_INCLUDE_DIR="${{ steps.stratagus.outputs.include_dir }}"
+
+      - name: Build Stargus
+        run: |
+          cmake --build "${STARGUS_BUILD_DIR}" --parallel 2
+
+      - name: Run tests
+        run: |
+          ctest \
+            --test-dir "${STARGUS_BUILD_DIR}" \
+            --build-config "${BUILD_TYPE}" \
+            --output-on-failure
+
+      - name: Verify CascLib-enabled startool
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          startool="${STARGUS_BUILD_DIR}/startool"
+
+          if [[ ! -x "${startool}" ]]; then
+            echo "startool executable was not found: ${startool}"
+            exit 1
+          fi
+
+          ldd "${startool}" || true
+          "${startool}" --help >/dev/null

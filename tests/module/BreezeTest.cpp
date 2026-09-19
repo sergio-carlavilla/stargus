@@ -86,6 +86,7 @@ void BreezeTest::test3_txt_extractFileCompressed()
   // read back & compare ->
 
   gzfile = gzopen(savename.c_str(), "r");
+  CPPUNIT_ASSERT(gzfile != nullptr);
 
   int err;
   int bytes_read;
@@ -104,6 +105,9 @@ void BreezeTest::test3_txt_extractFileCompressed()
   }
 
   std::string dest(buffer, buffer + bytes_read-1);
+
+  const int close_result = gzclose(gzfile);
+  CPPUNIT_ASSERT(close_result == Z_OK);
 
   CPPUNIT_ASSERT(result == true);
   CPPUNIT_ASSERT(content_result == dest);
