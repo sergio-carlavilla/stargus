@@ -3,6 +3,7 @@
 #endif
 
 // System
+#include <cstdlib>
 
 
 // Project
@@ -48,7 +49,8 @@ void DataChunkTest::test2_createFromExistingHeap()
 {
   const int LENGTH = 5;
 
-  unsigned char *rawdata = new unsigned char[LENGTH];
+  unsigned char *rawdata = static_cast<unsigned char *>(std::malloc(LENGTH));
+  CPPUNIT_ASSERT(rawdata != nullptr);
   rawdata[0] = 0x1;
   rawdata[1] = 0x2;
   rawdata[2] = 0x3;
