@@ -23,7 +23,7 @@ jobs:
       STRATAGUS_BUILD_DIR: ${{ github.workspace }}/stratagus-engine/build
       CASCLIB_SOURCE_DIR: ${{ github.workspace }}/casclib-source
       CASCLIB_BUILD_DIR: ${{ github.workspace }}/casclib-source/build
-      CASCLIB_INSTALL_DIR: ${{ runner.temp }}/casclib-install
+      CASCLIB_INSTALL_DIR: ${{ github.workspace }}/casclib-install
       STARGUS_BUILD_DIR: ${{ github.workspace }}/build-casclib
 
     steps:
