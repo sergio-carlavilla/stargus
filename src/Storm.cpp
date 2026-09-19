@@ -24,13 +24,13 @@
 using namespace std;
 
 Storm::Storm() :
-  mMpqHandle(nullptr)
+mMpqHandle(nullptr)
 {
 
 }
 
 Storm::Storm(const std::string &archiveName) :
-  mMpqHandle(nullptr)
+mMpqHandle(nullptr)
 {
   openArchive(archiveName);
 }
@@ -70,22 +70,21 @@ void Storm::closeArchive()
 
 bool Storm::extractMemory(const std::string &archivedFile, unsigned char **szEntryBufferPrt, size_t *bufferLen)
 {
-  int nError = ERROR_SUCCESS;
   unsigned char *szEntryBuffer = nullptr;
   HANDLE hFile = nullptr;          // Archived file handle
   bool result = true;
 
   // Open a file in the archive, e.g. "data\global\music\Act1\tristram.wav"
-  if (nError == ERROR_SUCCESS)
+  if (!SFileOpenFileEx(mMpqHandle, archivedFile.c_str(), 0, &hFile))
   {
-    if (!SFileOpenFileEx(mMpqHandle, archivedFile.c_str(), 0, &hFile))
-      nError = SErrGetLastError();
+    result = false;
   }
 
   int i = 0;
   size_t len = 0;
+
   // Read the file from the archive
-  if (nError == ERROR_SUCCESS)
+  if (result)
   {
     char szBuffer[0x10000];
 
@@ -100,22 +99,23 @@ bool Storm::extractMemory(const std::string &archivedFile, unsigned char **szEnt
         len = len + dwBytes;
         szEntryBuffer = (unsigned char *) realloc(szEntryBuffer, len);
         memcpy(szEntryBuffer + (i * sizeof(szBuffer)), szBuffer, dwBytes);
-
       }
       i++;
     }
   }
+
   if (bufferLen != NULL)
   {
     *bufferLen = len;
   }
 
   if (hFile != NULL)
-    SFileCloseFile(hFile);
-
-  if (nError != ERROR_SUCCESS)
   {
-    result = false;
+    SFileCloseFile(hFile);
+  }
+
+  if (!result)
+  {
     // in case of problem free what ever has been allocated
     free(szEntryBuffer);
     szEntryBuffer = nullptr;
@@ -131,18 +131,16 @@ bool Storm::extractFile(const std::string &archivedFile, const std::string &extr
   HANDLE hFile = nullptr;          // Archived file handle
   FILE *file = nullptr;            // Disk file handle
   gzFile gzfile = nullptr;         // Compressed file handle
-  int nError = ERROR_SUCCESS;
   bool result = true;
 
   // Open a file in the archive, e.g. "data\global\music\Act1\tristram.wav"
-  if (nError == ERROR_SUCCESS)
+  if (!SFileOpenFileEx(mMpqHandle, archivedFile.c_str(), 0, &hFile))
   {
-    if (!SFileOpenFileEx(mMpqHandle, archivedFile.c_str(), 0, &hFile))
-      nError = SErrGetLastError();
+    result = false;
   }
 
   // Create the target file
-  if (nError == ERROR_SUCCESS)
+  if (result)
   {
     CheckPath(extractedName);
     if (compress)
@@ -156,7 +154,7 @@ bool Storm::extractFile(const std::string &archivedFile, const std::string &extr
   }
 
   // Read the file from the archive
-  if (nError == ERROR_SUCCESS)
+  if (result)
   {
     char szBuffer[0x10000];
     DWORD dwBytes = 1;
@@ -168,14 +166,14 @@ bool Storm::extractFile(const std::string &archivedFile, const std::string &extr
       {
         if (compress)
         {
-          if(gzfile)
+          if (gzfile)
           {
             gzwrite(gzfile, szBuffer, dwBytes);
           }
         }
         else
         {
-          if(file)
+          if (file)
           {
             fwrite(szBuffer, 1, dwBytes, file);
           }
@@ -189,15 +187,16 @@ bool Storm::extractFile(const std::string &archivedFile, const std::string &extr
   {
     fclose(file);
   }
+
   if (gzfile != NULL)
   {
     gzclose(gzfile);
   }
-  if (hFile != NULL)
-    SFileCloseFile(hFile);
 
-  if (nError != ERROR_SUCCESS)
-    result = false;
+  if (hFile != NULL)
+  {
+    SFileCloseFile(hFile);
+  }
 
   return result;
 }
@@ -207,4 +206,3 @@ unsigned int Storm::getRecordCount(const std::string &archivedFile, unsigned int
   // TODO: implement
   return 0;
 }
-
