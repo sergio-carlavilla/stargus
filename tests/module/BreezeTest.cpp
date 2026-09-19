@@ -36,10 +36,10 @@ void BreezeTest::test1_txt_extractMemory()
   bool result = breeze->extractMemory(arc_file, &text_str, &bufLen);
 
   CPPUNIT_ASSERT(result == true);
-  CPPUNIT_ASSERT((int)bufLen == ((int)content_result.length() + 1)); // calculate +1 because the '\0' counts extra in the raw char* data
-  CPPUNIT_ASSERT(string((char *) text_str) != string(content_result));
+  CPPUNIT_ASSERT(bufLen == content_result.length() + 1);
+  CPPUNIT_ASSERT(string(reinterpret_cast<char *>(text_str), bufLen - 1) == content_result);
 
-  CPPUNIT_ASSERT(true);
+  free(text_str);
 }
 
 void BreezeTest::test2_txt_extractFile()
