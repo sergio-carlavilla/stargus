@@ -92,7 +92,7 @@ void DoDecode(const unsigned char *data, unsigned short offset)
 	fprintf(log, "\nAnimation = {\n");
 	while (!stop) {
 		printf("\n%04hX ", (unsigned short)(p - data));
-		fprintf(log," \"lable %04hX\", ", (unsigned long)p);
+		fprintf(log, " \"lable %p\", ", (void *)p);
 		opcode = ReadByte(&p);
 		switch (opcode)
 		{

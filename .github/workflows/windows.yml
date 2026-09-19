@@ -136,7 +136,8 @@ jobs:
       - name: Build Stargus
         shell: pwsh
         run: |
-          cmake --build build --config Debug --parallel 2
+          cmake --build build --config Debug --target starformat --parallel 1 --verbose
+          cmake --build build --config Debug --parallel 1 --verbose
 
       - name: Run tests
         shell: pwsh
