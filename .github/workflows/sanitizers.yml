@@ -1,0 +1,151 @@
+name: Sanitizers
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sanitizers:
+    name: Linux / ASan + UBSan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+
+    env:
+      BUILD_TYPE: Debug
+      STRATAGUS_SOURCE_DIR: ${{ github.workspace }}/stratagus-engine
+      STRATAGUS_BUILD_DIR: ${{ github.workspace }}/stratagus-engine/build
+      STARGUS_BUILD_DIR: ${{ github.workspace }}/build-sanitizers
+      SANITIZER_FLAGS: -fsanitize=address,undefined -fno-omit-frame-pointer -fno-sanitize-recover=all
+      ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+      UBSAN_OPTIONS: print_stacktrace=1:halt_on_error=1
+
+    steps:
+      - name: Checkout Stargus
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Checkout Stratagus
+        uses: actions/checkout@v7
+        with:
+          repository: sergio-carlavilla/stratagus
+          path: stratagus-engine
+          submodules: recursive
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends \
+            build-essential \
+            pkg-config \
+            zlib1g-dev \
+            libpng-dev \
+            libbz2-dev \
+            libmng-dev \
+            libvorbis-dev \
+            libtheora-dev \
+            libsdl2-dev \
+            libsdl2-mixer-dev \
+            libsdl2-image-dev \
+            libstorm-dev \
+            libcppunit-dev \
+            libmagick++-dev \
+            nlohmann-json3-dev \
+            imagemagick
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v2
+        with:
+          cmake-version: "4.3.4"
+
+      - name: Show build environment
+        run: |
+          uname -a
+          gcc --version
+          g++ --version
+          cmake --version
+          make --version
+
+      - name: Configure Stratagus
+        run: |
+          cmake \
+            -S "${STRATAGUS_SOURCE_DIR}" \
+            -B "${STRATAGUS_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            -DBUILD_VENDORED_LUA=ON \
+            -DBUILD_VENDORED_SDL=OFF \
+            -DBUILD_VENDORED_MEDIA_LIBS=OFF \
+            -DBUILD_TESTING=OFF \
+            -DENABLE_NSIS=OFF \
+            -DWITH_MNG=OFF \
+            -DWITH_OGGVORBIS=OFF \
+            -DWITH_THEORA=OFF \
+            -DWITH_STACKTRACE=OFF
+
+      - name: Build Stratagus
+        run: |
+          cmake --build "${STRATAGUS_BUILD_DIR}" --parallel 2
+
+      - name: Locate Stratagus
+        id: stratagus
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          executable=""
+
+          while IFS= read -r candidate; do
+            if [[ -x "$candidate" ]]; then
+              executable="$(cd "$(dirname "$candidate")" && pwd)/$(basename "$candidate")"
+              break
+            fi
+          done < <(
+            find "${STRATAGUS_BUILD_DIR}" -type f \
+              \( -name 'stratagus' -o -name 'stratagus-dbg' \)
+          )
+
+          if [[ -z "$executable" ]]; then
+            echo "Stratagus executable was not found."
+            find "${STRATAGUS_BUILD_DIR}" -type f | sort
+            exit 1
+          fi
+
+          include_dir="${STRATAGUS_SOURCE_DIR}/gameheaders"
+
+          if [[ ! -d "$include_dir" ]]; then
+            echo "Stratagus include directory was not found: $include_dir"
+            exit 1
+          fi
+
+          echo "executable=$executable" >> "$GITHUB_OUTPUT"
+          echo "include_dir=$include_dir" >> "$GITHUB_OUTPUT"
+
+      - name: Configure Stargus with ASan and UBSan
+        run: |
+          cmake \
+            -S "${GITHUB_WORKSPACE}" \
+            -B "${STARGUS_BUILD_DIR}" \
+            -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
+            "-DCMAKE_C_FLAGS=${SANITIZER_FLAGS}" \
+            "-DCMAKE_CXX_FLAGS=${SANITIZER_FLAGS}" \
+            -DWITH_CASCLIB=OFF \
+            -DStratagus_EXECUTABLE="${{ steps.stratagus.outputs.executable }}" \
+            -DStratagus_INCLUDE_DIR="${{ steps.stratagus.outputs.include_dir }}"
+
+      - name: Build Stargus
+        run: |
+          cmake --build "${STARGUS_BUILD_DIR}" --parallel 2
+
+      - name: Run tests with sanitizers
+        run: |
+          ctest \
+            --test-dir "${STARGUS_BUILD_DIR}" \
+            --build-config "${BUILD_TYPE}" \
+            --output-on-failure
