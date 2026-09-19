@@ -96,8 +96,8 @@ jobs:
             exit 1
           fi
 
+          echo "Found Stratagus: ${executable}"
           echo "executable=${executable}" >> "${GITHUB_OUTPUT}"
-          "${executable}" --help >/dev/null
 
       - name: Configure Stargus
         run: |
