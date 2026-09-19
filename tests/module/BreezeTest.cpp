@@ -89,8 +89,8 @@ void BreezeTest::test3_txt_extractFileCompressed()
 
   int err;
   int bytes_read;
-  int max_length = 1024;
-  unsigned char buffer[max_length];
+  const int max_length = 1024;
+  char buffer[max_length];
   bytes_read = gzread(gzfile, buffer, max_length - 1);
   buffer[bytes_read] = '\0';
 

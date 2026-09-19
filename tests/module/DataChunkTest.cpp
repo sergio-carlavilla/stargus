@@ -26,7 +26,7 @@ void DataChunkTest::tearDown()
 void DataChunkTest::test1_addData()
 {
   DataChunk dc;
-  int LENGTH = 5;
+  const int LENGTH = 5;
 
   unsigned char rawdata[LENGTH];
   rawdata[0] = 0x1;
@@ -46,7 +46,7 @@ void DataChunkTest::test1_addData()
 
 void DataChunkTest::test2_createFromExistingHeap()
 {
-  int LENGTH = 5;
+  const int LENGTH = 5;
 
   unsigned char *rawdata = new unsigned char(LENGTH);
   rawdata[0] = 0x1;
@@ -69,7 +69,7 @@ void DataChunkTest::test2_createFromExistingHeap()
 void DataChunkTest::test3_vectorReturn()
 {
   DataChunk dc;
-  int LENGTH = 5;
+  const int LENGTH = 5;
 
   unsigned char rawdata[LENGTH];
   rawdata[0] = 0x1;
@@ -92,7 +92,7 @@ void DataChunkTest::test3_vectorReturn()
 void DataChunkTest::test4_write_compare()
 {
   DataChunk dc;
-  int LENGTH = 5;
+  const int LENGTH = 5;
   string savename = "datachunk.txt";
 
   unsigned char rawdata[LENGTH];
@@ -130,7 +130,7 @@ void DataChunkTest::test4_write_compare()
 void DataChunkTest::test5_read_write_compare()
 {
   DataChunk dc;
-  int LENGTH = 5;
+  const int LENGTH = 5;
   string savename = "datachunk.txt";
 
   unsigned char rawdata[LENGTH];
