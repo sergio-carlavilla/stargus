@@ -16,17 +16,17 @@ class Logger
 {
 public:
   Logger(const std::string &name) :
-    mLogger(log4cxx::Logger::getLogger(name)) {}
+  mLogger(log4cxx::Logger::getLogger(name)) {}
 
   Logger(const std::wstring &name) :
-    mLogger(log4cxx::Logger::getLogger(name)) {}
+  mLogger(log4cxx::Logger::getLogger(name)) {}
 
   /**
    * Deactivate all logging in the application complete
    */
   void off()
   {
-	  log4cxx::BasicConfigurator::configure();
+    log4cxx::BasicConfigurator::configure();
     mLogger->setLevel(log4cxx::Level::getOff());
   }
 
@@ -73,10 +73,10 @@ private:
 class Logger
 {
 public:
-  Logger(const std::string &name)
+  Logger(const std::string &)
   {
   }
-  Logger(const std::wstring &name)
+  Logger(const std::wstring &)
   {
   }
 };

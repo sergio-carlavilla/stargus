@@ -18,13 +18,13 @@ Storage::Storage()
 }
 
 Storage::Storage(const char *filename) :
-  mFilename(filename)
+mFilename(filename)
 {
 
 }
 
 Storage::Storage(const std::string &filename) :
-  mFilename(filename)
+mFilename(filename)
 {
 
 }
@@ -106,11 +106,6 @@ Storage Storage::operator()(std::string filename)
   storage.setFilename(filename);
 
   return storage;
-}
-
-std::string Storage::operator=(const Storage& storage)
-{
-  return getFullPath();
 }
 
 Storage::operator std::string() const

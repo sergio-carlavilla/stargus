@@ -18,6 +18,10 @@ public:
 
   Storage(const std::string &filename);
 
+  Storage(const Storage&) = default;
+
+  Storage& operator=(const Storage&) = default;
+
   virtual ~Storage();
 
   const std::string& getDataPath() const;
@@ -37,8 +41,6 @@ public:
   std::string getRelativePath() const;
 
   Storage operator()(std::string filename);
-
-  std::string operator=(const Storage& storage);
 
   operator std::string() const;
 

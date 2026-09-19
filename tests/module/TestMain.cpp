@@ -25,7 +25,7 @@ using namespace log4cxx::helpers;
 
 using namespace std;
 
-int main (int argc, char **argv)
+int main (int, char **)
 {
   #ifdef HAVE_LOG4CXX
     PropertyConfigurator::configure ("logging.prop");

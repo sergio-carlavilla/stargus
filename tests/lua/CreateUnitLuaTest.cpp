@@ -40,7 +40,6 @@ CreateUnitLuaTest::CreateUnitLuaTest(json &unitsJson)
 
   lua_file << lg::line("function CreateUnitLuaTest(part)");
 
-  unsigned int end = 0;
   for(auto &array : unitsJson)
   {
     string unit_name = array.at("name");
@@ -58,7 +57,6 @@ CreateUnitLuaTest::CreateUnitLuaTest(json &unitsJson)
       lua_file << create_unit << endl;
     }
 
-    end++;
   }
 
   lua_file << lg::line("end");

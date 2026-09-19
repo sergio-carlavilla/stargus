@@ -35,65 +35,65 @@ string getTypeName(int type)
 
   switch (type)
   {
-  case S:    // Setup
-    str = "S";
-    break;
-  case F:    // File                          (name)
-    str = "F";
-    break;
-  case M:    // Map                           (name)
-    str = "M";
-    break;
-  case T:    // Tileset                       (name,pal,mega,mini,map)
-    str = "T";
-    break;
-  case R:    // RGB -> gimp                   (name,rgb)
-    str = "R";
-    break;
-  case G:    // Graphics                      (name,pal,gfx)
-    str = "G";
-    break;
-  case U:    // Uncompressed Graphics         (name,pal,gfu)
-    str = "U";
-    break;
-  case I:    // Widgets                       (name,pal,gfu)
-    str = "I";
-    break;
-  case N:    // Font                          (name,idx)
-    str = "N";
-    break;
-  case W:    // Wav                           (name,wav)
-    str = "W";
-    break;
-  case H:    // Pcx                           (name)
-    str = "W";
-    break;
-  case E:    // Raw extract                   (name)
-    str = "E";
-    break;
-  case V:    // SMK Video                     (name,video)
-    str = "V";
-    break;
-  case L:    // Campaign Levels
-    str = "L";
-    break;
-  case Q:    // MPQ archive
-    str = "Q";
-    break;
-  case D:    // Graphics in DDS format
-    str = "D";
-    break;
-  case P:    // SMK Portraits
-    str = "P";
-    break;
-  case PAL:  // Palette from pcx file
-    str = "PAL";
-    break;
-  case WPE:   // Palette from wpe file
-    str = "WPE";
-    break;
-  default:
-    break;
+    case S:    // Setup
+      str = "S";
+      break;
+    case F:    // File                          (name)
+      str = "F";
+      break;
+    case M:    // Map                           (name)
+      str = "M";
+      break;
+    case T:    // Tileset                       (name,pal,mega,mini,map)
+      str = "T";
+      break;
+    case R:    // RGB -> gimp                   (name,rgb)
+      str = "R";
+      break;
+    case G:    // Graphics                      (name,pal,gfx)
+      str = "G";
+      break;
+    case U:    // Uncompressed Graphics         (name,pal,gfu)
+      str = "U";
+      break;
+    case I:    // Widgets                       (name,pal,gfu)
+      str = "I";
+      break;
+    case N:    // Font                          (name,idx)
+      str = "N";
+      break;
+    case W:    // Wav                           (name,wav)
+      str = "W";
+      break;
+    case H:    // Pcx                           (name)
+      str = "W";
+      break;
+    case E:    // Raw extract                   (name)
+      str = "E";
+      break;
+    case V:    // SMK Video                     (name,video)
+      str = "V";
+      break;
+    case L:    // Campaign Levels
+      str = "L";
+      break;
+    case Q:    // MPQ archive
+      str = "Q";
+      break;
+    case D:    // Graphics in DDS format
+      str = "D";
+      break;
+    case P:    // SMK Portraits
+      str = "P";
+      break;
+    case PAL:  // Palette from pcx file
+      str = "PAL";
+      break;
+    case WPE:   // Palette from wpe file
+      str = "WPE";
+      break;
+    default:
+      break;
   }
 
   return str;
@@ -128,13 +128,13 @@ void Todo_creator()
   {
     switch (c[u].Type)
     {
-    case F:
-    {
+      case F:
+      {
 
-    }
-    break;
-    default:
+      }
       break;
+      default:
+        break;
     }
   }
 
@@ -144,13 +144,13 @@ void Todo_creator()
   {
     switch (c[u].Type)
     {
-    case F:
-    {
+      case F:
+      {
 
-    }
-    break;
-    default:
+      }
       break;
+      default:
+        break;
     }
   }
 
@@ -160,18 +160,18 @@ void Todo_creator()
   {
     switch (i)
     {
-    case 0:
-      // StarDat.mpq or stardat.mpq from inside files\\stardat.mpq
-      c = Todo;
-      len = sizeof(Todo) / sizeof(*Todo);
+      case 0:
+        // StarDat.mpq or stardat.mpq from inside files\\stardat.mpq
+        c = Todo;
+        len = sizeof(Todo) / sizeof(*Todo);
 
-      break;
-    case 1:
-      // CD install.exe renamed to StarCraft.mpq or other main mpq file
-      c = CDTodo;
-      len = sizeof(CDTodo) / sizeof(*CDTodo);
+        break;
+      case 1:
+        // CD install.exe renamed to StarCraft.mpq or other main mpq file
+        c = CDTodo;
+        len = sizeof(CDTodo) / sizeof(*CDTodo);
 
-      break;
+        break;
     }
 
     for (unsigned int u = 0; u < len; ++u)
@@ -180,20 +180,20 @@ void Todo_creator()
       j["object" + to_string(u)] = c[u];
 
       /*   j["type"] = c[u].Type;
-         j["file"] = c[u].File;
-         j["arcfile"] = c[u].ArcFile;
-         j["Arg1"] = c[u].Arg1;
-         j["Arg2"] = c[u].Arg2;
-         j["Arg3"] = c[u].Arg3;
-         j["Arg4"] = c[u].Arg4;
-      */
+       *         j["file"] = c[u].File;
+       *         j["arcfile"] = c[u].ArcFile;
+       *         j["Arg1"] = c[u].Arg1;
+       *         j["Arg2"] = c[u].Arg2;
+       *         j["Arg3"] = c[u].Arg3;
+       *         j["Arg4"] = c[u].Arg4;
+       */
 
       switch (c[u].Type)
       {
-      case PAL:
-      {
-        break;
-      }
+        case PAL:
+        {
+          break;
+        }
       }
     }
   }
@@ -215,7 +215,7 @@ void Unit_File_Creator(string filename)
 
     std::for_each(line.begin(), line.end(), [](char & c)
     {
-        c = ::tolower(c);
+      c = ::tolower(c);
     });
 
     Unit u;
@@ -230,7 +230,7 @@ void Unit_File_Creator(string filename)
   cout << std::setw(4) << j << endl;
 }
 
-int main(int argc, char **argv)
+int main()
 {
   //Unit_File_Creator("..b/data/units.txt");
   //Unit_Array_Creator();

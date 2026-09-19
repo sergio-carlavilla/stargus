@@ -207,6 +207,29 @@ file(
 # starformat
 # ---------------------------------------------------------------------------
 
+set(STARGUS_KAITAI_SOURCES
+    src/kaitai/file_tbl.cpp
+    src/kaitai/flingy_dat.cpp
+    src/kaitai/images_dat.cpp
+    src/kaitai/iscript_bin.cpp
+    src/kaitai/kaitaistream.cpp
+    src/kaitai/mapdata_dat.cpp
+    src/kaitai/opcode_list_type.cpp
+    src/kaitai/orders_dat.cpp
+    src/kaitai/portdata_dat.cpp
+    src/kaitai/sfxdata_dat.cpp
+    src/kaitai/sprites_dat.cpp
+    src/kaitai/techdata_dat.cpp
+    src/kaitai/tileset_cv5.cpp
+    src/kaitai/tileset_dddata_bin.cpp
+    src/kaitai/tileset_vf4.cpp
+    src/kaitai/tileset_vr4.cpp
+    src/kaitai/tileset_vx4.cpp
+    src/kaitai/units_dat.cpp
+    src/kaitai/upgrades_dat.cpp
+    src/kaitai/weapons_dat.cpp
+)
+
 set(STARFORMAT_SOURCES
     src/AbstractPalette.cpp
     src/Breeze.cpp
@@ -263,26 +286,7 @@ set(STARFORMAT_SOURCES
     src/dat/Upgrade.cpp
     src/dat/Weapon.cpp
 
-    src/kaitai/file_tbl.cpp
-    src/kaitai/flingy_dat.cpp
-    src/kaitai/images_dat.cpp
-    src/kaitai/iscript_bin.cpp
-    src/kaitai/kaitaistream.cpp
-    src/kaitai/mapdata_dat.cpp
-    src/kaitai/opcode_list_type.cpp
-    src/kaitai/orders_dat.cpp
-    src/kaitai/portdata_dat.cpp
-    src/kaitai/sfxdata_dat.cpp
-    src/kaitai/sprites_dat.cpp
-    src/kaitai/techdata_dat.cpp
-    src/kaitai/tileset_cv5.cpp
-    src/kaitai/tileset_dddata_bin.cpp
-    src/kaitai/tileset_vf4.cpp
-    src/kaitai/tileset_vr4.cpp
-    src/kaitai/tileset_vx4.cpp
-    src/kaitai/units_dat.cpp
-    src/kaitai/upgrades_dat.cpp
-    src/kaitai/weapons_dat.cpp
+    ${STARGUS_KAITAI_SOURCES}
 
     src/libgrp/Exceptions/GRPException.cpp
     src/libgrp/Exceptions/GRPFrame/GRPFrameException.cpp
@@ -600,6 +604,59 @@ if(BUILD_TESTING)
             "CppUnit not found; StartoolUnitTest will not be built"
         )
     endif()
+endif()
+
+# ---------------------------------------------------------------------------
+# Compiler warnings
+# ---------------------------------------------------------------------------
+
+set(STARGUS_WARNING_TARGETS
+    starformat
+    stargus
+    startool
+    scdat2json
+    grptool
+    sauwetter
+    iscript
+    json_transition
+    LuaTest
+    StartoolUnitTest
+)
+
+foreach(target IN LISTS STARGUS_WARNING_TARGETS)
+    if(TARGET ${target})
+        if(MSVC)
+            target_compile_options(
+                ${target}
+                PRIVATE
+                    /W4
+            )
+        else()
+            target_compile_options(
+                ${target}
+                PRIVATE
+                    -Wall
+                    -Wextra
+                    -Wpedantic
+            )
+        endif()
+    endif()
+endforeach()
+
+# Kaitai sources are generated/vendored code. Keep normal project warnings
+# enabled, but silence generated unused-parameter/local-variable noise.
+if(MSVC)
+    set_source_files_properties(
+        ${STARGUS_KAITAI_SOURCES}
+        PROPERTIES
+            COMPILE_OPTIONS "/wd4100;/wd4189"
+    )
+else()
+    set_source_files_properties(
+        ${STARGUS_KAITAI_SOURCES}
+        PROPERTIES
+            COMPILE_OPTIONS "-Wno-unused-parameter;-Wno-unused-but-set-variable"
+    )
 endif()
 
 # ---------------------------------------------------------------------------

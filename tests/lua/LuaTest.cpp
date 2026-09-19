@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int main(int argc, char **argv)
+int main()
 {
   // read in the json file
   std::ifstream json_file("dataset/units.json");

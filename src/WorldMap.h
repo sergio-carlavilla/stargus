@@ -34,18 +34,18 @@ class Unit
 {
 public:
   Unit() :
-    X(0),
-    Y(0),
-    Type(0),
-    Properties(0),
-    ValidElements(0),
-    Player(0),
-    HitPointsPercent(0),
-    ShieldPointsPercent(0),
-    EnergyPointsPercent(0),
-    ResourceAmount(0),
-    NumUnitsIn(0),
-    StateFlags(0)
+  X(0),
+  Y(0),
+  Type(0),
+  Properties(0),
+  ValidElements(0),
+  Player(0),
+  HitPointsPercent(0),
+  ShieldPointsPercent(0),
+  EnergyPointsPercent(0),
+  ResourceAmount(0),
+  NumUnitsIn(0),
+  StateFlags(0)
   {
 
   }
@@ -70,6 +70,16 @@ public:
   unsigned char StateFlags;
 };
 
+struct LocationFlags
+{
+  unsigned LowElevation:1;
+  unsigned MediumElevation:1;
+  unsigned HighElevation:1;
+  unsigned LowAir:1;
+  unsigned MediumAir:1;
+  unsigned HighAir:1;
+};
+
 typedef struct Location
 {
   unsigned int StartX;
@@ -79,14 +89,7 @@ typedef struct Location
   unsigned short StringNumber;
   union {
     unsigned short Flags;
-    struct {
-      unsigned LowElevation:1;
-      unsigned MediumElevation:1;
-      unsigned HighElevation:1;
-      unsigned LowAir:1;
-      unsigned MediumAir:1;
-      unsigned HighAir:1;
-    };
+    LocationFlags FlagBits;
   };
 } Location;
 
@@ -142,8 +145,8 @@ typedef struct WorldMap
   std::vector<std::string> Strings;
 
   WorldMap() :
-      MapWidth(0), MapHeight(0), MapTerrainName(NULL), Description(NULL), Tiles(
-          NULL)
+  MapWidth(0), MapHeight(0), MapTerrainName(NULL), Description(NULL), Tiles(
+    NULL)
   {
     memset(PlayerRace, 0, sizeof(PlayerRace));
     memset(PlayerType, 0, sizeof(PlayerType));

@@ -18,12 +18,12 @@ using namespace std;
 static Logger logger = Logger("startool.Wav");
 
 Wav::Wav(std::shared_ptr<Hurricane> hurricane) :
-  Converter(hurricane)
+Converter(hurricane)
 {
 }
 
-Wav::Wav(std::shared_ptr<Hurricane> hurricane, const std::string &arcfile) :
-  Converter(hurricane)
+Wav::Wav(std::shared_ptr<Hurricane> hurricane, const std::string &) :
+Converter(hurricane)
 {
 
 }
@@ -44,9 +44,9 @@ bool Wav::convert(const std::string &arcfile,  Storage storage)
   result = mHurricane->extractFile(arcfile, wav_file, false);
 
   string ffmpeg_str =
-    string("ffmpeg -y -i \"") + wav_file
-    + "\" -acodec libvorbis  \""
-    + ogg_file + "\"";
+  string("ffmpeg -y -i \"") + wav_file
+  + "\" -acodec libvorbis  \""
+  + ogg_file + "\"";
 
   //cout << "video: " << ffmpeg_str << endl;
 
