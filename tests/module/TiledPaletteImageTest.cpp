@@ -28,7 +28,7 @@ void TiledPaletteImageTest::tearDown()
 
 void TiledPaletteImageTest::test1_tileStrategyCompare()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string reference_small_name_png = "TiledPaletteImage_small.png";
 
   string save_num_name_png = "test1_tileStrategyCompare_num.png";
@@ -81,7 +81,7 @@ void TiledPaletteImageTest::test1_tileStrategyCompare()
 
 void TiledPaletteImageTest::test2_tileHorizontalFlipping()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string reference_big_flipped_name_png = "TiledPaletteImageTest2_big_flipped.png";
 
   string save_name_flipped_png = "test2_tileHorizontalFlipping.png";

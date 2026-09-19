@@ -1,9 +1,8 @@
-#Ignore Visual Studio project files
+# Ignore Visual Studio project files
 build/
 build_linux/
 .vscode/*
 **/.DS_Store
 campaigns
 */clangd/**
-data/
-subprojects/
+/data/

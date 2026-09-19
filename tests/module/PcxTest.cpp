@@ -25,7 +25,7 @@ void PcxTest::tearDown()
 
 void PcxTest::test1_SaveIndexedPalettePNG()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string load_pcx_name = "PcxTest_red_zergb.pcx";
   string save_pal_name = "red_zergb.pal";
   string save_png_name = "red_zergb.png";
@@ -46,7 +46,7 @@ void PcxTest::test1_SaveIndexedPalettePNG()
 
 void PcxTest::test2_mapIndexPalette()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string load_pcx_name = "PcxTest_ticon.pcx";
 
   shared_ptr<Breeze> breeze = make_shared<Breeze>(test_data_dir);

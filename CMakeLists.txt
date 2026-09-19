@@ -101,6 +101,7 @@ find_package(PNG REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(BZip2 REQUIRED)
 find_package(StormLib REQUIRED)
+find_package(nlohmann_json 3.11.2 REQUIRED)
 
 if(WITH_CASCLIB)
     find_package(CascLib REQUIRED)
@@ -124,16 +125,6 @@ if(WIN32 AND ENABLE_NSIS)
     )
 endif()
 
-find_package(nlohmann_json 3.11.2 QUIET)
-
-if(NOT nlohmann_json_FOUND)
-    add_subdirectory(subprojects/nlohmann_json EXCLUDE_FROM_ALL)
-endif()
-
-if(NOT TARGET nlohmann_json::nlohmann_json)
-    message(FATAL_ERROR "nlohmann_json target was not created")
-endif()
-
 find_package(ImageMagick COMPONENTS Magick++ QUIET)
 
 if(NOT WIN32)
@@ -145,7 +136,7 @@ if(NOT WIN32)
 endif()
 
 if(WIN32 AND MSVC)
-    add_subdirectory(subprojects/win-iconv EXCLUDE_FROM_ALL)
+    add_subdirectory(third_party/win-iconv EXCLUDE_FROM_ALL)
     set(STARGUS_ICONV_TARGET iconv-static)
 else()
     find_package(Iconv REQUIRED)
@@ -502,7 +493,7 @@ set(STARGUS_SOURCES
 )
 
 if(WIN32)
-    list(APPEND STARGUS_SOURCES stargus.rc)
+    list(APPEND STARGUS_SOURCES packaging/windows/stargus.rc)
 endif()
 
 add_executable(
@@ -538,14 +529,14 @@ install(
 if(BUILD_TESTING)
     add_executable(
         LuaTest
-        test/lua/CreateUnitLuaTest.cpp
-        test/lua/LuaTest.cpp
+        tests/lua/CreateUnitLuaTest.cpp
+        tests/lua/LuaTest.cpp
     )
 
     target_include_directories(
         LuaTest
         PRIVATE
-            "${CMAKE_CURRENT_SOURCE_DIR}/test/lua"
+            "${CMAKE_CURRENT_SOURCE_DIR}/tests/lua"
     )
 
     target_link_libraries(
@@ -568,20 +559,20 @@ if(BUILD_TESTING)
     if(STARGUS_CPPUNIT_TARGET)
         add_executable(
             StartoolUnitTest
-            test/module/TestHelpers.cpp
-            test/module/TestMain.cpp
-            test/module/StormTest.cpp
-            test/module/DataChunkTest.cpp
-            test/module/BreezeTest.cpp
-            test/module/PcxTest.cpp
-            test/module/TiledPaletteImageTest.cpp
-            test/module/luagenTest.cpp
+            tests/module/TestHelpers.cpp
+            tests/module/TestMain.cpp
+            tests/module/StormTest.cpp
+            tests/module/DataChunkTest.cpp
+            tests/module/BreezeTest.cpp
+            tests/module/PcxTest.cpp
+            tests/module/TiledPaletteImageTest.cpp
+            tests/module/luagenTest.cpp
         )
 
         target_include_directories(
             StartoolUnitTest
             PRIVATE
-                "${CMAKE_CURRENT_SOURCE_DIR}/test/module"
+                "${CMAKE_CURRENT_SOURCE_DIR}/tests/module"
         )
 
         target_link_libraries(
@@ -616,7 +607,7 @@ endif()
 
 if(NOT WIN32)
     configure_file(
-        "${PROJECT_SOURCE_DIR}/stargus.desktop.in"
+        "${PROJECT_SOURCE_DIR}/packaging/linux/stargus.desktop.in"
         "${PROJECT_BINARY_DIR}/stargus.desktop"
         @ONLY
     )
@@ -625,9 +616,9 @@ if(NOT WIN32)
         OUTPUT "${PROJECT_BINARY_DIR}/stargus.png"
         COMMAND
             "${IMAGEMAGICK_CONVERT}"
-            "${PROJECT_SOURCE_DIR}/stargus.ico[0]"
+            "${PROJECT_SOURCE_DIR}/packaging/windows/stargus.ico[0]"
             "${PROJECT_BINARY_DIR}/stargus.png"
-        DEPENDS "${PROJECT_SOURCE_DIR}/stargus.ico"
+        DEPENDS "${PROJECT_SOURCE_DIR}/packaging/windows/stargus.ico"
         COMMENT "Generating stargus.png"
         VERBATIM
     )
@@ -636,10 +627,10 @@ if(NOT WIN32)
         OUTPUT "${PROJECT_BINARY_DIR}/stargus.xpm"
         COMMAND
             "${IMAGEMAGICK_CONVERT}"
-            "${PROJECT_SOURCE_DIR}/stargus.ico[0]"
+            "${PROJECT_SOURCE_DIR}/packaging/windows/stargus.ico[0]"
             -resize 32x32
             "${PROJECT_BINARY_DIR}/stargus.xpm"
-        DEPENDS "${PROJECT_SOURCE_DIR}/stargus.ico"
+        DEPENDS "${PROJECT_SOURCE_DIR}/packaging/windows/stargus.ico"
         COMMENT "Generating stargus.xpm"
         VERBATIM
     )
@@ -700,7 +691,7 @@ if(WIN32 AND ENABLE_NSIS)
     file(
         COPY
             "${CMAKE_CURRENT_SOURCE_DIR}/COPYING"
-            "${CMAKE_CURRENT_SOURCE_DIR}/stargus.ico"
+            "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.ico"
             "${CMAKE_CURRENT_SOURCE_DIR}/mpqlist.txt"
         DESTINATION
             "${CMAKE_CURRENT_BINARY_DIR}"
@@ -715,20 +706,20 @@ if(WIN32 AND ENABLE_NSIS)
             -DPORTABLE=1
             -DCMAKE_CURRENT_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
             -DCMAKE_CURRENT_BINARY_DIR="${CMAKE_CURRENT_BINARY_DIR}"
-            "${CMAKE_CURRENT_SOURCE_DIR}/stargus.nsi"
+            "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.nsi"
         COMMAND
             "${MAKENSIS_EXECUTABLE}"
             ${MAKENSIS_FLAGS_LIST}
             -DCMAKE_CURRENT_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}"
             -DCMAKE_CURRENT_BINARY_DIR="${CMAKE_CURRENT_BINARY_DIR}"
-            "${CMAKE_CURRENT_SOURCE_DIR}/stargus.nsi"
+            "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.nsi"
         DEPENDS
             stargus
             startool
-            "${CMAKE_CURRENT_SOURCE_DIR}/stargus.nsi"
+            "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.nsi"
             "${CMAKE_CURRENT_SOURCE_DIR}/COPYING"
             "${CMAKE_CURRENT_SOURCE_DIR}/mpqlist.txt"
-            "${CMAKE_CURRENT_SOURCE_DIR}/stargus.ico"
+            "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.ico"
         COMMENT "Generating Stargus Windows NSIS installers"
         VERBATIM
     )

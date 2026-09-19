@@ -27,7 +27,7 @@ void StormTest::test1_mpq_txt_extractMemory()
 {
   unsigned char *text_str = NULL;
   size_t bufLen = 0;
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string content_result = "stormtest";
   string mpq_arc_file = "test.txt";
 
@@ -44,7 +44,7 @@ void StormTest::test1_mpq_txt_extractMemory()
 
 void StormTest::test2_mpq_txt_extractFile()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string content_result = "stormtest";
   string mpq_arc_file = "test.txt";
   string savename = "test.txt";
@@ -73,7 +73,7 @@ void StormTest::test2_mpq_txt_extractFile()
 
 void StormTest::test3_mpq_txt_extractFileCompressed()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string content_result = "stormtest";
   string mpq_arc_file = "test.txt";
   string savename = "test.txt.gz";

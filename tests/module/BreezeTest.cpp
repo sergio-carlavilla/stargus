@@ -27,7 +27,7 @@ void BreezeTest::test1_txt_extractMemory()
 {
   unsigned char *text_str = NULL;
   size_t bufLen = 0;
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string content_result = "breezetest";
   string arc_file = "breezetest.txt";
 
@@ -44,7 +44,7 @@ void BreezeTest::test1_txt_extractMemory()
 
 void BreezeTest::test2_txt_extractFile()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string content_result = "breezetest";
   string arc_file = "breezetest.txt";
   string savename = "breezetest_test.txt";
@@ -73,7 +73,7 @@ void BreezeTest::test2_txt_extractFile()
 
 void BreezeTest::test3_txt_extractFileCompressed()
 {
-  string test_data_dir = "test/module/data/";
+  string test_data_dir = "tests/module/data/";
   string content_result = "breezetest";
   string arc_file = "breezetest.txt";
   string savename = "test.txt.gz";
