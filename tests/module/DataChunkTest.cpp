@@ -48,7 +48,7 @@ void DataChunkTest::test2_createFromExistingHeap()
 {
   const int LENGTH = 5;
 
-  unsigned char *rawdata = new unsigned char(LENGTH);
+  unsigned char *rawdata = new unsigned char[LENGTH];
   rawdata[0] = 0x1;
   rawdata[1] = 0x2;
   rawdata[2] = 0x3;
