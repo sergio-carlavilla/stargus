@@ -20,8 +20,8 @@ using namespace std;
 CreateUnitLuaTest::CreateUnitLuaTest(json &unitsJson)
 {
   Storage luagen;
-  luagen.setDataPath("data"); // FIXME for now need to copy this manually into your data directory
-  luagen.setDataType("luagen/tests");
+  luagen.setDataPath(STARGUS_TEST_OUTPUT_DIR);
+  luagen.setDataType("luagen");
   CheckPath(luagen.getFullPath());
 
   Storage lua_file_store(luagen("CreateUnitLuaTest.lua"));

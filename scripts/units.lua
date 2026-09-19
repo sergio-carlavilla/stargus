@@ -45,14 +45,3 @@ Load("scripts/terran/units.lua")
 Load("scripts/zerg/units.lua")
 Load("scripts/protoss/units.lua")
 Load("scripts/neutral/units.lua")
-
-Load("luagen/tests/CreateUnitLuaTest.lua")
-
-function CreateUnitTest(unit, num)
-  if not num then num = 10 end
-  
-  for i=1,num do 
-    CreateUnit(unit, 0, {10, 10})
-  end    
-end
-

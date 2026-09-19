@@ -545,6 +545,12 @@ if(BUILD_TESTING)
             starformat
     )
 
+    target_compile_definitions(
+        LuaTest
+        PRIVATE
+            STARGUS_TEST_OUTPUT_DIR="${PROJECT_BINARY_DIR}/tests/generated"
+    )
+
     add_test(
         NAME LuaTest
         COMMAND LuaTest
@@ -690,7 +696,7 @@ if(WIN32 AND ENABLE_NSIS)
 
     file(
         COPY
-            "${CMAKE_CURRENT_SOURCE_DIR}/COPYING"
+            "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
             "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.ico"
             "${CMAKE_CURRENT_SOURCE_DIR}/mpqlist.txt"
         DESTINATION
@@ -717,7 +723,7 @@ if(WIN32 AND ENABLE_NSIS)
             stargus
             startool
             "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.nsi"
-            "${CMAKE_CURRENT_SOURCE_DIR}/COPYING"
+            "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE"
             "${CMAKE_CURRENT_SOURCE_DIR}/mpqlist.txt"
             "${CMAKE_CURRENT_SOURCE_DIR}/packaging/windows/stargus.ico"
         COMMENT "Generating Stargus Windows NSIS installers"

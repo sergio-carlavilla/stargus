@@ -816,12 +816,6 @@ void Chk::loadFromBuffer(unsigned char *chkdata, int len)
 }
 
 /*----------------------------------------------------------------------------
- --  Variables
- ----------------------------------------------------------------------------*/
-
-#define VERSION "1.0"
-
-/*----------------------------------------------------------------------------
  --  Functions
  ----------------------------------------------------------------------------*/
 
@@ -836,7 +830,7 @@ void Chk::SaveSMP(Storage storage)
   fd = fopen(storage.getFullPath().c_str(), "wb");
 
   fprintf(fd, "-- Stratagus Map Presentation\n");
-  fprintf(fd, "-- File generated automatically from scmconvert V" VERSION "\n");
+  fprintf(fd, "-- File generated automatically by Stargus\n");
   fprintf(fd, "\n");
 
   fprintf(fd, "DefinePlayerTypes(");
@@ -1052,7 +1046,7 @@ void Chk::SaveSMS(Storage storage)
   fd = fopen(storage.getFullPath().c_str(), "wb");
 
   fprintf(fd, "-- Stratagus Map Setup\n");
-  fprintf(fd, "-- File generated automatically from scmconvert V" VERSION "\n");
+  fprintf(fd, "-- File generated automatically by Stargus\n");
   fprintf(fd, "\n");
 
   for (i = 0; i < PlayerMax; ++i)
