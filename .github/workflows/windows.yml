@@ -45,6 +45,7 @@ jobs:
             stormlib `
             nlohmann-json `
             cppunit `
+            libiconv `
             --triplet $env:VCPKG_TRIPLET
 
           "$env:VCPKG_INSTALLATION_ROOT\installed\$env:VCPKG_TRIPLET\bin" |

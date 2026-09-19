@@ -135,13 +135,8 @@ if(NOT WIN32)
     )
 endif()
 
-if(WIN32 AND MSVC)
-    add_subdirectory(third_party/win-iconv EXCLUDE_FROM_ALL)
-    set(STARGUS_ICONV_TARGET iconv-static)
-else()
-    find_package(Iconv REQUIRED)
-    set(STARGUS_ICONV_TARGET Iconv::Iconv)
-endif()
+find_package(Iconv REQUIRED)
+set(STARGUS_ICONV_TARGET Iconv::Iconv)
 
 find_package(PkgConfig QUIET)
 
