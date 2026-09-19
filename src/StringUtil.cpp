@@ -78,7 +78,7 @@ std::string to_lower(std::string line)
 {
   std::for_each(line.begin(), line.end(), [](char & c)
   {
-      c = ::tolower(c);
+    c = ::tolower(c);
   });
 
   return line;
@@ -136,40 +136,36 @@ char *iconvISO2UTF8(char *iso)
   /* Keep track of the variables. */
   utf8start = utf8;
 
-#ifdef _MSC_VER
-  iconv_value = iconv(iconvDesc, const_cast<const char**>(&iso), &len, &utf8, &utf8len);
-#else
   iconv_value = iconv(iconvDesc, &iso, &len, &utf8, &utf8len);
-#endif
   /* Handle failures. */
   if (iconv_value == (size_t) -1)
   {
     switch (errno)
     {
-    /* See "man 3 iconv" for an explanation. */
-    case EILSEQ:
-      snprintf(buf, sizeof(buf),
-               "iconv failed: Invalid multibyte sequence, in string '%s', length %d, out string '%s', length %d\n",
-               iso, (int) len, utf8start, (int) utf8len);
-      LOG4CXX_ERROR(logger, buf);
-      break;
-    case EINVAL:
-      snprintf(buf, sizeof(buf),
-               "iconv failed: Incomplete multibyte sequence, in string '%s', length %d, out string '%s', length %d\n",
-               iso, (int) len, utf8start, (int) utf8len);
-      LOG4CXX_ERROR(logger, buf);
-      break;
-    case E2BIG:
-      snprintf(buf, sizeof(buf),
-               "iconv failed: No more room, in string '%s', length %d, out string '%s', length %d\n",
-               iso, (int) len, utf8start, (int) utf8len);
-      LOG4CXX_ERROR(logger, buf);
-      break;
-    default:
-      snprintf(buf, sizeof(buf),
-               "iconv failed, in string '%s', length %d, out string '%s', length %d\n",
-               iso, (int) len, utf8start, (int) utf8len);
-      LOG4CXX_ERROR(logger, buf);
+      /* See "man 3 iconv" for an explanation. */
+      case EILSEQ:
+        snprintf(buf, sizeof(buf),
+                 "iconv failed: Invalid multibyte sequence, in string '%s', length %d, out string '%s', length %d\n",
+                 iso, (int) len, utf8start, (int) utf8len);
+        LOG4CXX_ERROR(logger, buf);
+        break;
+      case EINVAL:
+        snprintf(buf, sizeof(buf),
+                 "iconv failed: Incomplete multibyte sequence, in string '%s', length %d, out string '%s', length %d\n",
+                 iso, (int) len, utf8start, (int) utf8len);
+        LOG4CXX_ERROR(logger, buf);
+        break;
+      case E2BIG:
+        snprintf(buf, sizeof(buf),
+                 "iconv failed: No more room, in string '%s', length %d, out string '%s', length %d\n",
+                 iso, (int) len, utf8start, (int) utf8len);
+        LOG4CXX_ERROR(logger, buf);
+        break;
+      default:
+        snprintf(buf, sizeof(buf),
+                 "iconv failed, in string '%s', length %d, out string '%s', length %d\n",
+                 iso, (int) len, utf8start, (int) utf8len);
+        LOG4CXX_ERROR(logger, buf);
     }
     return NULL;
   }
