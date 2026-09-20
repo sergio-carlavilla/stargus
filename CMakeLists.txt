@@ -428,6 +428,10 @@ add_executable(
     tools/startool/pipeline/ImportExecutor.cpp
     tools/startool/converters/WavToOggConverter.cpp
     tools/startool/converters/PcxToPngConverter.cpp
+    tools/startool/converters/GrpToPngConverter.cpp
+    tools/startool/formats/PcxDecoder.cpp
+    tools/startool/formats/GrpDecoder.cpp
+    tools/startool/palette/PcxPaletteLoader.cpp
 )
 
 target_include_directories(

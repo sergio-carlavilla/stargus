@@ -1,5 +1,18 @@
 {
   "format_version": 1,
+  "palettes": [
+    {
+      "id": "ticon-0",
+      "kind": "pcx",
+      "source": "game",
+      "input": "unit/cmdbtns/ticon.pcx",
+      "mapping": {
+        "length": 16,
+        "start": 0,
+        "index": 0
+      }
+    }
+  ],
   "rules": [
     {
       "id": "terran-duke-selected-1",
@@ -32,6 +45,16 @@
       "input": "game/aggicons.pcx",
       "operation": "pcx_to_png",
       "output": "graphics/ui/aggicons.png"
+    },
+    {
+      "id": "ui-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/icons.grp",
+      "operation": "grp_to_png",
+      "palette": "ticon-0",
+      "rgba": false,
+      "output": "graphics/ui/icons.png"
     }
   ]
 }

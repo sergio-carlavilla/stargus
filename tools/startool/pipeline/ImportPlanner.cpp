@@ -18,6 +18,8 @@ std::vector<ImportTask> ImportPlanner::plan(const Manifest &manifest) const
                 task.source = rule.source;
                 task.input = rule.input;
                 task.operation = rule.operation;
+                task.palette = rule.palette;
+                task.rgba = rule.rgba;
                 task.output = rule.output;
 
                 tasks.push_back(

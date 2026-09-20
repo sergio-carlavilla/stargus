@@ -12,6 +12,9 @@
 #include "SourceReaderFactory.h"
 #include "manifest/ManifestLoader.h"
 #include "manifest/ManifestRule.h"
+#include "manifest/PaletteDefinition.h"
+#include "palette/Palette.h"
+#include "palette/PcxPaletteLoader.h"
 #include "pipeline/ImportPlanner.h"
 #include "pipeline/ImportTask.h"
 #include "pipeline/ImportExecutor.h"
@@ -19,6 +22,7 @@
 #include <algorithm>
 #include <filesystem>
 #include <iostream>
+#include <map>
 #include <string>
 #include <memory>
 #include <system_error>
@@ -407,6 +411,158 @@ int StartoolApp::runImport(int argc, char **argv) const
     SourceReaderRegistry readers;
     ImportExecutor executor;
 
+    std::map<std::string, Palette> palettes;
+
+    for (const PaletteDefinition &palette : manifest->palettes) {
+        SourceReader *reader = readers.find(palette.source);
+
+        if (reader == nullptr) {
+            const auto logicalSource =
+                std::find_if(
+                    gameSource->sources.begin(),
+                    gameSource->sources.end(),
+                    [&palette](const LogicalSource &source)
+                    {
+                        return source.id == palette.source;
+                    }
+                );
+
+            if (logicalSource == gameSource->sources.end()) {
+                std::cerr
+                    << "Palette '"
+                    << palette.id
+                    << "' references unknown source: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+
+            auto newReader = readerFactory.create(*logicalSource);
+            if (!newReader) {
+                std::cerr
+                    << "Palette '"
+                    << palette.id
+                    << "' references an unsupported source format: "
+                    << toString(logicalSource->format)
+                    << '\n';
+
+                return 1;
+            }
+
+            if (!newReader->isOpen()) {
+                std::cerr
+                    << "Palette '"
+                    << palette.id
+                    << "' could not open source: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+
+            if (!readers.add(palette.source, std::move(newReader))) {
+                std::cerr
+                    << "Could not register source reader: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+
+            reader = readers.find(palette.source);
+
+            if (reader == nullptr) {
+                std::cerr
+                    << "Could not retrieve source reader: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+        }
+
+        if (!reader->contains(palette.input)) {
+            std::cerr
+                << "Palette '"
+                << palette.id
+                << "' references missing resource: "
+                << palette.input
+                << '\n';
+
+            return 1;
+        }
+
+        std::error_code tempError;
+
+        const std::filesystem::path tempDirectory = std::filesystem::temp_directory_path(tempError);
+        if (tempError) {
+            std::cerr
+                << "Could not determine temporary directory: "
+                << tempError.message()
+                << '\n';
+
+            return 1;
+        }
+
+        const std::filesystem::path tempPalette = tempDirectory / ("startool4-palette-" + palette.id + ".pcx");
+
+        std::filesystem::remove(tempPalette, tempError);
+        tempError.clear();
+
+        if (!reader->extract(palette.input, tempPalette)) {
+            std::filesystem::remove(tempPalette, tempError);
+
+            std::cerr
+                << "Palette '"
+                << palette.id
+                << "' could not extract resource: "
+                << palette.input
+                << '\n';
+
+            return 1;
+        }
+
+        Palette decodedPalette;
+        PcxPaletteLoader paletteLoader;
+        std::string paletteError;
+
+        if (!paletteLoader.load(
+                tempPalette,
+                palette,
+                decodedPalette,
+                paletteError
+            ))
+        {
+            std::filesystem::remove(tempPalette, tempError);
+
+            std::cerr
+                << "Palette '"
+                << palette.id
+                << "' could not be decoded: "
+                << paletteError
+                << '\n';
+
+            return 1;
+        }
+
+        std::filesystem::remove(tempPalette, tempError);
+
+        if (tempError) {
+            std::cerr
+                << "Could not remove temporary palette file: "
+                << tempError.message()
+                << '\n';
+
+            return 1;
+        }
+
+        palettes.emplace(
+            palette.id,
+            decodedPalette
+        );
+    }
+
     std::size_t importedTasks = 0;
 
     for (const ImportTask &task : tasks) {
@@ -484,6 +640,7 @@ int StartoolApp::runImport(int argc, char **argv) const
         if (!executor.execute(
                 task,
                 readers,
+                palettes,
                 destinationPath,
                 outputPath,
                 taskError
@@ -587,6 +744,146 @@ int StartoolApp::runVerify(int argc, char **argv) const
     SourceReaderFactory readerFactory;
     SourceReaderRegistry readers;
 
+    for (const PaletteDefinition &palette : manifest->palettes) {
+        SourceReader *reader = readers.find(palette.source);
+
+        if (reader == nullptr) {
+            const auto logicalSource =
+                std::find_if(
+                    gameSource->sources.begin(),
+                    gameSource->sources.end(),
+                    [&palette](const LogicalSource &source)
+                    {
+                        return source.id == palette.source;
+                    }
+                );
+
+            if (logicalSource == gameSource->sources.end()) {
+                std::cerr
+                    << "Palette '"
+                    << palette.id
+                    << "' references unknown source: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+
+            auto newReader = readerFactory.create(*logicalSource);
+
+            if (!newReader) {
+                std::cerr
+                    << "Palette '"
+                    << palette.id
+                    << "' references an unsupported source format: "
+                    << toString(logicalSource->format)
+                    << '\n';
+
+                return 1;
+            }
+
+            if (!newReader->isOpen()) {
+                std::cerr
+                    << "Palette '"
+                    << palette.id
+                    << "' could not open source: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+
+            if (!readers.add(palette.source, std::move(newReader))) {
+                std::cerr
+                    << "Could not register source reader: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+
+            reader = readers.find(palette.source);
+
+            if (reader == nullptr) {
+                std::cerr
+                    << "Could not retrieve source reader: "
+                    << palette.source
+                    << '\n';
+
+                return 1;
+            }
+        }
+
+        if (!reader->contains(palette.input)) {
+            std::cerr
+                << "Palette '"
+                << palette.id
+                << "' references missing resource: "
+                << palette.input
+                << '\n';
+
+            return 1;
+        }
+
+        std::error_code tempError;
+
+        const std::filesystem::path tempDirectory = std::filesystem::temp_directory_path(tempError);
+        if (tempError) {
+            std::cerr
+                << "Could not determine temporary directory: "
+                << tempError.message()
+                << '\n';
+
+            return 1;
+        }
+
+        const std::filesystem::path tempPalette = tempDirectory / ("startool4-palette-" + palette.id + ".pcx");
+
+        std::filesystem::remove(tempPalette, tempError);
+        tempError.clear();
+
+        if (!reader->extract(palette.input, tempPalette)) {
+            std::filesystem::remove(tempPalette, tempError);
+
+            std::cerr
+                << "Palette '"
+                << palette.id
+                << "' could not extract resource: "
+                << palette.input
+                << '\n';
+
+            return 1;
+        }
+
+        Palette decodedPalette;
+        PcxPaletteLoader paletteLoader;
+        std::string paletteError;
+
+        if (!paletteLoader.load(tempPalette, palette, decodedPalette, paletteError)) {
+            std::filesystem::remove(tempPalette, tempError);
+
+            std::cerr
+                << "Palette '"
+                << palette.id
+                << "' could not be decoded: "
+                << paletteError
+                << '\n';
+
+            return 1;
+        }
+
+        std::filesystem::remove(tempPalette, tempError);
+
+        if (tempError) {
+            std::cerr
+                << "Could not remove temporary palette file: "
+                << tempError.message()
+                << '\n';
+
+            return 1;
+        }
+    }
+
     for (const ImportTask &task : tasks) {
         SourceReader *reader = readers.find(task.source);
 
@@ -672,6 +969,9 @@ int StartoolApp::runVerify(int argc, char **argv) const
         << '\n'
         << "Format version: "
         << manifest->formatVersion
+        << '\n'
+        << "Palettes:       "
+        << manifest->palettes.size()
         << '\n'
         << "Rules:          "
         << manifest->rules.size()

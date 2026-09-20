@@ -4,6 +4,7 @@
 #include "ImportExecutor.h"
 
 #include "SourceReader.h"
+#include "converters/GrpToPngConverter.h"
 #include "converters/PcxToPngConverter.h"
 #include "converters/WavToOggConverter.h"
 
@@ -125,6 +126,7 @@ bool ImportExecutor::stage(
 bool ImportExecutor::execute(
     const ImportTask &task,
     const SourceReaderRegistry &readers,
+    const std::map<std::string, Palette> &palettes,
     const std::filesystem::path &destinationRoot,
     std::filesystem::path &outputPath,
     std::string &error
@@ -221,6 +223,30 @@ bool ImportExecutor::execute(
     switch (task.operation) {
         case ManifestOperation::Extract:
             break;
+
+        case ManifestOperation::GrpToPng: {
+            const auto palette = palettes.find(task.palette);
+
+            if (palette == palettes.end()) {
+                error =
+                    "Palette not loaded for task '" +
+                    task.id +
+                    "': " +
+                    task.palette;
+
+                break;
+            }
+
+            GrpToPngConverter converter;
+            converted = converter.convert(
+                stagedPath,
+                destination,
+                palette->second,
+                task.rgba,
+                error
+            );
+            break;
+        }
 
         case ManifestOperation::PcxToPng: {
             PcxToPngConverter converter;

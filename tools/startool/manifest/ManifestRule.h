@@ -14,6 +14,7 @@ enum class ManifestRuleKind
 enum class ManifestOperation
 {
     Extract,
+    GrpToPng,
     PcxToPng,
     WavToOgg
 };
@@ -28,6 +29,9 @@ struct ManifestRule
     std::string input;
 
     ManifestOperation operation = ManifestOperation::WavToOgg;
+
+    std::string palette;
+    bool rgba = false;
 
     std::string output;
 };

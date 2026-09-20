@@ -5,12 +5,15 @@
 #define MANIFEST_H
 
 #include "ManifestRule.h"
+#include "PaletteDefinition.h"
 
 #include <vector>
 
 struct Manifest
 {
     int formatVersion = 0;
+
+    std::vector<PaletteDefinition> palettes;
     std::vector<ManifestRule> rules;
 };
 

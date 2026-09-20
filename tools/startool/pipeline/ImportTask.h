@@ -16,6 +16,9 @@ struct ImportTask
 
     ManifestOperation operation = ManifestOperation::WavToOgg;
 
+    std::string palette;
+    bool rgba = false;
+
     std::string output;
 };
 
