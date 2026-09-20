@@ -13,6 +13,8 @@ enum class ManifestRuleKind
 
 enum class ManifestOperation
 {
+    Extract,
+    PcxToPng,
     WavToOgg
 };
 

@@ -164,7 +164,12 @@ std::optional<Manifest> ManifestLoader::load(
         rule.input = ruleDocument["input"].get<std::string>();
 
         const std::string operation = ruleDocument["operation"].get<std::string>();
-        if (operation == "wav_to_ogg") {
+
+        if (operation == "extract") {
+            rule.operation = ManifestOperation::Extract;
+        } else if (operation == "pcx_to_png") {
+            rule.operation = ManifestOperation::PcxToPng;
+        } else if (operation == "wav_to_ogg") {
             rule.operation = ManifestOperation::WavToOgg;
         } else {
             error = "Unsupported manifest operation: " + operation;

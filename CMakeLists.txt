@@ -427,6 +427,7 @@ add_executable(
     tools/startool/pipeline/ImportPlanner.cpp
     tools/startool/pipeline/ImportExecutor.cpp
     tools/startool/converters/WavToOggConverter.cpp
+    tools/startool/converters/PcxToPngConverter.cpp
 )
 
 target_include_directories(
@@ -441,6 +442,7 @@ target_link_libraries(
         StormLib::StormLib
         nlohmann_json::nlohmann_json
         Vorbis::Encoder
+        PNG::PNG
 )
 
 # ---------------------------------------------------------------------------

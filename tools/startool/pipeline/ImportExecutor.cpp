@@ -4,6 +4,7 @@
 #include "ImportExecutor.h"
 
 #include "SourceReader.h"
+#include "converters/PcxToPngConverter.h"
 #include "converters/WavToOggConverter.h"
 
 #include <system_error>
@@ -103,6 +104,10 @@ bool ImportExecutor::stage(
     }
 
     if (!reader->extract(task.input, destination)) {
+        std::error_code cleanupError;
+        std::filesystem::remove(destination, cleanupError);
+        removeEmptyDirectories(parentDirectory, stagingRoot);
+
         error =
             "Could not stage resource for task '" +
             task.id +
@@ -163,6 +168,47 @@ bool ImportExecutor::execute(
         }
     }
 
+    if (task.operation == ManifestOperation::Extract) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error =
+                "No source reader registered for task '" +
+                task.id +
+                "': " +
+                task.source;
+
+            return false;
+        }
+
+        if (!reader->contains(task.input)) {
+            error =
+                "Resource not found for task '" +
+                task.id +
+                "': " +
+                task.input;
+
+            return false;
+        }
+
+        if (!reader->extract(task.input, destination)){
+            std::error_code cleanupError;
+            std::filesystem::remove(destination, cleanupError);
+
+            error =
+                "Could not extract resource for task '" +
+                task.id +
+                "': " +
+                task.input;
+
+            return false;
+        }
+
+        outputPath = destination;
+
+        return true;
+    }
+
     const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
     std::filesystem::path stagedPath;
 
@@ -173,6 +219,15 @@ bool ImportExecutor::execute(
     bool converted = false;
 
     switch (task.operation) {
+        case ManifestOperation::Extract:
+            break;
+
+        case ManifestOperation::PcxToPng: {
+            PcxToPngConverter converter;
+            converted = converter.convert(stagedPath, destination, error);
+            break;
+        }
+
         case ManifestOperation::WavToOgg: {
             WavToOggConverter converter;
             converted = converter.convert(stagedPath, destination, error);
