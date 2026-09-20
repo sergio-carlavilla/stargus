@@ -96,12 +96,13 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
-find_package(Stratagus REQUIRED)
+find_package(Stratagus QUIET)
 find_package(PNG REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(BZip2 REQUIRED)
 find_package(StormLib REQUIRED)
 find_package(nlohmann_json 3.11.2 REQUIRED)
+find_package(Vorbis REQUIRED)
 
 if(WITH_CASCLIB)
     find_package(CascLib REQUIRED)
@@ -406,6 +407,43 @@ install(
 )
 
 # ---------------------------------------------------------------------------
+# Startool 4
+# ---------------------------------------------------------------------------
+
+add_executable(
+    startool4
+    tools/startool/main.cpp
+    tools/startool/StartoolApp.cpp
+    tools/startool/SourceTypes.cpp
+    tools/startool/LogicalSource.cpp
+    tools/startool/SourceDetector.cpp
+    tools/startool/SourceReaderFactory.cpp
+    tools/startool/SourceReaderRegistry.cpp
+    tools/startool/MpqArchive.cpp
+    tools/startool/MpqSourceReader.cpp
+    tools/startool/MpqVerifier.cpp
+    tools/startool/LogicalSourceVerifier.cpp
+    tools/startool/manifest/ManifestLoader.cpp
+    tools/startool/pipeline/ImportPlanner.cpp
+    tools/startool/pipeline/ImportExecutor.cpp
+    tools/startool/converters/WavToOggConverter.cpp
+)
+
+target_include_directories(
+    startool4
+    PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+)
+
+target_link_libraries(
+    startool4
+    PRIVATE
+        StormLib::StormLib
+        nlohmann_json::nlohmann_json
+        Vorbis::Encoder
+)
+
+# ---------------------------------------------------------------------------
 # Tools
 # ---------------------------------------------------------------------------
 
@@ -486,40 +524,49 @@ target_link_libraries(
 # ---------------------------------------------------------------------------
 # Stargus launcher
 # ---------------------------------------------------------------------------
+if(Stratagus_FOUND)
+    set(STARGUS_SOURCES
+        src/stargus.cpp
+    )
 
-set(STARGUS_SOURCES
-    src/stargus.cpp
-)
+    if(WIN32)
+        list(APPEND STARGUS_SOURCES packaging/windows/stargus.rc)
+    endif()
 
-if(WIN32)
-    list(APPEND STARGUS_SOURCES packaging/windows/stargus.rc)
+    add_executable(
+        stargus
+        WIN32
+        ${STARGUS_SOURCES}
+    )
+
+    target_link_libraries(
+        stargus
+        PRIVATE
+            Stratagus::GameHeaders
+    )
+
+    target_compile_definitions(
+        stargus
+        PRIVATE
+            SOURCE_DIR="${PROJECT_SOURCE_DIR}/"
+            DATA_PATH="${STARGUS_DATA_PATH}"
+            SCRIPTS_PATH="${STARGUS_DATA_PATH}"
+            STRATAGUS_BIN="${Stratagus_EXECUTABLE}"
+    )
+
+    install(
+        TARGETS stargus
+        RUNTIME DESTINATION "${STARGUS_GAME_BINDIR}"
+    )
+
+else()
+
+    message(
+        STATUS
+        "Stratagus not found; Stargus launcher will not be built"
+    )
+
 endif()
-
-add_executable(
-    stargus
-    WIN32
-    ${STARGUS_SOURCES}
-)
-
-target_link_libraries(
-    stargus
-    PRIVATE
-        Stratagus::GameHeaders
-)
-
-target_compile_definitions(
-    stargus
-    PRIVATE
-        SOURCE_DIR="${PROJECT_SOURCE_DIR}/"
-        DATA_PATH="${STARGUS_DATA_PATH}"
-        SCRIPTS_PATH="${STARGUS_DATA_PATH}"
-        STRATAGUS_BIN="${Stratagus_EXECUTABLE}"
-)
-
-install(
-    TARGETS stargus
-    RUNTIME DESTINATION "${STARGUS_GAME_BINDIR}"
-)
 
 # ---------------------------------------------------------------------------
 # Tests
