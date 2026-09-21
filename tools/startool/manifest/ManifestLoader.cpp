@@ -266,10 +266,8 @@ std::optional<Manifest> ManifestLoader::load(
             }
 
             if (
-                (
-                    palette.kind == PaletteDefinitionKind::Pcx2D ||
-                    palette.kind == PaletteDefinitionKind::Wpe
-                ) && paletteDocument.contains("mapping")
+                (palette.kind == PaletteDefinitionKind::Pcx2D || palette.kind == PaletteDefinitionKind::Wpe)
+                && paletteDocument.contains("mapping")
             ) {
                 error = "Palette '" + palette.id + "' of kind '" + kind + "' must not define mapping";
                 return std::nullopt;
@@ -418,6 +416,10 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::GrpToPng;
             } else if (operation == "pcx_to_png") {
                 rule.operation = ManifestOperation::PcxToPng;
+            } else if (operation == "tileset_to_lua") {
+                rule.operation = ManifestOperation::TilesetToLua;
+            } else if (operation == "tileset_to_png") {
+                rule.operation = ManifestOperation::TilesetToPng;
             } else if (operation == "wav_to_ogg") {
                 rule.operation = ManifestOperation::WavToOgg;
             } else {
@@ -425,19 +427,17 @@ std::optional<Manifest> ManifestLoader::load(
                 return std::nullopt;
             }
 
-            if (rule.operation == ManifestOperation::GrpToPng) {
-                if (!ruleDocument.contains("palette") || !ruleDocument["palette"].is_string()) {
-                    error = "Manifest rule '" + rule.id + "' operation grp_to_png requires string field: palette";
-                    return std::nullopt;
-                }
+            const bool operationUsesPalette =
+                rule.operation == ManifestOperation::GrpToPng ||
+                rule.operation == ManifestOperation::TilesetToPng;
 
-                if (!ruleDocument.contains("rgba") || !ruleDocument["rgba"].is_boolean()) {
-                    error = "Manifest rule '" + rule.id + "' operation grp_to_png requires boolean field: rgba";
+            if (operationUsesPalette) {
+                if (!ruleDocument.contains("palette") || !ruleDocument["palette"].is_string()) {
+                    error = "Manifest rule '" + rule.id + "' operation requires string field: palette";
                     return std::nullopt;
                 }
 
                 rule.palette = ruleDocument["palette"].get<std::string>();
-                rule.rgba = ruleDocument["rgba"].get<bool>();
 
                 if (rule.palette.empty()) {
                     error = "Manifest rule '" + rule.id + "' has an empty palette";
@@ -448,16 +448,21 @@ std::optional<Manifest> ManifestLoader::load(
                     error = "Manifest rule '" + rule.id + "' references unknown palette: " + rule.palette;
                     return std::nullopt;
                 }
-            } else {
-                if (ruleDocument.contains("palette")) {
-                    error = "Manifest rule '" + rule.id + "' field palette is only valid for grp_to_png";
+            } else if (ruleDocument.contains("palette")) {
+                error = "Manifest rule '" + rule.id + "' field palette is only valid for grp_to_png and tileset_to_png";
+                return std::nullopt;
+            }
+
+            if (rule.operation == ManifestOperation::GrpToPng) {
+                if (!ruleDocument.contains("rgba") || !ruleDocument["rgba"].is_boolean()) {
+                    error = "Manifest rule '" + rule.id + "' operation grp_to_png requires boolean field: rgba";
                     return std::nullopt;
                 }
 
-                if (ruleDocument.contains("rgba")) {
-                    error = "Manifest rule '" + rule.id + "' field rgba is only valid for grp_to_png";
-                    return std::nullopt;
-                }
+                rule.rgba = ruleDocument["rgba"].get<bool>();
+            } else if (ruleDocument.contains("rgba")) {
+                error = "Manifest rule '" + rule.id + "' field rgba is only valid for grp_to_png";
+                return std::nullopt;
             }
 
             rule.output = ruleDocument["output"].get<std::string>();

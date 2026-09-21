@@ -762,7 +762,33 @@ int StartoolApp::runVerify(int argc, char **argv) const
             }
         }
 
-        if (!reader->contains(task.input)) {
+        if (task.operation == ManifestOperation::TilesetToLua) {
+            const std::string cv5Input = task.input + ".cv5";
+            const std::string vf4Input = task.input + ".vf4";
+
+            if (!reader->contains(cv5Input)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << cv5Input << '\n';
+                return 1;
+            }
+
+            if (!reader->contains(vf4Input)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << vf4Input << '\n';
+                return 1;
+            }
+        } else if (task.operation == ManifestOperation::TilesetToPng) {
+            const std::string vx4Input = task.input + ".vx4";
+            const std::string vr4Input = task.input + ".vr4";
+
+            if (!reader->contains(vx4Input)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << vx4Input << '\n';
+                return 1;
+            }
+
+            if (!reader->contains(vr4Input)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << vr4Input << '\n';
+                return 1;
+            }
+        } else if (!reader->contains(task.input)) {
             std::cerr << "Task '" << task.id << "' references missing resource: " << task.input << '\n';
             return 1;
         }

@@ -4,6 +4,7 @@
     "classic/palettes.json",
     "classic/audio.json",
     "classic/ui.json",
-    "classic/units.json"
+    "classic/units.json",
+    "classic/tilesets.json"
   ]
 }

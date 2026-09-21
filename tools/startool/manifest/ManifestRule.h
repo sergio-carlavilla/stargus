@@ -16,6 +16,8 @@ enum class ManifestOperation
     Extract,
     GrpToPng,
     PcxToPng,
+    TilesetToLua,
+    TilesetToPng,
     WavToOgg
 };
 

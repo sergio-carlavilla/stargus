@@ -1,0 +1,89 @@
+{
+  "rules": [
+    {
+      "id": "ashworld-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/AshWorld",
+      "operation": "tileset_to_png",
+      "palette": "ashworld",
+      "output": "graphics/tilesets/ashworld/ashworld.png"
+    },
+    {
+      "id": "badlands-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/badlands",
+      "operation": "tileset_to_png",
+      "palette": "badlands",
+      "output": "graphics/tilesets/badlands/badlands.png"
+    },
+    {
+      "id": "install-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/Install",
+      "operation": "tileset_to_png",
+      "palette": "install",
+      "output": "graphics/tilesets/install/install.png"
+    },
+    {
+      "id": "jungle-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/Jungle",
+      "operation": "tileset_to_png",
+      "palette": "jungle",
+      "output": "graphics/tilesets/jungle/jungle.png"
+    },
+    {
+      "id": "platform-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/platform",
+      "operation": "tileset_to_png",
+      "palette": "platform",
+      "output": "graphics/tilesets/platform/platform.png"
+    },
+    {
+      "id": "ashworld-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/AshWorld",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/ashworld.lua"
+    },
+    {
+      "id": "badlands-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/badlands",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/badlands.lua"
+    },
+    {
+      "id": "install-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/Install",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/install.lua"
+    },
+    {
+      "id": "jungle-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/Jungle",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/jungle.lua"
+    },
+    {
+      "id": "platform-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/platform",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/platform.lua"
+    }
+  ]
+}
