@@ -1,0 +1,124 @@
+{
+  "rules": [
+    {
+      "id": "wirefram",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/wirefram/wirefram.grp",
+      "operation": "grp_to_png",
+      "palette": "twire",
+      "rgba": false,
+      "output": "graphics/wirefram.png"
+    },
+    {
+      "id": "tranwire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/wirefram/tranwire.grp",
+      "operation": "grp_to_png",
+      "palette": "twire",
+      "rgba": false,
+      "output": "graphics/tranwire.png"
+    },
+    {
+      "id": "grpwire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/wirefram/grpwire.grp",
+      "operation": "grp_to_png",
+      "palette": "twire",
+      "rgba": false,
+      "output": "graphics/grpwire.png"
+    },
+    {
+      "id": "o022",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/o022.grp",
+      "operation": "grp_to_png",
+      "palette": "tunit",
+      "rgba": false,
+      "output": "graphics/unit/thingy/o022.png"
+    },
+    {
+      "id": "explo2",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/explo2.grp",
+      "operation": "grp_to_png",
+      "palette": "tunit",
+      "rgba": false,
+      "output": "graphics/unit/thingy/explo2.png"
+    },
+    {
+      "id": "flamer-ofire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/flamer.grp",
+      "operation": "grp_to_png",
+      "palette": "ofire",
+      "rgba": true,
+      "output": "graphics/unit/thingy/flamer_ofire.png"
+    },
+    {
+      "id": "small-ofire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/small.grp",
+      "operation": "grp_to_png",
+      "palette": "ofire",
+      "rgba": true,
+      "output": "graphics/unit/thingy/small_ofire.png"
+    },
+    {
+      "id": "nukehit-ofire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/nukehit.grp",
+      "operation": "grp_to_png",
+      "palette": "ofire",
+      "rgba": true,
+      "output": "graphics/unit/thingy/nukehit_ofire.png"
+    },
+    {
+      "id": "consume-gfire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/consume.grp",
+      "operation": "grp_to_png",
+      "palette": "gfire",
+      "rgba": true,
+      "output": "graphics/unit/thingy/consume_gfire.png"
+    },
+    {
+      "id": "epbbul-bfire",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/bullet/epbBul.grp",
+      "operation": "grp_to_png",
+      "palette": "bfire",
+      "rgba": true,
+      "output": "graphics/unit/bullet/epbbul_bfire.png"
+    },
+    {
+      "id": "ofirec-bexpl",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/thingy/oFireC.grp",
+      "operation": "grp_to_png",
+      "palette": "bexpl",
+      "rgba": true,
+      "output": "graphics/unit/thingy/ofirec_bexpl.png"
+    },
+    {
+      "id": "ashworld-creep",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/AshWorld.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/tilesets/ashworld/creep.png"
+    }
+  ]
+}

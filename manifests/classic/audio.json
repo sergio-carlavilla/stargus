@@ -1,0 +1,28 @@
+{
+  "rules": [
+    {
+      "id": "terran-duke-selected-1",
+      "kind": "exact",
+      "source": "game",
+      "input": "sound/terran/duket/udtwht00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/terran/units/dukeb/selected/1.ogg"
+    },
+    {
+      "id": "terran-duke-acknowledgement-4",
+      "kind": "exact",
+      "source": "game",
+      "input": "sound/terran/duket/udtyes03.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/terran/units/dukeb/acknowledgement/4.ogg"
+    },
+    {
+      "id": "terran-duke-selected-1-raw",
+      "kind": "exact",
+      "source": "game",
+      "input": "sound/terran/duket/udtwht00.wav",
+      "operation": "extract",
+      "output": "raw/sound/terran/duket/udtwht00.wav"
+    }
+  ]
+}

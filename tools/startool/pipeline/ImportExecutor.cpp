@@ -9,6 +9,7 @@
 #include "converters/WavToOggConverter.h"
 
 #include <system_error>
+#include <variant>
 
 namespace
 {
@@ -126,7 +127,7 @@ bool ImportExecutor::stage(
 bool ImportExecutor::execute(
     const ImportTask &task,
     const SourceReaderRegistry &readers,
-    const std::map<std::string, Palette> &palettes,
+    const std::map<std::string, LoadedPalette> &palettes,
     const std::filesystem::path &destinationRoot,
     std::filesystem::path &outputPath,
     std::string &error
@@ -238,12 +239,18 @@ bool ImportExecutor::execute(
             }
 
             GrpToPngConverter converter;
-            converted = converter.convert(
-                stagedPath,
-                destination,
-                palette->second,
-                task.rgba,
-                error
+            converted = std::visit(
+                [&](const auto &loadedPalette)
+                {
+                    return converter.convert(
+                        stagedPath,
+                        destination,
+                        loadedPalette,
+                        task.rgba,
+                        error
+                    );
+                },
+                palette->second
             );
             break;
         }

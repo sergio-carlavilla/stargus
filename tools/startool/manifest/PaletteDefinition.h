@@ -9,7 +9,9 @@
 
 enum class PaletteDefinitionKind
 {
-    Pcx
+    Pcx,
+    Pcx2D,
+    Wpe
 };
 
 struct PaletteMapping

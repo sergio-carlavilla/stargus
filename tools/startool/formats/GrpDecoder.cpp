@@ -3,6 +3,7 @@
 
 #include "GrpDecoder.h"
 
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
 #include <fstream>
@@ -185,26 +186,152 @@ bool GrpDecoder::decode(
 
     image.uncompressed = firstOffset <= data.size() && uncompressedPayloadSize == data.size() - firstOffset;
 
-    if (!image.uncompressed) {
-        error = "Compressed GRP files are not supported yet";
-        return false;
+    if (image.uncompressed) {
+        for (std::size_t index = 0; index < image.frames.size(); ++index) {
+            GrpFrame &frame = image.frames[index];
+
+            const std::size_t frameSize =
+                static_cast<std::size_t>(frame.width) *
+                static_cast<std::size_t>(frame.height);
+
+            const std::size_t dataOffset = static_cast<std::size_t>(frame.dataOffset);
+
+            if (frameSize > data.size() || dataOffset > data.size() - frameSize) {
+                error = "GRP frame " + std::to_string(index) + " payload exceeds file size";
+                return false;
+            }
+
+            frame.pixels.assign(data.begin() + dataOffset, data.begin() + dataOffset + frameSize);
+        }
+
+        return true;
     }
 
     for (std::size_t index = 0; index < image.frames.size(); ++index) {
         GrpFrame &frame = image.frames[index];
 
-        const std::size_t frameSize =
-            static_cast<std::size_t>(frame.width) *
-            static_cast<std::size_t>(frame.height);
-
+        const std::size_t width = static_cast<std::size_t>(frame.width);
+        const std::size_t height = static_cast<std::size_t>(frame.height);
+        const std::size_t frameSize = width * height;
         const std::size_t dataOffset = static_cast<std::size_t>(frame.dataOffset);
+        const std::size_t rowTableSize = height * sizeof(std::uint16_t);
 
-        if (frameSize > data.size() || dataOffset > data.size() - frameSize) {
-            error = "GRP frame " + std::to_string(index) + " payload exceeds file size";
+        std::size_t frameEnd = data.size();
+
+        for (const GrpFrame &candidate : image.frames) {
+            const std::size_t candidateOffset = static_cast<std::size_t>(candidate.dataOffset);
+
+            if (candidateOffset > dataOffset && candidateOffset < frameEnd) {
+                frameEnd = candidateOffset;
+            }
+        }
+
+        if (rowTableSize > frameEnd - dataOffset) {
+            error = "GRP frame " + std::to_string(index) + " row offset table exceeds frame data";
             return false;
         }
 
-        frame.pixels.assign(data.begin() + dataOffset, data.begin() + dataOffset + frameSize);
+        frame.pixels.assign(frameSize, 0);
+
+        for (std::size_t row = 0; row < height; ++row) {
+            const std::size_t rowOffsetPosition = dataOffset + row * sizeof(std::uint16_t);
+            const std::size_t rowOffset = static_cast<std::size_t>(readLittleEndian16(data, rowOffsetPosition));
+
+            if (rowOffset < rowTableSize) {
+                error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " points inside the row offset table";
+                return false;
+            }
+
+            if (rowOffset >= frameEnd - dataOffset) {
+                error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " points outside the frame data";
+                return false;
+            }
+
+            std::size_t position = dataOffset + rowOffset;
+            std::size_t column = 0;
+
+            while (column < width) {
+                if (position >= frameEnd) {
+                    error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " packet data exceeds frame data";
+                    return false;
+                }
+
+                const std::uint8_t packet = data[position++];
+                if ((packet & 0x80) != 0) {
+                    const std::size_t count = static_cast<std::size_t>(packet & 0x7f);
+
+                    if (count == 0) {
+                        error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " contains a zero-length skip packet";
+                        return false;
+                    }
+
+                    if (count > width - column) {
+                        error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " skip packet exceeds row width";
+                        return false;
+                    }
+
+                    column += count;
+
+                    continue;
+                }
+
+                if ((packet & 0x40) != 0) {
+                    const std::size_t count = static_cast<std::size_t>(packet & 0x3f);
+
+                    if (count == 0) {
+                        error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " contains a zero-length repeat packet";
+                        return false;
+                    }
+
+                    if (count > width - column) {
+                        error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " repeat packet exceeds row width";
+                        return false;
+                    }
+
+                    if (position >= frameEnd) {
+                        error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " repeat packet is missing its palette index";
+                        return false;
+                    }
+
+                    const std::uint8_t colorIndex = data[position++];
+
+                    std::fill_n(
+                        frame.pixels.begin() + row * width + column,
+                        count,
+                        colorIndex
+                    );
+
+                    column += count;
+
+                    continue;
+                }
+
+                const std::size_t count = static_cast<std::size_t>(packet);
+                if (count == 0) {
+                    error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " contains a zero-length literal packet";
+                    return false;
+                }
+
+                if (count > width - column) {
+                    error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " literal packet exceeds row width";
+                    return false;
+                }
+
+                if (count > frameEnd - position) {
+                    error = "GRP frame " + std::to_string(index) + " row " + std::to_string(row) + " literal packet exceeds frame data";
+                    return false;
+                }
+
+                std::copy_n(
+                    data.begin() + position,
+                    count,
+                    frame.pixels.begin() + row * width + column
+                );
+
+                position += count;
+                column += count;
+            }
+        }
     }
 
     return true;

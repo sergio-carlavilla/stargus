@@ -6,7 +6,7 @@
 
 #include "ImportTask.h"
 #include "SourceReaderRegistry.h"
-#include "palette/Palette.h"
+#include "palette/LoadedPalette.h"
 
 #include <filesystem>
 #include <map>
@@ -27,7 +27,7 @@ class ImportExecutor
         bool execute(
             const ImportTask &task,
             const SourceReaderRegistry &readers,
-            const std::map<std::string, Palette> &palettes,
+            const std::map<std::string, LoadedPalette> &palettes,
             const std::filesystem::path &destinationRoot,
             std::filesystem::path &outputPath,
             std::string &error

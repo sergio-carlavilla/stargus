@@ -1,0 +1,110 @@
+{
+  "rules": [
+    {
+      "id": "ui-aggicons",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/aggicons.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/aggicons.png"
+    },
+    {
+      "id": "ui-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/icons.grp",
+      "operation": "grp_to_png",
+      "palette": "ticon-0",
+      "rgba": false,
+      "output": "graphics/ui/icons.png"
+    },
+    {
+      "id": "cmdicons",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/cmdbtns/cmdicons.grp",
+      "operation": "grp_to_png",
+      "palette": "ticon-0",
+      "rgba": true,
+      "output": "graphics/cmdicons.png"
+    },
+    {
+      "id": "ui-pconover",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/pconover.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/pconover.png"
+    },
+    {
+      "id": "pcmdbtns",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/cmdbtns/pcmdbtns.grp",
+      "operation": "grp_to_png",
+      "palette": "ticon-0",
+      "rgba": true,
+      "output": "graphics/pcmdbtns.png"
+    },
+    {
+      "id": "tcmdbtns",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/cmdbtns/tcmdbtns.grp",
+      "operation": "grp_to_png",
+      "palette": "ticon-0",
+      "rgba": true,
+      "output": "graphics/tcmdbtns.png"
+    },
+    {
+      "id": "zcmdbtns",
+      "kind": "exact",
+      "source": "game",
+      "input": "unit/cmdbtns/zcmdbtns.grp",
+      "operation": "grp_to_png",
+      "palette": "ticon-0",
+      "rgba": true,
+      "output": "graphics/zcmdbtns.png"
+    },
+    {
+      "id": "badlands-creep",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/badlands.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/tilesets/badlands/creep.png"
+    },
+    {
+      "id": "install-creep",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/Install.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/tilesets/install/creep.png"
+    },
+    {
+      "id": "jungle-creep",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/Jungle.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/tilesets/jungle/creep.png"
+    },
+    {
+      "id": "platform-creep",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/platform.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/tilesets/platform/creep.png"
+    }
+  ]
+}

@@ -13,8 +13,12 @@
 #include "manifest/ManifestLoader.h"
 #include "manifest/ManifestRule.h"
 #include "manifest/PaletteDefinition.h"
+#include "palette/LoadedPalette.h"
 #include "palette/Palette.h"
+#include "palette/Palette2D.h"
+#include "palette/Pcx2DPaletteLoader.h"
 #include "palette/PcxPaletteLoader.h"
+#include "palette/WpePaletteLoader.h"
 #include "pipeline/ImportPlanner.h"
 #include "pipeline/ImportTask.h"
 #include "pipeline/ImportExecutor.h"
@@ -81,15 +85,9 @@ int StartoolApp::runInspect(int argc, char **argv) const
 
     if (!std::filesystem::exists(inputPath, error)) {
         if (error) {
-            std::cerr
-                << "Could not inspect path: "
-                << error.message()
-                << '\n';
+            std::cerr << "Could not inspect path: " << error.message() << '\n';
         } else {
-            std::cerr
-                << "Path does not exist: "
-                << inputPath
-                << '\n';
+            std::cerr << "Path does not exist: " << inputPath << '\n';
         }
 
         return 1;
@@ -97,11 +95,7 @@ int StartoolApp::runInspect(int argc, char **argv) const
 
     const std::filesystem::path absolutePath = std::filesystem::absolute(inputPath, error);
     if (error) {
-        std::cerr
-            << "Could not resolve path: "
-            << error.message()
-            << '\n';
-
+        std::cerr << "Could not resolve path: " << error.message() << '\n';
         return 1;
     }
 
@@ -110,12 +104,7 @@ int StartoolApp::runInspect(int argc, char **argv) const
     SourceDetector detector;
     auto source = detector.detect(normalizedPath);
     if (!source) {
-        std::cerr
-            << "No supported StarCraft source was detected at:\n"
-            << "  "
-            << normalizedPath.string()
-            << '\n';
-
+        std::cerr << "No supported StarCraft source was detected at:\n" << "  " << normalizedPath.string() << '\n';
         return 1;
     }
 
@@ -147,9 +136,7 @@ int StartoolApp::runInspect(int argc, char **argv) const
         << '\n';
 
     if (!source->sources.empty()) {
-        std::cout
-            << '\n'
-            << "Logical sources:\n";
+        std::cout << '\n' << "Logical sources:\n";
 
         LogicalSourceVerifier logicalVerifier;
         for (const LogicalSource &logicalSource : source->sources) {
@@ -170,20 +157,10 @@ int StartoolApp::runInspect(int argc, char **argv) const
                 << '\n';
 
             if (!logicalSource.member.empty()) {
-                std::cout
-                    << "    Member:   "
-                    << logicalSource.member
-                    << '\n';
+                std::cout << "    Member:   " << logicalSource.member << '\n';
             }
 
-            std::cout
-                << "    Status:   "
-                << (
-                    logicalVerified
-                        ? "verified"
-                        : "not verified"
-                )
-                << '\n';
+            std::cout << "    Status:   " << (logicalVerified ? "verified" : "not verified") << '\n';
         }
     }
 
@@ -193,10 +170,7 @@ int StartoolApp::runInspect(int argc, char **argv) const
 int StartoolApp::runExtract(int argc, char **argv) const
 {
     if (argc != 6) {
-        std::cerr
-            << "Usage: startool4 extract "
-            << "<installation> <source> <resource> <destination>\n";
-
+        std::cerr << "Usage: startool4 extract " << "<installation> <source> <resource> <destination>\n";
         return 1;
     }
 
@@ -206,38 +180,26 @@ int StartoolApp::runExtract(int argc, char **argv) const
     const std::filesystem::path destination = argv[5];
 
     std::error_code error;
-
     if (!std::filesystem::exists(installationPath, error)) {
-        std::cerr
-            << "Installation path does not exist: "
-            << installationPath
-            << '\n';
-
+        std::cerr << "Installation path does not exist: " << installationPath << '\n';
         return 1;
     }
 
     const std::filesystem::path absolutePath = std::filesystem::absolute(installationPath, error);
     if (error) {
-        std::cerr
-            << "Could not resolve installation path: "
-            << error.message()
-            << '\n';
-
+        std::cerr << "Could not resolve installation path: " << error.message() << '\n';
         return 1;
     }
 
     SourceDetector detector;
-
     auto gameSource = detector.detect(absolutePath.lexically_normal());
     if (!gameSource) {
         std::cerr << "No supported StarCraft source was detected.\n";
-
         return 1;
     }
 
     if (gameSource->format != SourceFormat::Mpq) {
         std::cerr << "This source is not an MPQ source.\n";
-
         return 1;
     }
 
@@ -245,7 +207,6 @@ int StartoolApp::runExtract(int argc, char **argv) const
 
     if (!verifier.verify(*gameSource)) {
         std::cerr << "Could not verify the StarCraft MPQ source.\n";
-
         return 1;
     }
 
@@ -256,66 +217,37 @@ int StartoolApp::runExtract(int argc, char **argv) const
     );
 
     if (logicalSource == gameSource->sources.end()) {
-        std::cerr
-            << "Logical source not found: "
-            << sourceId
-            << '\n';
-
+        std::cerr << "Logical source not found: " << sourceId << '\n';
         return 1;
     }
 
     MpqSourceReader reader(*logicalSource);
     if (!reader.isOpen()) {
-        std::cerr
-            << "Could not open logical source: "
-            << sourceId
-            << '\n';
-
+        std::cerr << "Could not open logical source: " << sourceId << '\n';
         return 1;
     }
 
     if (!reader.contains(resourcePath)) {
-        std::cerr
-            << "Resource not found: "
-            << resourcePath
-            << '\n';
-
+        std::cerr << "Resource not found: " << resourcePath << '\n';
         return 1;
     }
 
     if (std::filesystem::exists(destination, error)) {
-        std::cerr
-            << "Destination already exists: "
-            << destination
-            << '\n';
-
+        std::cerr << "Destination already exists: " << destination << '\n';
         return 1;
     }
 
     const std::filesystem::path parentDirectory = destination.parent_path();
-
     if (!parentDirectory.empty()) {
-        std::filesystem::create_directories(
-            parentDirectory,
-            error
-        );
-
+        std::filesystem::create_directories( parentDirectory, error);
         if (error) {
-            std::cerr
-                << "Could not create destination directory: "
-                << error.message()
-                << '\n';
-
+            std::cerr << "Could not create destination directory: " << error.message() << '\n';
             return 1;
         }
     }
 
     if (!reader.extract(resourcePath, destination)){
-        std::cerr
-            << "Could not extract resource: "
-            << resourcePath
-            << '\n';
-
+        std::cerr << "Could not extract resource: " << resourcePath << '\n';
         return 1;
     }
 
@@ -338,10 +270,7 @@ int StartoolApp::runExtract(int argc, char **argv) const
 int StartoolApp::runImport(int argc, char **argv) const
 {
     if (argc != 5) {
-        std::cerr
-            << "Usage: startool4 import "
-            << "<installation> <manifest> <destination>\n";
-
+        std::cerr << "Usage: startool4 import " << "<installation> <manifest> <destination>\n";
         return 1;
     }
 
@@ -355,11 +284,7 @@ int StartoolApp::runImport(int argc, char **argv) const
 
     const auto manifest = loader.load(manifestPath, manifestError);
     if (!manifest) {
-        std::cerr
-            << "Manifest loading failed: "
-            << manifestError
-            << '\n';
-
+        std::cerr << "Manifest loading failed: " << manifestError << '\n';
         return 1;
     }
 
@@ -369,22 +294,14 @@ int StartoolApp::runImport(int argc, char **argv) const
     std::error_code error;
 
     if (!std::filesystem::exists(installationPath, error)) {
-        std::cerr
-            << "Installation path does not exist: "
-            << installationPath
-            << '\n';
-
+        std::cerr << "Installation path does not exist: " << installationPath << '\n';
         return 1;
     }
 
     const std::filesystem::path absolutePath = std::filesystem::absolute(installationPath, error);
 
     if (error) {
-        std::cerr
-            << "Could not resolve installation path: "
-            << error.message()
-            << '\n';
-
+        std::cerr << "Could not resolve installation path: " << error.message() << '\n';
         return 1;
     }
 
@@ -411,7 +328,7 @@ int StartoolApp::runImport(int argc, char **argv) const
     SourceReaderRegistry readers;
     ImportExecutor executor;
 
-    std::map<std::string, Palette> palettes;
+    std::map<std::string, LoadedPalette> palettes;
 
     for (const PaletteDefinition &palette : manifest->palettes) {
         SourceReader *reader = readers.find(palette.source);
@@ -428,68 +345,35 @@ int StartoolApp::runImport(int argc, char **argv) const
                 );
 
             if (logicalSource == gameSource->sources.end()) {
-                std::cerr
-                    << "Palette '"
-                    << palette.id
-                    << "' references unknown source: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Palette '" << palette.id << "' references unknown source: " << palette.source << '\n';
                 return 1;
             }
 
             auto newReader = readerFactory.create(*logicalSource);
             if (!newReader) {
-                std::cerr
-                    << "Palette '"
-                    << palette.id
-                    << "' references an unsupported source format: "
-                    << toString(logicalSource->format)
-                    << '\n';
-
+                std::cerr << "Palette '" << palette.id << "' references an unsupported source format: " << toString(logicalSource->format) << '\n';
                 return 1;
             }
 
             if (!newReader->isOpen()) {
-                std::cerr
-                    << "Palette '"
-                    << palette.id
-                    << "' could not open source: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Palette '" << palette.id << "' could not open source: " << palette.source << '\n';
                 return 1;
             }
 
             if (!readers.add(palette.source, std::move(newReader))) {
-                std::cerr
-                    << "Could not register source reader: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Could not register source reader: " << palette.source << '\n';
                 return 1;
             }
 
             reader = readers.find(palette.source);
-
             if (reader == nullptr) {
-                std::cerr
-                    << "Could not retrieve source reader: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Could not retrieve source reader: " << palette.source << '\n';
                 return 1;
             }
         }
 
         if (!reader->contains(palette.input)) {
-            std::cerr
-                << "Palette '"
-                << palette.id
-                << "' references missing resource: "
-                << palette.input
-                << '\n';
-
+            std::cerr << "Palette '" << palette.id << "' references missing resource: " << palette.input << '\n';
             return 1;
         }
 
@@ -497,11 +381,7 @@ int StartoolApp::runImport(int argc, char **argv) const
 
         const std::filesystem::path tempDirectory = std::filesystem::temp_directory_path(tempError);
         if (tempError) {
-            std::cerr
-                << "Could not determine temporary directory: "
-                << tempError.message()
-                << '\n';
-
+            std::cerr << "Could not determine temporary directory: " << tempError.message() << '\n';
             return 1;
         }
 
@@ -512,54 +392,75 @@ int StartoolApp::runImport(int argc, char **argv) const
 
         if (!reader->extract(palette.input, tempPalette)) {
             std::filesystem::remove(tempPalette, tempError);
-
-            std::cerr
-                << "Palette '"
-                << palette.id
-                << "' could not extract resource: "
-                << palette.input
-                << '\n';
-
+            std::cerr << "Palette '" << palette.id << "' could not extract resource: " << palette.input << '\n';
             return 1;
         }
 
-        Palette decodedPalette;
-        PcxPaletteLoader paletteLoader;
+        LoadedPalette decodedPalette = Palette{};
         std::string paletteError;
+        bool paletteLoaded = false;
 
-        if (!paletteLoader.load(
+        if (palette.kind == PaletteDefinitionKind::Pcx) {
+            Palette palette1D;
+            PcxPaletteLoader paletteLoader;
+
+            paletteLoaded = paletteLoader.load(
                 tempPalette,
                 palette,
-                decodedPalette,
+                palette1D,
                 paletteError
-            ))
-        {
+            );
+
+            if (paletteLoaded) {
+                decodedPalette = std::move(palette1D);
+            }
+        } else if (palette.kind == PaletteDefinitionKind::Pcx2D) {
+            Palette2D palette2D;
+            Pcx2DPaletteLoader paletteLoader;
+
+            paletteLoaded = paletteLoader.load(
+                tempPalette,
+                palette,
+                palette2D,
+                paletteError
+            );
+
+            if (paletteLoaded) {
+                decodedPalette = std::move(palette2D);
+            }
+        } else if (palette.kind == PaletteDefinitionKind::Wpe) {
+            Palette palette1D;
+            WpePaletteLoader paletteLoader;
+
+            paletteLoaded = paletteLoader.load(
+                tempPalette,
+                palette,
+                palette1D,
+                paletteError
+            );
+
+            if (paletteLoaded) {
+                decodedPalette = std::move(palette1D);
+            }
+        }
+
+        if (!paletteLoaded) {
             std::filesystem::remove(tempPalette, tempError);
 
-            std::cerr
-                << "Palette '"
-                << palette.id
-                << "' could not be decoded: "
-                << paletteError
-                << '\n';
-
+            std::cerr << "Palette '" << palette.id << "' could not be decoded: " << paletteError << '\n';
             return 1;
         }
 
         std::filesystem::remove(tempPalette, tempError);
 
         if (tempError) {
-            std::cerr
-                << "Could not remove temporary palette file: "
-                << tempError.message()
-                << '\n';
-
+            std::cerr << "Could not remove temporary palette file: " << tempError.message() << '\n';
             return 1;
         }
 
         palettes.emplace(
             palette.id,
-            decodedPalette
+            std::move(decodedPalette)
         );
     }
 
@@ -580,56 +481,29 @@ int StartoolApp::runImport(int argc, char **argv) const
                 );
 
             if (logicalSource == gameSource->sources.end()) {
-                std::cerr
-                    << "Task '"
-                    << task.id
-                    << "' references unknown source: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Task '" << task.id << "' references unknown source: " << task.source << '\n';
                 return 1;
             }
 
             auto newReader = readerFactory.create(*logicalSource);
             if (!newReader) {
-                std::cerr
-                    << "Task '"
-                    << task.id
-                    << "' references an unsupported source format: "
-                    << toString(logicalSource->format)
-                    << '\n';
-
+                std::cerr << "Task '" << task.id << "' references an unsupported source format: " << toString(logicalSource->format) << '\n';
                 return 1;
             }
 
             if (!newReader->isOpen()) {
-                std::cerr
-                    << "Task '"
-                    << task.id
-                    << "' could not open source: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Task '" << task.id << "' could not open source: " << task.source << '\n';
                 return 1;
             }
 
             if (!readers.add(task.source, std::move(newReader))) {
-                std::cerr
-                    << "Could not register source reader: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Could not register source reader: " << task.source << '\n';
                 return 1;
             }
 
             reader = readers.find(task.source);
-
             if (reader == nullptr) {
-                std::cerr
-                    << "Could not retrieve source reader: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Could not retrieve source reader: " << task.source << '\n';
                 return 1;
             }
         }
@@ -637,22 +511,8 @@ int StartoolApp::runImport(int argc, char **argv) const
         std::filesystem::path outputPath;
         std::string taskError;
 
-        if (!executor.execute(
-                task,
-                readers,
-                palettes,
-                destinationPath,
-                outputPath,
-                taskError
-            ))
-        {
-            std::cerr
-                << "Could not import task '"
-                << task.id
-                << "': "
-                << taskError
-                << '\n';
-
+        if (!executor.execute(task, readers, palettes, destinationPath, outputPath, taskError)) {
+            std::cerr << "Could not import task '" << task.id << "': " << taskError << '\n';
             return 1;
         }
 
@@ -759,69 +619,36 @@ int StartoolApp::runVerify(int argc, char **argv) const
                 );
 
             if (logicalSource == gameSource->sources.end()) {
-                std::cerr
-                    << "Palette '"
-                    << palette.id
-                    << "' references unknown source: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Palette '" << palette.id << "' references unknown source: " << palette.source << '\n';
                 return 1;
             }
 
             auto newReader = readerFactory.create(*logicalSource);
-
             if (!newReader) {
-                std::cerr
-                    << "Palette '"
-                    << palette.id
-                    << "' references an unsupported source format: "
-                    << toString(logicalSource->format)
-                    << '\n';
-
+                std::cerr << "Palette '" << palette.id << "' references an unsupported source format: " << toString(logicalSource->format) << '\n';
                 return 1;
             }
 
             if (!newReader->isOpen()) {
-                std::cerr
-                    << "Palette '"
-                    << palette.id
-                    << "' could not open source: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Palette '" << palette.id << "' could not open source: " << palette.source << '\n';
                 return 1;
             }
 
             if (!readers.add(palette.source, std::move(newReader))) {
-                std::cerr
-                    << "Could not register source reader: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Could not register source reader: " << palette.source << '\n';
                 return 1;
             }
 
             reader = readers.find(palette.source);
 
             if (reader == nullptr) {
-                std::cerr
-                    << "Could not retrieve source reader: "
-                    << palette.source
-                    << '\n';
-
+                std::cerr << "Could not retrieve source reader: " << palette.source << '\n';
                 return 1;
             }
         }
 
         if (!reader->contains(palette.input)) {
-            std::cerr
-                << "Palette '"
-                << palette.id
-                << "' references missing resource: "
-                << palette.input
-                << '\n';
-
+            std::cerr << "Palette '" << palette.id << "' references missing resource: " << palette.input << '\n';
             return 1;
         }
 
@@ -829,11 +656,7 @@ int StartoolApp::runVerify(int argc, char **argv) const
 
         const std::filesystem::path tempDirectory = std::filesystem::temp_directory_path(tempError);
         if (tempError) {
-            std::cerr
-                << "Could not determine temporary directory: "
-                << tempError.message()
-                << '\n';
-
+            std::cerr << "Could not determine temporary directory: " << tempError.message() << '\n';
             return 1;
         }
 
@@ -844,42 +667,55 @@ int StartoolApp::runVerify(int argc, char **argv) const
 
         if (!reader->extract(palette.input, tempPalette)) {
             std::filesystem::remove(tempPalette, tempError);
-
-            std::cerr
-                << "Palette '"
-                << palette.id
-                << "' could not extract resource: "
-                << palette.input
-                << '\n';
-
+            std::cerr << "Palette '" << palette.id << "' could not extract resource: " << palette.input << '\n';
             return 1;
         }
 
-        Palette decodedPalette;
-        PcxPaletteLoader paletteLoader;
         std::string paletteError;
+        bool paletteLoaded = false;
 
-        if (!paletteLoader.load(tempPalette, palette, decodedPalette, paletteError)) {
+        if (palette.kind == PaletteDefinitionKind::Pcx) {
+            Palette decodedPalette;
+            PcxPaletteLoader paletteLoader;
+
+            paletteLoaded = paletteLoader.load(
+                tempPalette,
+                palette,
+                decodedPalette,
+                paletteError
+            );
+        } else if (palette.kind == PaletteDefinitionKind::Pcx2D) {
+            Palette2D decodedPalette;
+            Pcx2DPaletteLoader paletteLoader;
+
+            paletteLoaded = paletteLoader.load(
+                tempPalette,
+                palette,
+                decodedPalette,
+                paletteError
+            );
+        } else if (palette.kind == PaletteDefinitionKind::Wpe) {
+            Palette decodedPalette;
+            WpePaletteLoader paletteLoader;
+
+            paletteLoaded = paletteLoader.load(
+                tempPalette,
+                palette,
+                decodedPalette,
+                paletteError
+            );
+        }
+
+        if (!paletteLoaded) {
             std::filesystem::remove(tempPalette, tempError);
-
-            std::cerr
-                << "Palette '"
-                << palette.id
-                << "' could not be decoded: "
-                << paletteError
-                << '\n';
-
+            std::cerr << "Palette '" << palette.id << "' could not be decoded: " << paletteError << '\n';
             return 1;
         }
 
         std::filesystem::remove(tempPalette, tempError);
 
         if (tempError) {
-            std::cerr
-                << "Could not remove temporary palette file: "
-                << tempError.message()
-                << '\n';
-
+            std::cerr << "Could not remove temporary palette file: " << tempError.message() << '\n';
             return 1;
         }
     }
@@ -899,67 +735,35 @@ int StartoolApp::runVerify(int argc, char **argv) const
                 );
 
             if (logicalSource == gameSource->sources.end()) {
-                std::cerr
-                    << "Task '"
-                    << task.id
-                    << "' references unknown source: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Task '" << task.id << "' references unknown source: " << task.source << '\n';
                 return 1;
             }
 
             auto newReader = readerFactory.create(*logicalSource);
             if (!newReader) {
-                std::cerr
-                    << "Task '"
-                    << task.id
-                    << "' references an unsupported source format: "
-                    << toString(logicalSource->format)
-                    << '\n';
-
+                std::cerr << "Task '" << task.id << "' references an unsupported source format: " << toString(logicalSource->format) << '\n';
                 return 1;
             }
 
             if (!newReader->isOpen()) {
-                std::cerr
-                    << "Task '"
-                    << task.id
-                    << "' could not open source: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Task '" << task.id << "' could not open source: " << task.source << '\n';
                 return 1;
             }
 
             if (!readers.add(task.source, std::move(newReader))) {
-                std::cerr
-                    << "Could not register source reader: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Could not register source reader: " << task.source << '\n';
                 return 1;
             }
 
             reader = readers.find(task.source);
             if (reader == nullptr) {
-                std::cerr
-                    << "Could not retrieve source reader: "
-                    << task.source
-                    << '\n';
-
+                std::cerr << "Could not retrieve source reader: " << task.source << '\n';
                 return 1;
             }
         }
 
         if (!reader->contains(task.input)) {
-            std::cerr
-                << "Task '"
-                << task.id
-                << "' references missing resource: "
-                << task.input
-                << '\n';
-
+            std::cerr << "Task '" << task.id << "' references missing resource: " << task.input << '\n';
             return 1;
         }
     }

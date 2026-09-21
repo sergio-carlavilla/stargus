@@ -5,6 +5,7 @@
 #define GRP_TO_PNG_CONVERTER_H
 
 #include "palette/Palette.h"
+#include "palette/Palette2D.h"
 
 #include <filesystem>
 #include <string>
@@ -17,6 +18,14 @@ class GrpToPngConverter
             const std::filesystem::path &input,
             const std::filesystem::path &output,
             const Palette &palette,
+            bool rgba,
+            std::string &error
+        ) const;
+
+        bool convert(
+            const std::filesystem::path &input,
+            const std::filesystem::path &output,
+            const Palette2D &palette,
             bool rgba,
             std::string &error
         ) const;

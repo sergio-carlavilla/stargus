@@ -1,0 +1,81 @@
+{
+  "palettes": [
+    {
+      "id": "ticon-0",
+      "kind": "pcx",
+      "source": "game",
+      "input": "unit/cmdbtns/ticon.pcx",
+      "mapping": {
+        "length": 16,
+        "start": 0,
+        "index": 0
+      }
+    },
+    {
+      "id": "twire",
+      "kind": "pcx",
+      "source": "game",
+      "input": "game/twire.pcx"
+    },
+    {
+      "id": "tunit",
+      "kind": "pcx",
+      "source": "game",
+      "input": "game/tunit.pcx"
+    },
+    {
+      "id": "ofire",
+      "kind": "pcx2d",
+      "source": "game",
+      "input": "tileset/ashworld/ofire.pcx"
+    },
+    {
+      "id": "gfire",
+      "kind": "pcx2d",
+      "source": "game",
+      "input": "tileset/ashworld/gfire.pcx"
+    },
+    {
+      "id": "bfire",
+      "kind": "pcx2d",
+      "source": "game",
+      "input": "tileset/ashworld/bfire.pcx"
+    },
+    {
+      "id": "bexpl",
+      "kind": "pcx2d",
+      "source": "game",
+      "input": "tileset/ashworld/bexpl.pcx"
+    },
+    {
+      "id": "ashworld",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/ashworld.wpe"
+    },
+    {
+      "id": "badlands",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/badlands.wpe"
+    },
+    {
+      "id": "install",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/install.wpe"
+    },
+    {
+      "id": "jungle",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/jungle.wpe"
+    },
+    {
+      "id": "platform",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/platform.wpe"
+    }
+  ]
+}

@@ -431,7 +431,9 @@ add_executable(
     tools/startool/converters/GrpToPngConverter.cpp
     tools/startool/formats/PcxDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp
+    tools/startool/palette/Pcx2DPaletteLoader.cpp
     tools/startool/palette/PcxPaletteLoader.cpp
+    tools/startool/palette/WpePaletteLoader.cpp
 )
 
 target_include_directories(
