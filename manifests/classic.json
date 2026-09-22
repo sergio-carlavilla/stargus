@@ -5,6 +5,8 @@
     "classic/audio.json",
     "classic/ui.json",
     "classic/units.json",
-    "classic/tilesets.json"
+    "classic/tilesets.json",
+    "classic/pcx.json",
+    "classic/widgets.json"
   ]
 }

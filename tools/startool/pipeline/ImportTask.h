@@ -7,6 +7,7 @@
 #include "manifest/ManifestRule.h"
 
 #include <string>
+#include <vector>
 
 struct ImportTask
 {
@@ -18,6 +19,8 @@ struct ImportTask
 
     std::string palette;
     bool rgba = false;
+    int frame = -1;
+    std::vector<int> frames;
 
     std::string output;
 };

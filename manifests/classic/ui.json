@@ -105,6 +105,196 @@
       "palette": "ashworld",
       "rgba": false,
       "output": "graphics/tilesets/platform/creep.png"
+    },
+    {
+      "id": "cursor-arrow",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/arrow.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/arrow.png"
+    },
+    {
+      "id": "cursor-drag",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/Drag.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/drag.png"
+    },
+    {
+      "id": "cursor-illegal",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/Illegal.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/illegal.png"
+    },
+    {
+      "id": "cursor-magg",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/MagG.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/magg.png"
+    },
+    {
+      "id": "cursor-magr",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/MagR.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/magr.png"
+    },
+    {
+      "id": "cursor-magy",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/MagY.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/magy.png"
+    },
+    {
+      "id": "cursor-scrolld",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollD.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrolld.png"
+    },
+    {
+      "id": "cursor-scrolldl",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollDL.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrolldl.png"
+    },
+    {
+      "id": "cursor-scrolldr",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollDR.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrolldr.png"
+    },
+    {
+      "id": "cursor-scrolll",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollL.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrolll.png"
+    },
+    {
+      "id": "cursor-scrollr",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollR.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrollr.png"
+    },
+    {
+      "id": "cursor-scrollu",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollU.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrollu.png"
+    },
+    {
+      "id": "cursor-scrollul",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollUL.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrollul.png"
+    },
+    {
+      "id": "cursor-scrollur",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/ScrollUR.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/scrollur.png"
+    },
+    {
+      "id": "cursor-targg",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/TargG.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/targg.png"
+    },
+    {
+      "id": "cursor-targn",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/TargN.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/targn.png"
+    },
+    {
+      "id": "cursor-targr",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/TargR.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/targr.png"
+    },
+    {
+      "id": "cursor-targy",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/TargY.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/targy.png"
+    },
+    {
+      "id": "cursor-time",
+      "kind": "exact",
+      "source": "game",
+      "input": "cursor/Time.grp",
+      "operation": "grp_to_png",
+      "palette": "ashworld",
+      "rgba": false,
+      "output": "graphics/ui/cursors/time.png"
     }
   ]
 }

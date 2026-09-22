@@ -389,6 +389,8 @@ std::optional<Manifest> ManifestLoader::load(
                 "operation",
                 "palette",
                 "rgba",
+                "frame",
+                "frames",
                 "output"
             };
 
@@ -412,6 +414,10 @@ std::optional<Manifest> ManifestLoader::load(
 
             if (operation == "extract") {
                 rule.operation = ManifestOperation::Extract;
+            } else if (operation == "grp_frame_to_png") {
+                rule.operation = ManifestOperation::GrpFrameToPng;
+            } else if (operation == "grp_frames_to_png") {
+                rule.operation = ManifestOperation::GrpFramesToPng;
             } else if (operation == "grp_to_png") {
                 rule.operation = ManifestOperation::GrpToPng;
             } else if (operation == "pcx_to_png") {
@@ -428,6 +434,8 @@ std::optional<Manifest> ManifestLoader::load(
             }
 
             const bool operationUsesPalette =
+                rule.operation == ManifestOperation::GrpFrameToPng ||
+                rule.operation == ManifestOperation::GrpFramesToPng ||
                 rule.operation == ManifestOperation::GrpToPng ||
                 rule.operation == ManifestOperation::TilesetToPng;
 
@@ -449,19 +457,66 @@ std::optional<Manifest> ManifestLoader::load(
                     return std::nullopt;
                 }
             } else if (ruleDocument.contains("palette")) {
-                error = "Manifest rule '" + rule.id + "' field palette is only valid for grp_to_png and tileset_to_png";
+                error = "Manifest rule '" + rule.id + "' field palette is only valid for grp_frame_to_png, grp_frames_to_png, grp_to_png and tileset_to_png";
                 return std::nullopt;
             }
 
-            if (rule.operation == ManifestOperation::GrpToPng) {
+            if (
+                rule.operation == ManifestOperation::GrpFrameToPng ||
+                rule.operation == ManifestOperation::GrpFramesToPng ||
+                rule.operation == ManifestOperation::GrpToPng
+            ) {
                 if (!ruleDocument.contains("rgba") || !ruleDocument["rgba"].is_boolean()) {
-                    error = "Manifest rule '" + rule.id + "' operation grp_to_png requires boolean field: rgba";
+                    error = "Manifest rule '" + rule.id + "' GRP operation requires boolean field: rgba";
                     return std::nullopt;
                 }
 
                 rule.rgba = ruleDocument["rgba"].get<bool>();
             } else if (ruleDocument.contains("rgba")) {
-                error = "Manifest rule '" + rule.id + "' field rgba is only valid for grp_to_png";
+                error = "Manifest rule '" + rule.id + "' field rgba is only valid for grp_frame_to_png, grp_frames_to_png and grp_to_png";
+                return std::nullopt;
+            }
+
+            if (rule.operation == ManifestOperation::GrpFrameToPng) {
+                if (!ruleDocument.contains("frame") || !ruleDocument["frame"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation grp_frame_to_png requires integer field: frame";
+                    return std::nullopt;
+                }
+
+                rule.frame = ruleDocument["frame"].get<int>();
+
+                if (rule.frame < 0) {
+                    error = "Manifest rule '" + rule.id + "' has a negative frame index";
+                    return std::nullopt;
+                }
+            } else if (ruleDocument.contains("frame")) {
+                error = "Manifest rule '" + rule.id + "' field frame is only valid for grp_frame_to_png";
+                return std::nullopt;
+            }
+
+            if (rule.operation == ManifestOperation::GrpFramesToPng) {
+                if (!ruleDocument.contains("frames") || !ruleDocument["frames"].is_array() || ruleDocument["frames"].empty()) {
+                    error = "Manifest rule '" + rule.id + "' operation grp_frames_to_png requires non-empty array field: frames";
+                    return std::nullopt;
+                }
+
+                for (const auto &frameDocument : ruleDocument["frames"]) {
+                    if (!frameDocument.is_number_integer()) {
+                        error = "Manifest rule '" + rule.id + "' field frames must contain only integers";
+                        return std::nullopt;
+                    }
+
+                    const int frame = frameDocument.get<int>();
+
+                    if (frame < 0) {
+                        error = "Manifest rule '" + rule.id + "' has a negative frame index";
+                        return std::nullopt;
+                    }
+
+                    rule.frames.push_back(frame);
+                }
+            } else if (ruleDocument.contains("frames")) {
+                error = "Manifest rule '" + rule.id + "' field frames is only valid for grp_frames_to_png";
                 return std::nullopt;
             }
 

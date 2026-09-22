@@ -5,6 +5,7 @@
 #define MANIFEST_RULE_H
 
 #include <string>
+#include <vector>
 
 enum class ManifestRuleKind
 {
@@ -14,6 +15,8 @@ enum class ManifestRuleKind
 enum class ManifestOperation
 {
     Extract,
+    GrpFrameToPng,
+    GrpFramesToPng,
     GrpToPng,
     PcxToPng,
     TilesetToLua,
@@ -34,6 +37,8 @@ struct ManifestRule
 
     std::string palette;
     bool rgba = false;
+    int frame = -1;
+    std::vector<int> frames;
 
     std::string output;
 };

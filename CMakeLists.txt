@@ -430,6 +430,8 @@ add_executable(
     tools/startool/converters/PcxToPngConverter.cpp
     tools/startool/converters/TilesetToLuaConverter.cpp
     tools/startool/converters/TilesetToPngConverter.cpp
+    tools/startool/converters/GrpFrameToPngConverter.cpp
+    tools/startool/converters/GrpFramesToPngConverter.cpp
     tools/startool/converters/GrpToPngConverter.cpp
     tools/startool/formats/PcxDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp

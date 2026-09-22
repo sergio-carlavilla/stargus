@@ -4,6 +4,8 @@
 #include "ImportExecutor.h"
 
 #include "SourceReader.h"
+#include "converters/GrpFrameToPngConverter.h"
+#include "converters/GrpFramesToPngConverter.h"
 #include "converters/GrpToPngConverter.h"
 #include "converters/PcxToPngConverter.h"
 #include "converters/TilesetToLuaConverter.h"
@@ -12,6 +14,7 @@
 
 #include <system_error>
 #include <variant>
+#include <vector>
 
 namespace
 {
@@ -291,6 +294,65 @@ bool ImportExecutor::execute(
         case ManifestOperation::Extract:
             break;
 
+        case ManifestOperation::GrpFrameToPng: {
+            const auto palette = palettes.find(task.palette);
+
+            if (palette == palettes.end()) {
+                error = "Palette not loaded for task '" + task.id + "': " + task.palette;
+                break;
+            }
+
+            const Palette *palette1D = std::get_if<Palette>(&palette->second);
+            if (palette1D == nullptr) {
+                error = "GRP frame conversion requires a one-dimensional palette for task '" + task.id + "': " + task.palette;
+                break;
+            }
+
+            GrpFrameToPngConverter converter;
+            converted = converter.convert(
+                stagedPath,
+                destination,
+                *palette1D,
+                static_cast<std::size_t>(task.frame),
+                task.rgba,
+                error
+            );
+            break;
+        }
+
+        case ManifestOperation::GrpFramesToPng: {
+            const auto palette = palettes.find(task.palette);
+
+            if (palette == palettes.end()) {
+                error = "Palette not loaded for task '" + task.id + "': " + task.palette;
+                break;
+            }
+
+            const Palette *palette1D = std::get_if<Palette>(&palette->second);
+            if (palette1D == nullptr) {
+                error = "GRP frames conversion requires a one-dimensional palette for task '" + task.id + "': " + task.palette;
+                break;
+            }
+
+            std::vector<std::size_t> frameIndices;
+            frameIndices.reserve(task.frames.size());
+
+            for (const int frame : task.frames) {
+                frameIndices.push_back(static_cast<std::size_t>(frame));
+            }
+
+            GrpFramesToPngConverter converter;
+            converted = converter.convert(
+                stagedPath,
+                destination,
+                *palette1D,
+                frameIndices,
+                task.rgba,
+                error
+            );
+            break;
+        }
+
         case ManifestOperation::GrpToPng: {
             const auto palette = palettes.find(task.palette);
 
@@ -300,7 +362,18 @@ bool ImportExecutor::execute(
             }
 
             GrpToPngConverter converter;
-            converted = std::visit([&](const auto &loadedPalette){ return converter.convert(stagedPath, destination, loadedPalette, task.rgba, error); }, palette->second
+            converted = std::visit(
+                [&](const auto &loadedPalette)
+                {
+                    return converter.convert(
+                        stagedPath,
+                        destination,
+                        loadedPalette,
+                        task.rgba,
+                        error
+                    );
+                },
+                palette->second
             );
             break;
         }
@@ -325,12 +398,7 @@ bool ImportExecutor::execute(
     std::filesystem::remove(stagedPath, filesystemError);
 
     if (filesystemError) {
-        error =
-            "Could not remove staged resource for task '" +
-            task.id +
-            "': " +
-            filesystemError.message();
-
+        error = "Could not remove staged resource for task '" + task.id + "': " + filesystemError.message();
         return false;
     }
 
