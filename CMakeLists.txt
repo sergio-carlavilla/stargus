@@ -462,10 +462,17 @@ add_executable(
     tools/startool/converters/GrpToPngConverter.cpp
     tools/startool/converters/ImageAssetResolver.cpp
     tools/startool/converters/ImageLuaWriter.cpp
+    tools/startool/converters/UnitDataResolver.cpp
+    tools/startool/converters/UnitLuaWriter.cpp
     tools/startool/formats/PcxDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp
     tools/startool/formats/ImagesDatDecoder.cpp
     tools/startool/formats/TblDecoder.cpp
+    tools/startool/formats/UnitsDatDecoder.cpp
+    tools/startool/formats/FlingyDatDecoder.cpp
+    tools/startool/formats/SpritesDatDecoder.cpp
+    tools/startool/formats/PortDataDecoder.cpp
+    tools/startool/formats/SfxDataDecoder.cpp
     tools/startool/palette/Pcx2DPaletteLoader.cpp
     tools/startool/palette/PcxPaletteLoader.cpp
     tools/startool/palette/WpePaletteLoader.cpp
@@ -695,6 +702,30 @@ if(BUILD_TESTING)
         )
     endif()
 
+    add_executable(
+        Startool4UnitLuaWriterTest
+        tests/startool4/UnitLuaWriterTest.cpp
+        tools/startool/converters/UnitLuaWriter.cpp
+    )
+
+    target_include_directories(
+        Startool4UnitLuaWriterTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME Startool4UnitLuaWriterTest
+        COMMAND Startool4UnitLuaWriterTest
+    )
+
+    set_tests_properties(
+        Startool4UnitLuaWriterTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool4;unit"
+    )
+
     if(STARTOOL4_ENABLE_STARTOOL3_COMPAT_TESTS)
         if(NOT STARTOOL4_STARCRAFT_DIR)
             message(
@@ -808,6 +839,7 @@ set(STARGUS_WARNING_TARGETS
     json_transition
     LuaTest
     StartoolUnitTest
+    Startool4UnitLuaWriterTest
     Startool4ImageAssetsParityTest
     Startool4ImageAssetsLuaParityTest
     Startool4ImageAssetsCoverageReport

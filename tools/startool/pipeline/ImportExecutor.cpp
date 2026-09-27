@@ -9,6 +9,8 @@
 #include "converters/GrpToPngConverter.h"
 #include "converters/ImageAssetResolver.h"
 #include "converters/ImageLuaWriter.h"
+#include "converters/UnitDataResolver.h"
+#include "converters/UnitLuaWriter.h"
 #include "converters/PcxToPngConverter.h"
 #include "converters/TilesetToLuaConverter.h"
 #include "converters/TilesetToPngConverter.h"
@@ -375,6 +377,118 @@ bool ImportExecutor::execute(
         return true;
     }
 
+    if (task.operation == ManifestOperation::UnitLua) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error = "No source reader registered for task '" + task.id + "': " + task.source;
+            return false;
+        }
+
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+
+        std::vector<std::filesystem::path> stagedPaths;
+
+        auto cleanupStaged = [&]()
+        {
+            std::error_code cleanupError;
+
+            for (auto iterator = stagedPaths.rbegin(); iterator != stagedPaths.rend(); ++iterator) {
+                cleanupError.clear();
+                std::filesystem::remove(*iterator, cleanupError);
+                removeEmptyDirectories(iterator->parent_path(), stagingRoot);
+            }
+        };
+
+        auto stageInput = [&](const std::string &input, std::filesystem::path &stagedPath)
+        {
+            ImportTask inputTask = task;
+            inputTask.input = input;
+
+            if (!stage(inputTask, readers, stagingRoot, stagedPath, error)) {
+                return false;
+            }
+
+            stagedPaths.push_back(stagedPath);
+            return true;
+        };
+
+        UnitDataFiles files;
+
+        if (!stageInput(task.input, files.unitsDat)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/flingy.dat", files.flingyDat)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/sprites.dat", files.spritesDat)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/images.dat", files.imagesDat)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/images.tbl", files.imagesTbl)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/portdata.dat", files.portdataDat)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/portdata.tbl", files.portdataTbl)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/sfxdata.dat", files.sfxdataDat)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("arr/sfxdata.tbl", files.sfxdataTbl)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!stageInput("rez/stat_txt.tbl", files.statTxtTbl)) {
+            cleanupStaged();
+            return false;
+        }
+
+        UnitMetadata metadata;
+        UnitDataResolver resolver;
+
+        if (!resolver.resolve(files, static_cast<std::size_t>(task.unit), task.ident, metadata, error)) {
+            cleanupStaged();
+            return false;
+        }
+
+        UnitLuaWriter writer;
+
+        if (!writer.write(metadata, destination, error)) {
+            std::error_code cleanupError;
+            std::filesystem::remove(destination, cleanupError);
+
+            cleanupStaged();
+            return false;
+        }
+
+        cleanupStaged();
+
+        outputPath = destination;
+        return true;
+    }
+
     if (task.operation == ManifestOperation::TilesetToLua) {
         const SourceReader *reader = readers.find(task.source);
 
@@ -607,6 +721,7 @@ bool ImportExecutor::execute(
 
         case ManifestOperation::TilesetToLua:
         case ManifestOperation::TilesetToPng:
+        case ManifestOperation::UnitLua:
             break;
 
         case ManifestOperation::WavToOgg: {

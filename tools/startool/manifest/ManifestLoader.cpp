@@ -392,6 +392,8 @@ std::optional<Manifest> ManifestLoader::load(
                 "frames",
                 "table",
                 "image",
+                "unit",
+                "ident",
                 "output"
             };
 
@@ -429,6 +431,8 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::TilesetToLua;
             } else if (operation == "tileset_to_png") {
                 rule.operation = ManifestOperation::TilesetToPng;
+            } else if (operation == "unit_lua") {
+                rule.operation = ManifestOperation::UnitLua;
             } else if (operation == "wav_to_ogg") {
                 rule.operation = ManifestOperation::WavToOgg;
             } else {
@@ -568,6 +572,41 @@ std::optional<Manifest> ManifestLoader::load(
                 }
 
                 rule.output = ruleDocument["output"].get<std::string>();
+            }
+
+            if (rule.operation == ManifestOperation::UnitLua) {
+                if (!ruleDocument.contains("unit") || !ruleDocument["unit"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation unit_lua requires integer field: unit";
+                    return std::nullopt;
+                }
+
+                if (!ruleDocument.contains("ident") || !ruleDocument["ident"].is_string()) {
+                    error = "Manifest rule '" + rule.id + "' operation unit_lua requires string field: ident";
+                    return std::nullopt;
+                }
+
+                rule.unit = ruleDocument["unit"].get<int>();
+                rule.ident = ruleDocument["ident"].get<std::string>();
+
+                if (rule.unit < 0) {
+                    error = "Manifest rule '" + rule.id + "' has a negative unit index";
+                    return std::nullopt;
+                }
+
+                if (rule.ident.empty()) {
+                    error = "Manifest rule '" + rule.id + "' has an empty unit ident";
+                    return std::nullopt;
+                }
+            } else {
+                if (ruleDocument.contains("unit")) {
+                    error = "Manifest rule '" + rule.id + "' field unit is only valid for unit_lua";
+                    return std::nullopt;
+                }
+
+                if (ruleDocument.contains("ident")) {
+                    error = "Manifest rule '" + rule.id + "' field ident is only valid for unit_lua";
+                    return std::nullopt;
+                }
             }
 
             if (rule.id.empty()) {

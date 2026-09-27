@@ -24,6 +24,8 @@ std::vector<ImportTask> ImportPlanner::plan(const Manifest &manifest) const
                 task.frames = rule.frames;
                 task.table = rule.table;
                 task.image = rule.image;
+                task.unit = rule.unit;
+                task.ident = rule.ident;
                 task.output = rule.output;
 
                 tasks.push_back(

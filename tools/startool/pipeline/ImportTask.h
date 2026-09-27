@@ -25,6 +25,9 @@ struct ImportTask
     std::string table;
     int image = -1;
 
+    int unit = -1;
+    std::string ident;
+
     std::string output;
 };
 

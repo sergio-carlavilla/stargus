@@ -39,6 +39,16 @@
       "palette": "ashworld",
       "rgba": false,
       "output": "graphics/tilesets/ashworld/creep.png"
+    },
+    {
+      "id": "unit-terran-marine-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/units.dat",
+      "operation": "unit_lua",
+      "unit": 0,
+      "ident": "unit-terran-marine",
+      "output": "luagen/units/unit-terran-marine.lua"
     }
   ]
 }
