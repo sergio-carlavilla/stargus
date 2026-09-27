@@ -15,6 +15,7 @@ enum class ManifestRuleKind
 enum class ManifestOperation
 {
     Extract,
+    FontToPng,
     GrpFrameToPng,
     GrpFramesToPng,
     GrpToPng,

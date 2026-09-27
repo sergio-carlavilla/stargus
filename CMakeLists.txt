@@ -455,6 +455,7 @@ add_executable(
     tools/startool/pipeline/ImportExecutor.cpp
     tools/startool/converters/WavToOggConverter.cpp
     tools/startool/converters/PcxToPngConverter.cpp
+    tools/startool/converters/FontToPngConverter.cpp
     tools/startool/converters/TilesetToLuaConverter.cpp
     tools/startool/converters/TilesetToPngConverter.cpp
     tools/startool/converters/GrpFrameToPngConverter.cpp
@@ -468,6 +469,7 @@ add_executable(
     tools/startool/converters/ChkLuaWriter.cpp
     tools/startool/converters/TextToUtf8Converter.cpp
     tools/startool/formats/PcxDecoder.cpp
+    tools/startool/formats/FontDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp
     tools/startool/formats/ImagesDatDecoder.cpp
     tools/startool/formats/TblDecoder.cpp

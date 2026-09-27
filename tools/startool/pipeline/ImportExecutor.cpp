@@ -4,6 +4,7 @@
 #include "ImportExecutor.h"
 
 #include "SourceReader.h"
+#include "converters/FontToPngConverter.h"
 #include "converters/GrpFrameToPngConverter.h"
 #include "converters/GrpFramesToPngConverter.h"
 #include "converters/GrpToPngConverter.h"
@@ -845,6 +846,30 @@ bool ImportExecutor::execute(
     switch (task.operation) {
         case ManifestOperation::Extract:
             break;
+
+        case ManifestOperation::FontToPng: {
+            const auto palette = palettes.find(task.palette);
+
+            if (palette == palettes.end()) {
+                error = "Palette not loaded for task '" + task.id + "': " + task.palette;
+                break;
+            }
+
+            const Palette *palette1D = std::get_if<Palette>(&palette->second);
+            if (palette1D == nullptr) {
+                error = "Font conversion requires a one-dimensional palette for task '" + task.id + "': " + task.palette;
+                break;
+            }
+
+            FontToPngConverter converter;
+            converted = converter.convert(
+                stagedPath,
+                destination,
+                *palette1D,
+                error
+            );
+            break;
+        }
 
         case ManifestOperation::GrpFrameToPng: {
             const auto palette = palettes.find(task.palette);

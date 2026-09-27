@@ -500,6 +500,8 @@ std::optional<Manifest> ManifestLoader::load(
 
             if (operation == "extract") {
                 rule.operation = ManifestOperation::Extract;
+            } else if (operation == "font_to_png") {
+                rule.operation = ManifestOperation::FontToPng;
             } else if (operation == "chk_to_map") {
                 rule.operation = ManifestOperation::ChkToMap;
             } else if (operation == "grp_frame_to_png") {
@@ -532,6 +534,7 @@ std::optional<Manifest> ManifestLoader::load(
             }
 
             const bool operationUsesPalette =
+                rule.operation == ManifestOperation::FontToPng ||
                 rule.operation == ManifestOperation::GrpFrameToPng ||
                 rule.operation == ManifestOperation::GrpFramesToPng ||
                 rule.operation == ManifestOperation::GrpToPng ||
@@ -555,7 +558,7 @@ std::optional<Manifest> ManifestLoader::load(
                     return std::nullopt;
                 }
             } else if (ruleDocument.contains("palette")) {
-                error = "Manifest rule '" + rule.id + "' field palette is only valid for grp_frame_to_png, grp_frames_to_png, grp_to_png and tileset_to_png";
+                error = "Manifest rule '" + rule.id + "' field palette is only valid for font_to_png, grp_frame_to_png, grp_frames_to_png, grp_to_png and tileset_to_png";
                 return std::nullopt;
             }
 

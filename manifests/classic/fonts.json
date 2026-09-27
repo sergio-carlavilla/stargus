@@ -1,0 +1,89 @@
+{
+  "palettes": [
+    {
+      "id": "tfontgam",
+      "kind": "pcx",
+      "source": "game",
+      "input": "game/tfontgam.pcx",
+      "mapping": {
+        "length": 8,
+        "start": 1,
+        "index": 0
+      }
+    }
+  ],
+  "rules": [
+    {
+      "id": "font-font8",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font8.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font8.png"
+    },
+    {
+      "id": "font-font10",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font10.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font10.png"
+    },
+    {
+      "id": "font-font12",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font12.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font12.png"
+    },
+    {
+      "id": "font-font14",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font14.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font14.png"
+    },
+    {
+      "id": "font-font16",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font16.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font16.png"
+    },
+    {
+      "id": "font-font16x",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font16x.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font16x.png"
+    },
+    {
+      "id": "font-font32",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font32.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font32.png"
+    },
+    {
+      "id": "font-font50",
+      "kind": "exact",
+      "source": "installer",
+      "input": "files/font/font50.fnt",
+      "operation": "font_to_png",
+      "palette": "tfontgam",
+      "output": "graphics/ui/fonts/font50.png"
+    }
+  ]
+}
