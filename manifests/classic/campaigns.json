@@ -1,0 +1,780 @@
+{
+  "rules": [
+    {
+      "id": "campaign-image-campaigns-terran-palta-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/PalTA/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/palta-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-palta-terrana",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palta/TerranA.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/palta-terrana.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-palta-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palta/tfont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/palta-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-paltb-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/paltb/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/paltb-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-paltb-terranb",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/paltb/TerranB.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/paltb-terranb.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-paltb-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/paltb/tfont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/paltb-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-paltc-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/paltc/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/paltc-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-paltc-terranc",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/paltc/TerranC.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/paltc-terranc.png"
+    },
+    {
+      "id": "campaign-image-campaigns-terran-paltc-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/paltc/tfont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/terran/paltc-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palza-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palza/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palza-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palza-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palza/tFont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palza-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palza-zerga",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palza/ZergA.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palza-zerga.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palzb-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palzb/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palzb-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palzb-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palzb/tFont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palzb-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palzb-zergb",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palzb/ZergB.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palzb-zergb.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palzc-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palzc/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palzc-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palzc-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palzc/tfont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palzc-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-zerg-palzc-zergc",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palzc/ZergC.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/zerg/palzc-zergc.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpa-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpa/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpa-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpa-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpa/tFont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpa-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpa-protossa",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpa/protossa.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpa-protossa.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpb-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpb/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpb-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpb-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpb/tFont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpb-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpb-protossb",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpb/protossb.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpb-protossb.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpc-blank",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpc/Blank.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpc-blank.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpc-tfont",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpc/tfont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpc-tfont.png"
+    },
+    {
+      "id": "campaign-image-campaigns-protoss-palpc-protossc",
+      "kind": "exact",
+      "source": "installer",
+      "input": "glue/palpc/protossc.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/campaigns/protoss/palpc-protossc.png"
+    },
+    {
+      "id": "campaign-terran-tutorial",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/tutorial/scenario."
+    },
+    {
+      "id": "campaign-terran-01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/01/scenario."
+    },
+    {
+      "id": "campaign-terran-02",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/02/scenario."
+    },
+    {
+      "id": "campaign-terran-03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/03/scenario."
+    },
+    {
+      "id": "campaign-terran-04",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/04/scenario."
+    },
+    {
+      "id": "campaign-terran-05",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/05/scenario."
+    },
+    {
+      "id": "campaign-terran-06",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/06/scenario."
+    },
+    {
+      "id": "campaign-terran-07",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/07/scenario."
+    },
+    {
+      "id": "campaign-terran-08",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/08/scenario."
+    },
+    {
+      "id": "campaign-terran-09",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/09/scenario."
+    },
+    {
+      "id": "campaign-terran-10",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/10/scenario."
+    },
+    {
+      "id": "campaign-terran-11",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/11/scenario."
+    },
+    {
+      "id": "campaign-terran-12",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/terran/12/scenario."
+    },
+    {
+      "id": "campaign-zerg-tutorial",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/tutorial/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/tutorial/scenario."
+    },
+    {
+      "id": "campaign-zerg-01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/01/scenario."
+    },
+    {
+      "id": "campaign-zerg-02",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/02/scenario."
+    },
+    {
+      "id": "campaign-zerg-03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/03/scenario."
+    },
+    {
+      "id": "campaign-zerg-04",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/04/scenario."
+    },
+    {
+      "id": "campaign-zerg-05",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/05/scenario."
+    },
+    {
+      "id": "campaign-zerg-06",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/06/scenario."
+    },
+    {
+      "id": "campaign-zerg-07",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/07/scenario."
+    },
+    {
+      "id": "campaign-zerg-08",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/08/scenario."
+    },
+    {
+      "id": "campaign-zerg-09",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/09/scenario."
+    },
+    {
+      "id": "campaign-zerg-10",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/zerg/10/scenario."
+    },
+    {
+      "id": "campaign-protoss-tutorial",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/tutorial/scenario."
+    },
+    {
+      "id": "campaign-protoss-01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/01/scenario."
+    },
+    {
+      "id": "campaign-protoss-02",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/02/scenario."
+    },
+    {
+      "id": "campaign-protoss-03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/03/scenario."
+    },
+    {
+      "id": "campaign-protoss-04",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/04/scenario."
+    },
+    {
+      "id": "campaign-protoss-05",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/05/scenario."
+    },
+    {
+      "id": "campaign-protoss-06",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/06/scenario."
+    },
+    {
+      "id": "campaign-protoss-07",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/07/scenario."
+    },
+    {
+      "id": "campaign-protoss-08",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/08/scenario."
+    },
+    {
+      "id": "campaign-protoss-09",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/09/scenario."
+    },
+    {
+      "id": "campaign-protoss-10",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/protoss/10/scenario."
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt0t-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT0t.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT0t.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt01-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT01.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT01.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt02-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT02.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT02.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt03-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT03.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT03.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt04-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT04.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT04.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt05-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT05.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT05.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt06-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT06.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT06.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt07-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT07.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT07.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt08-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT08.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT08.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt09-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT09.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT09.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt10-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT10.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT10.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt11-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT11.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT11.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-terran-estt12-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstT12.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/terran/EstT12.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz0t-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ0t.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ0t.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz01-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ01.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ01.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz02-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ02.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ02.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz03-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ03.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ03.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz04-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ04.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ04.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz05-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ05.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ05.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz06-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ06.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ06.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz07-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ07.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ07.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz08-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ08.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ08.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz09-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ09.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ09.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-zerg-estz10-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstZ10.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/zerg/EstZ10.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp0t-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP0t.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP0t.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp01-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP01.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP01.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp02-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP02.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP02.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp03-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP03.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP03.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp04-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP04.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP04.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp05-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP05.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP05.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp06-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP06.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP06.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp07-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP07.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP07.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp08-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP08.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP08.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp09-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP09.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP09.txt"
+    },
+    {
+      "id": "campaign-text-campaigns-protoss-estp10-txt",
+      "kind": "exact",
+      "source": "installer",
+      "input": "rez/EstP10.txt",
+      "operation": "text_to_utf8",
+      "output": "campaigns/protoss/EstP10.txt"
+    }
+  ]
+}

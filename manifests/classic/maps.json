@@ -1,0 +1,484 @@
+{
+  "rules": [
+    {
+      "id": "map-2-challenger",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(2)Challenger.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(2)Challenger."
+    },
+    {
+      "id": "map-2-river-crossing",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(2)River Crossing.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(2)River Crossing."
+    },
+    {
+      "id": "map-2-road-war",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(2)Road War.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(2)Road War."
+    },
+    {
+      "id": "map-2-space-madness",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(2)Space Madness.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(2)Space Madness."
+    },
+    {
+      "id": "map-2-the-small-divide",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(2)The Small Divide.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(2)The Small Divide."
+    },
+    {
+      "id": "map-2-volcanis",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(2)Volcanis.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(2)Volcanis."
+    },
+    {
+      "id": "map-3-holy-ground",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(3)Holy Ground.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(3)Holy Ground."
+    },
+    {
+      "id": "map-3-meltdown",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(3)Meltdown.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(3)Meltdown."
+    },
+    {
+      "id": "map-3-three-kingdoms",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(3)Three Kingdoms.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(3)Three Kingdoms."
+    },
+    {
+      "id": "map-3-triumvirate",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(3)Triumvirate.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(3)Triumvirate."
+    },
+    {
+      "id": "map-4-alpha-draconis",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Alpha Draconis.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Alpha Draconis."
+    },
+    {
+      "id": "map-4-bridge-too-near",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Bridge Too Near.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Bridge Too Near."
+    },
+    {
+      "id": "map-4-cyclone",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Cyclone.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Cyclone."
+    },
+    {
+      "id": "map-4-dark-crystal",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Dark Crystal.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Dark Crystal."
+    },
+    {
+      "id": "map-4-dark-star",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Dark Star.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Dark Star."
+    },
+    {
+      "id": "map-4-lost-civilization",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Lost Civilization.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Lost Civilization."
+    },
+    {
+      "id": "map-4-opposing-city-states-98",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Opposing City States '98.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Opposing City States '98."
+    },
+    {
+      "id": "map-4-orbital-relay",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Orbital Relay.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Orbital Relay."
+    },
+    {
+      "id": "map-4-power-lines",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Power Lines.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Power Lines."
+    },
+    {
+      "id": "map-4-ruins-of-the-ancients",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Ruins of the Ancients.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Ruins of the Ancients."
+    },
+    {
+      "id": "map-4-tarsonis-orbital",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(4)Tarsonis Orbital.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(4)Tarsonis Orbital."
+    },
+    {
+      "id": "map-5-diablo",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(5)Diablo.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(5)Diablo."
+    },
+    {
+      "id": "map-5-island-hop",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(5)Island Hop.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(5)Island Hop."
+    },
+    {
+      "id": "map-5-jeweled-river",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(5)Jeweled River.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(5)Jeweled River."
+    },
+    {
+      "id": "map-5-sherwood-forest",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(5)Sherwood Forest.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(5)Sherwood Forest."
+    },
+    {
+      "id": "map-6-ground-zero",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(6)Ground Zero.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(6)Ground Zero."
+    },
+    {
+      "id": "map-6-hidden-shrine",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(6)Hidden Shrine.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(6)Hidden Shrine."
+    },
+    {
+      "id": "map-6-new-gettysburg",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(6)New Gettysburg.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(6)New Gettysburg."
+    },
+    {
+      "id": "map-7-continental-divide",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(7)Continental Divide.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(7)Continental Divide."
+    },
+    {
+      "id": "map-7-river-war",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(7)River War.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(7)River War."
+    },
+    {
+      "id": "map-8-bridge-to-bridge-98",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Bridge to Bridge '98.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Bridge to Bridge '98."
+    },
+    {
+      "id": "map-8-char-magma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Char Magma.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Char Magma."
+    },
+    {
+      "id": "map-8-homeworld",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Homeworld.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Homeworld."
+    },
+    {
+      "id": "map-8-killing-fields",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Killing Fields.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Killing Fields."
+    },
+    {
+      "id": "map-8-orbital-death",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Orbital Death.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Orbital Death."
+    },
+    {
+      "id": "map-8-plains-of-snow-98",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Plains of Snow '98.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Plains of Snow '98."
+    },
+    {
+      "id": "map-8-station-unrest",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)Station Unrest.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)Station Unrest."
+    },
+    {
+      "id": "map-8-the-hunters",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/(8)The Hunters.scm",
+      "operation": "scm_to_map",
+      "output": "maps/(8)The Hunters."
+    },
+    {
+      "id": "map-campaign-1enslavers01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/campaign/(1)enslavers01.scm",
+      "operation": "scm_to_map",
+      "output": "maps/campaign/(1)enslavers01."
+    },
+    {
+      "id": "map-campaign-1enslavers02a",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/campaign/(1)enslavers02a.scm",
+      "operation": "scm_to_map",
+      "output": "maps/campaign/(1)enslavers02a."
+    },
+    {
+      "id": "map-campaign-1enslavers02b",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/campaign/(1)enslavers02b.scm",
+      "operation": "scm_to_map",
+      "output": "maps/campaign/(1)enslavers02b."
+    },
+    {
+      "id": "map-campaign-1enslavers03a",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/campaign/(1)enslavers03a.scm",
+      "operation": "scm_to_map",
+      "output": "maps/campaign/(1)enslavers03a."
+    },
+    {
+      "id": "map-campaign-1enslavers03b",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/campaign/(1)enslavers03b.scm",
+      "operation": "scm_to_map",
+      "output": "maps/campaign/(1)enslavers03b."
+    },
+    {
+      "id": "map-ladder-2discovery",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(2)discovery.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(2)discovery."
+    },
+    {
+      "id": "map-ladder-2river-styx",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(2)river styx.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(2)river styx."
+    },
+    {
+      "id": "map-ladder-2solar-station",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(2)solar station.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(2)solar station."
+    },
+    {
+      "id": "map-ladder-4crusader",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(4)crusader.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(4)crusader."
+    },
+    {
+      "id": "map-ladder-4dire-straits",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(4)dire straits.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(4)dire straits."
+    },
+    {
+      "id": "map-ladder-4rivalry",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(4)rivalry.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(4)rivalry."
+    },
+    {
+      "id": "map-ladder-4lost-temple",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/ladder/(4)lost temple.scm",
+      "operation": "scm_to_map",
+      "output": "maps/ladder/(4)lost temple."
+    },
+    {
+      "id": "map-scenario-2pro-bowl",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(2)pro bowl.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(2)pro bowl."
+    },
+    {
+      "id": "map-scenario-2wakka-wakka",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(2)wakka wakka.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(2)wakka wakka."
+    },
+    {
+      "id": "map-scenario-3defenders-of-the-galaxy",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(3)defenders of the galaxy.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(3)defenders of the galaxy."
+    },
+    {
+      "id": "map-scenario-4king-of-the-hill",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(4)king of the hill.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(4)king of the hill."
+    },
+    {
+      "id": "map-scenario-4old-faithful",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(4)old faithful.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(4)old faithful."
+    },
+    {
+      "id": "map-scenario-4steal-the-bacon",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(4)steal the bacon.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(4)steal the bacon."
+    },
+    {
+      "id": "map-scenario-4zergling-round-up",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(4)zergling round-up.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(4)zergling round-up."
+    },
+    {
+      "id": "map-scenario-4zoo-keeper",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(4)zoo keeper.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(4)zoo keeper."
+    },
+    {
+      "id": "map-scenario-5race-of-death",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(5)race of death.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(5)race of death."
+    },
+    {
+      "id": "map-scenario-8starcraft-fortress",
+      "kind": "exact",
+      "source": "installer",
+      "input": "multimaps/scenario/(8)starcraft fortress.scm",
+      "operation": "scm_to_map",
+      "output": "maps/scenario/(8)starcraft fortress."
+    }
+  ]
+}

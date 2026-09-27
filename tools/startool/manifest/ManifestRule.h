@@ -19,9 +19,12 @@ enum class ManifestOperation
     GrpFramesToPng,
     GrpToPng,
     ImageAssets,
+    ChkToMap,
     PcxToPng,
+    ScmToMap,
     TilesetToLua,
     TilesetToPng,
+    TextToUtf8,
     UnitLua,
     UnitsLua,
     WavToOgg

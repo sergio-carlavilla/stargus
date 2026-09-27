@@ -9,6 +9,8 @@
 #include "converters/GrpToPngConverter.h"
 #include "converters/ImageAssetResolver.h"
 #include "converters/ImageLuaWriter.h"
+#include "converters/ChkLuaWriter.h"
+#include "converters/TextToUtf8Converter.h"
 #include "converters/UnitDataResolver.h"
 #include "converters/UnitLuaWriter.h"
 #include "converters/UnitsLuaWriter.h"
@@ -16,7 +18,9 @@
 #include "converters/TilesetToLuaConverter.h"
 #include "converters/TilesetToPngConverter.h"
 #include "converters/WavToOggConverter.h"
+#include "formats/ChkDecoder.h"
 #include "formats/GrpDecoder.h"
+#include "formats/ScmScenarioExtractor.h"
 
 #include <algorithm>
 #include <system_error>
@@ -601,6 +605,110 @@ bool ImportExecutor::execute(
         return true;
     }
 
+    if (task.operation == ManifestOperation::ChkToMap) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error = "No source reader registered for task '" + task.id + "': " + task.source;
+            return false;
+        }
+
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        std::filesystem::path stagedChk;
+
+        if (!stage(task, readers, stagingRoot, stagedChk, error)) {
+            return false;
+        }
+
+        auto cleanupChkStaging = [&]()
+        {
+            std::error_code cleanupError;
+            cleanupError.clear();
+            std::filesystem::remove(stagedChk, cleanupError);
+            removeEmptyDirectories(stagedChk.parent_path(), stagingRoot);
+        };
+
+        ChkMap map;
+        ChkDecoder decoder;
+        if (!decoder.decode(stagedChk, map, error)) {
+            cleanupChkStaging();
+            return false;
+        }
+
+        ChkLuaWriter writer;
+        if (!writer.write(map, task.units, destination, error)) {
+            cleanupChkStaging();
+            return false;
+        }
+
+        cleanupChkStaging();
+
+        outputPath = std::filesystem::path(destination.string() + "sms");
+
+        return true;
+    }
+
+    if (task.operation == ManifestOperation::ScmToMap) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error = "No source reader registered for task '" + task.id + "': " + task.source;
+            return false;
+        }
+
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        std::filesystem::path stagedScm;
+
+        if (!stage(task, readers, stagingRoot, stagedScm, error)) {
+            return false;
+        }
+
+        const std::filesystem::path scenarioDirectory = stagingRoot / ".scm" / task.id;
+
+        const std::filesystem::path scenarioChk = scenarioDirectory / "scenario.chk";
+
+        auto cleanupMapStaging = [&]()
+        {
+            std::error_code cleanupError;
+
+            cleanupError.clear();
+            std::filesystem::remove(scenarioChk, cleanupError);
+
+            removeEmptyDirectories(scenarioDirectory, stagingRoot);
+
+            cleanupError.clear();
+            std::filesystem::remove(stagedScm, cleanupError);
+
+            removeEmptyDirectories(stagedScm.parent_path(), stagingRoot);
+        };
+
+        ScmScenarioExtractor scenarioExtractor;
+        if (!scenarioExtractor.extract(stagedScm, scenarioChk, error)) {
+            cleanupMapStaging();
+            return false;
+        }
+
+        ChkMap map;
+        ChkDecoder decoder;
+        if (!decoder.decode(scenarioChk, map, error)) {
+            cleanupMapStaging();
+            return false;
+        }
+
+        ChkLuaWriter writer;
+
+        if (!writer.write(map, task.units, destination, error)) {
+            cleanupMapStaging();
+            return false;
+        }
+
+        cleanupMapStaging();
+
+        outputPath = std::filesystem::path(destination.string() + "sms");
+
+        return true;
+    }
+
     if (task.operation == ManifestOperation::TilesetToLua) {
         const SourceReader *reader = readers.find(task.source);
 
@@ -828,6 +936,18 @@ bool ImportExecutor::execute(
         case ManifestOperation::PcxToPng: {
             PcxToPngConverter converter;
             converted = converter.convert(stagedPath, destination, error);
+            break;
+        }
+
+        case ManifestOperation::ChkToMap:
+        case ManifestOperation::ScmToMap:
+        case ManifestOperation::TextToUtf8: {
+            TextToUtf8Converter converter;
+            converted = converter.convert(
+                stagedPath,
+                destination,
+                error
+            );
             break;
         }
 

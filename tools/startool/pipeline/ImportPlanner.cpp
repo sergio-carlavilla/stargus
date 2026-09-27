@@ -27,7 +27,11 @@ std::vector<ImportTask> ImportPlanner::plan(const Manifest &manifest) const
                 task.unit = rule.unit;
                 task.ident = rule.ident;
 
-                if (rule.operation == ManifestOperation::UnitsLua) {
+                if (
+                    rule.operation == ManifestOperation::UnitsLua ||
+                    rule.operation == ManifestOperation::ScmToMap ||
+                    rule.operation == ManifestOperation::ChkToMap
+                ) {
                     task.units = manifest.units;
                 }
 

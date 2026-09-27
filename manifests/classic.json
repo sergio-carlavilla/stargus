@@ -2,12 +2,14 @@
   "format_version": 1,
   "includes": [
     "classic/palettes.json",
-    "classic/images.json",
     "classic/audio.json",
     "classic/ui.json",
     "classic/units.json",
+    "classic/maps.json",
+    "classic/campaigns.json",
     "classic/tilesets.json",
     "classic/pcx.json",
-    "classic/widgets.json"
+    "classic/widgets.json",
+    "classic/images.json"
   ]
 }

@@ -465,6 +465,8 @@ add_executable(
     tools/startool/converters/UnitDataResolver.cpp
     tools/startool/converters/UnitLuaWriter.cpp
     tools/startool/converters/UnitsLuaWriter.cpp
+    tools/startool/converters/ChkLuaWriter.cpp
+    tools/startool/converters/TextToUtf8Converter.cpp
     tools/startool/formats/PcxDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp
     tools/startool/formats/ImagesDatDecoder.cpp
@@ -474,6 +476,8 @@ add_executable(
     tools/startool/formats/SpritesDatDecoder.cpp
     tools/startool/formats/PortDataDecoder.cpp
     tools/startool/formats/SfxDataDecoder.cpp
+    tools/startool/formats/ScmScenarioExtractor.cpp
+    tools/startool/formats/ChkDecoder.cpp
     tools/startool/palette/Pcx2DPaletteLoader.cpp
     tools/startool/palette/PcxPaletteLoader.cpp
     tools/startool/palette/WpePaletteLoader.cpp

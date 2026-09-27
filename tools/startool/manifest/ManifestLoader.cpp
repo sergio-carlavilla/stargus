@@ -500,6 +500,8 @@ std::optional<Manifest> ManifestLoader::load(
 
             if (operation == "extract") {
                 rule.operation = ManifestOperation::Extract;
+            } else if (operation == "chk_to_map") {
+                rule.operation = ManifestOperation::ChkToMap;
             } else if (operation == "grp_frame_to_png") {
                 rule.operation = ManifestOperation::GrpFrameToPng;
             } else if (operation == "grp_frames_to_png") {
@@ -510,10 +512,14 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::ImageAssets;
             } else if (operation == "pcx_to_png") {
                 rule.operation = ManifestOperation::PcxToPng;
+            } else if (operation == "scm_to_map") {
+                rule.operation = ManifestOperation::ScmToMap;
             } else if (operation == "tileset_to_lua") {
                 rule.operation = ManifestOperation::TilesetToLua;
             } else if (operation == "tileset_to_png") {
                 rule.operation = ManifestOperation::TilesetToPng;
+            } else if (operation == "text_to_utf8") {
+                rule.operation = ManifestOperation::TextToUtf8;
             } else if (operation == "unit_lua") {
                 rule.operation = ManifestOperation::UnitLua;
             } else if (operation == "units_lua") {
@@ -696,6 +702,16 @@ std::optional<Manifest> ManifestLoader::load(
 
             if (rule.operation == ManifestOperation::UnitsLua && manifest.units.empty()) {
                 error = "Manifest rule '" + rule.id + "' operation units_lua requires unit definitions in the manifest";
+                return std::nullopt;
+            }
+
+            if (rule.operation == ManifestOperation::ScmToMap && manifest.units.empty()) {
+                error = "Manifest rule '" + rule.id + "' operation scm_to_map requires unit definitions in the manifest";
+                return std::nullopt;
+            }
+
+            if (rule.operation == ManifestOperation::ChkToMap && manifest.units.empty()) {
+                error = "Manifest rule '" + rule.id + "' operation chk_to_map requires unit definitions in the manifest";
                 return std::nullopt;
             }
 
