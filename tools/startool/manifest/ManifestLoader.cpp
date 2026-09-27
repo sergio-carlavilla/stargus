@@ -367,8 +367,7 @@ std::optional<Manifest> ManifestLoader::load(
                 "kind",
                 "source",
                 "input",
-                "operation",
-                "output"
+                "operation"
             };
 
             for (const char *field : requiredFields) {
@@ -391,6 +390,8 @@ std::optional<Manifest> ManifestLoader::load(
                 "rgba",
                 "frame",
                 "frames",
+                "table",
+                "image",
                 "output"
             };
 
@@ -420,6 +421,8 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::GrpFramesToPng;
             } else if (operation == "grp_to_png") {
                 rule.operation = ManifestOperation::GrpToPng;
+            } else if (operation == "image_assets") {
+                rule.operation = ManifestOperation::ImageAssets;
             } else if (operation == "pcx_to_png") {
                 rule.operation = ManifestOperation::PcxToPng;
             } else if (operation == "tileset_to_lua") {
@@ -520,7 +523,52 @@ std::optional<Manifest> ManifestLoader::load(
                 return std::nullopt;
             }
 
-            rule.output = ruleDocument["output"].get<std::string>();
+            if (rule.operation == ManifestOperation::ImageAssets) {
+                if (!ruleDocument.contains("table") || !ruleDocument["table"].is_string()) {
+                    error = "Manifest rule '" + rule.id + "' operation image_assets requires string field: table";
+                    return std::nullopt;
+                }
+
+                if (!ruleDocument.contains("image") || !ruleDocument["image"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation image_assets requires integer field: image";
+                    return std::nullopt;
+                }
+
+                rule.table = ruleDocument["table"].get<std::string>();
+                rule.image = ruleDocument["image"].get<int>();
+
+                if (!isValidManifestPath(rule.table)) {
+                    error = "Manifest rule '" + rule.id + "' has an invalid table path: " + rule.table;
+                    return std::nullopt;
+                }
+
+                if (rule.image < 0) {
+                    error = "Manifest rule '" + rule.id + "' has a negative image index";
+                    return std::nullopt;
+                }
+
+                if (ruleDocument.contains("output")) {
+                    error = "Manifest rule '" + rule.id + "' image_assets output is derived from images.dat/images.tbl and must not be specified";
+                    return std::nullopt;
+                }
+            } else {
+                if (ruleDocument.contains("table")) {
+                    error = "Manifest rule '" + rule.id + "' field table is only valid for image_assets";
+                    return std::nullopt;
+                }
+
+                if (ruleDocument.contains("image")) {
+                    error = "Manifest rule '" + rule.id + "' field image is only valid for image_assets";
+                    return std::nullopt;
+                }
+
+                if (!ruleDocument.contains("output") || !ruleDocument["output"].is_string()) {
+                    error = "Manifest rule '" + rule.id + "' operation requires string field: output";
+                    return std::nullopt;
+                }
+
+                rule.output = ruleDocument["output"].get<std::string>();
+            }
 
             if (rule.id.empty()) {
                 error = "Manifest rule id cannot be empty";
@@ -537,7 +585,10 @@ std::optional<Manifest> ManifestLoader::load(
                 return std::nullopt;
             }
 
-            if (!isValidManifestPath(rule.output)) {
+            if (
+                rule.operation != ManifestOperation::ImageAssets &&
+                !isValidManifestPath(rule.output)
+            ) {
                 error = "Manifest rule '" + rule.id + "' has an invalid output path: " + rule.output;
                 return std::nullopt;
             }

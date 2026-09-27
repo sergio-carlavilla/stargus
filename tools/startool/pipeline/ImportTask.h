@@ -22,6 +22,9 @@ struct ImportTask
     int frame = -1;
     std::vector<int> frames;
 
+    std::string table;
+    int image = -1;
+
     std::string output;
 };
 

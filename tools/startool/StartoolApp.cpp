@@ -10,6 +10,7 @@
 #include "SourceDetector.h"
 #include "SourceReaderRegistry.h"
 #include "SourceReaderFactory.h"
+#include "converters/ImageAssetResolver.h"
 #include "manifest/ManifestLoader.h"
 #include "manifest/ManifestRule.h"
 #include "manifest/PaletteDefinition.h"
@@ -762,35 +763,122 @@ int StartoolApp::runVerify(int argc, char **argv) const
             }
         }
 
+        if (task.operation == ManifestOperation::TilesetToPng) {
+            const std::string vx4 = task.input + ".vx4";
+            const std::string vr4 = task.input + ".vr4";
+
+            if (!reader->contains(vx4)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << vx4 << '\n';
+                return 1;
+            }
+
+            if (!reader->contains(vr4)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << vr4 << '\n';
+                return 1;
+            }
+
+            continue;
+        }
+
         if (task.operation == ManifestOperation::TilesetToLua) {
-            const std::string cv5Input = task.input + ".cv5";
-            const std::string vf4Input = task.input + ".vf4";
+            const std::string cv5 = task.input + ".cv5";
+            const std::string vf4 = task.input + ".vf4";
 
-            if (!reader->contains(cv5Input)) {
-                std::cerr << "Task '" << task.id << "' references missing resource: " << cv5Input << '\n';
+            if (!reader->contains(cv5)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << cv5 << '\n';
                 return 1;
             }
 
-            if (!reader->contains(vf4Input)) {
-                std::cerr << "Task '" << task.id << "' references missing resource: " << vf4Input << '\n';
-                return 1;
-            }
-        } else if (task.operation == ManifestOperation::TilesetToPng) {
-            const std::string vx4Input = task.input + ".vx4";
-            const std::string vr4Input = task.input + ".vr4";
-
-            if (!reader->contains(vx4Input)) {
-                std::cerr << "Task '" << task.id << "' references missing resource: " << vx4Input << '\n';
+            if (!reader->contains(vf4)) {
+                std::cerr << "Task '" << task.id << "' references missing resource: " << vf4 << '\n';
                 return 1;
             }
 
-            if (!reader->contains(vr4Input)) {
-                std::cerr << "Task '" << task.id << "' references missing resource: " << vr4Input << '\n';
-                return 1;
-            }
-        } else if (!reader->contains(task.input)) {
+            continue;
+        }
+
+        if (!reader->contains(task.input)) {
             std::cerr << "Task '" << task.id << "' references missing resource: " << task.input << '\n';
             return 1;
+        }
+
+        if (task.operation == ManifestOperation::ImageAssets) {
+            if (!reader->contains(task.table)) {
+                std::cerr << "Task '" << task.id << "' references missing table: " << task.table << '\n';
+                return 1;
+            }
+
+            std::error_code tempError;
+            const std::filesystem::path tempDirectory = std::filesystem::temp_directory_path(tempError);
+
+            if (tempError) {
+                std::cerr << "Could not determine temporary directory: " << tempError.message() << '\n';
+                return 1;
+            }
+
+            const std::filesystem::path stagedImagesDat = tempDirectory / ("startool4-verify-" + task.id + "-images.dat");
+            const std::filesystem::path stagedImagesTbl = tempDirectory / ("startool4-verify-" + task.id + "-images.tbl");
+
+            std::filesystem::remove(stagedImagesDat, tempError);
+            tempError.clear();
+            std::filesystem::remove(stagedImagesTbl, tempError);
+            tempError.clear();
+
+            if (!reader->extract(task.input, stagedImagesDat)) {
+                std::cerr << "Task '" << task.id << "' could not stage images.dat for verification\n";
+                return 1;
+            }
+
+            if (!reader->extract(task.table, stagedImagesTbl)) {
+                std::filesystem::remove(stagedImagesDat, tempError);
+                std::cerr << "Task '" << task.id << "' could not stage images.tbl for verification\n";
+                return 1;
+            }
+
+            ImageAssetMetadata metadata;
+            ImageAssetResolver resolver;
+            std::string resolveError;
+
+            const bool resolved = resolver.resolve(
+                stagedImagesDat,
+                stagedImagesTbl,
+                static_cast<std::size_t>(task.image),
+                metadata,
+                resolveError
+            );
+
+            std::filesystem::remove(stagedImagesDat, tempError);
+            tempError.clear();
+            std::filesystem::remove(stagedImagesTbl, tempError);
+
+            if (!resolved) {
+                std::cerr << "Task '" << task.id << "' could not resolve image metadata: " << resolveError << '\n';
+                return 1;
+            }
+
+            if (!metadata.save) {
+                std::cerr << "Task '" << task.id << "' resolves to an image Startool 3 does not export\n";
+                return 1;
+            }
+
+            if (!reader->contains(metadata.grpInput)) {
+                std::cerr << "Task '" << task.id << "' resolved missing GRP: " << metadata.grpInput << '\n';
+                return 1;
+            }
+
+            const auto paletteDefinition = std::find_if(
+                manifest->palettes.begin(),
+                manifest->palettes.end(),
+                [&metadata](const PaletteDefinition &palette)
+                {
+                    return palette.id == metadata.palette;
+                }
+            );
+
+            if (paletteDefinition == manifest->palettes.end()) {
+                std::cerr << "Task '" << task.id << "' resolved unknown palette: " << metadata.palette << '\n';
+                return 1;
+            }
         }
     }
 

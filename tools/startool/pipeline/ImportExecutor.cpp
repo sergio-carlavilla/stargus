@@ -7,11 +7,15 @@
 #include "converters/GrpFrameToPngConverter.h"
 #include "converters/GrpFramesToPngConverter.h"
 #include "converters/GrpToPngConverter.h"
+#include "converters/ImageAssetResolver.h"
+#include "converters/ImageLuaWriter.h"
 #include "converters/PcxToPngConverter.h"
 #include "converters/TilesetToLuaConverter.h"
 #include "converters/TilesetToPngConverter.h"
 #include "converters/WavToOggConverter.h"
+#include "formats/GrpDecoder.h"
 
+#include <algorithm>
 #include <system_error>
 #include <variant>
 #include <vector>
@@ -108,6 +112,220 @@ bool ImportExecutor::execute(
     std::string &error
 ) const
 {
+    if (task.operation == ManifestOperation::ImageAssets) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error = "No source reader registered for task '" + task.id + "': " + task.source;
+            return false;
+        }
+
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+
+        ImportTask tableTask = task;
+        tableTask.input = task.table;
+
+        std::filesystem::path stagedImagesDat;
+        std::filesystem::path stagedImagesTbl;
+        std::filesystem::path stagedGrp;
+
+        auto cleanupStaged = [&]()
+        {
+            std::error_code cleanupError;
+
+            if (!stagedGrp.empty()) {
+                std::filesystem::remove(stagedGrp, cleanupError);
+                removeEmptyDirectories(stagedGrp.parent_path(), stagingRoot);
+            }
+
+            cleanupError.clear();
+
+            if (!stagedImagesTbl.empty()) {
+                std::filesystem::remove(stagedImagesTbl, cleanupError);
+                removeEmptyDirectories(stagedImagesTbl.parent_path(), stagingRoot);
+            }
+
+            cleanupError.clear();
+
+            if (!stagedImagesDat.empty()) {
+                std::filesystem::remove(stagedImagesDat, cleanupError);
+                removeEmptyDirectories(stagedImagesDat.parent_path(), stagingRoot);
+            }
+        };
+
+        if (!stage(task, readers, stagingRoot, stagedImagesDat, error)) {
+            return false;
+        }
+
+        if (!stage(tableTask, readers, stagingRoot, stagedImagesTbl, error)) {
+            cleanupStaged();
+            return false;
+        }
+
+        ImageAssetMetadata metadata;
+        ImageAssetResolver resolver;
+
+        if (!resolver.resolve(stagedImagesDat, stagedImagesTbl, static_cast<std::size_t>(task.image), metadata, error)) {
+            cleanupStaged();
+            return false;
+        }
+
+        if (!metadata.save) {
+            error = "Image " + std::to_string(task.image) + " is intentionally not exported by Startool legacy";
+
+            cleanupStaged();
+            return false;
+        }
+
+        const auto loadedPalette = palettes.find(metadata.palette);
+        if (loadedPalette == palettes.end()) {
+            error = "Palette not loaded for image " + std::to_string(task.image) + ": " + metadata.palette;
+
+            cleanupStaged();
+            return false;
+        }
+
+        if (!reader->contains(metadata.grpInput)) {
+            error = "Resolved GRP for image " + std::to_string(task.image) + " is missing: " + metadata.grpInput;
+
+            cleanupStaged();
+            return false;
+        }
+
+        ImportTask grpTask = task;
+        grpTask.input = metadata.grpInput;
+
+        if (!stage(grpTask, readers, stagingRoot, stagedGrp, error)) {
+            cleanupStaged();
+            return false;
+        }
+
+        const std::filesystem::path pngDestination = destinationRoot / std::filesystem::path(metadata.pngOutput);
+        const std::filesystem::path luaDestination = destinationRoot / std::filesystem::path(metadata.luaOutput);
+
+        std::error_code filesystemError;
+        const bool pngExists = std::filesystem::exists(pngDestination, filesystemError);
+
+        if (filesystemError) {
+            error = "Could not inspect image PNG destination for task '" + task.id + "': " + filesystemError.message();
+            cleanupStaged();
+            return false;
+        }
+
+        filesystemError.clear();
+        const bool luaExists = std::filesystem::exists(luaDestination, filesystemError);
+
+        if (filesystemError) {
+            error = "Could not inspect image Lua destination for task '" + task.id + "': " + filesystemError.message();
+            cleanupStaged();
+            return false;
+        }
+
+        if (luaExists) {
+            error = "Image Lua output destination already exists for task '" + task.id + "': " + luaDestination.string();
+            cleanupStaged();
+            return false;
+        }
+
+        std::filesystem::create_directories(pngDestination.parent_path(), filesystemError);
+        if (filesystemError) {
+            error = "Could not create image PNG output directory: " + filesystemError.message();
+            cleanupStaged();
+            return false;
+        }
+
+        std::filesystem::create_directories(luaDestination.parent_path(), filesystemError);
+        if (filesystemError) {
+            error = "Could not create image Lua output directory: " + filesystemError.message();
+            cleanupStaged();
+            return false;
+        }
+
+        GrpDecoder grpDecoder;
+        GrpImage grpImage;
+
+        if (!grpDecoder.decode(stagedGrp, grpImage, error)) {
+            cleanupStaged();
+            return false;
+        }
+
+        std::size_t tileWidth = grpImage.maximumWidth;
+        std::size_t tileHeight = grpImage.maximumHeight;
+
+        if (grpImage.uncompressed) {
+            tileWidth = 0;
+            tileHeight = 0;
+
+            for (const GrpFrame &frame : grpImage.frames) {
+                tileWidth = std::max(
+                    tileWidth,
+                    static_cast<std::size_t>(frame.xOffset) +
+                    static_cast<std::size_t>(frame.width)
+                );
+
+                tileHeight = std::max(
+                    tileHeight,
+                    static_cast<std::size_t>(frame.yOffset) +
+                    static_cast<std::size_t>(frame.height)
+                );
+            }
+        }
+
+        GrpToPngConverter grpConverter;
+        const bool pngConverted = std::visit(
+            [&](const auto &palette)
+            {
+                return grpConverter.convert(
+                    stagedGrp,
+                    pngDestination,
+                    palette,
+                    metadata.rgba,
+                    error
+                );
+            },
+            loadedPalette->second
+        );
+
+        if (!pngConverted) {
+            if (!pngExists) {
+                std::error_code cleanupError;
+                std::filesystem::remove(pngDestination, cleanupError);
+            }
+
+            cleanupStaged();
+            return false;
+        }
+
+        ImageLuaWriter luaWriter;
+        const bool luaWritten = luaWriter.write(
+            luaDestination,
+            metadata.luaId,
+            metadata.pngOutput,
+            tileWidth,
+            tileHeight,
+            metadata.gfxTurns ? 32 : 1,
+            error
+        );
+
+        if (!luaWritten) {
+            std::error_code cleanupError;
+
+            if (!pngExists) {
+                std::filesystem::remove(pngDestination, cleanupError);
+                cleanupError.clear();
+            }
+
+            std::filesystem::remove(luaDestination, cleanupError);
+            cleanupStaged();
+            return false;
+        }
+
+        cleanupStaged();
+
+        outputPath = pngDestination;
+        return true;
+    }
+
     const std::filesystem::path destination = destinationRoot / std::filesystem::path(task.output);
 
     std::error_code filesystemError;
@@ -377,6 +595,9 @@ bool ImportExecutor::execute(
             );
             break;
         }
+
+        case ManifestOperation::ImageAssets:
+            break;
 
         case ManifestOperation::PcxToPng: {
             PcxToPngConverter converter;

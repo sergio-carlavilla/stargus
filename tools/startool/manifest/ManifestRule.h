@@ -18,6 +18,7 @@ enum class ManifestOperation
     GrpFrameToPng,
     GrpFramesToPng,
     GrpToPng,
+    ImageAssets,
     PcxToPng,
     TilesetToLua,
     TilesetToPng,
@@ -39,6 +40,9 @@ struct ManifestRule
     bool rgba = false;
     int frame = -1;
     std::vector<int> frames;
+
+    std::string table;
+    int image = -1;
 
     std::string output;
 };
