@@ -3,6 +3,8 @@
   "includes": [
     "classic/palettes.json",
     "classic/fonts.json",
+    "classic/video.json",
+    "classic/portraits.json",
     "classic/audio.json",
     "classic/ui.json",
     "classic/units.json",

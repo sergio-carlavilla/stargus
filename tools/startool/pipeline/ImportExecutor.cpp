@@ -16,14 +16,20 @@
 #include "converters/UnitLuaWriter.h"
 #include "converters/UnitsLuaWriter.h"
 #include "converters/PcxToPngConverter.h"
+#include "converters/PortraitAssetResolver.h"
+#include "converters/PortraitLuaWriter.h"
 #include "converters/TilesetToLuaConverter.h"
 #include "converters/TilesetToPngConverter.h"
 #include "converters/WavToOggConverter.h"
+#include "converters/SmkToMngConverter.h"
+#include "converters/SmkToOgvConverter.h"
 #include "formats/ChkDecoder.h"
 #include "formats/GrpDecoder.h"
 #include "formats/ScmScenarioExtractor.h"
 
 #include <algorithm>
+#include <cctype>
+#include <map>
 #include <system_error>
 #include <variant>
 #include <vector>
@@ -331,6 +337,329 @@ bool ImportExecutor::execute(
         cleanupStaged();
 
         outputPath = pngDestination;
+        return true;
+    }
+
+    if (task.operation == ManifestOperation::PortraitAssets) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error = "No source reader registered for task '" + task.id + "': " + task.source;
+            return false;
+        }
+
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+
+        ImportTask tableTask = task;
+        tableTask.input = task.table;
+
+        std::filesystem::path stagedPortdataDat;
+        std::filesystem::path stagedPortdataTbl;
+
+        std::vector<std::filesystem::path> generatedFiles;
+
+        auto cleanupGenerated = [&]()
+        {
+            std::error_code cleanupError;
+
+            for (auto iterator = generatedFiles.rbegin(); iterator != generatedFiles.rend(); ++iterator) {
+                cleanupError.clear();
+                std::filesystem::remove(*iterator, cleanupError);
+            }
+        };
+
+        auto cleanupStagedMetadata = [&]()
+        {
+            std::error_code cleanupError;
+
+            if (!stagedPortdataTbl.empty()) {
+                std::filesystem::remove(stagedPortdataTbl, cleanupError);
+                removeEmptyDirectories(stagedPortdataTbl.parent_path(), stagingRoot);
+            }
+
+            cleanupError.clear();
+
+            if (!stagedPortdataDat.empty()) {
+                std::filesystem::remove(stagedPortdataDat, cleanupError);
+                removeEmptyDirectories(stagedPortdataDat.parent_path(), stagingRoot);
+            }
+        };
+
+        if (!stage(task, readers, stagingRoot, stagedPortdataDat, error)) {
+            return false;
+        }
+
+        if (!stage(tableTask, readers, stagingRoot, stagedPortdataTbl, error)) {
+            cleanupStagedMetadata();
+            return false;
+        }
+
+        std::vector<PortraitAssetMetadata> portraits;
+        PortraitAssetResolver resolver;
+
+        if (!resolver.resolve(
+            stagedPortdataDat,
+            stagedPortdataTbl,
+            portraits,
+            error
+        )) {
+            cleanupStagedMetadata();
+            return false;
+        }
+
+        SmkToMngConverter converter;
+        PortraitLuaWriter luaWriter;
+
+        std::vector<std::string> portraitLuaFiles;
+
+        // portdata.dat can reference the same portrait sequence more than once.
+        // Startool 3 simply rewrites the same MNG output. Startool 4 keeps one
+        // canonical conversion while preserving every reference in the Lua data.
+        std::map<std::string, std::string> generatedPortraitOutputs;
+        std::map<std::string, std::vector<std::string>> generatedPortraitLua;
+
+        auto normalizeResourceKey = [](std::string value)
+        {
+            std::replace(value.begin(), value.end(), '\\', '/');
+
+            std::transform(
+                value.begin(),
+                value.end(),
+                value.begin(),
+                [](unsigned char character)
+                {
+                    return static_cast<char>(std::tolower(character));
+                }
+            );
+
+            return value;
+        };
+
+        auto convertPortraitSequence = [&](
+            const std::string &inputBase,
+            const std::string &outputBase,
+            std::vector<std::string> &assets
+        )
+        {
+            for (int index = 0; index <= 3; ++index) {
+                const std::string smkInput =
+                    "portrait/" +
+                    inputBase +
+                    std::to_string(index) +
+                    ".smk";
+
+                if (!reader->contains(smkInput)) {
+                    break;
+                }
+
+                const std::string outputRelative =
+                    "videos/portrait/" +
+                    outputBase +
+                    std::to_string(index) +
+                    ".mng";
+
+                const std::string resourceKey =
+                    normalizeResourceKey(smkInput);
+
+                const auto generated =
+                    generatedPortraitOutputs.find(outputRelative);
+
+                if (generated != generatedPortraitOutputs.end()) {
+                    if (generated->second != resourceKey) {
+                        error =
+                            "Portrait MNG output '" +
+                            outputRelative +
+                            "' is produced by multiple SMK resources: " +
+                            generated->second +
+                            " and " +
+                            resourceKey;
+
+                        return false;
+                    }
+
+                    // Preserve the legacy Lua sequence even when the underlying
+                    // MNG has already been generated by this portrait task.
+                    assets.push_back(outputRelative);
+                    continue;
+                }
+
+                const std::filesystem::path destination =
+                    destinationRoot /
+                    std::filesystem::path(outputRelative);
+
+                std::error_code filesystemError;
+
+                if (std::filesystem::exists(destination, filesystemError)) {
+                    if (filesystemError) {
+                        error =
+                            "Could not inspect portrait MNG destination '" +
+                            destination.string() +
+                            "': " +
+                            filesystemError.message();
+                    } else {
+                        error =
+                            "Portrait MNG output already exists: " +
+                            destination.string();
+                    }
+
+                    return false;
+                }
+
+                const std::filesystem::path parentDirectory =
+                    destination.parent_path();
+
+                if (!parentDirectory.empty()) {
+                    std::filesystem::create_directories(
+                        parentDirectory,
+                        filesystemError
+                    );
+
+                    if (filesystemError) {
+                        error =
+                            "Could not create portrait MNG output directory: " +
+                            filesystemError.message();
+
+                        return false;
+                    }
+                }
+
+                ImportTask smkTask = task;
+                smkTask.input = smkInput;
+
+                std::filesystem::path stagedSmk;
+
+                if (!stage(
+                    smkTask,
+                    readers,
+                    stagingRoot,
+                    stagedSmk,
+                    error
+                )) {
+                    return false;
+                }
+
+                const bool converted = converter.convert(
+                    stagedSmk,
+                    destination,
+                    error
+                );
+
+                std::error_code cleanupError;
+                std::filesystem::remove(stagedSmk, cleanupError);
+                removeEmptyDirectories(stagedSmk.parent_path(), stagingRoot);
+
+                if (!converted) {
+                    std::filesystem::remove(destination, cleanupError);
+                    return false;
+                }
+
+                generatedPortraitOutputs.emplace(
+                    outputRelative,
+                    resourceKey
+                );
+
+                generatedFiles.push_back(destination);
+                assets.push_back(outputRelative);
+            }
+
+            return true;
+        };
+
+        for (const PortraitAssetMetadata &portrait : portraits) {
+            std::vector<std::string> assets;
+
+            if (!convertPortraitSequence(
+                portrait.idleInputBase,
+                portrait.idleOutputBase,
+                assets
+            )) {
+                cleanupGenerated();
+                cleanupStagedMetadata();
+                return false;
+            }
+
+            assets.push_back("talking");
+
+            if (!convertPortraitSequence(
+                portrait.talkingInputBase,
+                portrait.talkingOutputBase,
+                assets
+            )) {
+                cleanupGenerated();
+                cleanupStagedMetadata();
+                return false;
+            }
+
+            const std::string luaRelative =
+                "luagen/portrait/portrait-" +
+                portrait.id +
+                ".lua";
+
+            const std::filesystem::path luaDestination =
+                destinationRoot /
+                std::filesystem::path(luaRelative);
+
+            const auto generatedLua =
+                generatedPortraitLua.find(luaRelative);
+
+            if (generatedLua != generatedPortraitLua.end()) {
+                if (generatedLua->second != assets) {
+                    error =
+                        "Portrait Lua output '" +
+                        luaRelative +
+                        "' is defined more than once with different assets";
+
+                    cleanupGenerated();
+                    cleanupStagedMetadata();
+                    return false;
+                }
+
+                // Startool 3 rewrites the same portrait Lua file but still adds
+                // another Load(...) entry. Keep the loader sequence without
+                // rewriting an identical file.
+                portraitLuaFiles.push_back(luaRelative);
+                continue;
+            }
+
+            if (!luaWriter.writePortrait(
+                portrait.id,
+                assets,
+                luaDestination,
+                error
+            )) {
+                cleanupGenerated();
+                cleanupStagedMetadata();
+                return false;
+            }
+
+            generatedPortraitLua.emplace(
+                luaRelative,
+                assets
+            );
+
+            generatedFiles.push_back(luaDestination);
+            portraitLuaFiles.push_back(luaRelative);
+        }
+
+        const std::filesystem::path loaderDestination =
+            destinationRoot /
+            "luagen/portrait/luagen-portrait.lua";
+
+        if (!luaWriter.writeLoader(
+            portraitLuaFiles,
+            loaderDestination,
+            error
+        )) {
+            cleanupGenerated();
+            cleanupStagedMetadata();
+            return false;
+        }
+
+        generatedFiles.push_back(loaderDestination);
+
+        cleanupStagedMetadata();
+
+        outputPath = loaderDestination;
         return true;
     }
 
@@ -956,10 +1285,23 @@ bool ImportExecutor::execute(
         }
 
         case ManifestOperation::ImageAssets:
+        case ManifestOperation::PortraitAssets:
             break;
 
         case ManifestOperation::PcxToPng: {
             PcxToPngConverter converter;
+            converted = converter.convert(stagedPath, destination, error);
+            break;
+        }
+
+        case ManifestOperation::SmkToMng: {
+            SmkToMngConverter converter;
+            converted = converter.convert(stagedPath, destination, error);
+            break;
+        }
+
+        case ManifestOperation::SmkToOgv: {
+            SmkToOgvConverter converter;
             converted = converter.convert(stagedPath, destination, error);
             break;
         }

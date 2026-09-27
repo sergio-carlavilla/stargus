@@ -512,10 +512,16 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::GrpToPng;
             } else if (operation == "image_assets") {
                 rule.operation = ManifestOperation::ImageAssets;
+            } else if (operation == "portrait_assets") {
+                rule.operation = ManifestOperation::PortraitAssets;
             } else if (operation == "pcx_to_png") {
                 rule.operation = ManifestOperation::PcxToPng;
             } else if (operation == "scm_to_map") {
                 rule.operation = ManifestOperation::ScmToMap;
+            } else if (operation == "smk_to_mng") {
+                rule.operation = ManifestOperation::SmkToMng;
+            } else if (operation == "smk_to_ogv") {
+                rule.operation = ManifestOperation::SmkToOgv;
             } else if (operation == "tileset_to_lua") {
                 rule.operation = ManifestOperation::TilesetToLua;
             } else if (operation == "tileset_to_png") {
@@ -621,37 +627,47 @@ std::optional<Manifest> ManifestLoader::load(
                 return std::nullopt;
             }
 
-            if (rule.operation == ManifestOperation::ImageAssets) {
+            if (rule.operation == ManifestOperation::ImageAssets || rule.operation == ManifestOperation::PortraitAssets) {
                 if (!ruleDocument.contains("table") || !ruleDocument["table"].is_string()) {
-                    error = "Manifest rule '" + rule.id + "' operation image_assets requires string field: table";
-                    return std::nullopt;
-                }
+                    const std::string operationName = rule.operation == ManifestOperation::ImageAssets ? "image_assets" : "portrait_assets";
 
-                if (!ruleDocument.contains("image") || !ruleDocument["image"].is_number_integer()) {
-                    error = "Manifest rule '" + rule.id + "' operation image_assets requires integer field: image";
+                    error = "Manifest rule '" + rule.id + "' operation " + operationName + " requires string field: table";
                     return std::nullopt;
                 }
 
                 rule.table = ruleDocument["table"].get<std::string>();
-                rule.image = ruleDocument["image"].get<int>();
 
                 if (!isValidManifestPath(rule.table)) {
                     error = "Manifest rule '" + rule.id + "' has an invalid table path: " + rule.table;
                     return std::nullopt;
                 }
 
-                if (rule.image < 0) {
-                    error = "Manifest rule '" + rule.id + "' has a negative image index";
+                if (rule.operation == ManifestOperation::ImageAssets) {
+                    if (!ruleDocument.contains("image") || !ruleDocument["image"].is_number_integer()) {
+                        error = "Manifest rule '" + rule.id + "' operation image_assets requires integer field: image";
+                        return std::nullopt;
+                    }
+
+                    rule.image = ruleDocument["image"].get<int>();
+
+                    if (rule.image < 0) {
+                        error = "Manifest rule '" + rule.id + "' has a negative image index";
+                        return std::nullopt;
+                    }
+                } else if (ruleDocument.contains("image")) {
+                    error = "Manifest rule '" + rule.id + "' field image is only valid for image_assets";
                     return std::nullopt;
                 }
 
                 if (ruleDocument.contains("output")) {
-                    error = "Manifest rule '" + rule.id + "' image_assets output is derived from images.dat/images.tbl and must not be specified";
+                    const std::string operationName = rule.operation == ManifestOperation::ImageAssets ? "image_assets" : "portrait_assets";
+
+                    error = "Manifest rule '" + rule.id + "' " + operationName + " output is derived from source metadata and must not be specified";
                     return std::nullopt;
                 }
             } else {
                 if (ruleDocument.contains("table")) {
-                    error = "Manifest rule '" + rule.id + "' field table is only valid for image_assets";
+                    error = "Manifest rule '" + rule.id + "' field table is only valid for image_assets and portrait_assets";
                     return std::nullopt;
                 }
 
@@ -735,6 +751,7 @@ std::optional<Manifest> ManifestLoader::load(
 
             if (
                 rule.operation != ManifestOperation::ImageAssets &&
+                rule.operation != ManifestOperation::PortraitAssets &&
                 !isValidManifestPath(rule.output)
             ) {
                 error = "Manifest rule '" + rule.id + "' has an invalid output path: " + rule.output;

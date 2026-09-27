@@ -1,0 +1,612 @@
+{
+  "rules": [
+    {
+      "id": "video-preprotoss_2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preprotoss_2.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preprotoss_2.ogv"
+    },
+    {
+      "id": "video-prezerg_3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/prezerg_3.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/prezerg_3.ogv"
+    },
+    {
+      "id": "video-preterran_4",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preterran_4.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preterran_4.ogv"
+    },
+    {
+      "id": "video-protoss1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/protoss1.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/protoss1.ogv"
+    },
+    {
+      "id": "video-terran1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/terran1.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/terran1.ogv"
+    },
+    {
+      "id": "video-terran3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/terran3.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/terran3.ogv"
+    },
+    {
+      "id": "video-protoss2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/protoss2.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/protoss2.ogv"
+    },
+    {
+      "id": "video-starintr",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/starintr.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/starintr.ogv"
+    },
+    {
+      "id": "video-preprotoss_1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preprotoss_1.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preprotoss_1.ogv"
+    },
+    {
+      "id": "video-preprotoss_3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preprotoss_3.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preprotoss_3.ogv"
+    },
+    {
+      "id": "video-prezerg_4",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/prezerg_4.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/prezerg_4.ogv"
+    },
+    {
+      "id": "video-preterran_3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preterran_3.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preterran_3.ogv"
+    },
+    {
+      "id": "video-blizzard",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/blizzard.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/blizzard.ogv"
+    },
+    {
+      "id": "video-preterran_1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preterran_1.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preterran_1.ogv"
+    },
+    {
+      "id": "video-terran4",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/terran4.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/terran4.ogv"
+    },
+    {
+      "id": "video-protoss3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/protoss3.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/protoss3.ogv"
+    },
+    {
+      "id": "video-protoss4",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/protoss4.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/protoss4.ogv"
+    },
+    {
+      "id": "video-prezerg_2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/prezerg_2.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/prezerg_2.ogv"
+    },
+    {
+      "id": "video-preterran_2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/preterran_2.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/preterran_2.ogv"
+    },
+    {
+      "id": "video-terran2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/terran2.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/terran2.ogv"
+    },
+    {
+      "id": "video-zerg2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/zerg2.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/zerg2.ogv"
+    },
+    {
+      "id": "video-zerg3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/zerg3.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/zerg3.ogv"
+    },
+    {
+      "id": "video-zerg4",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/zerg4.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/zerg4.ogv"
+    },
+    {
+      "id": "video-zerg1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/zerg1.smk",
+      "operation": "smk_to_ogv",
+      "output": "videos/zerg1.ogv"
+    },
+    {
+      "id": "portrait-mainmenu-editoronde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/editoronde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/editoronde.mng"
+    },
+    {
+      "id": "portrait-mainmenu-editor",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/editor.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/editor.mng"
+    },
+    {
+      "id": "portrait-mainmenu-exiton",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/exiton.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/exiton.mng"
+    },
+    {
+      "id": "portrait-mainmenu-multionit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/multionit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/multionit.mng"
+    },
+    {
+      "id": "portrait-mainmenu-singleonfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/singleonfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/singleonfr.mng"
+    },
+    {
+      "id": "portrait-mainmenu-editorones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/editorones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/editorones.mng"
+    },
+    {
+      "id": "portrait-mainmenu-exitonde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/exitonde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/exitonde.mng"
+    },
+    {
+      "id": "portrait-mainmenu-exit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/exit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/exit.mng"
+    },
+    {
+      "id": "portrait-mainmenu-multion",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/multion.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/multion.mng"
+    },
+    {
+      "id": "portrait-mainmenu-singleonit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/singleonit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/singleonit.mng"
+    },
+    {
+      "id": "portrait-mainmenu-editoronfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/editoronfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/editoronfr.mng"
+    },
+    {
+      "id": "portrait-mainmenu-exitones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/exitones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/exitones.mng"
+    },
+    {
+      "id": "portrait-mainmenu-multionde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/multionde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/multionde.mng"
+    },
+    {
+      "id": "portrait-mainmenu-multi",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/multi.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/multi.mng"
+    },
+    {
+      "id": "portrait-mainmenu-singleon",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/singleon.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/singleon.mng"
+    },
+    {
+      "id": "portrait-mainmenu-editoronit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/editoronit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/editoronit.mng"
+    },
+    {
+      "id": "portrait-mainmenu-exitonfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/exitonfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/exitonfr.mng"
+    },
+    {
+      "id": "portrait-mainmenu-multiones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/multiones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/multiones.mng"
+    },
+    {
+      "id": "portrait-mainmenu-singleonde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/singleonde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/singleonde.mng"
+    },
+    {
+      "id": "portrait-mainmenu-single",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/single.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/single.mng"
+    },
+    {
+      "id": "portrait-mainmenu-editoron",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/editoron.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/editoron.mng"
+    },
+    {
+      "id": "portrait-mainmenu-exitonit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/exitonit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/exitonit.mng"
+    },
+    {
+      "id": "portrait-mainmenu-multionfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/multionfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/multionfr.mng"
+    },
+    {
+      "id": "portrait-mainmenu-singleones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/mainmenu/singleones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/mainmenu/singleones.mng"
+    },
+    {
+      "id": "portrait-readyp-ring",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyp/ring.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyp/ring.mng"
+    },
+    {
+      "id": "portrait-readyp-glow",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyp/glow.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyp/glow.mng"
+    },
+    {
+      "id": "portrait-readyz-start",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyz/start.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyz/start.mng"
+    },
+    {
+      "id": "portrait-readyz-starton",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyz/starton.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyz/starton.mng"
+    },
+    {
+      "id": "portrait-readyz-drip",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyz/drip.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyz/drip.mng"
+    },
+    {
+      "id": "portrait-readyt-start",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/start.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyt/start.mng"
+    },
+    {
+      "id": "portrait-readyt-starton",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/starton.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyt/starton.mng"
+    },
+    {
+      "id": "portrait-readyt-proj",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/proj.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyt/proj.mng"
+    },
+    {
+      "id": "portrait-readyt-proloop",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/proloop.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/readyt/proloop.mng"
+    },
+    {
+      "id": "portrait-campaign-protonde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/protonde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/protonde.mng"
+    },
+    {
+      "id": "portrait-campaign-terr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/terr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/terr.mng"
+    },
+    {
+      "id": "portrait-campaign-protonfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/protonfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/protonfr.mng"
+    },
+    {
+      "id": "portrait-campaign-terron",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/terron.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/terron.mng"
+    },
+    {
+      "id": "portrait-campaign-terronit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/terronit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/terronit.mng"
+    },
+    {
+      "id": "portrait-campaign-zergon",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/zergon.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/zergon.mng"
+    },
+    {
+      "id": "portrait-campaign-zergonde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/zergonde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/zergonde.mng"
+    },
+    {
+      "id": "portrait-campaign-terrones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/terrones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/terrones.mng"
+    },
+    {
+      "id": "portrait-campaign-zergones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/zergones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/zergones.mng"
+    },
+    {
+      "id": "portrait-campaign-terronde",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/terronde.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/terronde.mng"
+    },
+    {
+      "id": "portrait-campaign-proton",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/proton.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/proton.mng"
+    },
+    {
+      "id": "portrait-campaign-prot",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/prot.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/prot.mng"
+    },
+    {
+      "id": "portrait-campaign-disk",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/disk.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/disk.mng"
+    },
+    {
+      "id": "portrait-campaign-zergonit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/zergonit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/zergonit.mng"
+    },
+    {
+      "id": "portrait-campaign-terronfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/terronfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/terronfr.mng"
+    },
+    {
+      "id": "portrait-campaign-protonit",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/protonit.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/protonit.mng"
+    },
+    {
+      "id": "portrait-campaign-protones",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/protones.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/protones.mng"
+    },
+    {
+      "id": "portrait-campaign-zergonfr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/zergonfr.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/zergonfr.mng"
+    },
+    {
+      "id": "portrait-campaign-zerg",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/campaign/zerg.smk",
+      "operation": "smk_to_mng",
+      "output": "videos/campaign/zerg.mng"
+    }
+  ]
+}

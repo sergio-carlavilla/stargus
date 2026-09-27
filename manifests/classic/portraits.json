@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "id": "portrait-assets",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/portdata.dat",
+      "table": "arr/portdata.tbl",
+      "operation": "portrait_assets"
+    }
+  ]
+}

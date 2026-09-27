@@ -11,6 +11,7 @@
 #include "SourceReaderRegistry.h"
 #include "SourceReaderFactory.h"
 #include "converters/ImageAssetResolver.h"
+#include "converters/ImagesLuaIndexWriter.h"
 #include "manifest/ManifestLoader.h"
 #include "manifest/ManifestRule.h"
 #include "manifest/PaletteDefinition.h"
@@ -529,6 +530,26 @@ int StartoolApp::runImport(int argc, char **argv) const
             << '\n';
 
         ++importedTasks;
+    }
+
+    const bool hasImageAssets =
+        std::any_of(
+            tasks.begin(),
+            tasks.end(),
+            [](const ImportTask &task)
+            {
+                return task.operation == ManifestOperation::ImageAssets;
+            }
+        );
+
+    if (hasImageAssets) {
+        ImagesLuaIndexWriter writer;
+        std::string writerError;
+
+        if (!writer.write(destinationPath / "luagen/images", writerError)) {
+            std::cerr << "Could not generate images Lua index: " << writerError << '\n';
+            return 1;
+        }
     }
 
     std::cout
