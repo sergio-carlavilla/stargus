@@ -23,6 +23,7 @@ enum class ManifestOperation
     TilesetToLua,
     TilesetToPng,
     UnitLua,
+    UnitsLua,
     WavToOgg
 };
 

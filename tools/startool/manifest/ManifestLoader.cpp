@@ -107,6 +107,7 @@ std::optional<Manifest> ManifestLoader::load(
         "format_version",
         "includes",
         "palettes",
+        "units",
         "rules"
     };
 
@@ -172,6 +173,7 @@ std::optional<Manifest> ManifestLoader::load(
 
             const std::set<std::string> allowedFragmentFields = {
                 "palettes",
+                "units",
                 "rules"
             };
 
@@ -339,6 +341,87 @@ std::optional<Manifest> ManifestLoader::load(
         }
     }
 
+    std::set<int> unitIds;
+    std::set<std::string> unitNames;
+
+    for (const ManifestDocument &manifestDocument : documents) {
+        const auto &document = manifestDocument.document;
+
+        if (!document.contains("units")) {
+            continue;
+        }
+
+        if (!document["units"].is_array()) {
+            error = "Manifest units must be an array: " + manifestDocument.path.string();
+            return std::nullopt;
+        }
+
+        for (const auto &unitDocument : document["units"]) {
+            if (!unitDocument.is_object()) {
+                error = "Every unit definition must be an object";
+                return std::nullopt;
+            }
+
+            const std::set<std::string> allowedUnitFields = {
+                "id",
+                "name",
+                "extractor"
+            };
+
+            if (!hasOnlyFields(unitDocument, allowedUnitFields, unknownField)) {
+                error = "Unit definition contains unknown field: " + unknownField;
+                return std::nullopt;
+            }
+
+            if (!unitDocument.contains("id") || !unitDocument["id"].is_number_integer()) {
+                error = "Unit definition is missing integer field: id";
+                return std::nullopt;
+            }
+
+            if (!unitDocument.contains("name") || !unitDocument["name"].is_string()) {
+                error = "Unit definition is missing string field: name";
+                return std::nullopt;
+            }
+
+            UnitDefinition unit;
+            unit.id = unitDocument["id"].get<int>();
+            unit.name = unitDocument["name"].get<std::string>();
+
+            if (unit.id < 0) {
+                error = "Unit definition has a negative id: " + std::to_string(unit.id);
+                return std::nullopt;
+            }
+
+            if (unit.name.empty()) {
+                error = "Unit definition has an empty name";
+                return std::nullopt;
+            }
+
+            if (unitDocument.contains("extractor")) {
+                if (!unitDocument["extractor"].is_boolean()) {
+                    error = "Unit definition '" + unit.name + "' field extractor must be boolean";
+                    return std::nullopt;
+                }
+
+                unit.extractor = unitDocument["extractor"].get<bool>();
+            }
+
+            if (!unitIds.insert(unit.id).second) {
+                error = "Duplicate unit definition id: " + std::to_string(unit.id);
+                return std::nullopt;
+            }
+
+            if (!unitNames.insert(unit.name).second) {
+                error = "Duplicate unit definition name: " + unit.name;
+                return std::nullopt;
+            }
+
+            manifest.units.push_back(
+                std::move(unit)
+            );
+        }
+    }
+
     std::set<std::string> ruleIds;
     bool hasRules = false;
 
@@ -433,6 +516,8 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::TilesetToPng;
             } else if (operation == "unit_lua") {
                 rule.operation = ManifestOperation::UnitLua;
+            } else if (operation == "units_lua") {
+                rule.operation = ManifestOperation::UnitsLua;
             } else if (operation == "wav_to_ogg") {
                 rule.operation = ManifestOperation::WavToOgg;
             } else {
@@ -607,6 +692,11 @@ std::optional<Manifest> ManifestLoader::load(
                     error = "Manifest rule '" + rule.id + "' field ident is only valid for unit_lua";
                     return std::nullopt;
                 }
+            }
+
+            if (rule.operation == ManifestOperation::UnitsLua && manifest.units.empty()) {
+                error = "Manifest rule '" + rule.id + "' operation units_lua requires unit definitions in the manifest";
+                return std::nullopt;
             }
 
             if (rule.id.empty()) {

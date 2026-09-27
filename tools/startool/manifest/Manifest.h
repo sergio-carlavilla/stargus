@@ -6,6 +6,7 @@
 
 #include "ManifestRule.h"
 #include "PaletteDefinition.h"
+#include "UnitDefinition.h"
 
 #include <vector>
 
@@ -14,6 +15,7 @@ struct Manifest
     int formatVersion = 0;
 
     std::vector<PaletteDefinition> palettes;
+    std::vector<UnitDefinition> units;
     std::vector<ManifestRule> rules;
 };
 

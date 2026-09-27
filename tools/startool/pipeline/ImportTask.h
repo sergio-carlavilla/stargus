@@ -5,6 +5,7 @@
 #define IMPORT_TASK_H
 
 #include "manifest/ManifestRule.h"
+#include "manifest/UnitDefinition.h"
 
 #include <string>
 #include <vector>
@@ -27,6 +28,8 @@ struct ImportTask
 
     int unit = -1;
     std::string ident;
+
+    std::vector<UnitDefinition> units;
 
     std::string output;
 };

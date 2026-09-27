@@ -15,6 +15,7 @@
 #include <cctype>
 #include <cmath>
 #include <filesystem>
+#include <utility>
 #include <vector>
 
 namespace
@@ -144,14 +145,10 @@ namespace
 
 }
 
-bool UnitDataResolver::resolve(
-    const UnitDataFiles &files,
-    std::size_t unitId,
-    const std::string &ident,
-    UnitMetadata &metadata,
-    std::string &error
-) const
+bool UnitDataResolver::load(const UnitDataFiles &files, std::string &error)
 {
+    mLoaded = false;
+
     UnitsDatDecoder unitsDecoder;
     FlingyDatDecoder flingyDecoder;
     SpritesDatDecoder spritesDecoder;
@@ -212,23 +209,52 @@ bool UnitDataResolver::resolve(
         return false;
     }
 
-    if (unitId >= units.size()) {
+    mUnits = std::move(units);
+    mFlingies = std::move(flingies);
+    mSprites = std::move(sprites);
+    mImages = std::move(images);
+    mPortraits = std::move(portraits);
+    mSfxData = std::move(sfxData);
+
+    mImageNames = std::move(imageNames);
+    mPortraitNames = std::move(portraitNames);
+    mSoundNames = std::move(soundNames);
+    mUnitNames = std::move(unitNames);
+
+    mLoaded = true;
+
+    return true;
+}
+
+bool UnitDataResolver::resolve(
+    std::size_t unitId,
+    const std::string &ident,
+    UnitMetadata &metadata,
+    std::string &error
+) const
+{
+    if (!mLoaded) {
+        error = "Unit data has not been loaded";
+        return false;
+    }
+
+    if (unitId >= mUnits.size()) {
         error = "Unit index " + std::to_string(unitId) + " is out of range";
         return false;
     }
 
-    if (unitId >= unitNames.size()) {
+    if (unitId >= mUnitNames.size()) {
         error = "Unit index " + std::to_string(unitId) + " is missing from stat_txt.tbl";
         return false;
     }
 
-    const UnitsDatRecord &unit = units[unitId];
+    const UnitsDatRecord &unit = mUnits[unitId];
 
     metadata = UnitMetadata{};
 
     metadata.unitId = unitId;
     metadata.ident = ident;
-    metadata.displayName = unitNames[unitId].name;
+    metadata.displayName = mUnitNames[unitId].name;
 
     // ---------------------------------------------------------
     // Unit -> Flingy -> Sprite -> Image
@@ -236,38 +262,38 @@ bool UnitDataResolver::resolve(
 
     metadata.flingyId = static_cast<std::size_t>(unit.flingy);
 
-    if (metadata.flingyId >= flingies.size()) {
+    if (metadata.flingyId >= mFlingies.size()) {
         error = "Unit " + std::to_string(unitId) + " references invalid flingy " + std::to_string(metadata.flingyId);
         return false;
     }
 
-    metadata.spriteId = static_cast<std::size_t>(flingies[metadata.flingyId].sprite);
+    metadata.spriteId = static_cast<std::size_t>(mFlingies[metadata.flingyId].sprite);
 
     // Preserve legacy Sprite::image() fallback.
     metadata.imageIndex = 0;
 
-    if (metadata.spriteId < sprites.size()) {
-        metadata.imageIndex = static_cast<std::size_t>(sprites[metadata.spriteId].image);
+    if (metadata.spriteId < mSprites.size()) {
+        metadata.imageIndex = static_cast<std::size_t>(mSprites[metadata.spriteId].image);
     }
 
-    if (metadata.imageIndex >= images.size()) {
+    if (metadata.imageIndex >= mImages.size()) {
         error = "Sprite " + std::to_string(metadata.spriteId) + " references invalid image " + std::to_string(metadata.imageIndex);
         return false;
     }
 
-    const std::uint32_t grpReference = images[metadata.imageIndex].grp;
+    const std::uint32_t grpReference = mImages[metadata.imageIndex].grp;
     if (grpReference == 0) {
         error = "Image " + std::to_string(metadata.imageIndex) + " has a null images.tbl reference";
         return false;
     }
 
     const std::size_t grpTableIndex = static_cast<std::size_t>(grpReference - 1);
-    if (grpTableIndex >= imageNames.size()) {
+    if (grpTableIndex >= mImageNames.size()) {
         error = "Image " + std::to_string(metadata.imageIndex) + " references invalid images.tbl entry " + std::to_string(grpTableIndex);
         return false;
     }
 
-    metadata.imageId = makeImageIdentifier(metadata.imageIndex, imageNames[grpTableIndex].name);
+    metadata.imageId = makeImageIdentifier(metadata.imageIndex, mImageNames[grpTableIndex].name);
 
     // ---------------------------------------------------------
     // Portrait
@@ -278,12 +304,12 @@ bool UnitDataResolver::resolve(
     } else {
         const std::size_t portraitIndex = static_cast<std::size_t>(unit.portrait);
 
-        if (portraitIndex >= portraits.size()) {
+        if (portraitIndex >= mPortraits.size()) {
             error = "Unit " + std::to_string(unitId) + " references invalid portrait " + std::to_string(portraitIndex);
             return false;
         }
 
-        const std::uint32_t portraitReference = portraits[portraitIndex].videoIdle;
+        const std::uint32_t portraitReference = mPortraits[portraitIndex].videoIdle;
 
         if (portraitReference == 0) {
             error = "Portrait " + std::to_string(portraitIndex) + " has a null portdata.tbl reference";
@@ -292,12 +318,12 @@ bool UnitDataResolver::resolve(
 
         const std::size_t portraitTableIndex = static_cast<std::size_t>(portraitReference - 1);
 
-        if (portraitTableIndex >= portraitNames.size()) {
+        if (portraitTableIndex >= mPortraitNames.size()) {
             error = "Portrait " + std::to_string(portraitIndex) + " references invalid portdata.tbl entry " + std::to_string(portraitTableIndex);
             return false;
         }
 
-        metadata.portraitId = makePortraitIdentifier(portraitNames[portraitTableIndex].name);
+        metadata.portraitId = makePortraitIdentifier(mPortraitNames[portraitTableIndex].name);
     }
 
     // ---------------------------------------------------------
@@ -385,26 +411,44 @@ bool UnitDataResolver::resolve(
     if (unitId < 106 && unit.readySound != SoundNone) {
         std::string readySound;
 
-        if (!resolveSound(sfxData, soundNames, unit.readySound, readySound, error)) {
+        if (!resolveSound(mSfxData, mSoundNames, unit.readySound, readySound, error)) {
             return false;
         }
 
         metadata.readySounds.push_back(std::move(readySound));
     }
 
-    if (!resolveSoundRange(sfxData, soundNames, unit.whatSoundStart, unit.whatSoundEnd, metadata.whatSounds, error)) {
+    if (!resolveSoundRange(mSfxData, mSoundNames, unit.whatSoundStart, unit.whatSoundEnd, metadata.whatSounds, error)) {
         return false;
     }
 
     if (unitId < 106) {
-        if (!resolveSoundRange(sfxData, soundNames, unit.yesSoundStart, unit.yesSoundEnd, metadata.yesSounds, error)) {
+        if (!resolveSoundRange(mSfxData, mSoundNames, unit.yesSoundStart, unit.yesSoundEnd, metadata.yesSounds, error)) {
             return false;
         }
 
-        if (!resolveSoundRange(sfxData, soundNames, unit.pissSoundStart, unit.pissSoundEnd, metadata.pissSounds, error)) {
+        if (!resolveSoundRange(mSfxData, mSoundNames, unit.pissSoundStart, unit.pissSoundEnd, metadata.pissSounds, error)) {
             return false;
         }
     }
 
     return true;
+}
+
+
+bool UnitDataResolver::resolve(
+    const UnitDataFiles &files,
+    std::size_t unitId,
+    const std::string &ident,
+    UnitMetadata &metadata,
+    std::string &error
+) const
+{
+    UnitDataResolver resolver;
+
+    if (!resolver.load(files, error)) {
+        return false;
+    }
+
+    return resolver.resolve(unitId, ident, metadata, error);
 }

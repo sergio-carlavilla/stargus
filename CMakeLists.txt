@@ -464,6 +464,7 @@ add_executable(
     tools/startool/converters/ImageLuaWriter.cpp
     tools/startool/converters/UnitDataResolver.cpp
     tools/startool/converters/UnitLuaWriter.cpp
+    tools/startool/converters/UnitsLuaWriter.cpp
     tools/startool/formats/PcxDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp
     tools/startool/formats/ImagesDatDecoder.cpp

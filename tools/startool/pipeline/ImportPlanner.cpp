@@ -26,6 +26,11 @@ std::vector<ImportTask> ImportPlanner::plan(const Manifest &manifest) const
                 task.image = rule.image;
                 task.unit = rule.unit;
                 task.ident = rule.ident;
+
+                if (rule.operation == ManifestOperation::UnitsLua) {
+                    task.units = manifest.units;
+                }
+
                 task.output = rule.output;
 
                 tasks.push_back(
