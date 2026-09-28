@@ -1,0 +1,74 @@
+{
+  "rules": [
+    {
+      "id": "ui-console-terran-segments",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/tconsole.pcx",
+      "operation": "ui_console",
+      "left": 275,
+      "right": 296,
+      "output": "graphics/ui/tconsole"
+    },
+    {
+      "id": "ui-console-zerg-segments",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/zconsole.pcx",
+      "operation": "ui_console",
+      "left": 274,
+      "right": 281,
+      "output": "graphics/ui/zconsole"
+    },
+    {
+      "id": "ui-console-protoss-segments",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/pconsole.pcx",
+      "operation": "ui_console",
+      "left": 227,
+      "right": 265,
+      "output": "graphics/ui/pconsole"
+    },
+    {
+      "id": "ui-panel-264x288",
+      "kind": "exact",
+      "operation": "panel_to_png",
+      "width": 264,
+      "height": 288,
+      "output": "graphics/ui/panels/264x288.png"
+    },
+    {
+      "id": "ui-panel-384x256",
+      "kind": "exact",
+      "operation": "panel_to_png",
+      "width": 384,
+      "height": 256,
+      "output": "graphics/ui/panels/384x256.png"
+    },
+    {
+      "id": "ui-panel-312x312",
+      "kind": "exact",
+      "operation": "panel_to_png",
+      "width": 312,
+      "height": 312,
+      "output": "graphics/ui/panels/312x312.png"
+    },
+    {
+      "id": "ui-panel-288x128",
+      "kind": "exact",
+      "operation": "panel_to_png",
+      "width": 288,
+      "height": 128,
+      "output": "graphics/ui/panels/288x128.png"
+    },
+    {
+      "id": "ui-panel-296x336",
+      "kind": "exact",
+      "operation": "panel_to_png",
+      "width": 296,
+      "height": 336,
+      "output": "graphics/ui/panels/296x336.png"
+    }
+  ]
+}

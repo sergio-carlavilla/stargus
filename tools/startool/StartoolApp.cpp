@@ -469,44 +469,46 @@ int StartoolApp::runImport(int argc, char **argv) const
     std::size_t importedTasks = 0;
 
     for (const ImportTask &task : tasks) {
-        SourceReader *reader = readers.find(task.source);
+        if (task.operation != ManifestOperation::PanelToPng) {
+            SourceReader *reader = readers.find(task.source);
 
-        if (reader == nullptr) {
-            const auto logicalSource =
-                std::find_if(
-                    gameSource->sources.begin(),
-                    gameSource->sources.end(),
-                    [&task](const LogicalSource &source)
-                    {
-                        return source.id == task.source;
-                    }
-                );
-
-            if (logicalSource == gameSource->sources.end()) {
-                std::cerr << "Task '" << task.id << "' references unknown source: " << task.source << '\n';
-                return 1;
-            }
-
-            auto newReader = readerFactory.create(*logicalSource);
-            if (!newReader) {
-                std::cerr << "Task '" << task.id << "' references an unsupported source format: " << toString(logicalSource->format) << '\n';
-                return 1;
-            }
-
-            if (!newReader->isOpen()) {
-                std::cerr << "Task '" << task.id << "' could not open source: " << task.source << '\n';
-                return 1;
-            }
-
-            if (!readers.add(task.source, std::move(newReader))) {
-                std::cerr << "Could not register source reader: " << task.source << '\n';
-                return 1;
-            }
-
-            reader = readers.find(task.source);
             if (reader == nullptr) {
-                std::cerr << "Could not retrieve source reader: " << task.source << '\n';
-                return 1;
+                const auto logicalSource =
+                    std::find_if(
+                        gameSource->sources.begin(),
+                        gameSource->sources.end(),
+                        [&task](const LogicalSource &source)
+                        {
+                            return source.id == task.source;
+                        }
+                    );
+
+                if (logicalSource == gameSource->sources.end()) {
+                    std::cerr << "Task '" << task.id << "' references unknown source: " << task.source << '\n';
+                    return 1;
+                }
+
+                auto newReader = readerFactory.create(*logicalSource);
+                if (!newReader) {
+                    std::cerr << "Task '" << task.id << "' references an unsupported source format: " << toString(logicalSource->format) << '\n';
+                    return 1;
+                }
+
+                if (!newReader->isOpen()) {
+                    std::cerr << "Task '" << task.id << "' could not open source: " << task.source << '\n';
+                    return 1;
+                }
+
+                if (!readers.add(task.source, std::move(newReader))) {
+                    std::cerr << "Could not register source reader: " << task.source << '\n';
+                    return 1;
+                }
+
+                reader = readers.find(task.source);
+                if (reader == nullptr) {
+                    std::cerr << "Could not retrieve source reader: " << task.source << '\n';
+                    return 1;
+                }
             }
         }
 
@@ -743,6 +745,10 @@ int StartoolApp::runVerify(int argc, char **argv) const
     }
 
     for (const ImportTask &task : tasks) {
+        if (task.operation == ManifestOperation::PanelToPng) {
+            continue;
+        }
+
         SourceReader *reader = readers.find(task.source);
 
         if (reader == nullptr) {

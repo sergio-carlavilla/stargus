@@ -26,6 +26,11 @@ struct ImportTask
     std::string table;
     int image = -1;
 
+    int left = -1;
+    int right = -1;
+    int width = -1;
+    int height = -1;
+
     int unit = -1;
     std::string ident;
 

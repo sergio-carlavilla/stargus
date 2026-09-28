@@ -455,6 +455,8 @@ add_executable(
     tools/startool/pipeline/ImportExecutor.cpp
     tools/startool/converters/WavToOggConverter.cpp
     tools/startool/converters/PcxToPngConverter.cpp
+    tools/startool/converters/PanelToPngConverter.cpp
+    tools/startool/converters/UiConsoleConverter.cpp
     tools/startool/converters/PortraitAssetResolver.cpp
     tools/startool/converters/PortraitLuaWriter.cpp
     tools/startool/converters/FontToPngConverter.cpp

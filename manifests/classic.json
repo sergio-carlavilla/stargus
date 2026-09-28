@@ -13,6 +13,7 @@
     "classic/tilesets.json",
     "classic/pcx.json",
     "classic/widgets.json",
-    "classic/images.json"
+    "classic/images.json",
+    "classic/generated-ui.json"
   ]
 }

@@ -16,6 +16,8 @@
 #include "converters/UnitLuaWriter.h"
 #include "converters/UnitsLuaWriter.h"
 #include "converters/PcxToPngConverter.h"
+#include "converters/PanelToPngConverter.h"
+#include "converters/UiConsoleConverter.h"
 #include "converters/PortraitAssetResolver.h"
 #include "converters/PortraitLuaWriter.h"
 #include "converters/TilesetToLuaConverter.h"
@@ -663,6 +665,104 @@ bool ImportExecutor::execute(
         return true;
     }
 
+    if (task.operation == ManifestOperation::PanelToPng) {
+        const std::filesystem::path destination = destinationRoot / std::filesystem::path(task.output);
+
+        std::error_code filesystemError;
+
+        if (std::filesystem::exists(destination, filesystemError)) {
+            if (filesystemError) {
+                error = "Could not inspect panel output destination for task '" + task.id + "': " + filesystemError.message();
+            } else {
+                error = "Panel output destination already exists for task '" + task.id + "': " + destination.string();
+            }
+
+            return false;
+        }
+
+        const std::filesystem::path parentDirectory = destination.parent_path();
+        if (!parentDirectory.empty()) {
+            std::filesystem::create_directories(parentDirectory, filesystemError);
+
+            if (filesystemError) {
+                error = "Could not create panel output directory for task '" + task.id + "': " + filesystemError.message();
+                return false;
+            }
+        }
+
+        PanelToPngConverter converter;
+
+        if (!converter.convert(destination, task.width, task.height, error)) {
+            std::error_code cleanupError;
+            std::filesystem::remove(destination, cleanupError);
+            return false;
+        }
+
+        outputPath = destination;
+        return true;
+    }
+
+    if (task.operation == ManifestOperation::UiConsole) {
+        const SourceReader *reader = readers.find(task.source);
+
+        if (reader == nullptr) {
+            error = "No source reader registered for task '" + task.id + "': " + task.source;
+            return false;
+        }
+
+        if (!reader->contains(task.input)) {
+            error = "Resource not found for task '" + task.id + "': " + task.input;
+            return false;
+        }
+
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+
+        std::filesystem::path stagedPcx;
+
+        if (!stage(task, readers, stagingRoot, stagedPcx, error)) {
+            return false;
+        }
+
+        std::filesystem::path stagedPng = stagedPcx;
+        stagedPng += ".png";
+
+        PcxToPngConverter pcxConverter;
+
+        if (!pcxConverter.convert(stagedPcx, stagedPng, error)) {
+            std::error_code cleanupError;
+            std::filesystem::remove(stagedPng, cleanupError);
+            cleanupError.clear();
+            std::filesystem::remove(stagedPcx, cleanupError);
+            removeEmptyDirectories(stagedPcx.parent_path(), stagingRoot);
+            return false;
+        }
+
+        const std::filesystem::path outputBase = destinationRoot / std::filesystem::path(task.output);
+
+        UiConsoleConverter converter;
+        const bool converted = converter.convert(
+            stagedPng,
+            outputBase,
+            task.left,
+            task.right,
+            error
+        );
+
+        std::error_code cleanupError;
+        std::filesystem::remove(stagedPng, cleanupError);
+        cleanupError.clear();
+        std::filesystem::remove(stagedPcx, cleanupError);
+        removeEmptyDirectories(stagedPcx.parent_path(), stagingRoot);
+
+        if (!converted) {
+            return false;
+        }
+
+        outputPath = outputBase;
+        outputPath += "_left.png";
+        return true;
+    }
+
     const std::filesystem::path destination = destinationRoot / std::filesystem::path(task.output);
 
     std::error_code filesystemError;
@@ -1286,6 +1386,8 @@ bool ImportExecutor::execute(
 
         case ManifestOperation::ImageAssets:
         case ManifestOperation::PortraitAssets:
+        case ManifestOperation::UiConsole:
+        case ManifestOperation::PanelToPng:
             break;
 
         case ManifestOperation::PcxToPng: {

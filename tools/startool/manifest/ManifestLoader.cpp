@@ -448,8 +448,6 @@ std::optional<Manifest> ManifestLoader::load(
             const char *requiredFields[] = {
                 "id",
                 "kind",
-                "source",
-                "input",
                 "operation"
             };
 
@@ -475,6 +473,10 @@ std::optional<Manifest> ManifestLoader::load(
                 "frames",
                 "table",
                 "image",
+                "left",
+                "right",
+                "width",
+                "height",
                 "unit",
                 "ident",
                 "output"
@@ -493,8 +495,6 @@ std::optional<Manifest> ManifestLoader::load(
             }
 
             rule.kind = ManifestRuleKind::Exact;
-            rule.source = ruleDocument["source"].get<std::string>();
-            rule.input = ruleDocument["input"].get<std::string>();
 
             const std::string operation = ruleDocument["operation"].get<std::string>();
 
@@ -516,6 +516,10 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::PortraitAssets;
             } else if (operation == "pcx_to_png") {
                 rule.operation = ManifestOperation::PcxToPng;
+            } else if (operation == "ui_console") {
+                rule.operation = ManifestOperation::UiConsole;
+            } else if (operation == "panel_to_png") {
+                rule.operation = ManifestOperation::PanelToPng;
             } else if (operation == "scm_to_map") {
                 rule.operation = ManifestOperation::ScmToMap;
             } else if (operation == "smk_to_mng") {
@@ -537,6 +541,34 @@ std::optional<Manifest> ManifestLoader::load(
             } else {
                 error = "Unsupported manifest operation: " + operation;
                 return std::nullopt;
+            }
+
+            const bool operationUsesSource =
+                rule.operation != ManifestOperation::PanelToPng;
+
+            if (operationUsesSource) {
+                if (!ruleDocument.contains("source") || !ruleDocument["source"].is_string()) {
+                    error = "Manifest rule '" + rule.id + "' operation requires string field: source";
+                    return std::nullopt;
+                }
+
+                if (!ruleDocument.contains("input") || !ruleDocument["input"].is_string()) {
+                    error = "Manifest rule '" + rule.id + "' operation requires string field: input";
+                    return std::nullopt;
+                }
+
+                rule.source = ruleDocument["source"].get<std::string>();
+                rule.input = ruleDocument["input"].get<std::string>();
+            } else {
+                if (ruleDocument.contains("source")) {
+                    error = "Manifest rule '" + rule.id + "' field source is not valid for panel_to_png";
+                    return std::nullopt;
+                }
+
+                if (ruleDocument.contains("input")) {
+                    error = "Manifest rule '" + rule.id + "' field input is not valid for panel_to_png";
+                    return std::nullopt;
+                }
             }
 
             const bool operationUsesPalette =
@@ -625,6 +657,66 @@ std::optional<Manifest> ManifestLoader::load(
             } else if (ruleDocument.contains("frames")) {
                 error = "Manifest rule '" + rule.id + "' field frames is only valid for grp_frames_to_png";
                 return std::nullopt;
+            }
+
+            if (rule.operation == ManifestOperation::UiConsole) {
+                if (!ruleDocument.contains("left") || !ruleDocument["left"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation ui_console requires integer field: left";
+                    return std::nullopt;
+                }
+
+                if (!ruleDocument.contains("right") || !ruleDocument["right"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation ui_console requires integer field: right";
+                    return std::nullopt;
+                }
+
+                rule.left = ruleDocument["left"].get<int>();
+                rule.right = ruleDocument["right"].get<int>();
+
+                if (rule.left < 0 || rule.right <= rule.left || rule.right > 640) {
+                    error = "Manifest rule '" + rule.id + "' has invalid ui_console crop bounds";
+                    return std::nullopt;
+                }
+            } else {
+                if (ruleDocument.contains("left")) {
+                    error = "Manifest rule '" + rule.id + "' field left is only valid for ui_console";
+                    return std::nullopt;
+                }
+
+                if (ruleDocument.contains("right")) {
+                    error = "Manifest rule '" + rule.id + "' field right is only valid for ui_console";
+                    return std::nullopt;
+                }
+            }
+
+            if (rule.operation == ManifestOperation::PanelToPng) {
+                if (!ruleDocument.contains("width") || !ruleDocument["width"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation panel_to_png requires integer field: width";
+                    return std::nullopt;
+                }
+
+                if (!ruleDocument.contains("height") || !ruleDocument["height"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' operation panel_to_png requires integer field: height";
+                    return std::nullopt;
+                }
+
+                rule.width = ruleDocument["width"].get<int>();
+                rule.height = ruleDocument["height"].get<int>();
+
+                if (rule.width < 7 || rule.height < 7) {
+                    error = "Manifest rule '" + rule.id + "' panel dimensions must both be at least 7";
+                    return std::nullopt;
+                }
+            } else {
+                if (ruleDocument.contains("width")) {
+                    error = "Manifest rule '" + rule.id + "' field width is only valid for panel_to_png";
+                    return std::nullopt;
+                }
+
+                if (ruleDocument.contains("height")) {
+                    error = "Manifest rule '" + rule.id + "' field height is only valid for panel_to_png";
+                    return std::nullopt;
+                }
             }
 
             if (rule.operation == ManifestOperation::ImageAssets || rule.operation == ManifestOperation::PortraitAssets) {
@@ -739,14 +831,16 @@ std::optional<Manifest> ManifestLoader::load(
                 return std::nullopt;
             }
 
-            if (rule.source.empty()) {
-                error = "Manifest rule '" + rule.id + "' has an empty source";
-                return std::nullopt;
-            }
+            if (operationUsesSource) {
+                if (rule.source.empty()) {
+                    error = "Manifest rule '" + rule.id + "' has an empty source";
+                    return std::nullopt;
+                }
 
-            if (!isValidManifestPath(rule.input)) {
-                error = "Manifest rule '" + rule.id + "' has an invalid input path: " + rule.input;
-                return std::nullopt;
+                if (!isValidManifestPath(rule.input)) {
+                    error = "Manifest rule '" + rule.id + "' has an invalid input path: " + rule.input;
+                    return std::nullopt;
+                }
             }
 
             if (
