@@ -1,0 +1,1516 @@
+{
+  "rules": [
+    {
+      "id": "image-755",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 755
+    },
+    {
+      "id": "image-756",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 756
+    },
+    {
+      "id": "image-757",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 757
+    },
+    {
+      "id": "image-758",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 758
+    },
+    {
+      "id": "image-759",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 759
+    },
+    {
+      "id": "image-760",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 760
+    },
+    {
+      "id": "image-761",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 761
+    },
+    {
+      "id": "image-762",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 762
+    },
+    {
+      "id": "image-763",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 763
+    },
+    {
+      "id": "image-764",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 764
+    },
+    {
+      "id": "image-765",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 765
+    },
+    {
+      "id": "image-766",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 766
+    },
+    {
+      "id": "image-767",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 767
+    },
+    {
+      "id": "image-768",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 768
+    },
+    {
+      "id": "image-769",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 769
+    },
+    {
+      "id": "image-770",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 770
+    },
+    {
+      "id": "image-771",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 771
+    },
+    {
+      "id": "image-773",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 773
+    },
+    {
+      "id": "image-775",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 775
+    },
+    {
+      "id": "image-777",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 777
+    },
+    {
+      "id": "image-779",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 779
+    },
+    {
+      "id": "image-781",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 781
+    },
+    {
+      "id": "image-783",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 783
+    },
+    {
+      "id": "image-785",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 785
+    },
+    {
+      "id": "image-787",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 787
+    },
+    {
+      "id": "image-788",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 788
+    },
+    {
+      "id": "image-789",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 789
+    },
+    {
+      "id": "image-790",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 790
+    },
+    {
+      "id": "image-791",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 791
+    },
+    {
+      "id": "image-793",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 793
+    },
+    {
+      "id": "image-795",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 795
+    },
+    {
+      "id": "image-797",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 797
+    },
+    {
+      "id": "image-799",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 799
+    },
+    {
+      "id": "image-801",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 801
+    },
+    {
+      "id": "image-803",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 803
+    },
+    {
+      "id": "image-805",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 805
+    },
+    {
+      "id": "image-807",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 807
+    },
+    {
+      "id": "image-809",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 809
+    },
+    {
+      "id": "image-811",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 811
+    },
+    {
+      "id": "image-813",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 813
+    },
+    {
+      "id": "image-815",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 815
+    },
+    {
+      "id": "image-817",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 817
+    },
+    {
+      "id": "image-819",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 819
+    },
+    {
+      "id": "image-821",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 821
+    },
+    {
+      "id": "image-823",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 823
+    },
+    {
+      "id": "image-825",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 825
+    },
+    {
+      "id": "image-827",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 827
+    },
+    {
+      "id": "image-829",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 829
+    },
+    {
+      "id": "image-831",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 831
+    },
+    {
+      "id": "image-832",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 832
+    },
+    {
+      "id": "image-834",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 834
+    },
+    {
+      "id": "image-836",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 836
+    },
+    {
+      "id": "image-838",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 838
+    },
+    {
+      "id": "image-840",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 840
+    },
+    {
+      "id": "image-841",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 841
+    },
+    {
+      "id": "image-842",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 842
+    },
+    {
+      "id": "image-843",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 843
+    },
+    {
+      "id": "image-845",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 845
+    },
+    {
+      "id": "image-847",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 847
+    },
+    {
+      "id": "image-849",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 849
+    },
+    {
+      "id": "image-851",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 851
+    },
+    {
+      "id": "image-852",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 852
+    },
+    {
+      "id": "image-854",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 854
+    },
+    {
+      "id": "image-856",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 856
+    },
+    {
+      "id": "image-858",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 858
+    },
+    {
+      "id": "image-860",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 860
+    },
+    {
+      "id": "image-862",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 862
+    },
+    {
+      "id": "image-864",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 864
+    },
+    {
+      "id": "image-866",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 866
+    },
+    {
+      "id": "image-868",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 868
+    },
+    {
+      "id": "image-870",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 870
+    },
+    {
+      "id": "image-872",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 872
+    },
+    {
+      "id": "image-874",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 874
+    },
+    {
+      "id": "image-876",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 876
+    },
+    {
+      "id": "image-878",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 878
+    },
+    {
+      "id": "image-880",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 880
+    },
+    {
+      "id": "image-881",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 881
+    },
+    {
+      "id": "image-883",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 883
+    },
+    {
+      "id": "image-885",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 885
+    },
+    {
+      "id": "image-887",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 887
+    },
+    {
+      "id": "image-889",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 889
+    },
+    {
+      "id": "image-890",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 890
+    },
+    {
+      "id": "image-892",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 892
+    },
+    {
+      "id": "image-894",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 894
+    },
+    {
+      "id": "image-895",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 895
+    },
+    {
+      "id": "image-897",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 897
+    },
+    {
+      "id": "image-898",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 898
+    },
+    {
+      "id": "image-900",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 900
+    },
+    {
+      "id": "image-902",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 902
+    },
+    {
+      "id": "image-904",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 904
+    },
+    {
+      "id": "image-906",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 906
+    },
+    {
+      "id": "image-907",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 907
+    },
+    {
+      "id": "image-909",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 909
+    },
+    {
+      "id": "image-911",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 911
+    },
+    {
+      "id": "image-912",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 912
+    },
+    {
+      "id": "image-913",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 913
+    },
+    {
+      "id": "image-914",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 914
+    },
+    {
+      "id": "image-915",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 915
+    },
+    {
+      "id": "image-917",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 917
+    },
+    {
+      "id": "image-918",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 918
+    },
+    {
+      "id": "image-919",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 919
+    },
+    {
+      "id": "image-920",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 920
+    },
+    {
+      "id": "image-921",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 921
+    },
+    {
+      "id": "image-923",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 923
+    },
+    {
+      "id": "image-925",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 925
+    },
+    {
+      "id": "image-926",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 926
+    },
+    {
+      "id": "image-927",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 927
+    },
+    {
+      "id": "image-928",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 928
+    },
+    {
+      "id": "image-929",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 929
+    },
+    {
+      "id": "image-931",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 931
+    },
+    {
+      "id": "image-932",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 932
+    },
+    {
+      "id": "image-933",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 933
+    },
+    {
+      "id": "image-934",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 934
+    },
+    {
+      "id": "image-936",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 936
+    },
+    {
+      "id": "image-937",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 937
+    },
+    {
+      "id": "image-939",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 939
+    },
+    {
+      "id": "image-941",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 941
+    },
+    {
+      "id": "image-942",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 942
+    },
+    {
+      "id": "image-943",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 943
+    },
+    {
+      "id": "image-944",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 944
+    },
+    {
+      "id": "image-946",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 946
+    },
+    {
+      "id": "image-947",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 947
+    },
+    {
+      "id": "image-949",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 949
+    },
+    {
+      "id": "image-951",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 951
+    },
+    {
+      "id": "image-952",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 952
+    },
+    {
+      "id": "image-954",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 954
+    },
+    {
+      "id": "image-956",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 956
+    },
+    {
+      "id": "image-958",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 958
+    },
+    {
+      "id": "image-959",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 959
+    },
+    {
+      "id": "image-960",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 960
+    },
+    {
+      "id": "image-961",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 961
+    },
+    {
+      "id": "image-962",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 962
+    },
+    {
+      "id": "image-963",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 963
+    },
+    {
+      "id": "image-964",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 964
+    },
+    {
+      "id": "image-965",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 965
+    },
+    {
+      "id": "image-966",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 966
+    },
+    {
+      "id": "image-967",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 967
+    },
+    {
+      "id": "image-968",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 968
+    },
+    {
+      "id": "image-969",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 969
+    },
+    {
+      "id": "image-970",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 970
+    },
+    {
+      "id": "image-971",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 971
+    },
+    {
+      "id": "image-972",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 972
+    },
+    {
+      "id": "image-973",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 973
+    },
+    {
+      "id": "image-974",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 974
+    },
+    {
+      "id": "image-975",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 975
+    },
+    {
+      "id": "image-976",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 976
+    },
+    {
+      "id": "image-977",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 977
+    },
+    {
+      "id": "image-978",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 978
+    },
+    {
+      "id": "image-979",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 979
+    },
+    {
+      "id": "image-980",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 980
+    },
+    {
+      "id": "image-981",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 981
+    },
+    {
+      "id": "image-982",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 982
+    },
+    {
+      "id": "image-983",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 983
+    },
+    {
+      "id": "image-984",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 984
+    },
+    {
+      "id": "image-985",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 985
+    },
+    {
+      "id": "image-986",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 986
+    },
+    {
+      "id": "image-987",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 987
+    },
+    {
+      "id": "image-988",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 988
+    },
+    {
+      "id": "image-989",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 989
+    },
+    {
+      "id": "image-990",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 990
+    },
+    {
+      "id": "image-991",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 991
+    },
+    {
+      "id": "image-992",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 992
+    },
+    {
+      "id": "image-993",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 993
+    },
+    {
+      "id": "image-994",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 994
+    },
+    {
+      "id": "image-995",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 995
+    },
+    {
+      "id": "image-996",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 996
+    },
+    {
+      "id": "image-997",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 997
+    },
+    {
+      "id": "image-998",
+      "kind": "exact",
+      "source": "game",
+      "input": "arr/images.dat",
+      "operation": "image_assets",
+      "table": "arr/images.tbl",
+      "image": 998
+    }
+  ]
+}

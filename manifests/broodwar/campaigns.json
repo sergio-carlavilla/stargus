@@ -1,0 +1,268 @@
+{
+  "rules": [
+    {
+      "id": "campaign-broodwar-protoss-01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss01/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/01/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-02",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss02/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/02/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss03/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/03/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-04",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss04/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/04/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-05",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss05/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/05/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-06",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss06/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/06/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-07",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss07/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/07/scenario."
+    },
+    {
+      "id": "campaign-broodwar-protoss-08",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expprotoss/protoss08/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expprotoss/08/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran01/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/01/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-02",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran02/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/02/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran03/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/03/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-04",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran04/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/04/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-05a",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran05a/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/05a/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-05b",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran05b/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/05b/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-06",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran06/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/06/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-07",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran07/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/07/scenario."
+    },
+    {
+      "id": "campaign-broodwar-terran-08",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expterran/terran08/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expterran/08/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-bonus",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/bonus/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/bonus/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg01/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/01/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-02",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg02/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/02/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg03/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/03/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-04a",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg04a/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/04a/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-04b",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg04b/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/04b/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-04c",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg04c/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/04c/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-04d",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg04d/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/04d/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-04e",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg04e/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/04e/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-04f",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg04f/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/04f/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-05",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg05/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/05/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-06",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg06/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/06/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-07",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg07/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/07/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-08",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg08/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/08/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-09",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg09/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/09/scenario."
+    },
+    {
+      "id": "campaign-broodwar-zerg-10",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/expzerg/zerg10/staredit/scenario.chk",
+      "operation": "chk_to_map",
+      "output": "campaigns/expzerg/10/scenario."
+    }
+  ]
+}

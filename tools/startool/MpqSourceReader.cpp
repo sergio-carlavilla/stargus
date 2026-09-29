@@ -4,6 +4,9 @@
 #include "MpqSourceReader.h"
 
 #include <algorithm>
+#include <chrono>
+#include <cstdint>
+#include <functional>
 #include <system_error>
 
 MpqSourceReader::MpqSourceReader(const LogicalSource &source)
@@ -54,13 +57,28 @@ bool MpqSourceReader::open(const LogicalSource &source)
         return false;
     }
 
-    temporaryArchive_ = temporaryDirectory / ("stargus-startool-" + source.id + ".mpq");
+    const std::string temporaryKey = source.storage.string() + "|" + source.member + "|" + source.id;
 
-    std::filesystem::remove(
-        temporaryArchive_,
-        error
-    );
+    const std::size_t sourceHash = std::hash<std::string>{}(temporaryKey);
 
+    const auto timestamp = std::chrono::high_resolution_clock::now().time_since_epoch().count();
+
+    const auto instanceId = reinterpret_cast<std::uintptr_t>(this);
+
+    temporaryArchive_ = temporaryDirectory /
+        (
+            "stargus-startool-" +
+            source.id +
+            "-" +
+            std::to_string(sourceHash) +
+            "-" +
+            std::to_string(timestamp) +
+            "-" +
+            std::to_string(instanceId) +
+            ".mpq"
+        );
+
+    std::filesystem::remove(temporaryArchive_, error);
     error.clear();
     if (!parent.extract(source.member, temporaryArchive_)) {
         cleanup();

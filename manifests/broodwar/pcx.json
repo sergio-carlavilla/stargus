@@ -1,0 +1,20 @@
+{
+  "rules": [
+    {
+      "id": "ui-battlenet-profileexp",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/battle.net/backgrounds/profileexp.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/battlenet/profileexp.png"
+    },
+    {
+      "id": "ui-retail-expansion",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/palmm/retail_ex.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/retail_ex.png"
+    }
+  ]
+}

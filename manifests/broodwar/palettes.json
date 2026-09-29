@@ -1,0 +1,22 @@
+{
+  "palettes": [
+    {
+      "id": "desert",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/desert.wpe"
+    },
+    {
+      "id": "ice",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/ice.wpe"
+    },
+    {
+      "id": "twilight",
+      "kind": "wpe",
+      "source": "game",
+      "input": "tileset/twilight.wpe"
+    }
+  ]
+}

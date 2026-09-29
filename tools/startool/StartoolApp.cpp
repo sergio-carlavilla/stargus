@@ -6,6 +6,7 @@
 #include "LogicalSource.h"
 #include "LogicalSourceVerifier.h"
 #include "MpqSourceReader.h"
+#include "OverlaySourceReader.h"
 #include "MpqVerifier.h"
 #include "SourceDetector.h"
 #include "SourceReaderRegistry.h"
@@ -31,7 +32,129 @@
 #include <map>
 #include <string>
 #include <memory>
+#include <optional>
+#include <string_view>
 #include <system_error>
+
+namespace
+{
+    const LogicalSource *findLogicalSource(
+        const GameSource &source,
+        std::string_view id
+    )
+    {
+        const auto logicalSource =
+            std::find_if(
+                source.sources.begin(),
+                source.sources.end(),
+                [id](const LogicalSource &candidate)
+                {
+                    return candidate.id == id;
+                }
+            );
+
+        if (logicalSource == source.sources.end()) {
+            return nullptr;
+        }
+
+        return &*logicalSource;
+    }
+
+    bool registerBroodWarSourceOverlays(
+        const GameSource &broodWarSource,
+        const std::filesystem::path &baseInstallationPath,
+        const SourceReaderFactory &readerFactory,
+        SourceReaderRegistry &readers,
+        std::string &errorMessage
+    )
+    {
+        std::error_code error;
+
+        if (!std::filesystem::exists(baseInstallationPath, error)) {
+            if (error) {
+                errorMessage = "Could not inspect base StarCraft installation: " + error.message();
+            } else {
+                errorMessage = "Base StarCraft installation path does not exist: " + baseInstallationPath.string();
+            }
+
+            return false;
+        }
+
+        const std::filesystem::path absoluteBasePath = std::filesystem::absolute(baseInstallationPath, error);
+
+        if (error) {
+            errorMessage = "Could not resolve base StarCraft installation path: " + error.message();
+            return false;
+        }
+
+        SourceDetector detector;
+        auto baseSource = detector.detect(absoluteBasePath.lexically_normal());
+        if (!baseSource) {
+            errorMessage = "No supported Classic StarCraft source was detected at base path: " + absoluteBasePath.string();
+            return false;
+        }
+
+        if (baseSource->format != SourceFormat::Mpq) {
+            errorMessage = "Brood War base game currently supports only Classic MPQ sources";
+            return false;
+        }
+
+        MpqVerifier verifier;
+        if (!verifier.verify(*baseSource)) {
+            errorMessage = "Could not verify the Classic StarCraft base MPQ source";
+            return false;
+        }
+
+        if (baseSource->edition != GameEdition::Classic) {
+            errorMessage = "Brood War --base must reference a Classic StarCraft installation";
+            return false;
+        }
+
+        const std::string_view overlaySourceIds[] = {
+            "game",
+            "installer"
+        };
+
+        for (const std::string_view sourceId : overlaySourceIds) {
+            const LogicalSource *broodWarLogicalSource = findLogicalSource(broodWarSource, sourceId);
+            if (broodWarLogicalSource == nullptr) {
+                errorMessage = "Brood War source does not expose logical source '" + std::string(sourceId) + "'";
+                return false;
+            }
+
+            const LogicalSource *classicLogicalSource = findLogicalSource(*baseSource, sourceId);
+            if (classicLogicalSource == nullptr) {
+                errorMessage = "Classic base source does not expose logical source '" + std::string(sourceId) + "'";
+                return false;
+            }
+
+            auto primaryReader = readerFactory.create(*broodWarLogicalSource);
+            if (!primaryReader || !primaryReader->isOpen()) {
+                errorMessage = "Could not open Brood War logical source '" + std::string(sourceId) + "'";
+                return false;
+            }
+
+            auto fallbackReader = readerFactory.create(*classicLogicalSource);
+            if (!fallbackReader || !fallbackReader->isOpen()) {
+                errorMessage = "Could not open Classic StarCraft base logical source '" + std::string(sourceId) + "'";
+                return false;
+            }
+
+            auto overlayReader = std::make_unique<OverlaySourceReader>(std::move(primaryReader), std::move(fallbackReader));
+            if (!overlayReader->isOpen()) {
+                errorMessage = "Could not initialize Brood War logical source overlay '" + std::string(sourceId) + "'";
+                return false;
+            }
+
+            if (!readers.add(std::string(sourceId), std::move(overlayReader))) {
+                errorMessage = "Could not register Brood War logical source overlay '" + std::string(sourceId) + "'";
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
 
 int StartoolApp::run(int argc, char **argv)
 {
@@ -271,14 +394,28 @@ int StartoolApp::runExtract(int argc, char **argv) const
 
 int StartoolApp::runImport(int argc, char **argv) const
 {
-    if (argc != 5) {
-        std::cerr << "Usage: startool4 import " << "<installation> <manifest> <destination>\n";
+    if (argc != 5 && argc != 7) {
+        std::cerr << "Usage: startool import <installation> <manifest> <destination> [--base <classic-installation>]\n";
         return 1;
     }
 
     const std::filesystem::path installationPath = argv[2];
     const std::filesystem::path manifestPath = argv[3];
     const std::filesystem::path destinationPath = argv[4];
+
+    std::optional<std::filesystem::path> baseInstallationPath;
+
+    if (argc == 7) {
+        if (std::string_view(argv[5]) != "--base") {
+            std::cerr
+                << "Usage: startool import "
+                << "<installation> <manifest> <destination> [--base <classic-installation>]\n";
+
+            return 1;
+        }
+
+        baseInstallationPath = std::filesystem::path(argv[6]);
+    }
 
     ManifestLoader loader;
 
@@ -328,6 +465,27 @@ int StartoolApp::runImport(int argc, char **argv) const
 
     SourceReaderFactory readerFactory;
     SourceReaderRegistry readers;
+
+    if (gameSource->edition == GameEdition::BroodWar) {
+        if (!baseInstallationPath) {
+            std::cerr
+                << "Brood War is an expansion and requires the Classic base game.\n"
+                << "Use --base <classic-installation> when importing Brood War.\n";
+
+            return 1;
+        }
+
+        std::string overlayError;
+
+        if (!registerBroodWarSourceOverlays(*gameSource, *baseInstallationPath, readerFactory, readers, overlayError)) {
+            std::cerr << overlayError << '\n';
+            return 1;
+        }
+    } else if (baseInstallationPath) {
+        std::cerr << "--base is only valid when importing a Brood War source\n";
+        return 1;
+    }
+
     ImportExecutor executor;
 
     std::map<std::string, LoadedPalette> palettes;
@@ -573,13 +731,24 @@ int StartoolApp::runImport(int argc, char **argv) const
 
 int StartoolApp::runVerify(int argc, char **argv) const
 {
-    if (argc != 4) {
-        std::cerr << "Usage: startool4 verify <installation> <manifest>\n";
+    if (argc != 4 && argc != 6) {
+        std::cerr << "Usage: startool verify " << "<installation> <manifest> [--base <classic-installation>]\n";
         return 1;
     }
 
     const std::filesystem::path installationPath = argv[2];
     const std::filesystem::path manifestPath = argv[3];
+
+    std::optional<std::filesystem::path> baseInstallationPath;
+
+    if (argc == 6) {
+        if (std::string_view(argv[4]) != "--base") {
+            std::cerr << "Usage: startool verify " << "<installation> <manifest> [--base <classic-installation>]\n";
+            return 1;
+        }
+
+        baseInstallationPath = std::filesystem::path(argv[5]);
+    }
 
     ManifestLoader loader;
 
@@ -627,6 +796,25 @@ int StartoolApp::runVerify(int argc, char **argv) const
 
     SourceReaderFactory readerFactory;
     SourceReaderRegistry readers;
+
+    if (gameSource->edition == GameEdition::BroodWar) {
+        if (!baseInstallationPath) {
+            std::cerr
+                << "Brood War is an expansion and requires the Classic base game.\n"
+                << "Use --base <classic-installation> when verifying Brood War.\n";
+            return 1;
+        }
+
+        std::string overlayError;
+
+        if (!registerBroodWarSourceOverlays(*gameSource, *baseInstallationPath, readerFactory, readers, overlayError)) {
+            std::cerr << overlayError << '\n';
+            return 1;
+        }
+    } else if (baseInstallationPath) {
+        std::cerr << "--base is only valid when verifying a Brood War source\n";
+        return 1;
+    }
 
     for (const PaletteDefinition &palette : manifest->palettes) {
         SourceReader *reader = readers.find(palette.source);
@@ -941,7 +1129,9 @@ void StartoolApp::printHelp() const
         << "  inspect <path>   Inspect a StarCraft installation\n"
         << "  extract          Extract a resource from a StarCraft source\n"
         << "  import           Import StarCraft resources using a manifest\n"
-        << "  verify <file>    Verify a manifest against a StarCraft installation\n"
+        << "                   Brood War: add --base <classic-installation>\n"
+        << "  verify           Verify a manifest against a StarCraft installation\n"
+        << "                   Brood War: add --base <classic-installation>\n"
         << "  help             Show this help\n"
         << "  version          Show version information\n"
         << '\n'

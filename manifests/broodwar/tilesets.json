@@ -1,0 +1,86 @@
+{
+  "rules": [
+    {
+      "id": "desert-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/desert",
+      "operation": "tileset_to_png",
+      "palette": "desert",
+      "output": "graphics/tilesets/desert/desert.png"
+    },
+    {
+      "id": "ice-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/ice",
+      "operation": "tileset_to_png",
+      "palette": "ice",
+      "output": "graphics/tilesets/ice/ice.png"
+    },
+    {
+      "id": "twilight-tileset",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/twilight",
+      "operation": "tileset_to_png",
+      "palette": "twilight",
+      "output": "graphics/tilesets/twilight/twilight.png"
+    },
+
+    {
+      "id": "desert-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/desert",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/desert.lua"
+    },
+    {
+      "id": "ice-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/ice",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/ice.lua"
+    },
+    {
+      "id": "twilight-tileset-lua",
+      "kind": "exact",
+      "source": "game",
+      "input": "tileset/twilight",
+      "operation": "tileset_to_lua",
+      "output": "luagen/tilesets/twilight.lua"
+    },
+    {
+    "id": "desert-creep",
+    "kind": "exact",
+    "source": "game",
+    "input": "tileset/desert.grp",
+    "operation": "grp_to_png",
+    "palette": "desert",
+    "rgba": false,
+    "output": "graphics/tilesets/desert/creep.png"
+    },
+    {
+    "id": "ice-creep",
+    "kind": "exact",
+    "source": "game",
+    "input": "tileset/ice.grp",
+    "operation": "grp_to_png",
+    "palette": "ice",
+    "rgba": false,
+    "output": "graphics/tilesets/ice/creep.png"
+    },
+    {
+    "id": "twilight-creep",
+    "kind": "exact",
+    "source": "game",
+    "input": "tileset/twilight.grp",
+    "operation": "grp_to_png",
+    "palette": "twilight",
+    "rgba": false,
+    "output": "graphics/tilesets/twilight/creep.png"
+    }
+  ]
+}

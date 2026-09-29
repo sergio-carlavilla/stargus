@@ -8,9 +8,11 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <limits>
 
 constexpr std::size_t ChkPlayerCount = 16;
 constexpr std::uint16_t ChkStartLocationUnit = 214;
+constexpr std::uint32_t ChkNoLocation = std::numeric_limits<std::uint32_t>::max();
 
 struct ChkPlayerStart
 {

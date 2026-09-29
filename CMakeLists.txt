@@ -446,6 +446,7 @@ add_executable(
     tools/startool/SourceDetector.cpp
     tools/startool/SourceReaderFactory.cpp
     tools/startool/SourceReaderRegistry.cpp
+    tools/startool/OverlaySourceReader.cpp
     tools/startool/MpqArchive.cpp
     tools/startool/MpqSourceReader.cpp
     tools/startool/MpqVerifier.cpp
@@ -740,6 +741,30 @@ if(BUILD_TESTING)
             LABELS "startool4;unit"
     )
 
+    add_executable(
+        Startool4OverlaySourceReaderTest
+        tests/startool4/OverlaySourceReaderTest.cpp
+        tools/startool/OverlaySourceReader.cpp
+    )
+
+    target_include_directories(
+        Startool4OverlaySourceReaderTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME Startool4OverlaySourceReaderTest
+        COMMAND Startool4OverlaySourceReaderTest
+    )
+
+    set_tests_properties(
+        Startool4OverlaySourceReaderTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool4;source;broodwar"
+    )
+
     if(STARTOOL4_ENABLE_STARTOOL3_COMPAT_TESTS)
         if(NOT STARTOOL4_STARCRAFT_DIR)
             message(
@@ -854,6 +879,7 @@ set(STARGUS_WARNING_TARGETS
     LuaTest
     StartoolUnitTest
     Startool4UnitLuaWriterTest
+    Startool4OverlaySourceReaderTest
     Startool4ImageAssetsParityTest
     Startool4ImageAssetsLuaParityTest
     Startool4ImageAssetsCoverageReport

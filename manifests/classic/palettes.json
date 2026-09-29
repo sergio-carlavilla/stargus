@@ -76,6 +76,42 @@
       "kind": "wpe",
       "source": "game",
       "input": "tileset/platform.wpe"
+    },
+    {
+      "id": "scorepd",
+      "kind": "pcx",
+      "source": "game",
+      "input": "glue/scorepd/pmain.pcx"
+    },
+    {
+      "id": "scorepv",
+      "kind": "pcx",
+      "source": "game",
+      "input": "glue/scorepv/pmain.pcx"
+    },
+    {
+      "id": "scoretd",
+      "kind": "pcx",
+      "source": "game",
+      "input": "glue/scoretd/pmain.pcx"
+    },
+    {
+      "id": "scoretv",
+      "kind": "pcx",
+      "source": "game",
+      "input": "glue/scoretv/pmain.pcx"
+    },
+    {
+      "id": "scorezd",
+      "kind": "pcx",
+      "source": "game",
+      "input": "glue/scorezd/pmain.pcx"
+    },
+    {
+      "id": "scorezv",
+      "kind": "pcx",
+      "source": "game",
+      "input": "glue/scorezv/pmain.pcx"
     }
   ]
 }

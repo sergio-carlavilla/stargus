@@ -295,6 +295,66 @@
       "palette": "ashworld",
       "rgba": false,
       "output": "graphics/ui/cursors/time.png"
+    },
+    {
+      "id": "ui-scorepd-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/scorepd/iscore.grp",
+      "operation": "grp_to_png",
+      "palette": "scorepd",
+      "rgba": true,
+      "output": "graphics/ui/scorepd/iscore.png"
+    },
+    {
+      "id": "ui-scorepv-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/scorepv/iscore.grp",
+      "operation": "grp_to_png",
+      "palette": "scorepv",
+      "rgba": true,
+      "output": "graphics/ui/scorepv/iscore.png"
+    },
+    {
+      "id": "ui-scoretd-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/scoretd/iscore.grp",
+      "operation": "grp_to_png",
+      "palette": "scoretd",
+      "rgba": true,
+      "output": "graphics/ui/scoretd/iscore.png"
+    },
+    {
+      "id": "ui-scoretv-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/scoretv/iscore.grp",
+      "operation": "grp_to_png",
+      "palette": "scoretv",
+      "rgba": true,
+      "output": "graphics/ui/scoretv/iscore.png"
+    },
+    {
+      "id": "ui-scorezd-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/scorezd/iscore.grp",
+      "operation": "grp_to_png",
+      "palette": "scorezd",
+      "rgba": true,
+      "output": "graphics/ui/scorezd/iscore.png"
+    },
+    {
+      "id": "ui-scorezv-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/scorezv/iscore.grp",
+      "operation": "grp_to_png",
+      "palette": "scorezv",
+      "rgba": true,
+      "output": "graphics/ui/scorezv/iscore.png"
     }
   ]
 }

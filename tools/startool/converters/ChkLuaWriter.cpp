@@ -459,6 +459,11 @@ namespace
                         return false;
                     }
 
+                    if (action.source == ChkNoLocation) {
+                        output << "--  Transmission skipped: No Location\n";
+                        break;
+                    }
+
                     if (!resolveLocation(
                         map,
                         action.source,
@@ -524,6 +529,11 @@ namespace
                 }
 
                 case 10: {
+                    if (action.source == ChkNoLocation) {
+                        output << "--  CenterMap skipped: No Location\n";
+                        break;
+                    }
+
                     const ChkLocation *location = nullptr;
 
                     if (!resolveLocation(
@@ -755,7 +765,8 @@ namespace
         }
 
         output << "\n\n";
-        output << "LoadTileModels(\"luagen/tilesets/" << map.terrain << ".lua\")\n";
+        const std::string tilesetLuaName = map.terrain == "arctic" ? "ice" : map.terrain;
+        output << "LoadTileModels(\"luagen/tilesets/" << tilesetLuaName << ".lua\")\n";
         output << "\n\n";
 
         if (map.width <= 0 || map.height <= 0) {

@@ -1,0 +1,3804 @@
+{
+  "rules": [
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b01tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B01tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B01tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b03tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B03tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B03tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b04tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B04tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B04tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b05tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B05tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B05tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0b60tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0B60tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0B60tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m01tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M01tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M01tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m03tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M03tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M03tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m04tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M04tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M04tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m05tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M05tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M05tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m06tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M06tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M06tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m07tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M07tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M07tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m21tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M21tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M21tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m30tma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M30tma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M30tma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-t0m31tma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/T0M31tma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/T0M31tma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-tutorial-tscyes01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/tutorial/staredit/wav/TSCYes01.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/tutorial/TSCYes01.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-combeep1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/ComBeep1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/ComBeep1.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-t0m20tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/T0M20tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/T0M20tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-t1b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/T1B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/T1B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-t1b01udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/T1B01udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/T1B01udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-t1b02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/T1B02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/T1B02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-t1m01uci",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/T1M01uci.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/T1M01uci.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-01-t1m20ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran01/staredit/wav/T1M20ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/01/T1M20ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-combeep1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/ComBeep1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/ComBeep1.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2b01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2B01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2B01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2b02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2B02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2B02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2b03udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2B03udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2B03udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2b04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2B04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2B04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m20ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M20ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M20ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m30uci",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M30uci.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M30uci.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m40ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M40ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M40ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m60ftb",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M60ftb.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M60ftb.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m60tma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M60tma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M60tma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m60ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M60ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M60ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m80udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M80udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M80udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m81ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M81ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M81ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m82udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M82udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M82udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-t2m83ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/T2M83ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/T2M83ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-tcb02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/TCB02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/TCB02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-tdrtra01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/tdrTra01.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/tdrTra01.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-02-tfbrdy00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran02/staredit/wav/tfbRdy00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/02/tfbRdy00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t0m40tvu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T0M40tvu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T0M40tvu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3b01udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3B01udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3B01udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3b02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3B02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3B02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3b03ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3B03ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3B03ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3b04ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3B04ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3B04ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3b05tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3B05tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3B05tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m20tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M20tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M20tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m21tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M21tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M21tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m60tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M60tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M60tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m70tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M70tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M70tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m80tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M80tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M80tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-t3m90tma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/T3M90tma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/T3M90tma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-03-tdryes04",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran03/staredit/wav/TDrYes04.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/03/TDrYes04.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-combeep1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/ComBeep1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/ComBeep1.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-p6m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/P6M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/P6M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-ppwrdown",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/PPwrDown.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/PPwrDown.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4b01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4B01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4B01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4b02ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4B02ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4B02ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4b03ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4B03ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4B03ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4b04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4B04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4B04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m00uci",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M00uci.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M00uci.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m01ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M01ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M01ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m20uci",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M20uci.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M20uci.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m20ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M20ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M20ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m30uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M30uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M30uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-t4m70tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/T4M70tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/T4M70tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-04-z5m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran04/staredit/wav/Z5M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/04/Z5M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5b00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5B00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5B00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5b01tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5B01tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5B01tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5b02ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5B02ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5B02ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5b03uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5B03uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5B03uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5b04ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5B04ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5B04ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m00uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M00uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M00uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m02uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M02uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M02uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m03ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M03ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M03ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m04uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M04uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M04uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m20uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M20uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M20uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m40uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M40uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M40uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m41uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M41uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M41uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m42tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M42tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M42tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m43uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M43uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M43uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-05-t5m44uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran05/staredit/wav/T5M44uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/05/T5M44uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b01udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B01udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B01udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b02ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B02ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B02ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b03ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B03ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B03ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b05uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B05uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B05uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b06ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B06ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B06ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b07uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B07uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B07uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b08ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B08ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B08ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b09uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B09uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B09uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6b10ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6B10ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6B10ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m20udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M20udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M20udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m21ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M21ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M21ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m22ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M22ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M22ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m23udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M23udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M23udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m24ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M24ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M24ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m25udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M25udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M25udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m26ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M26ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M26ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m27udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M27udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M27udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m28ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M28ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M28ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m29ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M29ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M29ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-06-t6m30ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran06/staredit/wav/T6M30ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/06/T6M30ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b02udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B02udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B02udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b03ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B03ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B03ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b04udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B04udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B04udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b05uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B05uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B05uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b06ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B06ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B06ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b07uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B07uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B07uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7b08ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7B08ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7B08ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m00udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M00udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M00udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m02udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M02udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M02udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m03ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M03ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M03ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m20tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M20tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M20tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m21ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M21ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M21ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m22uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M22uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M22uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m23ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M23ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M23ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-07-t7m24uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran07/staredit/wav/T7M24uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/07/T7M24uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b01ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B01ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B01ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b02uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B02uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B02uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b03ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B03ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B03ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b04uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B04uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B04uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b05ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B05ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B05ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b06ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B06ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B06ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b07ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B07ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B07ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b08ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B08ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B08ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8b09ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8B09ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8B09ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8m00uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8M00uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8M00uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8m01ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8M01ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8M01ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8m02uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8M02uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8M02uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8m40uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8M40uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8M40uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-08-t8m41ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran08/staredit/wav/T8m41ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/08/T8m41ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9b00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9B00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9B00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9b01ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9B01ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9B01ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9b02udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9B02udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9B02udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9b03ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9B03ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9B03ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9b04udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9B04udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9B04udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9b05ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9B05ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9B05ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9m00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9M00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9M00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-t9m20udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/T9M20udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/T9M20udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-tam00udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/TAM00udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/TAM00udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-tam01uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/TAM01uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/TAM01uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-tam02ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/TAM02ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/TAM02ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-tam03uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/TAM03uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/TAM03uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-tam04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/TAM04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/TAM04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-09-tam05ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran09/staredit/wav/TAM05ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/09/TAM05ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab01ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB01ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB01ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab02ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB02ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB02ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab03uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB03uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB03uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab04udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB04udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB04udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab05ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB05ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB05ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tab06udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAB06udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAB06udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tam00udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAM00udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAM00udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tam01uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAM01uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAM01uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tam02ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAM02ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAM02ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tam03uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAM03uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAM03uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tam04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAM04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAM04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-10-tam05ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran10/staredit/wav/TAM05ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/10/TAM05ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb01ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB01ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB01ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb02ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB02ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB02ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb03ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB03ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB03ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb05uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB05uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB05uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbb06ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBB06ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBB06ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm01uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM01uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM01uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm20ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM20ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM20ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm21uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM21uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM21uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm40tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM40tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM40tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm41uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM41uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM41uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm42ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM42ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM42ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm43ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM43ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM43ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm44ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM44ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM44ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm45uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM45uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM45uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm46ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM46ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM46ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm47ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBM47ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBM47ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-11-tbm48uke",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran11/staredit/wav/TBm48uke.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/11/TBm48uke.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb02tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB02tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB02tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb03ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB03ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB03ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb04ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB04ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB04ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb05ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB05ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB05ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb06ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB06ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB06ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb07ume",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB07ume.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB07ume.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb08tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB08tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB08tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcb09ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCB09ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCB09ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcm00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCM00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCM00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcm01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCM01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCM01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-terran-12-tcm20tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/terran/terran12/staredit/wav/TCM20tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/terran/12/TCM20tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m01uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M01uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M01uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m02uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M02uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M02uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m03uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M03uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M03uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m04uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M04uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M04uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m05uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M05uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M05uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m06uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M06uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M06uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m07uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M07uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M07uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m08uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M08uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M08uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z0m09uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z0M09uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z0M09uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z1b00zad-wav",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z1B00zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z1B00zad.wav.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z1b01zad-wav",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z1B01zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z1B01zad.wav.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z1b02zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z1B02zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z1B02zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z1b03zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z1B03zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z1B03zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-z1m00uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/Z1M00uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/Z1M00uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-01-zpwrdown",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg01/staredit/wav/zpwrdown.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/01/zpwrdown.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2b00zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2B00zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2B00zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2b01zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2B01zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2B01zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2b02uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2B02uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2B02uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2b03uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2B03uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2B03uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2m00uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2M00uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2M00uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2m20uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2M20uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2M20uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-02-z2m21uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg02/staredit/wav/Z2M21uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/02/Z2M21uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3b00zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3B00zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3B00zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3b01uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3B01uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3B01uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3b02udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3B02udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3B02udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3b03uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3B03uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3B03uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3m00udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3M00udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3M00udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3m01uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3M01uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3M01uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-z3m02uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/Z3M02uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/Z3M02uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-03-zpwrdown",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg03/staredit/wav/zpwrdown.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/03/zpwrdown.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4b00uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4B00uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4B00uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4b01zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4B01zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4B01zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4b02zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4B02zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4B02zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m00ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M00ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M00ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m20uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M20uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M20uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m40zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M40zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M40zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m41uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M41uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M41uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m42zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M42zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M42zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m43ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M43ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M43ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m60ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M60ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M60ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m61uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M61uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M61uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m62ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M62ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M62ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m63uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M63uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M63uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m65ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M65ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M65ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m66uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M66uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M66uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-04-z4m67ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg04/staredit/wav/Z4M67ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/04/Z4M67ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-combeep1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/ComBeep1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/ComBeep1.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-p6m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/P6M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/P6M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-ppwrdown",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/PPwrDown.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/PPwrDown.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-t4m70tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/T4M70tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/T4M70tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-tbm21uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/TBM21uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/TBM21uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5b00uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5B00uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5B00uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5b01uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5B01uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5B01uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5b02uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5B02uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5B02uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5b03uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5B03uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5B03uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5b04zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5B04zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5B04zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5b05uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5B05uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5B05uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m00uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M00uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M00uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m20uci",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M20uci.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M20uci.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m20uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M20uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M20uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m30uci",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M30uci.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M30uci.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m40uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M40uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M40uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m50uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M50uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M50uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m51uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M51uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M51uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-z5m60uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/Z5M60uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/Z5M60uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-05-zpwrdown",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg05/staredit/wav/zpwrdown.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/05/zpwrdown.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-combeep1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/ComBeep1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/ComBeep1.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6b00uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6B00uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6B00uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6b01uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6B01uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6B01uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6b02uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6B02uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6B02uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6b03uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6B03uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6B03uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6b04uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6B04uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6B04uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6b05uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6B05uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6B05uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m00uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M00uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M00uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m01uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M01uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M01uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m02uza",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M02uza.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M02uza.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m20uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M20uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M20uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m40uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M40uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M40uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m60uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M60uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M60uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-06-z6m61uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg06/staredit/wav/Z6M61uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/06/Z6M61uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-07-z7b00uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/wav/Z7B00uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/07/Z7B00uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-07-z7b01uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/wav/Z7B01uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/07/Z7B01uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-07-z7b02uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/wav/Z7B02uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/07/Z7B02uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-07-z7b03uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/wav/Z7B03uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/07/Z7B03uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-07-z7b04uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/wav/Z7B04uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/07/Z7B04uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-07-z7b05uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg07/staredit/wav/Z7B05uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/07/Z7B05uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8b00zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8B00zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8B00zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8b01zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8B01zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8B01zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8b02zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8B02zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8B02zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8b03uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8B03uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8B03uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8m00uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8M00uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8M00uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8m20uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8M20uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8M20uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8m40uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8M40uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8M40uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8m41uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8M41uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8M41uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8m42uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8M42uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8M42uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-08-z8m60uki",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg08/staredit/wav/Z8M60uki.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/08/Z8M60uki.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-z9b00zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/Z9B00zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/Z9B00zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-z9b01zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/Z9B01zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/Z9B01zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-z9b02zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/Z9B02zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/Z9B02zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-z9m00uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/Z9M00uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/Z9M00uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-z9m01uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/Z9M01uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/Z9M01uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-zdrerr00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/zdrErr00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/zdrErr00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-09-zdrmin00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg09/staredit/wav/ZDrMin00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/09/ZDrMin00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-10-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/10/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-10-zab00zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/wav/ZAB00zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/10/ZAB00zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-10-zab01zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/wav/ZAB01zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/10/ZAB01zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-10-zab02zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/wav/ZAB02zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/10/ZAB02zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-10-zam00uda",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/wav/ZAM00uda.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/10/ZAM00uda.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-zerg-10-zam20zad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/zerg/zerg10/staredit/wav/ZAM20zad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/zerg/10/ZAM20zad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-tutorial-p1b00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/wav/P1B00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/tutorial/P1B00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-tutorial-p1b01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/wav/P1B01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/tutorial/P1B01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-tutorial-p1b02pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/wav/P1B02pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/tutorial/P1B02pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-tutorial-p1m00ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/wav/P1M00ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/tutorial/P1M00ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-tutorial-p1m20ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/wav/P1M20ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/tutorial/P1M20ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-tutorial-p1m40ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/tutorial/staredit/wav/P1M40ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/tutorial/P1M40ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1b00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1B00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1B00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1b01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1B01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1B01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1b02pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1B02pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1B02pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1m00ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1M00ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1M00ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1m40ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1M40ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1M40ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1m60ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1M60ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1M60ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1m61ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1M61ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1M61ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-01-p1m62ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss01/staredit/wav/P1M62ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/01/P1M62ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b01uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B01uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B01uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b02pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B02pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B02pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b03uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B03uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B03uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b04uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B04uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B04uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b06pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B06pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B06pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b07uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B07uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B07uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b08uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B08uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B08uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b09pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B09pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B09pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b10uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B10uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B10uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2b11ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2B11ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2B11ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2m00ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2M00ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2M00ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-02-p2m01ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss02/staredit/wav/P2M01ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/02/P2M01ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-03-p3b00ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/wav/P3B00ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/03/P3B00ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-03-p3b01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/wav/P3B01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/03/P3B01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-03-p3b02pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/wav/P3B02pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/03/P3B02pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-03-p3b03ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/wav/P3B03ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/03/P3B03ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-03-p3m00ufe",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/wav/P3M00ufe.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/03/P3M00ufe.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-03-p3m01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss03/staredit/wav/P3M01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/03/P3M01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4b00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4B00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4B00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4b01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4B01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4B01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4b02pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4B02pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4B02pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4b03pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4B03pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4B03pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m00uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M00uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M00uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m02uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M02uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M02uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m03ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M03ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M03ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m04pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M04pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M04pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m05ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M05ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M05ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m06pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M06pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M06pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m07uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M07uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M07uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m09pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M09pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M09pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m10uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M10uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M10uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m11ute",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M11ute.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M11ute.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-p4m20uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/P4M20uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/P4M20uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-zhyrdy00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/zhyRdy00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/zhyRdy00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-zhyyes03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/zhyYes03.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/zhyYes03.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-zqurdy00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/zquRdy00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/zquRdy00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-04-zzerdy00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss04/staredit/wav/ZZeRdy00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/04/ZZeRdy00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b01uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B01uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B01uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b02pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B02pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B02pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b03uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B03uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B03uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b04uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B04uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B04uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b05pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B05pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B05pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b06uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B06uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B06uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b07uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B07uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B07uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5b08pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5B08pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5B08pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5m00udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5M00udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5M00udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5m03uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5M03uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5M03uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-05-p5m04udu",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss05/staredit/wav/P5M04udu.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/05/P5M04udu.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6b00uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6B00uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6B00uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6b01ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6B01ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6B01ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6b02uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6B02uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6B02uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m00tad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M00tad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M00tad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m00uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M00uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M00uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m01uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M01uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M01uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m03uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M03uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M03uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m04uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M04uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M04uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m20uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M20uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M20uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m30uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M30uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M30uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-p6m40uma",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/P6M40uma.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/P6M40uma.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-pshbld03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/pshBld03.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/pshBld03.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-tmapss00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/TMaPss00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/TMaPss00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-zbgrdy00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/ZBgRdy00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/ZBgRdy00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-zzerdy00",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/ZZeRdy00.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/ZZeRdy00.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-zzeyes01",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/ZZeYes01.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/ZZeYes01.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-06-zzeyes03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss06/staredit/wav/ZZeYes03.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/06/ZZeYes03.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b00ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B00ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B00ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b01uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B01uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B01uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b02ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B02ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B02ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b03uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B03uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B03uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b04ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B04ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B04ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b05ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B05ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B05ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b06uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B06uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B06uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b07ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B07ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B07ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7b08uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7B08uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7B08uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7m00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7M00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7M00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7m01uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7M01uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7M01uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7m20uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7M20uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7M20uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7m21pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7M21pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7M21pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-p7m23uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/P7M23uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/P7M23uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-07-pshbld03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss07/staredit/wav/pshBld03.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/07/pshBld03.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-combeep1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/ComBeep1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/ComBeep1.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8b00ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8B00ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8B00ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8b01ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8B01ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8B01ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8b02ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8B02ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8B02ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8b03ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8B03ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8B03ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m00ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M00ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M00ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m01pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M01pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M01pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m02uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M02uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M02uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m03pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M03pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M03pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m04uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M04uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M04uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m05pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M05pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M05pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m06uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M06uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M06uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-p8m08pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/P8M08pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/P8M08pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-08-pshbld03",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss08/staredit/wav/pshBld03.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/08/pshBld03.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-09-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/09/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-09-p9b00uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/wav/P9B00uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/09/P9B00uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-09-p9b01uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/wav/P9B01uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/09/P9B01uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-09-p9b02uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/wav/P9B02uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/09/P9B02uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-09-p9b03uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/wav/P9B03uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/09/P9B03uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-09-p9b04ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss09/staredit/wav/P9B04ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/09/P9B04ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-combeep0",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/ComBeep0.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/ComBeep0.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-p9m00pad",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/P9M00pad.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/P9M00pad.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-p9m02ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/P9M02ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/P9M02ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pab00ufd",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAB00ufd.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAB00ufd.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pab01uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAB01uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAB01uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pab02uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAB02uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAB02uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pab03uze",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAB03uze.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAB03uze.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pab05ura",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAB05ura.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAB05ura.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pab06uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAB06uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAB06uta.ogg"
+    },
+    {
+      "id": "campaign-audio-classic-campaigns-protoss-10-pam00uta",
+      "kind": "exact",
+      "source": "installer",
+      "input": "campaign/protoss/protoss10/staredit/wav/PAM00uta.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/campaigns/protoss/10/PAM00uta.ogg"
+    }
+  ]
+}

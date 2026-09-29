@@ -1,0 +1,159 @@
+{
+  "rules": [
+    {
+      "id": "music-title",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/title.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/title.ogg"
+    },
+
+    {
+      "id": "music-terran-defeat",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/tdefeat.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/terran/defeat.ogg"
+    },
+    {
+      "id": "music-terran-1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/terran1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/terran/1.ogg"
+    },
+    {
+      "id": "music-terran-2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/terran2.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/terran/2.ogg"
+    },
+    {
+      "id": "music-terran-3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/terran3.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/terran/3.ogg"
+    },
+    {
+      "id": "music-terran-ready-room",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/trdyroom.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/terran/ready room.ogg"
+    },
+    {
+      "id": "music-terran-victory",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/tvict.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/terran/victory.ogg"
+    },
+
+    {
+      "id": "music-zerg-defeat",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/zdefeat.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/zerg/defeat.ogg"
+    },
+    {
+      "id": "music-zerg-1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/zerg1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/zerg/1.ogg"
+    },
+    {
+      "id": "music-zerg-2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/zerg2.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/zerg/2.ogg"
+    },
+    {
+      "id": "music-zerg-3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/zerg3.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/zerg/3.ogg"
+    },
+    {
+      "id": "music-zerg-ready-room",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/zrdyroom.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/zerg/ready room.ogg"
+    },
+    {
+      "id": "music-zerg-victory",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/zvict.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/zerg/victory.ogg"
+    },
+
+    {
+      "id": "music-protoss-defeat",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/pdefeat.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/protoss/defeat.ogg"
+    },
+    {
+      "id": "music-protoss-1",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/protoss1.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/protoss/1.ogg"
+    },
+    {
+      "id": "music-protoss-2",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/protoss2.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/protoss/2.ogg"
+    },
+    {
+      "id": "music-protoss-3",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/protoss3.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/protoss/3.ogg"
+    },
+    {
+      "id": "music-protoss-ready-room",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/prdyroom.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/protoss/ready room.ogg"
+    },
+    {
+      "id": "music-protoss-victory",
+      "kind": "exact",
+      "source": "installer",
+      "input": "music/pvict.wav",
+      "operation": "wav_to_ogg",
+      "output": "sounds/music/protoss/victory.ogg"
+    }
+  ]
+}

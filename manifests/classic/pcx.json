@@ -319,6 +319,30 @@
       "input": "Glue/ReadyT/TutBtn.pcx",
       "operation": "pcx_to_png",
       "output": "graphics/ui/readyt/tutbtn.png"
+    },
+    {
+      "id": "ui-battlenet-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/battle.net/icons/icons.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/battlenet/icons.png"
+    },
+    {
+      "id": "ui-title-tfont-beta",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/title/tfont-beta.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/tfont-beta.png"
+    },
+    {
+      "id": "ui-title-beta",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/title/title-beta.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/title-beta.png"
     }
   ]
 }

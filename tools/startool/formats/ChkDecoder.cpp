@@ -540,12 +540,8 @@ bool ChkDecoder::decode(
                         ChkTriggerAction &action :
                         trigger.actions
                     ) {
-                        action.source =
-                            readLe32(
-                                data,
-                                triggerOffset
-                            ) -
-                            static_cast<std::uint32_t>(1);
+                        const std::uint32_t source = readLe32(data, triggerOffset);
+                        action.source = source == 0 ? ChkNoLocation : source - static_cast<std::uint32_t>(1);
 
                         action.triggerNumber = readLe32(
                             data,
