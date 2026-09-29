@@ -718,51 +718,226 @@ if(BUILD_TESTING)
     endif()
 
     add_executable(
-        Startool4UnitLuaWriterTest
-        tests/startool4/UnitLuaWriterTest.cpp
+        StartoolUnitLuaWriterTest
+        tests/startool/UnitLuaWriterTest.cpp
         tools/startool/converters/UnitLuaWriter.cpp
     )
 
     target_include_directories(
-        Startool4UnitLuaWriterTest
+        StartoolUnitLuaWriterTest
         PRIVATE
             "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
     )
 
     add_test(
-        NAME Startool4UnitLuaWriterTest
-        COMMAND Startool4UnitLuaWriterTest
+        NAME StartoolUnitLuaWriterTest
+        COMMAND StartoolUnitLuaWriterTest
     )
 
     set_tests_properties(
-        Startool4UnitLuaWriterTest
+        StartoolUnitLuaWriterTest
         PROPERTIES
             WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
-            LABELS "startool4;unit"
+            LABELS "startool;unit"
     )
 
     add_executable(
-        Startool4OverlaySourceReaderTest
-        tests/startool4/OverlaySourceReaderTest.cpp
+        StartoolOverlaySourceReaderTest
+        tests/startool/OverlaySourceReaderTest.cpp
         tools/startool/OverlaySourceReader.cpp
     )
 
     target_include_directories(
-        Startool4OverlaySourceReaderTest
+        StartoolOverlaySourceReaderTest
         PRIVATE
             "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
     )
 
     add_test(
-        NAME Startool4OverlaySourceReaderTest
-        COMMAND Startool4OverlaySourceReaderTest
+        NAME StartoolOverlaySourceReaderTest
+        COMMAND StartoolOverlaySourceReaderTest
     )
 
     set_tests_properties(
-        Startool4OverlaySourceReaderTest
+        StartoolOverlaySourceReaderTest
         PROPERTIES
             WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
-            LABELS "startool4;source;broodwar"
+            LABELS "startool;source;broodwar"
+    )
+
+    add_executable(
+        StartoolChkDecoderTest
+        tests/startool/ChkDecoderTest.cpp
+        tools/startool/formats/ChkDecoder.cpp
+    )
+
+    target_include_directories(
+        StartoolChkDecoderTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolChkDecoderTest
+        COMMAND StartoolChkDecoderTest
+    )
+
+    set_tests_properties(
+        StartoolChkDecoderTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;chk;unit"
+    )
+
+    add_executable(
+        StartoolChkLuaWriterTest
+        tests/startool/ChkLuaWriterTest.cpp
+        tools/startool/converters/ChkLuaWriter.cpp
+    )
+
+    target_include_directories(
+        StartoolChkLuaWriterTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolChkLuaWriterTest
+        COMMAND StartoolChkLuaWriterTest
+    )
+
+    set_tests_properties(
+        StartoolChkLuaWriterTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;chk;unit"
+    )
+
+    add_executable(
+        StartoolManifestValidationTest
+        tests/startool/ManifestValidationTest.cpp
+    )
+
+    target_link_libraries(
+        StartoolManifestValidationTest
+        PRIVATE
+            nlohmann_json::nlohmann_json
+    )
+
+    target_compile_definitions(
+        StartoolManifestValidationTest
+        PRIVATE
+            STARGUS_SOURCE_DIR="${PROJECT_SOURCE_DIR}"
+    )
+
+    add_test(
+        NAME StartoolManifestValidationTest
+        COMMAND StartoolManifestValidationTest
+    )
+
+    set_tests_properties(
+        StartoolManifestValidationTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;manifest;regression"
+    )
+
+    add_executable(
+        StartoolTblDecoderTest
+        tests/startool/TblDecoderTest.cpp
+        tools/startool/formats/TblDecoder.cpp
+    )
+
+    target_include_directories(
+        StartoolTblDecoderTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolTblDecoderTest
+        COMMAND StartoolTblDecoderTest
+    )
+
+    set_tests_properties(
+        StartoolTblDecoderTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;image;unit"
+    )
+
+    add_executable(
+        StartoolImagesDatDecoderTest
+        tests/startool/ImagesDatDecoderTest.cpp
+        tools/startool/formats/ImagesDatDecoder.cpp
+    )
+
+    target_include_directories(
+        StartoolImagesDatDecoderTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolImagesDatDecoderTest
+        COMMAND StartoolImagesDatDecoderTest
+    )
+
+    set_tests_properties(
+        StartoolImagesDatDecoderTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;image;unit"
+    )
+
+    add_executable(
+        StartoolImageAssetResolverTest
+        tests/startool/ImageAssetResolverTest.cpp
+        tools/startool/converters/ImageAssetResolver.cpp
+        tools/startool/formats/ImagesDatDecoder.cpp
+        tools/startool/formats/TblDecoder.cpp
+    )
+
+    target_include_directories(
+        StartoolImageAssetResolverTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolImageAssetResolverTest
+        COMMAND StartoolImageAssetResolverTest
+    )
+
+    set_tests_properties(
+        StartoolImageAssetResolverTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;image;regression"
+    )
+
+    add_executable(
+        StartoolImageLuaWriterTest
+        tests/startool/ImageLuaWriterTest.cpp
+        tools/startool/converters/ImageLuaWriter.cpp
+    )
+
+    target_include_directories(
+        StartoolImageLuaWriterTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolImageLuaWriterTest
+        COMMAND StartoolImageLuaWriterTest
+    )
+
+    set_tests_properties(
+        StartoolImageLuaWriterTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;image;regression"
     )
 
     if(STARTOOL4_ENABLE_STARTOOL3_COMPAT_TESTS)
@@ -878,8 +1053,15 @@ set(STARGUS_WARNING_TARGETS
     json_transition
     LuaTest
     StartoolUnitTest
-    Startool4UnitLuaWriterTest
-    Startool4OverlaySourceReaderTest
+    StartoolUnitLuaWriterTest
+    StartoolOverlaySourceReaderTest
+    StartoolChkDecoderTest
+    StartoolChkLuaWriterTest
+    StartoolManifestValidationTest
+    StartoolTblDecoderTest
+    StartoolImagesDatDecoderTest
+    StartoolImageAssetResolverTest
+    StartoolImageLuaWriterTest
     Startool4ImageAssetsParityTest
     Startool4ImageAssetsLuaParityTest
     Startool4ImageAssetsCoverageReport
