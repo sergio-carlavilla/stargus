@@ -479,6 +479,7 @@ std::optional<Manifest> ManifestLoader::load(
                 "width",
                 "height",
                 "crop",
+                "bottom_align_height",
                 "unit",
                 "ident",
                 "output"
@@ -725,6 +726,22 @@ std::optional<Manifest> ManifestLoader::load(
                     error = "Manifest rule '" + rule.id + "' field height is only valid for panel_to_png";
                     return std::nullopt;
                 }
+            }
+
+            // Optional transparent top padding for CASC DDS console images
+            if (ruleDocument.contains("bottom_align_height")) {
+                if (rule.operation != ManifestOperation::DdsToPng ||
+                    !ruleDocument["bottom_align_height"].is_number_integer()) {
+                    error = "Manifest rule '" + rule.id + "' bottom_align_height is only valid as an integer for dds_to_png";
+                    return std::nullopt;
+                }
+
+                const std::int64_t height = ruleDocument["bottom_align_height"].get<std::int64_t>();
+                if (height < 1 || height > 16384) {
+                    error = "Manifest rule '" + rule.id + "' has invalid bottom_align_height";
+                    return std::nullopt;
+                }
+                rule.bottomAlignHeight = static_cast<int>(height);
             }
 
             // Optional DDS-only crop in source image coordinates

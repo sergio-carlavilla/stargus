@@ -13,6 +13,7 @@
 #include <filesystem>
 #include <string>
 #include <system_error>
+#include <vector>
 
 bool DdsToPngConverter::convert(
     const std::filesystem::path &input,
@@ -21,7 +22,8 @@ bool DdsToPngConverter::convert(
     int cropX,
     int cropY,
     int cropWidth,
-    int cropHeight
+    int cropHeight,
+    int bottomAlignHeight
 ) const
 {
     DdsDecoder decoder;
@@ -53,6 +55,17 @@ bool DdsToPngConverter::convert(
             error = "DDS crop rectangle exceeds input dimensions";
             return false;
         }
+    }
+
+    // Bottom-align a short CASC console on the original 640x480 canvas
+    // Newly introduced rows must be fully transparent, not stretched pixels
+    std::size_t outputHeight = height;
+    if (bottomAlignHeight != -1) {
+        if (bottomAlignHeight < 1 || bottomAlignHeight > 16384 || static_cast<std::size_t>(bottomAlignHeight) < height) {
+            error = "Invalid DDS bottom-align height";
+            return false;
+        }
+        outputHeight = static_cast<std::size_t>(bottomAlignHeight);
     }
 
     const std::filesystem::path parent = output.parent_path();
@@ -108,7 +121,7 @@ bool DdsToPngConverter::convert(
         png,
         info,
         static_cast<png_uint_32>(width),
-        static_cast<png_uint_32>(height),
+        static_cast<png_uint_32>(outputHeight),
         8,
         PNG_COLOR_TYPE_RGBA,
         PNG_INTERLACE_NONE,
@@ -117,6 +130,13 @@ bool DdsToPngConverter::convert(
     );
 
     png_write_info(png, info);
+
+    if (outputHeight > height) {
+        const std::vector<std::uint8_t> transparentRow(width * 4, 0);
+        for (std::size_t row = 0; row < outputHeight - height; ++row) {
+            png_write_row(png, transparentRow.data());
+        }
+    }
 
     for (std::size_t row = 0; row < height; ++row) {
         const std::size_t offset = ((y + row) * image.width + x) * 4;

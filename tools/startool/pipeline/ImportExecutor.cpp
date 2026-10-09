@@ -1416,8 +1416,14 @@ bool ImportExecutor::execute(
         case ManifestOperation::DdsToPng: {
             DdsToPngConverter converter;
             converted = converter.convert(
-                stagedPath, destination, error,
-                task.cropX, task.cropY, task.cropWidth, task.cropHeight
+                stagedPath,
+                destination,
+                error,
+                task.cropX,
+                task.cropY,
+                task.cropWidth,
+                task.cropHeight,
+                task.bottomAlignHeight
             );
             break;
         }

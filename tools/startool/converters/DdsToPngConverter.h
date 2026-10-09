@@ -18,7 +18,8 @@ class DdsToPngConverter
             int cropX = -1,
             int cropY = -1,
             int cropWidth = -1,
-            int cropHeight = -1
+            int cropHeight = -1,
+            int bottomAlignHeight = -1
         ) const;
 
 };

@@ -1,6 +1,33 @@
 {
   "rules": [
     {
+      "id": "ui-pconsole",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/pconsole.DDS",
+      "operation": "dds_to_png",
+      "bottom_align_height": 480,
+      "output": "graphics/ui/pconsole.png"
+    },
+    {
+      "id": "ui-tconsole",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/tconsole.DDS",
+      "operation": "dds_to_png",
+      "bottom_align_height": 480,
+      "output": "graphics/ui/tconsole.png"
+    },
+    {
+      "id": "ui-zconsole",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/zconsole.DDS",
+      "operation": "dds_to_png",
+      "bottom_align_height": 480,
+      "output": "graphics/ui/zconsole.png"
+    },
+    {
       "id": "ui-ppbrempt",
       "kind": "exact",
       "source": "game",

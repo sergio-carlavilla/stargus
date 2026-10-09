@@ -213,6 +213,30 @@ int main()
         check(croppedPng.width == 1 && croppedPng.height == 1, "cropped PNG dimensions");
         check(croppedPixels == std::vector<unsigned char>({200, 100, 50, 0}), "cropped PNG pixels and alpha");
 
+        const std::filesystem::path padded = std::filesystem::temp_directory_path() / "startool-dds-test-padded.png";
+        std::filesystem::remove(padded);
+        check(DdsToPngConverter().convert(input, padded, error, -1, -1, -1, -1, 3), "DDS bottom padding converts: " + error);
+        png_image paddedPng{};
+        paddedPng.version = PNG_IMAGE_VERSION;
+        std::vector<unsigned char> paddedPixels;
+        if (png_image_begin_read_from_file(&paddedPng, padded.string().c_str())) {
+            paddedPng.format = PNG_FORMAT_RGBA;
+            paddedPixels.resize(PNG_IMAGE_SIZE(paddedPng));
+            png_image_finish_read(&paddedPng, nullptr, paddedPixels.data(), 0, nullptr);
+        }
+        check(paddedPng.width == 2 && paddedPng.height == 3, "padded PNG dimensions");
+        check(paddedPixels == std::vector<unsigned char>({
+            0,0,0,0, 0,0,0,0,
+            0,0,0,0, 0,0,0,0,
+            10,20,30,40, 200,100,50,0
+        }), "padded PNG preserves lower pixels and transparent top");
+        std::filesystem::remove(padded);
+
+        const std::filesystem::path invalidPad = std::filesystem::temp_directory_path() / "startool-dds-test-invalid-pad.png";
+        std::filesystem::remove(invalidPad);
+        check(!DdsToPngConverter().convert(input, invalidPad, error, -1, -1, -1, -1, 0), "invalid bottom align is rejected");
+        check(!std::filesystem::exists(invalidPad), "invalid bottom align does not leave output");
+
         const std::filesystem::path invalid = std::filesystem::temp_directory_path() / "startool-dds-test-invalid.png";
         std::filesystem::remove(invalid);
         check(!DdsToPngConverter().convert(input, invalid, error, 1, 0, 2, 1), "DDS out-of-bounds crop is rejected");
