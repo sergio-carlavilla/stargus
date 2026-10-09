@@ -126,9 +126,6 @@ jobs:
         run: |
           required_executables=(
             "$STARGUS_INSTALL_DIR/bin/startool"
-            "$STARGUS_INSTALL_DIR/bin/scdat2json"
-            "$STARGUS_INSTALL_DIR/bin/grptool"
-            "$STARGUS_INSTALL_DIR/bin/sauwetter"
             "$STARGUS_INSTALL_DIR/games/stargus"
           )
 

@@ -2,14 +2,18 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
 #include "LogicalSourceVerifier.h"
-#include "MpqSourceReader.h"
+
+#include "SourceReaderFactory.h"
 
 bool LogicalSourceVerifier::verify(const LogicalSource &source) const
 {
-    if (source.format != SourceFormat::Mpq) {
+    SourceReaderFactory factory;
+
+    auto reader = factory.create(source);
+
+    if (!reader) {
         return false;
     }
 
-    MpqSourceReader reader(source);
-    return reader.isOpen();
+    return reader->isOpen();
 }

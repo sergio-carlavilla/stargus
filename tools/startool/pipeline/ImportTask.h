@@ -31,6 +31,11 @@ struct ImportTask
     int width = -1;
     int height = -1;
 
+    int cropX = -1;
+    int cropY = -1;
+    int cropWidth = -1;
+    int cropHeight = -1;
+
     int unit = -1;
     std::string ident;
 

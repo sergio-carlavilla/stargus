@@ -22,6 +22,7 @@ enum class ManifestOperation
     ImageAssets,
     PortraitAssets,
     ChkToMap,
+    DdsToPng,
     PcxToPng,
     UiConsole,
     PanelToPng,
@@ -33,7 +34,9 @@ enum class ManifestOperation
     TextToUtf8,
     UnitLua,
     UnitsLua,
-    WavToOgg
+    WavToOgg,
+    WebmToMng,
+    WebmToOgv
 };
 
 struct ManifestRule
@@ -59,6 +62,11 @@ struct ManifestRule
     int right = -1;
     int width = -1;
     int height = -1;
+
+    int cropX = -1;
+    int cropY = -1;
+    int cropWidth = -1;
+    int cropHeight = -1;
 
     int unit = -1;
     std::string ident;

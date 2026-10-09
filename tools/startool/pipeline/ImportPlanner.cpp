@@ -30,6 +30,11 @@ std::vector<ImportTask> ImportPlanner::plan(const Manifest &manifest) const
                 task.width = rule.width;
                 task.height = rule.height;
 
+                task.cropX = rule.cropX;
+                task.cropY = rule.cropY;
+                task.cropWidth = rule.cropWidth;
+                task.cropHeight = rule.cropHeight;
+
                 task.unit = rule.unit;
                 task.ident = rule.ident;
 

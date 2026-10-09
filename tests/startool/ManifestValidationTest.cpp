@@ -29,8 +29,7 @@ namespace
         std::set<std::string> outputs;
         std::set<std::filesystem::path> visited;
 
-        std::map<std::string, std::vector<std::string>>
-            paletteReferences;
+        std::map<std::string, std::vector<std::string>> paletteReferences;
 
         std::vector<std::string> errors;
     };
@@ -44,22 +43,14 @@ namespace
         std::ifstream input(path);
 
         if (!input) {
-            error =
-                "Could not open manifest: " +
-                path.string();
-
+            error = "Could not open manifest: " + path.string();
             return false;
         }
 
         try {
             input >> json;
         } catch (const std::exception &exception) {
-            error =
-                "Could not parse manifest '" +
-                path.string() +
-                "': " +
-                exception.what();
-
+            error = "Could not parse manifest '" + path.string() + "': " + exception.what();
             return false;
         }
 
@@ -75,14 +66,7 @@ namespace
     )
     {
         if (!values.insert(value).second) {
-            stats.errors.push_back(
-                "Duplicate " +
-                kind +
-                " '" +
-                value +
-                "' in " +
-                manifest.string()
-            );
+            stats.errors.push_back("Duplicate " + kind + " '" + value + "' in " + manifest.string());
         }
     }
 
@@ -95,19 +79,10 @@ namespace
     {
         std::error_code filesystemError;
 
-        const std::filesystem::path normalized =
-            std::filesystem::weakly_canonical(
-                manifest,
-                filesystemError
-            );
+        const std::filesystem::path normalized = std::filesystem::weakly_canonical(manifest, filesystemError);
 
         if (filesystemError) {
-            error =
-                "Could not resolve manifest path '" +
-                manifest.string() +
-                "': " +
-                filesystemError.message();
-
+            error = "Could not resolve manifest path '" + manifest.string() + "': " + filesystemError.message();
             return false;
         }
 
@@ -117,35 +92,20 @@ namespace
 
         Json json;
 
-        if (!loadJson(
-            normalized,
-            json,
-            error
-        )) {
+        if (!loadJson(normalized, json, error)) {
             return false;
         }
 
         if (json.contains("palettes")) {
             for (const Json &palette : json["palettes"]) {
-                const std::string id =
-                    palette.value("id", "");
+                const std::string id = palette.value("id", "");
 
                 if (id.empty()) {
-                    stats.errors.push_back(
-                        "Palette without id in " +
-                        normalized.string()
-                    );
-
+                    stats.errors.push_back("Palette without id in " + normalized.string());
                     continue;
                 }
 
-                addUnique(
-                    stats.palettes,
-                    id,
-                    "palette id",
-                    normalized,
-                    stats
-                );
+                addUnique(stats.palettes, id, "palette id", normalized, stats);
             }
         }
 
@@ -153,41 +113,19 @@ namespace
             for (const Json &rule : json["rules"]) {
                 ++stats.ruleCount;
 
-                const std::string id =
-                    rule.value("id", "");
+                const std::string id = rule.value("id", "");
 
                 if (id.empty()) {
-                    stats.errors.push_back(
-                        "Rule without id in " +
-                        normalized.string()
-                    );
+                    stats.errors.push_back("Rule without id in " + normalized.string());
                 } else {
-                    addUnique(
-                        stats.rules,
-                        id,
-                        "rule id",
-                        normalized,
-                        stats
-                    );
+                    addUnique(stats.rules, id, "rule id", normalized, stats);
                 }
 
-                if (
-                    rule.contains("output") &&
-                    rule["output"].is_string()
-                ) {
-                    const std::string output =
-                        rule["output"].get<std::string>();
-
+                if (rule.contains("output") && rule["output"].is_string()) {
+                    const std::string output = rule["output"].get<std::string>();
                     if (!output.empty()) {
                         ++stats.outputCount;
-
-                        addUnique(
-                            stats.outputs,
-                            output,
-                            "output",
-                            normalized,
-                            stats
-                        );
+                        addUnique(stats.outputs, output, "output", normalized, stats);
                     }
                 }
 
@@ -391,8 +329,8 @@ int main()
             manifestRoot,
             "classic.json",
             19,
-            2764,
-            2166
+            3648,
+            3050
         );
 
     const bool broodWarOk =
@@ -400,11 +338,20 @@ int main()
             manifestRoot,
             "broodwar.json",
             22,
-            3898,
-            3132
+            4782,
+            4016
         );
 
-    return classicOk && broodWarOk
+    const bool cascClassicOk =
+        validateRoot(
+            manifestRoot,
+            "casc-classic.json",
+            19,
+            3631,
+            3033
+        );
+
+    return classicOk && broodWarOk && cascClassicOk
         ? 0
         : 1;
 }

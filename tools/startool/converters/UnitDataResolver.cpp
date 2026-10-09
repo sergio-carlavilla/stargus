@@ -36,9 +36,7 @@ namespace
             value.begin(),
             [](unsigned char character)
             {
-                return static_cast<char>(
-                    std::tolower(character)
-                );
+                return static_cast<char>(std::tolower(character));
             }
         );
 
@@ -374,7 +372,7 @@ bool UnitDataResolver::resolve(
     }
 
     /*
-     * Startool legacy passes the double to lg::integer(int),
+     * Preserve the legacy integer conversion behavior
      * so building dimensions are truncated here
      */
     metadata.tileWidth = static_cast<int>(tileWidth);

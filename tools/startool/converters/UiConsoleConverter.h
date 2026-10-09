@@ -15,7 +15,8 @@ public:
         const std::filesystem::path &outputBase,
         int left,
         int right,
-        std::string &error
+        std::string &error,
+        bool alignBottom = false
     ) const;
 
 private:

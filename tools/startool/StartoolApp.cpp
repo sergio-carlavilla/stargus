@@ -3,11 +3,17 @@
 
 #include "StartoolApp.h"
 
+#include "GameLocale.h"
+#include "GameLocaleDetector.h"
 #include "LogicalSource.h"
 #include "LogicalSourceVerifier.h"
 #include "MpqSourceReader.h"
 #include "OverlaySourceReader.h"
 #include "MpqVerifier.h"
+
+#ifdef HAVE_CASC
+#include "CascVerifier.h"
+#endif
 #include "SourceDetector.h"
 #include "SourceReaderRegistry.h"
 #include "SourceReaderFactory.h"
@@ -35,6 +41,7 @@
 #include <optional>
 #include <string_view>
 #include <system_error>
+#include <vector>
 
 namespace
 {
@@ -192,7 +199,7 @@ int StartoolApp::run(int argc, char **argv)
     }
 
     std::cerr << "Unknown command: " << command << '\n';
-    std::cerr << "Run 'startool4 help' for usage information.\n";
+    std::cerr << "Run 'startool help' for usage information.\n";
 
     return 1;
 }
@@ -200,7 +207,7 @@ int StartoolApp::run(int argc, char **argv)
 int StartoolApp::runInspect(int argc, char **argv) const
 {
     if (argc != 3) {
-        std::cerr << "Usage: startool4 inspect <path>\n";
+        std::cerr << "Usage: startool inspect <path>\n";
         return 1;
     }
 
@@ -235,9 +242,25 @@ int StartoolApp::runInspect(int argc, char **argv) const
 
     bool verified = false;
 
-    if (source->format == SourceFormat::Mpq) {
-        MpqVerifier verifier;
-        verified = verifier.verify(*source);
+    switch (source->format) {
+        case SourceFormat::Mpq:
+        {
+            MpqVerifier verifier;
+            verified = verifier.verify(*source);
+            break;
+        }
+
+#ifdef HAVE_CASC
+        case SourceFormat::Casc:
+        {
+            CascVerifier verifier;
+            verified = verifier.verify(*source);
+            break;
+        }
+#endif
+
+        default:
+            break;
     }
 
     std::cout
@@ -289,13 +312,47 @@ int StartoolApp::runInspect(int argc, char **argv) const
         }
     }
 
+#ifdef HAVE_CASC
+    if (source->format == SourceFormat::Casc) {
+        GameLocaleDetector localeDetector;
+
+        std::vector<InstalledGameLocale> installedLocales;
+        std::string localeError;
+
+        std::cout << '\n' << "Installed locales:\n";
+
+        if (!localeDetector.detect(source->root, installedLocales, localeError)) {
+            std::cout << "  Could not detect installed locales: " << localeError << '\n';
+        } else if (installedLocales.empty()) {
+            std::cout << "  none detected\n";
+        } else {
+            for (const InstalledGameLocale &installedLocale : installedLocales) {
+                std::cout
+                    << "  "
+                    << toString(installedLocale.locale)
+                    << '\n'
+                    << "    Speech: "
+                    << (installedLocale.speech ? "yes" : "no")
+                    << '\n'
+                    << "    Text:   "
+                    << (installedLocale.text ? "yes" : "no")
+                    << '\n';
+            }
+        }
+    }
+#endif
+
     return 0;
 }
 
 int StartoolApp::runExtract(int argc, char **argv) const
 {
-    if (argc != 6) {
-        std::cerr << "Usage: startool4 extract " << "<installation> <source> <resource> <destination>\n";
+    if (argc != 6 && argc != 8) {
+        std::cerr
+            << "Usage: startool extract "
+            << "<installation> <source> <resource> <destination> "
+            << "[--locale <locale>]\n";
+
         return 1;
     }
 
@@ -303,6 +360,35 @@ int StartoolApp::runExtract(int argc, char **argv) const
     const std::string sourceId = argv[3];
     const std::string resourcePath = argv[4];
     const std::filesystem::path destination = argv[5];
+
+    GameLocale locale = GameLocale::EnUS;
+
+    if (argc == 8) {
+        if (std::string_view(argv[6]) != "--locale") {
+            std::cerr
+                << "Usage: startool extract "
+                << "<installation> <source> <resource> <destination> "
+                << "[--locale <locale>]\n";
+
+            return 1;
+        }
+
+        const auto parsedLocale = parseGameLocale(argv[7]);
+
+        if (!parsedLocale) {
+            std::cerr
+                << "Unsupported locale: "
+                << argv[7]
+                << '\n'
+                << "Supported locales: "
+                << "enUS frFR itIT deDE esES esMX ptBR "
+                << "zhCN zhTW koKR koUS jaJP plPL ruRU\n";
+
+            return 1;
+        }
+
+        locale = *parsedLocale;
+    }
 
     std::error_code error;
     if (!std::filesystem::exists(installationPath, error)) {
@@ -323,17 +409,76 @@ int StartoolApp::runExtract(int argc, char **argv) const
         return 1;
     }
 
-    if (gameSource->format != SourceFormat::Mpq) {
-        std::cerr << "This source is not an MPQ source.\n";
+    bool verified = false;
+
+    switch (gameSource->format) {
+        case SourceFormat::Mpq:
+        {
+            MpqVerifier verifier;
+            verified = verifier.verify(*gameSource);
+            break;
+        }
+
+#ifdef HAVE_CASC
+        case SourceFormat::Casc:
+        {
+            CascVerifier verifier;
+            verified = verifier.verify(*gameSource);
+            break;
+        }
+#endif
+
+        default:
+            break;
+    }
+
+    if (!verified) {
+        std::cerr << "Could not verify the StarCraft source.\n";
         return 1;
     }
 
-    MpqVerifier verifier;
+#ifdef HAVE_CASC
+    if (gameSource->format == SourceFormat::Casc) {
+        GameLocaleDetector localeDetector;
 
-    if (!verifier.verify(*gameSource)) {
-        std::cerr << "Could not verify the StarCraft MPQ source.\n";
-        return 1;
+        std::vector<InstalledGameLocale> installedLocales;
+        std::string localeError;
+
+        if (!localeDetector.detect(gameSource->root, installedLocales, localeError)) {
+            std::cerr << "Could not detect installed locales: " << localeError << '\n';
+            return 1;
+        }
+
+        const auto installedLocale =
+            std::find_if(
+                installedLocales.begin(),
+                installedLocales.end(),
+                [locale](const InstalledGameLocale &candidate)
+                {
+                    return candidate.locale == locale;
+                }
+            );
+
+        if (installedLocale == installedLocales.end()) {
+            std::cerr << "Locale " << toString(locale) << " is not installed in this Battle.net installation.\n";
+            return 1;
+        }
+
+        if (!installedLocale->isComplete()) {
+            std::cerr
+                << "Locale "
+                << toString(locale)
+                << " is only partially installed"
+                << " (speech: "
+                << (installedLocale->speech ? "yes" : "no")
+                << ", text: "
+                << (installedLocale->text ? "yes" : "no")
+                << ").\n";
+
+            return 1;
+        }
     }
+#endif
 
     const auto logicalSource = std::find_if(gameSource->sources.begin(), gameSource->sources.end(), [&sourceId](const LogicalSource &source)
         {
@@ -346,13 +491,21 @@ int StartoolApp::runExtract(int argc, char **argv) const
         return 1;
     }
 
-    MpqSourceReader reader(*logicalSource);
-    if (!reader.isOpen()) {
+    logicalSource->locale = locale;
+
+    SourceReaderFactory readerFactory;
+    auto reader = readerFactory.create(*logicalSource);
+    if (!reader) {
+        std::cerr << "Unsupported logical source format: " << toString(logicalSource->format) << '\n';
+        return 1;
+    }
+
+    if (!reader->isOpen()) {
         std::cerr << "Could not open logical source: " << sourceId << '\n';
         return 1;
     }
 
-    if (!reader.contains(resourcePath)) {
+    if (!reader->contains(resourcePath)) {
         std::cerr << "Resource not found: " << resourcePath << '\n';
         return 1;
     }
@@ -371,23 +524,18 @@ int StartoolApp::runExtract(int argc, char **argv) const
         }
     }
 
-    if (!reader.extract(resourcePath, destination)){
+    if (!reader->extract(resourcePath, destination)){
         std::cerr << "Could not extract resource: " << resourcePath << '\n';
         return 1;
     }
 
-    std::cout
-        << "Extracted resource\n"
-        << '\n'
-        << "Source:      "
-        << sourceId
-        << '\n'
-        << "Resource:    "
-        << resourcePath
-        << '\n'
-        << "Destination: "
-        << destination.string()
-        << '\n';
+    std::cout << "Extracted resource\n" << '\n' << "Source:      " << sourceId << '\n';
+
+    if (gameSource->format == SourceFormat::Casc) {
+        std::cout << "Locale:      " << toString(locale) << '\n';
+    }
+
+    std::cout << "Resource:    " << resourcePath << '\n' << "Destination: " << destination.string() << '\n';
 
     return 0;
 }
@@ -545,7 +693,7 @@ int StartoolApp::runImport(int argc, char **argv) const
             return 1;
         }
 
-        const std::filesystem::path tempPalette = tempDirectory / ("startool4-palette-" + palette.id + ".pcx");
+        const std::filesystem::path tempPalette = tempDirectory / ("startool-palette-" + palette.id + ".pcx");
 
         std::filesystem::remove(tempPalette, tempError);
         tempError.clear();
@@ -731,8 +879,12 @@ int StartoolApp::runImport(int argc, char **argv) const
 
 int StartoolApp::runVerify(int argc, char **argv) const
 {
-    if (argc != 4 && argc != 6) {
-        std::cerr << "Usage: startool verify " << "<installation> <manifest> [--base <classic-installation>]\n";
+    if (argc < 4 || argc > 8 || ((argc - 4) % 2) != 0) {
+        std::cerr
+            << "Usage: startool verify "
+            << "<installation> <manifest> "
+            << "[--base <classic-installation>] [--locale <locale>]\n";
+
         return 1;
     }
 
@@ -740,14 +892,57 @@ int StartoolApp::runVerify(int argc, char **argv) const
     const std::filesystem::path manifestPath = argv[3];
 
     std::optional<std::filesystem::path> baseInstallationPath;
+    GameLocale locale = GameLocale::EnUS;
+    bool localeSpecified = false;
 
-    if (argc == 6) {
-        if (std::string_view(argv[4]) != "--base") {
-            std::cerr << "Usage: startool verify " << "<installation> <manifest> [--base <classic-installation>]\n";
-            return 1;
+    for (int index = 4; index < argc; index += 2) {
+        const std::string_view option = argv[index];
+        const std::string_view value = argv[index + 1];
+
+        if (option == "--base") {
+            if (baseInstallationPath) {
+                std::cerr << "--base was specified more than once\n";
+                return 1;
+            }
+
+            baseInstallationPath = std::filesystem::path(value);
+            continue;
         }
 
-        baseInstallationPath = std::filesystem::path(argv[5]);
+        if (option == "--locale") {
+            if (localeSpecified) {
+                std::cerr << "--locale was specified more than once\n";
+                return 1;
+            }
+
+            const auto parsedLocale = parseGameLocale(value);
+
+            if (!parsedLocale) {
+                std::cerr
+                    << "Unsupported locale: "
+                    << value
+                    << '\n'
+                    << "Supported locales: "
+                    << "enUS frFR itIT deDE esES esMX ptBR "
+                    << "zhCN zhTW koKR koUS jaJP plPL ruRU\n";
+
+                return 1;
+            }
+
+            locale = *parsedLocale;
+            localeSpecified = true;
+            continue;
+        }
+
+        std::cerr
+            << "Unknown option: "
+            << option
+            << '\n'
+            << "Usage: startool verify "
+            << "<installation> <manifest> "
+            << "[--base <classic-installation>] [--locale <locale>]\n";
+
+        return 1;
     }
 
     ManifestLoader loader;
@@ -783,16 +978,80 @@ int StartoolApp::runVerify(int argc, char **argv) const
         return 1;
     }
 
-    if (gameSource->format != SourceFormat::Mpq) {
-        std::cerr << "Manifest verification currently supports only MPQ sources\n";
+    bool verified = false;
+
+    switch (gameSource->format) {
+        case SourceFormat::Mpq:
+        {
+            MpqVerifier verifier;
+            verified = verifier.verify(*gameSource);
+            break;
+        }
+
+#ifdef HAVE_CASC
+        case SourceFormat::Casc:
+        {
+            CascVerifier verifier;
+            verified = verifier.verify(*gameSource);
+            break;
+        }
+#endif
+
+        default:
+            break;
+    }
+
+    if (!verified) {
+        std::cerr << "Could not verify the StarCraft source\n";
         return 1;
     }
 
-    MpqVerifier verifier;
-    if (!verifier.verify(*gameSource)) {
-        std::cerr << "Could not verify the StarCraft MPQ source\n";
-        return 1;
+#ifdef HAVE_CASC
+    if (gameSource->format == SourceFormat::Casc) {
+        GameLocaleDetector localeDetector;
+
+        std::vector<InstalledGameLocale> installedLocales;
+        std::string localeError;
+
+        if (!localeDetector.detect(gameSource->root, installedLocales, localeError)) {
+            std::cerr << "Could not detect installed locales: " << localeError << '\n';
+            return 1;
+        }
+
+        const auto installedLocale =
+            std::find_if(
+                installedLocales.begin(),
+                installedLocales.end(),
+                [locale](const InstalledGameLocale &candidate)
+                {
+                    return candidate.locale == locale;
+                }
+            );
+
+        if (installedLocale == installedLocales.end()) {
+            std::cerr << "Locale " << toString(locale) << " is not installed in this Battle.net installation.\n";
+            return 1;
+        }
+
+        if (!installedLocale->isComplete()) {
+            std::cerr
+                << "Locale "
+                << toString(locale)
+                << " is only partially installed"
+                << " (speech: "
+                << (installedLocale->speech ? "yes" : "no")
+                << ", text: "
+                << (installedLocale->text ? "yes" : "no")
+                << ").\n";
+
+            return 1;
+        }
+
+        for (LogicalSource &logicalSource : gameSource->sources) {
+            logicalSource.locale = locale;
+        }
     }
+#endif
 
     SourceReaderFactory readerFactory;
     SourceReaderRegistry readers;
@@ -872,8 +1131,7 @@ int StartoolApp::runVerify(int argc, char **argv) const
             return 1;
         }
 
-        const std::filesystem::path tempPalette = tempDirectory / ("startool4-palette-" + palette.id + ".pcx");
-
+        const std::filesystem::path tempPalette = tempDirectory / ("startool-palette-" + palette.id + ".pcx");
         std::filesystem::remove(tempPalette, tempError);
         tempError.clear();
 
@@ -980,10 +1238,14 @@ int StartoolApp::runVerify(int argc, char **argv) const
 
         if (task.operation == ManifestOperation::TilesetToPng) {
             const std::string vx4 = task.input + ".vx4";
+            const std::string vx4ex = task.input + ".vx4ex";
             const std::string vr4 = task.input + ".vr4";
 
-            if (!reader->contains(vx4)) {
-                std::cerr << "Task '" << task.id << "' references missing resource: " << vx4 << '\n';
+            // Classic MPQ stores 16-bit VX4 references; Battle.net CASC
+            // typically provides their 32-bit VX4EX counterparts.
+            if (!reader->contains(vx4) && !reader->contains(vx4ex)) {
+                std::cerr << "Task '" << task.id << "' references missing resources: "
+                          << vx4 << " or " << vx4ex << '\n';
                 return 1;
             }
 
@@ -1031,8 +1293,8 @@ int StartoolApp::runVerify(int argc, char **argv) const
                 return 1;
             }
 
-            const std::filesystem::path stagedImagesDat = tempDirectory / ("startool4-verify-" + task.id + "-images.dat");
-            const std::filesystem::path stagedImagesTbl = tempDirectory / ("startool4-verify-" + task.id + "-images.tbl");
+            const std::filesystem::path stagedImagesDat = tempDirectory / ("startool-verify-" + task.id + "-images.dat");
+            const std::filesystem::path stagedImagesTbl = tempDirectory / ("startool-verify-" + task.id + "-images.tbl");
 
             std::filesystem::remove(stagedImagesDat, tempError);
             tempError.clear();
@@ -1111,8 +1373,13 @@ int StartoolApp::runVerify(int argc, char **argv) const
         << '\n'
         << "Tasks:          "
         << tasks.size()
-        << '\n'
-        << "Resources:      verified\n";
+        << '\n';
+
+    if (gameSource->format == SourceFormat::Casc) {
+        std::cout << "Locale:         " << toString(locale) << '\n';
+    }
+
+    std::cout << "Resources:      verified\n";
 
     return 0;
 }
@@ -1123,7 +1390,7 @@ void StartoolApp::printHelp() const
         << "Startool - StarCraft data importer for Stargus\n"
         << '\n'
         << "Usage:\n"
-        << "  startool4 <command> [options]\n"
+        << "  startool <command> [options]\n"
         << '\n'
         << "Commands:\n"
         << "  inspect <path>   Inspect a StarCraft installation\n"
@@ -1132,6 +1399,7 @@ void StartoolApp::printHelp() const
         << "                   Brood War: add --base <classic-installation>\n"
         << "  verify           Verify a manifest against a StarCraft installation\n"
         << "                   Brood War: add --base <classic-installation>\n"
+        << "                   CASC: add --locale <locale> (default: enUS)\n"
         << "  help             Show this help\n"
         << "  version          Show version information\n"
         << '\n'

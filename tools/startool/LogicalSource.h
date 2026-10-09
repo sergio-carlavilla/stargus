@@ -4,6 +4,7 @@
 #define LOGICALSOURCE_H
 
 #include "SourceTypes.h"
+#include "GameLocale.h"
 
 #include <filesystem>
 #include <string>
@@ -24,6 +25,8 @@ struct LogicalSource
 
     std::filesystem::path storage;
     std::string member;
+
+    GameLocale locale = GameLocale::EnUS;
 };
 
 std::string_view toString(SourceLocation location);

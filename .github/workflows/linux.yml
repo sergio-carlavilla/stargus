@@ -131,9 +131,6 @@ jobs:
           set -euo pipefail
 
           test -x "${STARGUS_INSTALL_DIR}/bin/startool"
-          test -x "${STARGUS_INSTALL_DIR}/bin/scdat2json"
-          test -x "${STARGUS_INSTALL_DIR}/bin/grptool"
-          test -x "${STARGUS_INSTALL_DIR}/bin/sauwetter"
           test -x "${STARGUS_INSTALL_DIR}/games/stargus"
 
           test -f "${STARGUS_INSTALL_DIR}/share/pixmaps/stargus.png"
@@ -145,8 +142,6 @@ jobs:
           test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/scripts/sc.lua"
 
           "${STARGUS_INSTALL_DIR}/bin/startool" --help >/dev/null
-          "${STARGUS_INSTALL_DIR}/bin/scdat2json" --help >/dev/null
-          "${STARGUS_INSTALL_DIR}/bin/grptool" --help >/dev/null
 
           expected_exec="Exec=${STARGUS_INSTALL_DIR}/games/stargus"
           grep -Fx "${expected_exec}" \

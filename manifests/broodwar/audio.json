@@ -6,7 +6,7 @@
       "source": "game",
       "input": "sound/bullet/tfrhit.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/bullet/tfrhit.ogg"
+      "output": "sounds/unit/bullet/tfrhit.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-bullet-tfrshoot-4b5c76dd",
@@ -14,7 +14,7 @@
       "source": "game",
       "input": "sound/bullet/tfrshoot.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/bullet/tfrshoot.ogg"
+      "output": "sounds/unit/bullet/tfrshoot.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-bullet-zlrkfir1-c9082ee5",
@@ -22,7 +22,7 @@
       "source": "game",
       "input": "sound/bullet/zlrkfir1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/bullet/zlrkfir1.ogg"
+      "output": "sounds/unit/bullet/zlrkfir1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-bullet-zlrkfir2-ca4d083e",
@@ -30,7 +30,7 @@
       "source": "game",
       "input": "sound/bullet/zlrkfir2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/bullet/zlrkfir2.ogg"
+      "output": "sounds/unit/bullet/zlrkfir2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-bullet-zlrkhit1-42ed9e04",
@@ -38,7 +38,7 @@
       "source": "game",
       "input": "sound/bullet/zlrkhit1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/bullet/zlrkhit1.ogg"
+      "output": "sounds/unit/bullet/zlrkhit1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-bullet-zlrkhit2-d4edffc0",
@@ -46,7 +46,7 @@
       "source": "game",
       "input": "sound/bullet/zlrkhit2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/bullet/zlrkhit2.ogg"
+      "output": "sounds/unit/bullet/zlrkhit2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-pbdeath01-d4b699fc",
@@ -54,7 +54,7 @@
       "source": "game",
       "input": "sound/misc/critters/pbdeath01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/pbdeath01.ogg"
+      "output": "sounds/unit/misc/critters/pbdeath01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-pbwht01-aeea0d67",
@@ -62,7 +62,7 @@
       "source": "game",
       "input": "sound/misc/critters/pbwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/pbwht01.ogg"
+      "output": "sounds/unit/misc/critters/pbwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-pbwht02-7acc3615",
@@ -70,7 +70,7 @@
       "source": "game",
       "input": "sound/misc/critters/pbwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/pbwht02.ogg"
+      "output": "sounds/unit/misc/critters/pbwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-pbwht03-15309ca9",
@@ -78,7 +78,7 @@
       "source": "game",
       "input": "sound/misc/critters/pbwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/pbwht03.ogg"
+      "output": "sounds/unit/misc/critters/pbwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-scdeath01-ede29a16",
@@ -86,7 +86,7 @@
       "source": "game",
       "input": "sound/misc/critters/scdeath01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/scdeath01.ogg"
+      "output": "sounds/unit/misc/critters/scdeath01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-scwht01-81932265",
@@ -94,7 +94,7 @@
       "source": "game",
       "input": "sound/misc/critters/scwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/scwht01.ogg"
+      "output": "sounds/unit/misc/critters/scwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-scwht02-d4925c2c",
@@ -102,7 +102,7 @@
       "source": "game",
       "input": "sound/misc/critters/scwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/scwht02.ogg"
+      "output": "sounds/unit/misc/critters/scwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-scwht03-91ff8e57",
@@ -110,7 +110,7 @@
       "source": "game",
       "input": "sound/misc/critters/scwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/scwht03.ogg"
+      "output": "sounds/unit/misc/critters/scwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-terdeath01-3adf3e23",
@@ -118,7 +118,7 @@
       "source": "game",
       "input": "sound/misc/critters/terdeath01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/terdeath01.ogg"
+      "output": "sounds/unit/misc/critters/terdeath01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-terwht01-b932e97f",
@@ -126,7 +126,7 @@
       "source": "game",
       "input": "sound/misc/critters/terwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/terwht01.ogg"
+      "output": "sounds/unit/misc/critters/terwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-terwht02-537008cb",
@@ -134,7 +134,7 @@
       "source": "game",
       "input": "sound/misc/critters/terwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/terwht02.ogg"
+      "output": "sounds/unit/misc/critters/terwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-misc-critters-terwht03-649e4ebc",
@@ -142,7 +142,7 @@
       "source": "game",
       "input": "sound/misc/critters/terwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/misc/critters/terwht03.ogg"
+      "output": "sounds/unit/misc/critters/terwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patpss00-e27cdaf7",
@@ -150,7 +150,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patpss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patpss00.ogg"
+      "output": "sounds/unit/protoss/artanis/patpss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patpss01-2e512f92",
@@ -158,7 +158,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patpss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patpss01.ogg"
+      "output": "sounds/unit/protoss/artanis/patpss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patpss02-00978fa7",
@@ -166,7 +166,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patpss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patpss02.ogg"
+      "output": "sounds/unit/protoss/artanis/patpss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patpss03-3267357a",
@@ -174,7 +174,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patpss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patpss03.ogg"
+      "output": "sounds/unit/protoss/artanis/patpss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patpss04-23ad32ac",
@@ -182,7 +182,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patpss04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patpss04.ogg"
+      "output": "sounds/unit/protoss/artanis/patpss04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patpss05-e566ebfd",
@@ -190,7 +190,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patpss05.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patpss05.ogg"
+      "output": "sounds/unit/protoss/artanis/patpss05.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patwht00-ac6772e8",
@@ -198,7 +198,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patwht00.ogg"
+      "output": "sounds/unit/protoss/artanis/patwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patwht01-5bd1171f",
@@ -206,7 +206,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patwht01.ogg"
+      "output": "sounds/unit/protoss/artanis/patwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patwht02-ffe9312f",
@@ -214,7 +214,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patwht02.ogg"
+      "output": "sounds/unit/protoss/artanis/patwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patwht03-4bebb1c7",
@@ -222,7 +222,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patwht03.ogg"
+      "output": "sounds/unit/protoss/artanis/patwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patyes00-933e9a8b",
@@ -230,7 +230,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patyes00.ogg"
+      "output": "sounds/unit/protoss/artanis/patyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patyes01-e0dce7c6",
@@ -238,7 +238,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patyes01.ogg"
+      "output": "sounds/unit/protoss/artanis/patyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patyes02-3cfa63bb",
@@ -246,7 +246,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patyes02.ogg"
+      "output": "sounds/unit/protoss/artanis/patyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-artanis-patyes03-1645e3d2",
@@ -254,7 +254,7 @@
       "source": "game",
       "input": "sound/protoss/artanis/patyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/artanis/patyes03.ogg"
+      "output": "sounds/unit/protoss/artanis/patyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss00-f122f610",
@@ -262,7 +262,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss00.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss01-2df361df",
@@ -270,7 +270,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss01.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss02-3a0f6dab",
@@ -278,7 +278,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss02.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss03-d60cc222",
@@ -286,7 +286,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss03.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss04-0322edb8",
@@ -294,7 +294,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss04.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss05-ac304a94",
@@ -302,7 +302,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss05.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss05.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss05.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcopss06-71d65455",
@@ -310,7 +310,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcopss06.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcopss06.ogg"
+      "output": "sounds/unit/protoss/corsair/pcopss06.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcordy00-a5d6a0f5",
@@ -318,7 +318,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcordy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcordy00.ogg"
+      "output": "sounds/unit/protoss/corsair/pcordy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorhit1-d54cd1e4",
@@ -326,7 +326,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorhit1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorhit1.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorhit1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorhit2-4126fbac",
@@ -334,7 +334,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorhit2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorhit2.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorhit2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorlasr1-0669365b",
@@ -342,7 +342,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorlasr1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorlasr1.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorlasr1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorlasr2-32dc3bd6",
@@ -350,7 +350,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorlasr2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorlasr2.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorlasr2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorlasr3-e3384344",
@@ -358,7 +358,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorlasr3.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorlasr3.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorlasr3.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorlasr4-bab6f898",
@@ -366,7 +366,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorlasr4.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorlasr4.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorlasr4.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcorweb1-b46661d9",
@@ -374,7 +374,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcorweb1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcorweb1.ogg"
+      "output": "sounds/unit/protoss/corsair/pcorweb1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcowht00-5a8a1aff",
@@ -382,7 +382,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcowht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcowht00.ogg"
+      "output": "sounds/unit/protoss/corsair/pcowht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcowht01-bac2d02f",
@@ -390,7 +390,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcowht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcowht01.ogg"
+      "output": "sounds/unit/protoss/corsair/pcowht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcowht02-dca7e3c5",
@@ -398,7 +398,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcowht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcowht02.ogg"
+      "output": "sounds/unit/protoss/corsair/pcowht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcowht03-866e8953",
@@ -406,7 +406,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcowht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcowht03.ogg"
+      "output": "sounds/unit/protoss/corsair/pcowht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcoyes00-da718e4f",
@@ -414,7 +414,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcoyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcoyes00.ogg"
+      "output": "sounds/unit/protoss/corsair/pcoyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcoyes01-9c1cf145",
@@ -422,7 +422,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcoyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcoyes01.ogg"
+      "output": "sounds/unit/protoss/corsair/pcoyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcoyes02-ffbe4627",
@@ -430,7 +430,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcoyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcoyes02.ogg"
+      "output": "sounds/unit/protoss/corsair/pcoyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-corsair-pcoyes03-6678d09a",
@@ -438,7 +438,7 @@
       "source": "game",
       "input": "sound/protoss/corsair/pcoyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/corsair/pcoyes03.ogg"
+      "output": "sounds/unit/protoss/corsair/pcoyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-feedback-63443310",
@@ -446,7 +446,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/feedback.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/feedback.ogg"
+      "output": "sounds/unit/protoss/darchon/feedback.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-mind-80f6c2cc",
@@ -454,7 +454,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/mind.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/mind.ogg"
+      "output": "sounds/unit/protoss/darchon/mind.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-paraattk-ac454496",
@@ -462,7 +462,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/paraattk.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/paraattk.ogg"
+      "output": "sounds/unit/protoss/darchon/paraattk.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-parahit-6808a6a6",
@@ -470,7 +470,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/parahit.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/parahit.ogg"
+      "output": "sounds/unit/protoss/darchon/parahit.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdapss00-18a9152e",
@@ -478,7 +478,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdapss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdapss00.ogg"
+      "output": "sounds/unit/protoss/darchon/pdapss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdapss01-c578d69c",
@@ -486,7 +486,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdapss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdapss01.ogg"
+      "output": "sounds/unit/protoss/darchon/pdapss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdapss02-35f7298d",
@@ -494,7 +494,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdapss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdapss02.ogg"
+      "output": "sounds/unit/protoss/darchon/pdapss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdapss03-bba4d5b1",
@@ -502,7 +502,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdapss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdapss03.ogg"
+      "output": "sounds/unit/protoss/darchon/pdapss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdardy00-a204e0a2",
@@ -510,7 +510,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdardy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdardy00.ogg"
+      "output": "sounds/unit/protoss/darchon/pdardy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdawht00-77cc8d41",
@@ -518,7 +518,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdawht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdawht00.ogg"
+      "output": "sounds/unit/protoss/darchon/pdawht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdawht01-51df4be8",
@@ -526,7 +526,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdawht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdawht01.ogg"
+      "output": "sounds/unit/protoss/darchon/pdawht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdawht02-ffad70e7",
@@ -534,7 +534,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdawht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdawht02.ogg"
+      "output": "sounds/unit/protoss/darchon/pdawht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdawht03-8576f9f0",
@@ -542,7 +542,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdawht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdawht03.ogg"
+      "output": "sounds/unit/protoss/darchon/pdawht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdayes00-a4e5a54e",
@@ -550,7 +550,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdayes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdayes00.ogg"
+      "output": "sounds/unit/protoss/darchon/pdayes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdayes01-10f8340b",
@@ -558,7 +558,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdayes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdayes01.ogg"
+      "output": "sounds/unit/protoss/darchon/pdayes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdayes02-1c487c69",
@@ -566,7 +566,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdayes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdayes02.ogg"
+      "output": "sounds/unit/protoss/darchon/pdayes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darchon-pdayes03-73a84e97",
@@ -574,7 +574,7 @@
       "source": "game",
       "input": "sound/protoss/darchon/pdayes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darchon/pdayes03.ogg"
+      "output": "sounds/unit/protoss/darchon/pdayes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-protoss-darktemplar-pdtrdy00-4d508577",
@@ -582,7 +582,7 @@
       "source": "game",
       "input": "sound/protoss/darktemplar/pdtrdy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/protoss/darktemplar/pdtrdy00.ogg"
+      "output": "sounds/unit/protoss/darktemplar/pdtrdy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdndth00-74f4b221",
@@ -590,7 +590,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdndth00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdndth00.ogg"
+      "output": "sounds/unit/terran/duran/tdndth00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss00-c85a5531",
@@ -598,7 +598,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss00.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss01-244692f1",
@@ -606,7 +606,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss01.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss02-e108f618",
@@ -614,7 +614,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss02.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss03-8683ca42",
@@ -622,7 +622,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss03.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss04-4162c8c6",
@@ -630,7 +630,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss04.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss05-dd15690e",
@@ -638,7 +638,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss05.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss05.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss05.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss06-46c8d62c",
@@ -646,7 +646,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss06.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss06.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss06.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss07-43188f9d",
@@ -654,7 +654,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss07.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss07.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss07.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnpss08-59ecca9e",
@@ -662,7 +662,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnpss08.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnpss08.ogg"
+      "output": "sounds/unit/terran/duran/tdnpss08.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnwht00-6f76d3e7",
@@ -670,7 +670,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnwht00.ogg"
+      "output": "sounds/unit/terran/duran/tdnwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnwht01-a88bda9a",
@@ -678,7 +678,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnwht01.ogg"
+      "output": "sounds/unit/terran/duran/tdnwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnwht02-05190e46",
@@ -686,7 +686,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnwht02.ogg"
+      "output": "sounds/unit/terran/duran/tdnwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnwht03-bff1930e",
@@ -694,7 +694,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnwht03.ogg"
+      "output": "sounds/unit/terran/duran/tdnwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnyes00-3213e88f",
@@ -702,7 +702,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnyes00.ogg"
+      "output": "sounds/unit/terran/duran/tdnyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnyes01-d3582d05",
@@ -710,7 +710,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnyes01.ogg"
+      "output": "sounds/unit/terran/duran/tdnyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnyes02-dcc05922",
@@ -718,7 +718,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnyes02.ogg"
+      "output": "sounds/unit/terran/duran/tdnyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-duran-tdnyes03-81db0796",
@@ -726,7 +726,7 @@
       "source": "game",
       "input": "sound/terran/duran/tdnyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/duran/tdnyes03.ogg"
+      "output": "sounds/unit/terran/duran/tdnyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-afteroff-81356ea3",
@@ -734,7 +734,7 @@
       "source": "game",
       "input": "sound/terran/frigate/afteroff.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/afteroff.ogg"
+      "output": "sounds/unit/terran/frigate/afteroff.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-afteron-75aab9f2",
@@ -742,7 +742,7 @@
       "source": "game",
       "input": "sound/terran/frigate/afteron.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/afteron.ogg"
+      "output": "sounds/unit/terran/frigate/afteron.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-shoot2-c91ea436",
@@ -750,7 +750,7 @@
       "source": "game",
       "input": "sound/terran/frigate/shoot2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/shoot2.ogg"
+      "output": "sounds/unit/terran/frigate/shoot2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkdth00-0d088798",
@@ -758,7 +758,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkdth00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkdth00.ogg"
+      "output": "sounds/unit/terran/frigate/tvkdth00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkpss00-2638dffa",
@@ -766,7 +766,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkpss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkpss00.ogg"
+      "output": "sounds/unit/terran/frigate/tvkpss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkpss01-b7b72015",
@@ -774,7 +774,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkpss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkpss01.ogg"
+      "output": "sounds/unit/terran/frigate/tvkpss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkpss02-bfb6302b",
@@ -782,7 +782,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkpss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkpss02.ogg"
+      "output": "sounds/unit/terran/frigate/tvkpss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkpss03-b81f4431",
@@ -790,7 +790,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkpss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkpss03.ogg"
+      "output": "sounds/unit/terran/frigate/tvkpss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkpss04-11cc1104",
@@ -798,7 +798,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkpss04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkpss04.ogg"
+      "output": "sounds/unit/terran/frigate/tvkpss04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkpss05-b3de8219",
@@ -806,7 +806,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkpss05.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkpss05.ogg"
+      "output": "sounds/unit/terran/frigate/tvkpss05.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkrdy00-db6001d0",
@@ -814,7 +814,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkrdy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkrdy00.ogg"
+      "output": "sounds/unit/terran/frigate/tvkrdy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkwht00-a6168630",
@@ -822,7 +822,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkwht00.ogg"
+      "output": "sounds/unit/terran/frigate/tvkwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkwht01-34be4b00",
@@ -830,7 +830,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkwht01.ogg"
+      "output": "sounds/unit/terran/frigate/tvkwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkwht02-27d72b27",
@@ -838,7 +838,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkwht02.ogg"
+      "output": "sounds/unit/terran/frigate/tvkwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkwht03-10ddaf27",
@@ -846,7 +846,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkwht03.ogg"
+      "output": "sounds/unit/terran/frigate/tvkwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkyes00-7a2c0e48",
@@ -854,7 +854,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkyes00.ogg"
+      "output": "sounds/unit/terran/frigate/tvkyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkyes01-ab3cda53",
@@ -862,7 +862,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkyes01.ogg"
+      "output": "sounds/unit/terran/frigate/tvkyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkyes02-9ef62c6c",
@@ -870,7 +870,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkyes02.ogg"
+      "output": "sounds/unit/terran/frigate/tvkyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkyes03-368fe27b",
@@ -878,7 +878,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkyes03.ogg"
+      "output": "sounds/unit/terran/frigate/tvkyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-frigate-tvkyes04-54c0cb07",
@@ -886,7 +886,7 @@
       "source": "game",
       "input": "sound/terran/frigate/tvkyes04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/frigate/tvkyes04.ogg"
+      "output": "sounds/unit/terran/frigate/tvkyes04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-miopia1-f20b51b2",
@@ -894,7 +894,7 @@
       "source": "game",
       "input": "sound/terran/medic/miopia1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/miopia1.ogg"
+      "output": "sounds/unit/terran/medic/miopia1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmddth00-7ed12c80",
@@ -902,7 +902,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmddth00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmddth00.ogg"
+      "output": "sounds/unit/terran/medic/tmddth00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss00-fafa7c55",
@@ -910,7 +910,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss00.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss01-1d534a5a",
@@ -918,7 +918,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss01.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss02-3f7a90b9",
@@ -926,7 +926,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss02.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss03-f90dd6a0",
@@ -934,7 +934,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss03.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss04-0d1d9d92",
@@ -942,7 +942,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss04.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss05-ed7eece7",
@@ -950,7 +950,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss05.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss05.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss05.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdpss06-0f106fd9",
@@ -958,7 +958,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdpss06.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdpss06.ogg"
+      "output": "sounds/unit/terran/medic/tmdpss06.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdrdy00-8734bc50",
@@ -966,7 +966,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdrdy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdrdy00.ogg"
+      "output": "sounds/unit/terran/medic/tmdrdy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdwht00-1f6a43a1",
@@ -974,7 +974,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdwht00.ogg"
+      "output": "sounds/unit/terran/medic/tmdwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdwht01-c6d667ce",
@@ -982,7 +982,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdwht01.ogg"
+      "output": "sounds/unit/terran/medic/tmdwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdwht02-cb66a101",
@@ -990,7 +990,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdwht02.ogg"
+      "output": "sounds/unit/terran/medic/tmdwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdwht03-576bbac9",
@@ -998,7 +998,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdwht03.ogg"
+      "output": "sounds/unit/terran/medic/tmdwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdyes00-300c8b2e",
@@ -1006,7 +1006,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdyes00.ogg"
+      "output": "sounds/unit/terran/medic/tmdyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdyes01-9cd5ba64",
@@ -1014,7 +1014,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdyes01.ogg"
+      "output": "sounds/unit/terran/medic/tmdyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdyes02-a5a4fd7e",
@@ -1022,7 +1022,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdyes02.ogg"
+      "output": "sounds/unit/terran/medic/tmdyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmdyes03-7e112e2c",
@@ -1030,7 +1030,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmdyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmdyes03.ogg"
+      "output": "sounds/unit/terran/medic/tmdyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedcure-cb21c19a",
@@ -1038,7 +1038,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedcure.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedcure.ogg"
+      "output": "sounds/unit/terran/medic/tmedcure.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedcure2-39a70285",
@@ -1046,7 +1046,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedcure2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedcure2.ogg"
+      "output": "sounds/unit/terran/medic/tmedcure2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedflsh-d0d10791",
@@ -1054,7 +1054,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedflsh.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedflsh.ogg"
+      "output": "sounds/unit/terran/medic/tmedflsh.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedheal-6add1113",
@@ -1062,7 +1062,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedheal.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedheal.ogg"
+      "output": "sounds/unit/terran/medic/tmedheal.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedheal2-05193cdd",
@@ -1070,7 +1070,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedheal2.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedheal2.ogg"
+      "output": "sounds/unit/terran/medic/tmedheal2.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedrest-6d95d73c",
@@ -1078,7 +1078,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedrest.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedrest.ogg"
+      "output": "sounds/unit/terran/medic/tmedrest.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-terran-medic-tmedrest1-1cebf810",
@@ -1086,7 +1086,7 @@
       "source": "game",
       "input": "sound/terran/medic/tmedrest1.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/terran/medic/tmedrest1.ogg"
+      "output": "sounds/unit/terran/medic/tmedrest1.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-firesuck-525c0771",
@@ -1094,7 +1094,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/firesuck.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/firesuck.ogg"
+      "output": "sounds/unit/zerg/devourer/firesuck.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-goophit-6ce6e478",
@@ -1102,7 +1102,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/goophit.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/goophit.ogg"
+      "output": "sounds/unit/zerg/devourer/goophit.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvdth00-a1db3298",
@@ -1110,7 +1110,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvdth00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvdth00.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvdth00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvpss00-54b2bcf7",
@@ -1118,7 +1118,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvpss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvpss00.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvpss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvpss01-02d0c463",
@@ -1126,7 +1126,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvpss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvpss01.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvpss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvpss02-45514639",
@@ -1134,7 +1134,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvpss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvpss02.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvpss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvrdy00-4d6d61d0",
@@ -1142,7 +1142,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvrdy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvrdy00.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvrdy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvwht00-fc209192",
@@ -1150,7 +1150,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvwht00.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvwht01-ee9eec40",
@@ -1158,7 +1158,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvwht01.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvwht02-7524c025",
@@ -1166,7 +1166,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvwht02.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvyes00-48ed2e51",
@@ -1174,7 +1174,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvyes00.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvyes01-89afb4fd",
@@ -1182,7 +1182,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvyes01.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvyes02-a72e683d",
@@ -1190,7 +1190,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvyes02.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-devourer-zdvyes03-6f0fe749",
@@ -1198,7 +1198,7 @@
       "source": "game",
       "input": "sound/zerg/devourer/zdvyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/devourer/zdvyes03.ogg"
+      "output": "sounds/unit/zerg/devourer/zdvyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluburrw-d9613d8a",
@@ -1206,7 +1206,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluburrw.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluburrw.ogg"
+      "output": "sounds/unit/zerg/lurker/zluburrw.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zludth00-ad5d0cd4",
@@ -1214,7 +1214,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zludth00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zludth00.ogg"
+      "output": "sounds/unit/zerg/lurker/zludth00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zlupss00-9e15de9a",
@@ -1222,7 +1222,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zlupss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zlupss00.ogg"
+      "output": "sounds/unit/zerg/lurker/zlupss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zlupss01-8872b74e",
@@ -1230,7 +1230,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zlupss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zlupss01.ogg"
+      "output": "sounds/unit/zerg/lurker/zlupss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zlupss02-dad55c0e",
@@ -1238,7 +1238,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zlupss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zlupss02.ogg"
+      "output": "sounds/unit/zerg/lurker/zlupss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zlupss03-fe40a10e",
@@ -1246,7 +1246,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zlupss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zlupss03.ogg"
+      "output": "sounds/unit/zerg/lurker/zlupss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zlurdy00-7b0626bd",
@@ -1254,7 +1254,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zlurdy00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zlurdy00.ogg"
+      "output": "sounds/unit/zerg/lurker/zlurdy00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluwht00-63589edb",
@@ -1262,7 +1262,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluwht00.ogg"
+      "output": "sounds/unit/zerg/lurker/zluwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluwht01-9f004092",
@@ -1270,7 +1270,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluwht01.ogg"
+      "output": "sounds/unit/zerg/lurker/zluwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluwht02-b7e74822",
@@ -1278,7 +1278,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluwht02.ogg"
+      "output": "sounds/unit/zerg/lurker/zluwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluwht03-f2022a73",
@@ -1286,7 +1286,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluwht03.ogg"
+      "output": "sounds/unit/zerg/lurker/zluwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluyes00-5501f23a",
@@ -1294,7 +1294,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluyes00.ogg"
+      "output": "sounds/unit/zerg/lurker/zluyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluyes01-e61a36bb",
@@ -1302,7 +1302,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluyes01.ogg"
+      "output": "sounds/unit/zerg/lurker/zluyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluyes02-be7f754b",
@@ -1310,7 +1310,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluyes02.ogg"
+      "output": "sounds/unit/zerg/lurker/zluyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-lurker-zluyes03-03c0b315",
@@ -1318,7 +1318,7 @@
       "source": "game",
       "input": "sound/zerg/lurker/zluyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/lurker/zluyes03.ogg"
+      "output": "sounds/unit/zerg/lurker/zluyes03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdndth00-046e99f2",
@@ -1326,7 +1326,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdndth00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdndth00.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdndth00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss00-d8d952a2",
@@ -1334,7 +1334,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss00.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss01-e82344bc",
@@ -1342,7 +1342,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss01.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss02-7e0e7053",
@@ -1350,7 +1350,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss02.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss03-2c943d32",
@@ -1358,7 +1358,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss03.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss04-bf822744",
@@ -1366,7 +1366,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss04.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss04.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss04.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss05-88e04c1b",
@@ -1374,7 +1374,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss05.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss05.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss05.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss06-f2b2204c",
@@ -1382,7 +1382,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss06.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss06.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss06.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss07-a9339a2f",
@@ -1390,7 +1390,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss07.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss07.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss07.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnpss08-63639869",
@@ -1398,7 +1398,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnpss08.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnpss08.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnpss08.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnwht00-555e58ff",
@@ -1406,7 +1406,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnwht00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnwht00.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnwht00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnwht01-5aac70cf",
@@ -1414,7 +1414,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnwht01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnwht01.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnwht01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnwht02-81e9ef95",
@@ -1422,7 +1422,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnwht02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnwht02.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnwht02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnwht03-36b7fc5f",
@@ -1430,7 +1430,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnwht03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnwht03.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnwht03.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnyes00-1dc970e5",
@@ -1438,7 +1438,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnyes00.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnyes00.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnyes00.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnyes01-b9cba315",
@@ -1446,7 +1446,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnyes01.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnyes01.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnyes01.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnyes02-a8f98012",
@@ -1454,7 +1454,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnyes02.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnyes02.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnyes02.ogg"
     },
     {
       "id": "global-audio-broodwar-sound-zerg-zergduran-zdnyes03-c4363508",
@@ -1462,7 +1462,7 @@
       "source": "game",
       "input": "sound/zerg/zergduran/zdnyes03.wav",
       "operation": "wav_to_ogg",
-      "output": "sounds/unit/sound/zerg/zergduran/zdnyes03.ogg"
+      "output": "sounds/unit/zerg/zergduran/zdnyes03.ogg"
     }
   ]
 }

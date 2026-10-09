@@ -11,6 +11,7 @@
 #include "converters/ImageAssetResolver.h"
 #include "converters/ImageLuaWriter.h"
 #include "converters/ChkLuaWriter.h"
+#include "converters/DdsToPngConverter.h"
 #include "converters/TextToUtf8Converter.h"
 #include "converters/UnitDataResolver.h"
 #include "converters/UnitLuaWriter.h"
@@ -25,6 +26,8 @@
 #include "converters/WavToOggConverter.h"
 #include "converters/SmkToMngConverter.h"
 #include "converters/SmkToOgvConverter.h"
+#include "converters/WebmToMngConverter.h"
+#include "converters/WebmToOgvConverter.h"
 #include "formats/ChkDecoder.h"
 #include "formats/GrpDecoder.h"
 #include "formats/ScmScenarioExtractor.h"
@@ -136,7 +139,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
         ImportTask tableTask = task;
         tableTask.input = task.table;
@@ -350,7 +353,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
         ImportTask tableTask = task;
         tableTask.input = task.table;
@@ -715,25 +718,41 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
-        std::filesystem::path stagedPcx;
+        std::filesystem::path stagedInput;
 
-        if (!stage(task, readers, stagingRoot, stagedPcx, error)) {
+        if (!stage(task, readers, stagingRoot, stagedInput, error)) {
             return false;
         }
 
-        std::filesystem::path stagedPng = stagedPcx;
+        std::filesystem::path stagedPng = stagedInput;
         stagedPng += ".png";
 
-        PcxToPngConverter pcxConverter;
+        std::string extension = std::filesystem::path(task.input).extension().string();
+        std::transform(extension.begin(), extension.end(), extension.begin(), [](unsigned char c) {
+            return static_cast<char>(std::tolower(c));
+        });
 
-        if (!pcxConverter.convert(stagedPcx, stagedPng, error)) {
+        const bool isDds = extension == ".dds";
+        bool imageConverted = false;
+
+        if (isDds) {
+            DdsToPngConverter ddsConverter;
+            imageConverted = ddsConverter.convert(stagedInput, stagedPng, error);
+        } else if (extension == ".pcx") {
+            PcxToPngConverter pcxConverter;
+            imageConverted = pcxConverter.convert(stagedInput, stagedPng, error);
+        } else {
+            error = "Unsupported UI console input format: " + task.input;
+        }
+
+        if (!imageConverted) {
             std::error_code cleanupError;
             std::filesystem::remove(stagedPng, cleanupError);
             cleanupError.clear();
-            std::filesystem::remove(stagedPcx, cleanupError);
-            removeEmptyDirectories(stagedPcx.parent_path(), stagingRoot);
+            std::filesystem::remove(stagedInput, cleanupError);
+            removeEmptyDirectories(stagedInput.parent_path(), stagingRoot);
             return false;
         }
 
@@ -745,14 +764,15 @@ bool ImportExecutor::execute(
             outputBase,
             task.left,
             task.right,
-            error
+            error,
+            isDds
         );
 
         std::error_code cleanupError;
         std::filesystem::remove(stagedPng, cleanupError);
         cleanupError.clear();
-        std::filesystem::remove(stagedPcx, cleanupError);
-        removeEmptyDirectories(stagedPcx.parent_path(), stagingRoot);
+        std::filesystem::remove(stagedInput, cleanupError);
+        removeEmptyDirectories(stagedInput.parent_path(), stagingRoot);
 
         if (!converted) {
             return false;
@@ -820,7 +840,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
         std::vector<std::filesystem::path> stagedPaths;
 
@@ -932,7 +952,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
         std::vector<std::filesystem::path> stagedPaths;
 
@@ -1043,7 +1063,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
         std::filesystem::path stagedChk;
 
         if (!stage(task, readers, stagingRoot, stagedChk, error)) {
@@ -1086,7 +1106,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
         std::filesystem::path stagedScm;
 
         if (!stage(task, readers, stagingRoot, stagedScm, error)) {
@@ -1147,7 +1167,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
         ImportTask cv5Task = task;
         cv5Task.input += ".cv5";
@@ -1217,10 +1237,13 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+        const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
 
         ImportTask vx4Task = task;
-        vx4Task.input += ".vx4";
+        const std::string classicVx4 = task.input + ".vx4";
+        vx4Task.input = reader->contains(classicVx4)
+            ? classicVx4
+            : task.input + ".vx4ex";
 
         ImportTask vr4Task = task;
         vr4Task.input += ".vr4";
@@ -1263,7 +1286,7 @@ bool ImportExecutor::execute(
         return true;
     }
 
-    const std::filesystem::path stagingRoot = destinationRoot / ".startool4-staging";
+    const std::filesystem::path stagingRoot = destinationRoot / ".startool-staging";
     std::filesystem::path stagedPath;
 
     if (!stage(task, readers, stagingRoot, stagedPath, error)) {
@@ -1390,6 +1413,15 @@ bool ImportExecutor::execute(
         case ManifestOperation::PanelToPng:
             break;
 
+        case ManifestOperation::DdsToPng: {
+            DdsToPngConverter converter;
+            converted = converter.convert(
+                stagedPath, destination, error,
+                task.cropX, task.cropY, task.cropWidth, task.cropHeight
+            );
+            break;
+        }
+
         case ManifestOperation::PcxToPng: {
             PcxToPngConverter converter;
             converted = converter.convert(stagedPath, destination, error);
@@ -1428,6 +1460,18 @@ bool ImportExecutor::execute(
 
         case ManifestOperation::WavToOgg: {
             WavToOggConverter converter;
+            converted = converter.convert(stagedPath, destination, error);
+            break;
+        }
+
+        case ManifestOperation::WebmToMng: {
+            WebmToMngConverter converter;
+            converted = converter.convert(stagedPath, destination, error);
+            break;
+        }
+
+        case ManifestOperation::WebmToOgv: {
+            WebmToOgvConverter converter;
             converted = converter.convert(stagedPath, destination, error);
             break;
         }

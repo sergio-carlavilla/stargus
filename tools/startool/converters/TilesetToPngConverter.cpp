@@ -22,7 +22,8 @@ namespace
     constexpr std::size_t MegaTileMiniTileCount = MegaTileMiniTilesPerSide * MegaTileMiniTilesPerSide;
     constexpr std::size_t MegaTileWidth = MiniTileWidth * MegaTileMiniTilesPerSide;
     constexpr std::size_t MegaTileHeight = MiniTileHeight * MegaTileMiniTilesPerSide;
-    constexpr std::size_t MegaTileReferenceSize = MegaTileMiniTileCount * sizeof(std::uint16_t);
+    constexpr std::size_t Vx4ReferenceSize = sizeof(std::uint16_t);
+    constexpr std::size_t Vx4ExReferenceSize = sizeof(std::uint32_t);
 
     constexpr std::size_t TilesPerRow = 16;
 
@@ -62,6 +63,14 @@ namespace
         return static_cast<std::uint16_t>(data[0]) | static_cast<std::uint16_t>(static_cast<std::uint16_t>(data[1]) << 8);
     }
 
+    std::uint32_t readLittleEndian32(const std::uint8_t *data)
+    {
+        return static_cast<std::uint32_t>(data[0])
+            | (static_cast<std::uint32_t>(data[1]) << 8)
+            | (static_cast<std::uint32_t>(data[2]) << 16)
+            | (static_cast<std::uint32_t>(data[3]) << 24);
+    }
+
 }
 
 bool TilesetToPngConverter::convert(
@@ -83,8 +92,12 @@ bool TilesetToPngConverter::convert(
         return false;
     }
 
-    if (vx4.empty() || vx4.size() % MegaTileReferenceSize != 0) {
-        error = "VX4 resource has invalid size: " + vx4Input.string();
+    const bool extendedReferences = vx4Input.extension() == ".vx4ex";
+    const std::size_t referenceSize = extendedReferences ? Vx4ExReferenceSize : Vx4ReferenceSize;
+    const std::size_t megaTileReferenceSize = MegaTileMiniTileCount * referenceSize;
+
+    if (vx4.empty() || vx4.size() % megaTileReferenceSize != 0) {
+        error = "VX4/VX4EX resource has invalid size: " + vx4Input.string();
         return false;
     }
 
@@ -93,7 +106,7 @@ bool TilesetToPngConverter::convert(
         return false;
     }
 
-    const std::size_t megaTileCount = vx4.size() / MegaTileReferenceSize;
+    const std::size_t megaTileCount = vx4.size() / megaTileReferenceSize;
     const std::size_t miniTileCount = vr4.size() / MiniTileSize;
     const std::size_t tileRows = (megaTileCount + TilesPerRow - 1) / TilesPerRow;
 
@@ -124,20 +137,19 @@ bool TilesetToPngConverter::convert(
     for (std::size_t megaTileIndex = 0; megaTileIndex < megaTileCount; ++megaTileIndex) {
         const std::size_t megaTileX = (megaTileIndex % TilesPerRow) * MegaTileWidth;
         const std::size_t megaTileY = (megaTileIndex / TilesPerRow) * MegaTileHeight;
-        const std::size_t megaTileOffset = megaTileIndex * MegaTileReferenceSize;
+        const std::size_t megaTileOffset = megaTileIndex * megaTileReferenceSize;
 
         for (std::size_t miniTilePosition = 0; miniTilePosition < MegaTileMiniTileCount; ++miniTilePosition) {
-            const std::uint16_t reference = readLittleEndian16(
-                vx4.data() +
-                megaTileOffset +
-                miniTilePosition * sizeof(std::uint16_t)
-            );
+            const std::uint8_t *referenceData = vx4.data() + megaTileOffset + miniTilePosition * referenceSize;
+            const std::uint32_t reference = extendedReferences
+                ? readLittleEndian32(referenceData)
+                : readLittleEndian16(referenceData);
 
             const bool horizontallyFlipped = (reference & 0x0001U) != 0;
             const std::size_t miniTileIndex = static_cast<std::size_t>(reference >> 1);
 
             if (miniTileIndex >= miniTileCount) {
-                error = "VX4 references VR4 minitile outside resource bounds";
+                error = "VX4/VX4EX references VR4 minitile outside resource bounds";
                 return false;
             }
 

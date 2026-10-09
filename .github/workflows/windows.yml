@@ -169,9 +169,6 @@ jobs:
         run: |
           $requiredFiles = @(
             (Join-Path $env:STARGUS_INSTALL_DIR "bin\startool.exe"),
-            (Join-Path $env:STARGUS_INSTALL_DIR "bin\scdat2json.exe"),
-            (Join-Path $env:STARGUS_INSTALL_DIR "bin\grptool.exe"),
-            (Join-Path $env:STARGUS_INSTALL_DIR "bin\sauwetter.exe"),
             (Join-Path $env:STARGUS_INSTALL_DIR "games\stargus.exe")
           )
 

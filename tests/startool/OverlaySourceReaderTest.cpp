@@ -18,8 +18,7 @@ namespace
     class FakeSourceReader : public SourceReader
     {
         public:
-            explicit FakeSourceReader(std::map<std::string, std::string> resources)
-                : resources_(std::move(resources))
+            explicit FakeSourceReader(std::map<std::string, std::string> resources) : resources_(std::move(resources))
             {
             }
 
@@ -73,9 +72,7 @@ namespace
     )
     {
         std::error_code error;
-        const std::filesystem::path output =
-            std::filesystem::temp_directory_path(error) /
-            "startool4-overlay-source-reader-test.bin";
+        const std::filesystem::path output = std::filesystem::temp_directory_path(error) / "startool-overlay-source-reader-test.bin";
 
         if (error) {
             return false;

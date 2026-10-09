@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "includes": [
+    "casc/classic/palettes.json",
+    "casc/classic/fonts.json",
+    "casc/classic/video.json",
+    "classic/portraits.json",
+    "classic/audio.json",
+    "classic/music.json",
+    "casc/classic/ui.json",
+    "classic/units.json",
+    "casc/classic/maps.json",
+    "casc/classic/campaigns.json",
+    "classic/campaign-audio.json",
+    "classic/tilesets.json",
+    "casc/classic/pcx.json",
+    "casc/classic/widgets.json",
+    "classic/images.json",
+    "casc/classic/generated-ui.json"
+  ]
+}

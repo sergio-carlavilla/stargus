@@ -30,15 +30,12 @@ bool UiConsoleConverter::convert(
     const std::filesystem::path &outputBase,
     int left,
     int right,
-    std::string &error
+    std::string &error,
+    bool alignBottom
 ) const
 {
     if (left < 0 || right < 0 || left >= right || right > ConsoleWidth) {
-        error =
-            "Invalid UI console crop range: left=" +
-            std::to_string(left) +
-            ", right=" +
-            std::to_string(right);
+        error = "Invalid UI console crop range: left=" + std::to_string(left) + ", right=" + std::to_string(right);
         return false;
     }
 
@@ -66,11 +63,15 @@ bool UiConsoleConverter::convert(
     std::filesystem::path temporaryFile = outputBase;
     temporaryFile += "_tmp.png";
 
+    std::filesystem::path paddedFile = outputBase;
+    paddedFile += "_padded.png";
+
     const std::filesystem::path outputs[] = {
         leftFile,
         middleFile,
         rightFile,
-        temporaryFile
+        temporaryFile,
+        paddedFile
     };
 
     for (const auto &output : outputs) {
@@ -103,11 +104,34 @@ bool UiConsoleConverter::convert(
         "x" +
         std::to_string(ConsoleHeight);
 
+    // CASC stores only the lower part of each console (640x180..192)
+    // Stargus positions console fillers in a 640x480 reference canvas
+    // Keep the source at the bottom and make the missing upper rows transparent
+    std::filesystem::path consoleInput = inputPng;
+
+    if (alignBottom) {
+        const std::string padCommand =
+            "convert " +
+            quoted(inputPng) +
+            " -background none -gravity South -extent " +
+            geometry +
+            " " +
+            quoted(paddedFile);
+
+        if (!callConvert(padCommand)) {
+            removeIfPresent(paddedFile);
+            error = "Could not bottom-align CASC UI console";
+            return false;
+        }
+
+        consoleInput = paddedFile;
+    }
+
     const int leftAbsolute = ConsoleWidth - left;
 
     const std::string convertLeft =
         "convert " +
-        quoted(inputPng) +
+        quoted(consoleInput) +
         " -crop " +
         geometry +
         "-" +
@@ -117,7 +141,7 @@ bool UiConsoleConverter::convert(
 
     const std::string convertRight =
         "convert " +
-        quoted(inputPng) +
+        quoted(consoleInput) +
         " -crop " +
         geometry +
         "+" +
@@ -127,6 +151,7 @@ bool UiConsoleConverter::convert(
 
     if (!callConvert(convertLeft)) {
         removeIfPresent(leftFile);
+        removeIfPresent(paddedFile);
         error = "Could not generate UI console left segment";
         return false;
     }
@@ -134,6 +159,7 @@ bool UiConsoleConverter::convert(
     if (!callConvert(convertRight)) {
         removeIfPresent(leftFile);
         removeIfPresent(rightFile);
+        removeIfPresent(paddedFile);
         error = "Could not generate UI console right segment";
         return false;
     }
@@ -144,7 +170,7 @@ bool UiConsoleConverter::convert(
 
     const std::string convertTemporary =
         "convert " +
-        quoted(inputPng) +
+        quoted(consoleInput) +
         " -crop " +
         geometry +
         "-" +
@@ -166,6 +192,7 @@ bool UiConsoleConverter::convert(
         removeIfPresent(leftFile);
         removeIfPresent(rightFile);
         removeIfPresent(temporaryFile);
+        removeIfPresent(paddedFile);
         error = "Could not generate temporary UI console segment";
         return false;
     }
@@ -175,11 +202,13 @@ bool UiConsoleConverter::convert(
         removeIfPresent(rightFile);
         removeIfPresent(middleFile);
         removeIfPresent(temporaryFile);
+        removeIfPresent(paddedFile);
         error = "Could not generate UI console middle segment";
         return false;
     }
 
     removeIfPresent(temporaryFile);
+    removeIfPresent(paddedFile);
 
     return true;
 }

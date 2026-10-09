@@ -1,0 +1,330 @@
+{
+  "rules": [
+    {
+      "id": "ui-ppbrempt",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/ppbrempt.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/ppbrempt.png"
+    },
+    {
+      "id": "ui-ppbrfull",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/ppbrfull.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/ppbrfull.png"
+    },
+    {
+      "id": "ui-tconover",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/tconover.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/tconover.png"
+    },
+    {
+      "id": "ui-tpbrempt",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/tpbrempt.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/tpbrempt.png"
+    },
+    {
+      "id": "ui-tpbrfull",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/tpbrfull.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/tpbrfull.png",
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 108,
+        "height": 9
+      }
+    },
+    {
+      "id": "ui-zconover",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/zconover.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/zconover.png"
+    },
+    {
+      "id": "ui-zpbrempt",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/zpbrempt.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/zpbrempt.png"
+    },
+    {
+      "id": "ui-zpbrfull",
+      "kind": "exact",
+      "source": "game",
+      "input": "game/zpbrfull.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/zpbrfull.png"
+    },
+    {
+      "id": "ui-tfont",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/title/tFont.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/tfont.png"
+    },
+    {
+      "id": "ui-title",
+      "kind": "exact",
+      "source": "game",
+      "input": "SD/glue/titlesc/title.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/title.png"
+    },
+    {
+      "id": "ui-menu-background-without-title",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/palmm/backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/Menu background without title.png"
+    },
+    {
+      "id": "terran-briefing-room",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalRt/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/terran/briefing room.png"
+    },
+    {
+      "id": "terran-victory-screen",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalTv/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/terran/victory screen.png"
+    },
+    {
+      "id": "terran-defeat-screen",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalTd/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/terran/defeat screen.png"
+    },
+    {
+      "id": "protoss-briefing-room",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalRp/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/protoss/briefing room.png"
+    },
+    {
+      "id": "protoss-victory-screen",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalPv/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/protoss/victory screen.png"
+    },
+    {
+      "id": "protoss-defeat-screen",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalPd/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/protoss/defeat screen.png"
+    },
+    {
+      "id": "zerg-briefing-room",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalRz/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/zerg/briefing room.png"
+    },
+    {
+      "id": "zerg-victory-screen",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalZv/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/zerg/victory screen.png"
+    },
+    {
+      "id": "zerg-defeat-screen",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/PalZd/Backgnd.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/zerg/defeat screen.png"
+    },
+    {
+      "id": "ui-readyt-butterr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/butterr.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/butterr.png"
+    },
+    {
+      "id": "ui-readyt-objterr",
+      "kind": "exact",
+      "source": "game",
+      "input": "Glue/ReadyT/ObjTerr.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/objterr.png"
+    },
+    {
+      "id": "ui-readyt-p1terr",
+      "kind": "exact",
+      "source": "game",
+      "input": "Glue/ReadyT/P1Terr.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/p1terr.png"
+    },
+    {
+      "id": "ui-readyt-p2terr",
+      "kind": "exact",
+      "source": "game",
+      "input": "Glue/ReadyT/P2Terr.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/p2terr.png"
+    },
+    {
+      "id": "ui-readyt-p3terr",
+      "kind": "exact",
+      "source": "game",
+      "input": "Glue/ReadyT/P3Terr.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/p3terr.png"
+    },
+    {
+      "id": "ui-readyt-p4terr",
+      "kind": "exact",
+      "source": "game",
+      "input": "Glue/ReadyT/P4Terr.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/p4terr.png"
+    },
+    {
+      "id": "ui-readyt-terrframe",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/TerrFrame.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/terrframe.png"
+    },
+    {
+      "id": "ui-readyt-terrframeh",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/readyt/TerrFrameh.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/terrframeh.png"
+    },
+    {
+      "id": "ui-readyt-tframe1",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrame1.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframe1.png"
+    },
+    {
+      "id": "ui-readyt-tframe2",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrame2.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframe2.png"
+    },
+    {
+      "id": "ui-readyt-tframe3",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrame3.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframe3.png"
+    },
+    {
+      "id": "ui-readyt-tframe4",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrame4.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframe4.png"
+    },
+    {
+      "id": "ui-readyt-tframeh1",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrameH1.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframeh1.png"
+    },
+    {
+      "id": "ui-readyt-tframeh2",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrameH2.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframeh2.png"
+    },
+    {
+      "id": "ui-readyt-tframeh3",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrameH3.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframeh3.png"
+    },
+    {
+      "id": "ui-readyt-tframeh4",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/ReadyT/TFrameH4.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tframeh4.png"
+    },
+    {
+      "id": "ui-readyt-tutbtn",
+      "kind": "exact",
+      "source": "game",
+      "input": "Glue/ReadyT/TutBtn.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/readyt/tutbtn.png"
+    },
+    {
+      "id": "ui-battlenet-icons",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/battle.net/icons/icons.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/battlenet/icons.png"
+    },
+    {
+      "id": "ui-title-tfont-beta",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/title/tfont-beta.pcx",
+      "operation": "pcx_to_png",
+      "output": "graphics/ui/tfont-beta.png"
+    },
+    {
+      "id": "ui-title-beta",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/title/title-beta.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/title-beta.png"
+    }
+  ]
+}

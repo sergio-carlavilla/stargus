@@ -5,6 +5,7 @@
 
 #include <nlohmann/json.hpp>
 
+#include <cstdint>
 #include <filesystem>
 #include <fstream>
 #include <set>
@@ -477,6 +478,7 @@ std::optional<Manifest> ManifestLoader::load(
                 "right",
                 "width",
                 "height",
+                "crop",
                 "unit",
                 "ident",
                 "output"
@@ -504,6 +506,8 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::FontToPng;
             } else if (operation == "chk_to_map") {
                 rule.operation = ManifestOperation::ChkToMap;
+            } else if (operation == "dds_to_png") {
+                rule.operation = ManifestOperation::DdsToPng;
             } else if (operation == "grp_frame_to_png") {
                 rule.operation = ManifestOperation::GrpFrameToPng;
             } else if (operation == "grp_frames_to_png") {
@@ -538,6 +542,10 @@ std::optional<Manifest> ManifestLoader::load(
                 rule.operation = ManifestOperation::UnitsLua;
             } else if (operation == "wav_to_ogg") {
                 rule.operation = ManifestOperation::WavToOgg;
+            } else if (operation == "webm_to_mng") {
+                rule.operation = ManifestOperation::WebmToMng;
+            } else if (operation == "webm_to_ogv") {
+                rule.operation = ManifestOperation::WebmToOgv;
             } else {
                 error = "Unsupported manifest operation: " + operation;
                 return std::nullopt;
@@ -715,6 +723,44 @@ std::optional<Manifest> ManifestLoader::load(
 
                 if (ruleDocument.contains("height")) {
                     error = "Manifest rule '" + rule.id + "' field height is only valid for panel_to_png";
+                    return std::nullopt;
+                }
+            }
+
+            // Optional DDS-only crop in source image coordinates
+            if (ruleDocument.contains("crop")) {
+                if (rule.operation != ManifestOperation::DdsToPng) {
+                    error = "Manifest rule '" + rule.id + "' field crop is only valid for dds_to_png";
+                    return std::nullopt;
+                }
+
+                const auto &crop = ruleDocument["crop"];
+                if (!crop.is_object() || crop.size() != 4) {
+                    error = "Manifest rule '" + rule.id + "' crop must contain x, y, width and height";
+                    return std::nullopt;
+                }
+
+                const std::set<std::string> cropFields = {"x", "y", "width", "height"};
+                if (!hasOnlyFields(crop, cropFields, unknownField)) {
+                    error = "Manifest rule '" + rule.id + "' crop contains unknown field: " + unknownField;
+                    return std::nullopt;
+                }
+
+                for (const char *field : {"x", "y", "width", "height"}) {
+                    if (!crop.contains(field) || !crop[field].is_number_integer() ||
+                        crop[field].get<std::int64_t>() < 0 ||
+                        crop[field].get<std::int64_t>() > 16384) {
+                        error = "Manifest rule '" + rule.id + "' has invalid crop field: " + field;
+                        return std::nullopt;
+                    }
+                }
+
+                rule.cropX = crop["x"].get<int>();
+                rule.cropY = crop["y"].get<int>();
+                rule.cropWidth = crop["width"].get<int>();
+                rule.cropHeight = crop["height"].get<int>();
+                if (rule.cropWidth == 0 || rule.cropHeight == 0) {
+                    error = "Manifest rule '" + rule.id + "' crop dimensions must be positive";
                     return std::nullopt;
                 }
             }

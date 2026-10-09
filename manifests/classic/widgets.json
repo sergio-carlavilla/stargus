@@ -650,7 +650,7 @@
       "output": "graphics/ui/terran/diplomacy_disabled.png"
     },
     {
-      "id": "widget-terran-059-displomacy-png",
+      "id": "widget-terran-059-diplomacy-png",
       "kind": "exact",
       "source": "game",
       "input": "dlgs/terran.grp",
@@ -658,7 +658,7 @@
       "palette": "tunit",
       "rgba": true,
       "frame": 59,
-      "output": "graphics/ui/terran/displomacy.png"
+      "output": "graphics/ui/terran/diplomacy.png"
     },
     {
       "id": "widget-terran-060-diplomacy-pressed-png",
@@ -2357,7 +2357,7 @@
       "output": "graphics/ui/zerg/diplomacy_disabled.png"
     },
     {
-      "id": "widget-zerg-059-displomacy-png",
+      "id": "widget-zerg-059-diplomacy-png",
       "kind": "exact",
       "source": "game",
       "input": "dlgs/zerg.grp",
@@ -2365,7 +2365,7 @@
       "palette": "tunit",
       "rgba": true,
       "frame": 59,
-      "output": "graphics/ui/zerg/displomacy.png"
+      "output": "graphics/ui/zerg/diplomacy.png"
     },
     {
       "id": "widget-zerg-060-diplomacy-pressed-png",
@@ -4064,7 +4064,7 @@
       "output": "graphics/ui/protoss/diplomacy_disabled.png"
     },
     {
-      "id": "widget-protoss-059-displomacy-png",
+      "id": "widget-protoss-059-diplomacy-png",
       "kind": "exact",
       "source": "game",
       "input": "dlgs/protoss.grp",
@@ -4072,7 +4072,7 @@
       "palette": "tunit",
       "rgba": true,
       "frame": 59,
-      "output": "graphics/ui/protoss/displomacy.png"
+      "output": "graphics/ui/protoss/diplomacy.png"
     },
     {
       "id": "widget-protoss-060-diplomacy-pressed-png",
