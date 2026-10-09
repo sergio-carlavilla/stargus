@@ -1,5 +1,5 @@
 # SPDX-FileCopyrightText: 2026 Sergio Carlavilla Delgado <sergio.carlavilla91@gmail.com>
-# SPDX-License-Identifier: GPL-2.0-or-later
+# SPDX-License-Identifier: GPL-2.0-only
 
 cmake_minimum_required(VERSION 4.3)
 
@@ -442,9 +442,12 @@ add_executable(
     tools/startool/main.cpp
     tools/startool/StartoolApp.cpp
     tools/startool/SourceTypes.cpp
+    tools/startool/GameLocale.cpp
+    tools/startool/GameLocaleDetector.cpp
     tools/startool/LogicalSource.cpp
     tools/startool/SourceDetector.cpp
     tools/startool/SourceReaderFactory.cpp
+    tools/startool/FilesystemSourceReader.cpp
     tools/startool/SourceReaderRegistry.cpp
     tools/startool/OverlaySourceReader.cpp
     tools/startool/MpqArchive.cpp
@@ -455,6 +458,7 @@ add_executable(
     tools/startool/pipeline/ImportPlanner.cpp
     tools/startool/pipeline/ImportExecutor.cpp
     tools/startool/converters/WavToOggConverter.cpp
+    tools/startool/converters/DdsToPngConverter.cpp
     tools/startool/converters/PcxToPngConverter.cpp
     tools/startool/converters/PanelToPngConverter.cpp
     tools/startool/converters/UiConsoleConverter.cpp
@@ -463,6 +467,8 @@ add_executable(
     tools/startool/converters/FontToPngConverter.cpp
     tools/startool/converters/SmkToMngConverter.cpp
     tools/startool/converters/SmkToOgvConverter.cpp
+    tools/startool/converters/WebmToMngConverter.cpp
+    tools/startool/converters/WebmToOgvConverter.cpp
     tools/startool/converters/TilesetToLuaConverter.cpp
     tools/startool/converters/TilesetToPngConverter.cpp
     tools/startool/converters/GrpFrameToPngConverter.cpp
@@ -476,6 +482,7 @@ add_executable(
     tools/startool/converters/UnitsLuaWriter.cpp
     tools/startool/converters/ChkLuaWriter.cpp
     tools/startool/converters/TextToUtf8Converter.cpp
+    tools/startool/formats/DdsDecoder.cpp
     tools/startool/formats/PcxDecoder.cpp
     tools/startool/formats/FontDecoder.cpp
     tools/startool/formats/GrpDecoder.cpp
@@ -498,6 +505,28 @@ target_include_directories(
     PRIVATE
         "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
 )
+
+if(WITH_CASCLIB)
+    target_sources(
+        startool4
+        PRIVATE
+            tools/startool/CascArchive.cpp
+            tools/startool/CascSourceReader.cpp
+            tools/startool/CascVerifier.cpp
+    )
+
+    target_compile_definitions(
+        startool4
+        PRIVATE
+            HAVE_CASC
+    )
+
+    target_link_libraries(
+        startool4
+        PRIVATE
+            CascLib::CascLib
+    )
+endif()
 
 target_link_libraries(
     startool4
@@ -766,6 +795,30 @@ if(BUILD_TESTING)
     )
 
     add_executable(
+        StartoolFilesystemSourceReaderTest
+        tests/startool/FilesystemSourceReaderTest.cpp
+        tools/startool/FilesystemSourceReader.cpp
+    )
+
+    target_include_directories(
+        StartoolFilesystemSourceReaderTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    add_test(
+        NAME StartoolFilesystemSourceReaderTest
+        COMMAND StartoolFilesystemSourceReaderTest
+    )
+
+    set_tests_properties(
+        StartoolFilesystemSourceReaderTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;source;casc"
+    )
+
+    add_executable(
         StartoolChkDecoderTest
         tests/startool/ChkDecoderTest.cpp
         tools/startool/formats/ChkDecoder.cpp
@@ -840,6 +893,37 @@ if(BUILD_TESTING)
         PROPERTIES
             WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
             LABELS "startool;manifest;regression"
+    )
+
+    add_executable(
+        StartoolDdsDecoderTest
+        tests/startool/DdsDecoderTest.cpp
+        tools/startool/formats/DdsDecoder.cpp
+        tools/startool/converters/DdsToPngConverter.cpp
+    )
+
+    target_include_directories(
+        StartoolDdsDecoderTest
+        PRIVATE
+            "${CMAKE_CURRENT_SOURCE_DIR}/tools/startool"
+    )
+
+    target_link_libraries(
+        StartoolDdsDecoderTest
+        PRIVATE
+            PNG::PNG
+    )
+
+    add_test(
+        NAME StartoolDdsDecoderTest
+        COMMAND StartoolDdsDecoderTest
+    )
+
+    set_tests_properties(
+        StartoolDdsDecoderTest
+        PROPERTIES
+            WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
+            LABELS "startool;image;unit"
     )
 
     add_executable(
@@ -1055,9 +1139,11 @@ set(STARGUS_WARNING_TARGETS
     StartoolUnitTest
     StartoolUnitLuaWriterTest
     StartoolOverlaySourceReaderTest
+    StartoolFilesystemSourceReaderTest
     StartoolChkDecoderTest
     StartoolChkLuaWriterTest
     StartoolManifestValidationTest
+    StartoolDdsDecoderTest
     StartoolTblDecoderTest
     StartoolImagesDatDecoderTest
     StartoolImageAssetResolverTest
