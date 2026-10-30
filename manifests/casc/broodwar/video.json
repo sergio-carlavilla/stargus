@@ -1,0 +1,92 @@
+{
+  "rules": [
+    {
+      "id": "portrait-expcampaign-disk",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/disk.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/disk.mng"
+    },
+    {
+      "id": "portrait-expcampaign-xprot",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/xprot.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/xprot.mng"
+    },
+    {
+      "id": "portrait-expcampaign-xproton",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/xproton.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/xproton.mng"
+    },
+    {
+      "id": "portrait-expcampaign-xterr",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/xterr.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/xterr.mng"
+    },
+    {
+      "id": "portrait-expcampaign-xterron",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/xterron.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/xterron.mng"
+    },
+    {
+      "id": "portrait-expcampaign-xzerg",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/xzerg.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/xzerg.mng"
+    },
+    {
+      "id": "portrait-expcampaign-xzergon",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/expcampaign/xzergon.webm",
+      "operation": "webm_to_mng",
+      "output": "videos/expcampaign/xzergon.mng"
+    },
+    {
+      "id": "video-starxintr",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/starxintr.webm",
+      "operation": "webm_to_ogv",
+      "output": "videos/starxintr.ogv"
+    },
+    {
+      "id": "video-xprotoss",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/xprotoss.webm",
+      "operation": "webm_to_ogv",
+      "output": "videos/xprotoss.ogv"
+    },
+    {
+      "id": "video-xterran",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/xterran.webm",
+      "operation": "webm_to_ogv",
+      "output": "videos/xterran.ogv"
+    },
+    {
+      "id": "video-xzerg",
+      "kind": "exact",
+      "source": "installer",
+      "input": "smk/xzerg.webm",
+      "operation": "webm_to_ogv",
+      "output": "videos/xzerg.ogv"
+    }
+  ]
+}

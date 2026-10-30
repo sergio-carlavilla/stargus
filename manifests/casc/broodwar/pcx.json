@@ -1,0 +1,12 @@
+{
+  "rules": [
+    {
+      "id": "ui-retail-expansion",
+      "kind": "exact",
+      "source": "game",
+      "input": "glue/palmm/retail_ex.DDS",
+      "operation": "dds_to_png",
+      "output": "graphics/ui/retail_ex.png"
+    }
+  ]
+}

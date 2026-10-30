@@ -90,17 +90,13 @@ bool UnitsDatDecoder::decode(
     // shield_amount
     skip(offset, UnitCount, 2);
 
-    // hit_points
+    // hit_points: little-endian 32-bit fixed point with 8 fractional bits.
+    // Summing two big-endian halves loses the high integer bits and turns
+    // fractional placeholders such as raw 1 into 256 HP.
     for (std::size_t index = 0; index < UnitCount; ++index) {
         const std::size_t recordOffset = offset + index * 4;
 
-        records[index].hitPoints =
-            static_cast<std::uint32_t>(
-                BinaryReader::readBe16(data, recordOffset)
-            ) +
-            static_cast<std::uint32_t>(
-                BinaryReader::readBe16(data, recordOffset + 2)
-            );
+        records[index].hitPoints = BinaryReader::readLe32(data, recordOffset) >> 8;
     }
 
     skip(offset, UnitCount, 4);

@@ -412,7 +412,8 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        SmkToMngConverter converter;
+        SmkToMngConverter smkConverter;
+        WebmToMngConverter webmConverter;
         PortraitLuaWriter luaWriter;
 
         std::vector<std::string> portraitLuaFiles;
@@ -447,38 +448,35 @@ bool ImportExecutor::execute(
         )
         {
             for (int index = 0; index <= 3; ++index) {
-                const std::string smkInput =
-                    "portrait/" +
-                    inputBase +
-                    std::to_string(index) +
-                    ".smk";
+                // MPQ releases store portraits as SMK. The Battle.net CASC
+                // release stores the same SD sequences as WebM.
+                const std::string inputStem = "portrait/" + inputBase + std::to_string(index);
 
-                if (!reader->contains(smkInput)) {
+                std::string videoInput = inputStem + ".smk";
+                bool webm = false;
+
+                if (!reader->contains(videoInput)) {
+                    videoInput = inputStem + ".webm";
+                    webm = true;
+                }
+
+                if (!reader->contains(videoInput)) {
+                    // portdata.tbl names the first video of every sequence.
+                    // Later videos are optional and end the sequence.
+                    if (index == 0) {
+                        error = "Portrait video '" + inputStem + "' was not found as .smk or .webm";
+                        return false;
+                    }
+
                     break;
                 }
 
-                const std::string outputRelative =
-                    "videos/portrait/" +
-                    outputBase +
-                    std::to_string(index) +
-                    ".mng";
-
-                const std::string resourceKey =
-                    normalizeResourceKey(smkInput);
-
-                const auto generated =
-                    generatedPortraitOutputs.find(outputRelative);
-
+                const std::string outputRelative = "videos/portrait/" + outputBase + std::to_string(index) + ".mng";
+                const std::string resourceKey = normalizeResourceKey(videoInput);
+                const auto generated = generatedPortraitOutputs.find(outputRelative);
                 if (generated != generatedPortraitOutputs.end()) {
                     if (generated->second != resourceKey) {
-                        error =
-                            "Portrait MNG output '" +
-                            outputRelative +
-                            "' is produced by multiple SMK resources: " +
-                            generated->second +
-                            " and " +
-                            resourceKey;
-
+                        error = "Portrait MNG output '" + outputRelative + "' is produced by multiple video resources: " + generated->second + " and " + resourceKey;
                         return false;
                     }
 
@@ -488,70 +486,47 @@ bool ImportExecutor::execute(
                     continue;
                 }
 
-                const std::filesystem::path destination =
-                    destinationRoot /
-                    std::filesystem::path(outputRelative);
+                const std::filesystem::path destination = destinationRoot / std::filesystem::path(outputRelative);
 
                 std::error_code filesystemError;
 
                 if (std::filesystem::exists(destination, filesystemError)) {
                     if (filesystemError) {
-                        error =
-                            "Could not inspect portrait MNG destination '" +
-                            destination.string() +
-                            "': " +
-                            filesystemError.message();
+                        error = "Could not inspect portrait MNG destination '" + destination.string() + "': " + filesystemError.message();
                     } else {
-                        error =
-                            "Portrait MNG output already exists: " +
-                            destination.string();
+                        error = "Portrait MNG output already exists: " + destination.string();
                     }
 
                     return false;
                 }
 
-                const std::filesystem::path parentDirectory =
-                    destination.parent_path();
+                const std::filesystem::path parentDirectory = destination.parent_path();
 
                 if (!parentDirectory.empty()) {
-                    std::filesystem::create_directories(
-                        parentDirectory,
-                        filesystemError
-                    );
+                    std::filesystem::create_directories(parentDirectory, filesystemError);
 
                     if (filesystemError) {
-                        error =
-                            "Could not create portrait MNG output directory: " +
-                            filesystemError.message();
-
+                        error = "Could not create portrait MNG output directory: " + filesystemError.message();
                         return false;
                     }
                 }
 
-                ImportTask smkTask = task;
-                smkTask.input = smkInput;
+                ImportTask videoTask = task;
+                videoTask.input = videoInput;
 
-                std::filesystem::path stagedSmk;
+                std::filesystem::path stagedVideo;
 
-                if (!stage(
-                    smkTask,
-                    readers,
-                    stagingRoot,
-                    stagedSmk,
-                    error
-                )) {
+                if (!stage(videoTask, readers, stagingRoot, stagedVideo, error)) {
                     return false;
                 }
 
-                const bool converted = converter.convert(
-                    stagedSmk,
-                    destination,
-                    error
-                );
+                const bool converted = webm
+                    ? webmConverter.convert(stagedVideo, destination, error)
+                    : smkConverter.convert(stagedVideo, destination, error);
 
                 std::error_code cleanupError;
-                std::filesystem::remove(stagedSmk, cleanupError);
-                removeEmptyDirectories(stagedSmk.parent_path(), stagingRoot);
+                std::filesystem::remove(stagedVideo, cleanupError);
+                removeEmptyDirectories(stagedVideo.parent_path(), stagingRoot);
 
                 if (!converted) {
                     std::filesystem::remove(destination, cleanupError);
@@ -921,7 +896,7 @@ bool ImportExecutor::execute(
         }
 
         UnitMetadata metadata;
-        UnitDataResolver resolver;
+        UnitDataResolver resolver(reader);
 
         if (!resolver.resolve(files, static_cast<std::size_t>(task.unit), task.ident, metadata, error)) {
             cleanupStaged();
@@ -1032,7 +1007,7 @@ bool ImportExecutor::execute(
             return false;
         }
 
-        UnitDataResolver resolver;
+        UnitDataResolver resolver(reader);
 
         if (!resolver.load(files, error)) {
             cleanupStaged();

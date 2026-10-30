@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Apple Clang / arm64
@@ -13,6 +16,7 @@ jobs:
 
     env:
       HOMEBREW_NO_AUTO_UPDATE: 1
+      STARGUS_INSTALL_DIR: ${{ github.workspace }}/install
 
     steps:
       - name: Checkout Stargus
@@ -30,13 +34,27 @@ jobs:
       - name: Install dependencies
         shell: bash
         run: |
-          brew install             pkgconf             libpng             sdl2             sdl2_image             sdl2_mixer             stormlib             cppunit             nlohmann-json             imagemagick
+          brew install \
+            pkgconf \
+            zlib \
+            libpng \
+            libogg \
+            libvorbis \
+            sdl2 \
+            sdl2_image \
+            sdl2_mixer \
+            stormlib \
+            nlohmann-json \
+            imagemagick \
+            ffmpeg
 
           HOMEBREW_PREFIX="$(brew --prefix)"
 
-          echo "HOMEBREW_PREFIX=$HOMEBREW_PREFIX" >> "$GITHUB_ENV"
-          echo "CMAKE_PREFIX_PATH=$HOMEBREW_PREFIX" >> "$GITHUB_ENV"
-          echo "PKG_CONFIG_PATH=$HOMEBREW_PREFIX/lib/pkgconfig:$HOMEBREW_PREFIX/share/pkgconfig" >> "$GITHUB_ENV"
+          {
+            echo "HOMEBREW_PREFIX=$HOMEBREW_PREFIX"
+            echo "CMAKE_PREFIX_PATH=$HOMEBREW_PREFIX"
+            echo "PKG_CONFIG_PATH=$HOMEBREW_PREFIX/lib/pkgconfig:$HOMEBREW_PREFIX/share/pkgconfig"
+          } >> "$GITHUB_ENV"
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v2
@@ -51,11 +69,29 @@ jobs:
           clang --version
           cmake --version
           brew --prefix
+          python3 --version
+          ffmpeg -version
+          ffmpeg -v error -f lavfi -i color=c=red:s=8x8:r=10 \
+            -frames:v 1 -codec:v libvpx-vp9 -f null -
+          magick -version
 
       - name: Configure Stratagus
         shell: bash
         run: |
-          cmake             -S stratagus-engine             -B stratagus-engine/build             -DCMAKE_BUILD_TYPE=Debug             "-DCMAKE_PREFIX_PATH=$HOMEBREW_PREFIX"             -DBUILD_VENDORED_LUA=ON             -DBUILD_VENDORED_SDL=OFF             -DBUILD_VENDORED_MEDIA_LIBS=OFF             -DBUILD_TESTING=OFF             -DENABLE_NSIS=OFF             -DWITH_MNG=OFF             -DWITH_OGGVORBIS=OFF             -DWITH_THEORA=OFF             -DWITH_STACKTRACE=OFF
+          cmake \
+            -S stratagus-engine \
+            -B stratagus-engine/build \
+            -DCMAKE_BUILD_TYPE=Debug \
+            "-DCMAKE_PREFIX_PATH=$HOMEBREW_PREFIX" \
+            -DBUILD_VENDORED_LUA=ON \
+            -DBUILD_VENDORED_SDL=OFF \
+            -DBUILD_VENDORED_MEDIA_LIBS=OFF \
+            -DBUILD_TESTING=OFF \
+            -DENABLE_NSIS=OFF \
+            -DWITH_MNG=OFF \
+            -DWITH_OGGVORBIS=OFF \
+            -DWITH_THEORA=OFF \
+            -DWITH_STACKTRACE=OFF
 
       - name: Build Stratagus
         shell: bash
@@ -73,7 +109,8 @@ jobs:
               break
             fi
           done < <(
-            find stratagus-engine/build -type f \(               -name 'stratagus' -o               -name 'stratagus-dbg'             \)
+            find stratagus-engine/build -type f \
+              \( -name 'stratagus' -o -name 'stratagus-dbg' \)
           )
 
           if [[ -z "$STRATAGUS_EXECUTABLE" ]]; then
@@ -95,12 +132,22 @@ jobs:
           echo "STRATAGUS_EXECUTABLE=$STRATAGUS_EXECUTABLE" >> "$GITHUB_ENV"
           echo "STRATAGUS_INCLUDE_DIR=$STRATAGUS_INCLUDE_DIR" >> "$GITHUB_ENV"
 
-      - name: Configure Stargus
+      - name: Configure Startool4 and Stargus
         shell: bash
         run: |
-          cmake             -S .             -B build             -DCMAKE_BUILD_TYPE=Debug             "-DCMAKE_PREFIX_PATH=$HOMEBREW_PREFIX"             -DWITH_CASCLIB=OFF             "-DStratagus_EXECUTABLE=$STRATAGUS_EXECUTABLE"             "-DStratagus_INCLUDE_DIR=$STRATAGUS_INCLUDE_DIR"
+          cmake \
+            -S . \
+            -B build \
+            -DCMAKE_BUILD_TYPE=Debug \
+            "-DCMAKE_PREFIX_PATH=$HOMEBREW_PREFIX" \
+            "-DCMAKE_INSTALL_PREFIX=$STARGUS_INSTALL_DIR" \
+            -DBUILD_TESTING=ON \
+            "-DPython3_EXECUTABLE=$(command -v python3)" \
+            -DWITH_CASCLIB=OFF \
+            "-DStratagus_EXECUTABLE=$STRATAGUS_EXECUTABLE" \
+            "-DStratagus_INCLUDE_DIR=$STRATAGUS_INCLUDE_DIR"
 
-      - name: Build Stargus
+      - name: Build Startool4 and Stargus
         shell: bash
         run: |
           cmake --build build --parallel 2
@@ -108,48 +155,14 @@ jobs:
       - name: Run tests
         shell: bash
         run: |
-          ctest             --test-dir build             --output-on-failure
+          ctest --test-dir build --no-tests=error --output-on-failure
 
-      - name: Install Stargus
+      - name: Install Startool4 and Stargus
         shell: bash
         run: |
-          STARGUS_INSTALL_DIR="$RUNNER_TEMP/stargus-install"
-
-          rm -rf "$STARGUS_INSTALL_DIR"
-
-          cmake             --install build             --prefix "$STARGUS_INSTALL_DIR"
-
-          echo "STARGUS_INSTALL_DIR=$STARGUS_INSTALL_DIR" >> "$GITHUB_ENV"
+          cmake --install build
 
       - name: Verify installation
         shell: bash
         run: |
-          required_executables=(
-            "$STARGUS_INSTALL_DIR/bin/startool"
-            "$STARGUS_INSTALL_DIR/games/stargus"
-          )
-
-          for file in "${required_executables[@]}"; do
-            if [[ ! -x "$file" ]]; then
-              echo "Missing installed executable: $file"
-              exit 1
-            fi
-
-            echo "Found executable: $file"
-          done
-
-          required_files=(
-            "$STARGUS_INSTALL_DIR/share/games/stratagus/stargus/scripts/stratagus.lua"
-            "$STARGUS_INSTALL_DIR/share/games/stratagus/stargus/mpqlist.txt"
-            "$STARGUS_INSTALL_DIR/share/games/stratagus/stargus/dataset/palettes.json"
-            "$STARGUS_INSTALL_DIR/share/games/stratagus/stargus/dataset/units.json"
-          )
-
-          for file in "${required_files[@]}"; do
-            if [[ ! -f "$file" ]]; then
-              echo "Missing installed file: $file"
-              exit 1
-            fi
-
-            echo "Found file: $file"
-          done
+          python3 .github/scripts/verify_install.py "$STARGUS_INSTALL_DIR" --desktop

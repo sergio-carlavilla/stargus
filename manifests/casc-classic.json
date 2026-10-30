@@ -2,10 +2,12 @@
   "format_version": 1,
   "includes": [
     "casc/classic/palettes.json",
+    "broodwar/palettes.json",
     "casc/classic/fonts.json",
     "casc/classic/video.json",
     "classic/portraits.json",
     "classic/audio.json",
+    "broodwar/audio.json",
     "classic/music.json",
     "casc/classic/ui.json",
     "classic/units.json",
@@ -16,6 +18,7 @@
     "casc/classic/pcx.json",
     "casc/classic/widgets.json",
     "classic/images.json",
+    "broodwar/images.json",
     "casc/classic/generated-ui.json"
   ]
 }

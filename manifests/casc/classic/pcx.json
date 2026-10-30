@@ -41,7 +41,13 @@
       "source": "game",
       "input": "game/ppbrfull.DDS",
       "operation": "dds_to_png",
-      "output": "graphics/ui/ppbrfull.png"
+      "output": "graphics/ui/ppbrfull.png",
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 108,
+        "height": 9
+      }
     },
     {
       "id": "ui-tconover",
@@ -95,7 +101,13 @@
       "source": "game",
       "input": "game/zpbrfull.DDS",
       "operation": "dds_to_png",
-      "output": "graphics/ui/zpbrfull.png"
+      "output": "graphics/ui/zpbrfull.png",
+      "crop": {
+        "x": 0,
+        "y": 0,
+        "width": 108,
+        "height": 9
+      }
     },
     {
       "id": "ui-tfont",
@@ -328,14 +340,6 @@
       "input": "Glue/ReadyT/TutBtn.DDS",
       "operation": "dds_to_png",
       "output": "graphics/ui/readyt/tutbtn.png"
-    },
-    {
-      "id": "ui-battlenet-icons",
-      "kind": "exact",
-      "source": "game",
-      "input": "glue/battle.net/icons/icons.pcx",
-      "operation": "pcx_to_png",
-      "output": "graphics/ui/battlenet/icons.png"
     },
     {
       "id": "ui-title-tfont-beta",

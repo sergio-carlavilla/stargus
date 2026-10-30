@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
 #include "StartoolApp.h"
+#include "LauncherImport.h"
 
 #include "GameLocale.h"
 #include "GameLocaleDetector.h"
@@ -124,36 +125,48 @@ namespace
 
         for (const std::string_view sourceId : overlaySourceIds) {
             const LogicalSource *broodWarLogicalSource = findLogicalSource(broodWarSource, sourceId);
-            if (broodWarLogicalSource == nullptr) {
+            if (broodWarLogicalSource == nullptr && sourceId == "game") {
                 errorMessage = "Brood War source does not expose logical source '" + std::string(sourceId) + "'";
                 return false;
             }
 
             const LogicalSource *classicLogicalSource = findLogicalSource(*baseSource, sourceId);
-            if (classicLogicalSource == nullptr) {
+            if (classicLogicalSource == nullptr && sourceId == "game") {
                 errorMessage = "Classic base source does not expose logical source '" + std::string(sourceId) + "'";
                 return false;
             }
 
-            auto primaryReader = readerFactory.create(*broodWarLogicalSource);
-            if (!primaryReader || !primaryReader->isOpen()) {
-                errorMessage = "Could not open Brood War logical source '" + std::string(sourceId) + "'";
-                return false;
+            // Loose MPQs may have no CD installer. Register only sources that
+            // exist; manifest validation reports a missing installer if needed.
+            if (broodWarLogicalSource == nullptr && classicLogicalSource == nullptr) {
+                continue;
             }
 
-            auto fallbackReader = readerFactory.create(*classicLogicalSource);
-            if (!fallbackReader || !fallbackReader->isOpen()) {
-                errorMessage = "Could not open Classic StarCraft base logical source '" + std::string(sourceId) + "'";
-                return false;
+            std::unique_ptr<SourceReader> primaryReader;
+            if (broodWarLogicalSource != nullptr) {
+                primaryReader = readerFactory.create(*broodWarLogicalSource);
+                if (!primaryReader || !primaryReader->isOpen()) {
+                    errorMessage = "Could not open Brood War logical source '" + std::string(sourceId) + "'";
+                    return false;
+                }
             }
 
-            auto overlayReader = std::make_unique<OverlaySourceReader>(std::move(primaryReader), std::move(fallbackReader));
-            if (!overlayReader->isOpen()) {
-                errorMessage = "Could not initialize Brood War logical source overlay '" + std::string(sourceId) + "'";
-                return false;
+            std::unique_ptr<SourceReader> fallbackReader;
+            if (classicLogicalSource != nullptr) {
+                fallbackReader = readerFactory.create(*classicLogicalSource);
+                if (!fallbackReader || !fallbackReader->isOpen()) {
+                    errorMessage = "Could not open Classic StarCraft base logical source '" + std::string(sourceId) + "'";
+                    return false;
+                }
             }
 
-            if (!readers.add(std::string(sourceId), std::move(overlayReader))) {
+            std::unique_ptr<SourceReader> reader;
+            if (primaryReader && fallbackReader) {
+                reader = std::make_unique<OverlaySourceReader>(std::move(primaryReader), std::move(fallbackReader));
+            } else {
+                reader = primaryReader ? std::move(primaryReader) : std::move(fallbackReader);
+            }
+            if (!readers.add(std::string(sourceId), std::move(reader))) {
                 errorMessage = "Could not register Brood War logical source overlay '" + std::string(sourceId) + "'";
                 return false;
             }
@@ -180,6 +193,20 @@ int StartoolApp::run(int argc, char **argv)
     if (command == "version" || command == "--version") {
         printVersion();
         return 0;
+    }
+
+    if (command == "-V" && argc == 2) {
+        std::cout << StartoolDataVersion << '\n';
+        return 0;
+    }
+
+    if (command == "launcher") {
+        return runLauncherImport(argc, argv, [this](std::vector<std::string> arguments) {
+            std::vector<char *> pointers;
+            for (auto &argument : arguments) pointers.push_back(argument.data());
+            pointers.push_back(nullptr);
+            return runImport(static_cast<int>(arguments.size()), pointers.data());
+        });
     }
 
     if (command == "inspect") {
@@ -542,8 +569,10 @@ int StartoolApp::runExtract(int argc, char **argv) const
 
 int StartoolApp::runImport(int argc, char **argv) const
 {
-    if (argc != 5 && argc != 7) {
-        std::cerr << "Usage: startool import <installation> <manifest> <destination> [--base <classic-installation>]\n";
+    if (argc < 5 || argc > 9 || ((argc - 5) % 2) != 0) {
+        std::cerr
+            << "Usage: startool import <installation> <manifest> <destination> "
+            << "[--base <classic-installation>] [--locale <locale>]\n";
         return 1;
     }
 
@@ -552,17 +581,46 @@ int StartoolApp::runImport(int argc, char **argv) const
     const std::filesystem::path destinationPath = argv[4];
 
     std::optional<std::filesystem::path> baseInstallationPath;
+    GameLocale locale = GameLocale::EnUS;
+    bool localeSpecified = false;
 
-    if (argc == 7) {
-        if (std::string_view(argv[5]) != "--base") {
-            std::cerr
-                << "Usage: startool import "
-                << "<installation> <manifest> <destination> [--base <classic-installation>]\n";
+    for (int index = 5; index < argc; index += 2) {
+        const std::string_view option = argv[index];
+        const std::string_view value = argv[index + 1];
 
-            return 1;
+        if (option == "--base") {
+            if (baseInstallationPath) {
+                std::cerr << "--base was specified more than once\n";
+                return 1;
+            }
+
+            baseInstallationPath = std::filesystem::path(value);
+            continue;
         }
 
-        baseInstallationPath = std::filesystem::path(argv[6]);
+        if (option == "--locale") {
+            if (localeSpecified) {
+                std::cerr << "--locale was specified more than once\n";
+                return 1;
+            }
+
+            const auto parsedLocale = parseGameLocale(value);
+            if (!parsedLocale) {
+                std::cerr
+                    << "Unsupported locale: " << value << '\n'
+                    << "Supported locales: "
+                    << "enUS frFR itIT deDE esES esMX ptBR "
+                    << "zhCN zhTW koKR koUS jaJP plPL ruRU\n";
+                return 1;
+            }
+
+            locale = *parsedLocale;
+            localeSpecified = true;
+            continue;
+        }
+
+        std::cerr << "Unknown import option: " << option << '\n';
+        return 1;
     }
 
     ManifestLoader loader;
@@ -600,21 +658,92 @@ int StartoolApp::runImport(int argc, char **argv) const
         return 1;
     }
 
-    if (gameSource->format != SourceFormat::Mpq) {
-        std::cerr << "Import currently supports only MPQ sources\n";
+    bool verified = false;
+
+    switch (gameSource->format) {
+        case SourceFormat::Mpq:
+        {
+            MpqVerifier verifier;
+            verified = verifier.verify(*gameSource);
+            break;
+        }
+
+#ifdef HAVE_CASC
+        case SourceFormat::Casc:
+        {
+            CascVerifier verifier;
+            verified = verifier.verify(*gameSource);
+            break;
+        }
+#endif
+
+        default:
+            break;
+    }
+
+    if (!verified) {
+        std::cerr << "Could not verify the StarCraft source\n";
         return 1;
     }
 
-    MpqVerifier verifier;
-    if (!verifier.verify(*gameSource)) {
-        std::cerr << "Could not verify the StarCraft MPQ source\n";
+    if (gameSource->format == SourceFormat::Mpq && localeSpecified) {
+        std::cerr << "--locale is only valid when importing a CASC source\n";
         return 1;
     }
+
+#ifdef HAVE_CASC
+    if (gameSource->format == SourceFormat::Casc) {
+        if (baseInstallationPath) {
+            std::cerr << "--base is only valid when importing a Brood War MPQ source\n";
+            return 1;
+        }
+
+        GameLocaleDetector localeDetector;
+        std::vector<InstalledGameLocale> installedLocales;
+        std::string localeError;
+
+        if (!localeDetector.detect(gameSource->root, installedLocales, localeError)) {
+            std::cerr << "Could not detect installed locales: " << localeError << '\n';
+            return 1;
+        }
+
+        const auto installedLocale =
+            std::find_if(
+                installedLocales.begin(),
+                installedLocales.end(),
+                [locale](const InstalledGameLocale &candidate)
+                {
+                    return candidate.locale == locale;
+                }
+            );
+
+        if (installedLocale == installedLocales.end()) {
+            std::cerr << "Locale " << toString(locale) << " is not installed in this Battle.net installation.\n";
+            return 1;
+        }
+
+        if (!installedLocale->isComplete()) {
+            std::cerr
+                << "Locale " << toString(locale)
+                << " is only partially installed"
+                << " (speech: " << (installedLocale->speech ? "yes" : "no")
+                << ", text: " << (installedLocale->text ? "yes" : "no")
+                << ").\n";
+            return 1;
+        }
+
+        // Set locale before the first source reader is constructed
+        // All palettes and tasks will then use the requested localized assets
+        for (LogicalSource &logicalSource : gameSource->sources) {
+            logicalSource.locale = locale;
+        }
+    }
+#endif
 
     SourceReaderFactory readerFactory;
     SourceReaderRegistry readers;
 
-    if (gameSource->edition == GameEdition::BroodWar) {
+    if (gameSource->format == SourceFormat::Mpq && gameSource->edition == GameEdition::BroodWar) {
         if (!baseInstallationPath) {
             std::cerr
                 << "Brood War is an expansion and requires the Classic base game.\n"
@@ -873,6 +1002,10 @@ int StartoolApp::runImport(int argc, char **argv) const
         << "Imported: "
         << importedTasks
         << '\n';
+
+    if (gameSource->format == SourceFormat::Casc) {
+        std::cout << "Locale:   " << toString(locale) << '\n';
+    }
 
     return 0;
 }
@@ -1397,6 +1530,10 @@ void StartoolApp::printHelp() const
         << "  extract          Extract a resource from a StarCraft source\n"
         << "  import           Import StarCraft resources using a manifest\n"
         << "                   Brood War: add --base <classic-installation>\n"
+        << "                   CASC: add --locale <locale> (default: enUS)\n"
+        << "  launcher         Prepare or update playable Stargus data\n"
+        << "                   launcher <installation> <destination> [--base <classic>]\n"
+        << "                   [--locale <locale>] [--edition classic|broodwar] [--assets <directory>]\n"
         << "  verify           Verify a manifest against a StarCraft installation\n"
         << "                   Brood War: add --base <classic-installation>\n"
         << "                   CASC: add --locale <locale> (default: enUS)\n"

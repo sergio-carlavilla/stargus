@@ -36,10 +36,14 @@ struct UnitDataFiles
     std::filesystem::path statTxtTbl;
 };
 
+class SourceReader;
+
 class UnitDataResolver
 {
 
     public:
+        explicit UnitDataResolver(const SourceReader *source = nullptr) : mSource(source) {}
+
         bool load(
             const UnitDataFiles &files,
             std::string &error
@@ -61,6 +65,9 @@ class UnitDataResolver
         ) const;
 
     private:
+        // Non-owning; the reader must outlive resolution. A null reader keeps
+        // table-only callers independent of an installation's resources.
+        const SourceReader *mSource;
         bool mLoaded = false;
 
         std::vector<UnitsDatRecord> mUnits;

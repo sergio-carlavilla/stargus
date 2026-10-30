@@ -46,16 +46,17 @@ jobs:
             libpng-dev \
             libbz2-dev \
             libmng-dev \
+            libogg-dev \
             libvorbis-dev \
             libtheora-dev \
             libsdl2-dev \
             libsdl2-mixer-dev \
             libsdl2-image-dev \
             libstorm-dev \
-            libcppunit-dev \
-            libmagick++-dev \
             nlohmann-json3-dev \
-            imagemagick
+            imagemagick \
+            ffmpeg \
+            python3
 
       - name: Install CMake 4.3
         uses: jwlawson/actions-setup-cmake@v2
@@ -67,6 +68,11 @@ jobs:
           cmake --version
           gcc --version
           make --version
+          python3 --version
+          ffmpeg -version
+          ffmpeg -v error -f lavfi -i color=c=red:s=8x8:r=10 \
+            -frames:v 1 -codec:v libvpx-vp9 -f null -
+          convert -version
 
       - name: Configure Stratagus
         run: |
@@ -74,7 +80,8 @@ jobs:
             -S "${STRATAGUS_SOURCE_DIR}" \
             -B "${STRATAGUS_BUILD_DIR}" \
             -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
-            -DBUILD_VENDORED_LUA=ON
+            -DBUILD_VENDORED_LUA=ON \
+            -DBUILD_TESTING=OFF
 
       - name: Build Stratagus
         run: |
@@ -99,26 +106,29 @@ jobs:
           echo "Found Stratagus: ${executable}"
           echo "executable=${executable}" >> "${GITHUB_OUTPUT}"
 
-      - name: Configure Stargus
+      - name: Configure Startool4 and Stargus
         run: |
           cmake \
             -S "${GITHUB_WORKSPACE}" \
             -B "${STARGUS_BUILD_DIR}" \
             -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
             -DCMAKE_INSTALL_PREFIX="${STARGUS_INSTALL_DIR}" \
+            -DBUILD_TESTING=ON \
+            -DPython3_EXECUTABLE="$(command -v python3)" \
             -DWITH_CASCLIB=OFF \
             -DStratagus_EXECUTABLE="${{ steps.stratagus.outputs.executable }}" \
             -DStratagus_INCLUDE_DIR="${STRATAGUS_SOURCE_DIR}/gameheaders"
 
-      - name: Build Stargus
+      - name: Build Startool4 and Stargus
         run: |
-          cmake --build "${STARGUS_BUILD_DIR}" --parallel
+          cmake --build "${STARGUS_BUILD_DIR}" --parallel 2
 
       - name: Run tests
         run: |
           ctest \
             --test-dir "${STARGUS_BUILD_DIR}" \
             --build-config "${BUILD_TYPE}" \
+            --no-tests=error \
             --output-on-failure
 
       - name: Install Stargus
@@ -130,21 +140,4 @@ jobs:
         run: |
           set -euo pipefail
 
-          test -x "${STARGUS_INSTALL_DIR}/bin/startool"
-          test -x "${STARGUS_INSTALL_DIR}/games/stargus"
-
-          test -f "${STARGUS_INSTALL_DIR}/share/pixmaps/stargus.png"
-          test -f "${STARGUS_INSTALL_DIR}/share/pixmaps/stargus.xpm"
-          test -f "${STARGUS_INSTALL_DIR}/share/applications/stargus.desktop"
-          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/mpqlist.txt"
-          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/dataset/palettes.json"
-          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/dataset/units.json"
-          test -f "${STARGUS_INSTALL_DIR}/share/games/stratagus/stargus/scripts/sc.lua"
-
-          "${STARGUS_INSTALL_DIR}/bin/startool" --help >/dev/null
-
-          expected_exec="Exec=${STARGUS_INSTALL_DIR}/games/stargus"
-          grep -Fx "${expected_exec}" \
-            "${STARGUS_INSTALL_DIR}/share/applications/stargus.desktop"
-
-          echo "Stargus CMake build, tests, and installation succeeded."
+          python3 .github/scripts/verify_install.py "${STARGUS_INSTALL_DIR}" --desktop

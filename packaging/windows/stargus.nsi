@@ -46,7 +46,7 @@
 ; General variables
 !define NAME "stargus"
 !define VERSION "3.3.0"
-!define VIVERSION "${VERSION}.0.0"
+!define VIVERSION "${VERSION}.0"
 !define HOMEPAGE "https://github.com/wargus/stargus"
 !define LICENSE "GPL v2"
 !define COPYRIGHT "(c) 2002-2022 by The Stratagus Project"
@@ -57,8 +57,7 @@
 
 !define ICON "stargus.ico"
 !define EXE "stargus.exe"
-!define MPQLIST "mpqlist.txt"
-!define WARTOOL "startool.exe"
+!define WARTOOL "startool4.exe"
 ; Must copy files from possible subdirs (Debug, Release), because VS puts them there
 !system "powershell -Command $\"& {cp **\${WARTOOL} ${WARTOOL}}$\""
 !system "powershell -Command $\"& {cp **\${EXE} ${EXE}}$\""
@@ -238,7 +237,6 @@ Section "-${NAME}"
 	SetOutPath "$INSTDIR"
 	File "${EXE}"
 	File "${WARTOOL}"
-	File "${MPQLIST}"
 	File "${INNOEXTRACT}"
 	File "${FFMPEG}"
 	File "${MAGICK}"
@@ -270,6 +268,8 @@ Section "-${NAME}"
 	; File /r "shaders\"
 	SetOutPath "$INSTDIR\scripts"
 	File /r "scripts\"
+	SetOutPath "$INSTDIR\manifests"
+	File /r "${CMAKE_CURRENT_SOURCE_DIR}\manifests\"
 	; SetOutPath "$INSTDIR\campaigns"
 	; File /r "campaigns\"
 
@@ -323,7 +323,6 @@ Section "un.${NAME}" Executable
 
 	Delete "$INSTDIR\${EXE}"
 	Delete "$INSTDIR\${WARTOOL}"
-	Delete "$INSTDIR\${MPQLIST}"
 	Delete "$INSTDIR\${INNOEXTRACT}"
 	Delete "$INSTDIR\${FFMPEG}"
 	Delete "$INSTDIR\${MAGICK}"
@@ -336,6 +335,7 @@ Section "un.${NAME}" Executable
 	RMDir /r "$INSTDIR\videos"
 	RMDir /r "$INSTDIR\shaders"
 	RMDir /r "$INSTDIR\scripts"
+	RMDir /r "$INSTDIR\manifests"
 	RMDir /r "$INSTDIR\campaigns"
 	RMDir "$INSTDIR"
 

@@ -316,6 +316,66 @@ namespace
 
         return true;
     }
+
+    bool validateCascExcludedRules(
+        const std::filesystem::path &manifestRoot,
+        const std::string &rootName,
+        const std::map<std::string, std::string> &excluded
+    )
+    {
+        ManifestStats active;
+        std::string error;
+
+        if (!collectManifest(
+            manifestRoot,
+            manifestRoot / rootName,
+            active,
+            error
+        )) {
+            std::cerr << "Could not inspect active CASC manifest: " << error << '\n';
+            return false;
+        }
+
+        for (const auto &[id, output] : excluded) {
+            if (active.rules.count(id) != 0 || active.outputs.count(output) != 0) {
+                std::cerr << "Unrecovered CASC asset is active in " << rootName
+                          << ": " << id << " -> " << output << '\n';
+                return false;
+            }
+        }
+
+        std::cout << rootName << ": " << excluded.size()
+                  << " unrecovered legacy UI assets remain excluded\n";
+        return true;
+    }
+
+    bool validateCascUnitDependencies(const std::filesystem::path &manifestRoot)
+    {
+        ManifestStats active;
+        ManifestStats dependencies;
+        std::string error;
+        if (!collectManifest(manifestRoot, manifestRoot / "casc-classic.json", active, error) ||
+            !collectManifest(manifestRoot, manifestRoot / "broodwar/audio.json", dependencies, error) ||
+            !collectManifest(manifestRoot, manifestRoot / "broodwar/images.json", dependencies, error)) {
+            std::cerr << "Could not inspect unified CASC unit dependencies: " << error << '\n';
+            return false;
+        }
+        for (const auto &rule : dependencies.rules) {
+            if (active.rules.count(rule) == 0) {
+                std::cerr << "CASC Classic unit dependency is missing: " << rule << '\n';
+                return false;
+            }
+        }
+        for (const auto &palette : {"desert", "ice", "twilight"}) {
+            if (active.palettes.count(palette) == 0) {
+                std::cerr << "CASC image palette is missing: " << palette << '\n';
+                return false;
+            }
+        }
+        std::cout << "casc-classic.json: unified unit images/audio and image palettes present\n";
+        return true;
+    }
+
 }
 
 int main()
@@ -346,12 +406,27 @@ int main()
         validateRoot(
             manifestRoot,
             "casc-classic.json",
-            19,
-            3631,
-            3033
+            22,
+            3981,
+            3215
         );
 
-    return classicOk && broodWarOk && cascClassicOk
+    const bool cascExcludedOk = validateCascExcludedRules(manifestRoot, "casc-classic.json", {
+        {"ui-aggicons", "graphics/ui/aggicons.png"},
+        {"ui-battlenet-icons", "graphics/ui/battlenet/icons.png"}
+    });
+
+    const bool cascBroodWarOk =
+        validateRoot(manifestRoot, "casc-broodwar.json", 22, 4763, 3997);
+    const bool cascBroodWarExcludedOk = validateCascExcludedRules(manifestRoot, "casc-broodwar.json", {
+        {"ui-aggicons", "graphics/ui/aggicons.png"},
+        {"ui-battlenet-icons", "graphics/ui/battlenet/icons.png"},
+        {"ui-battlenet-profileexp", "graphics/ui/battlenet/profileexp.png"}
+    });
+    const bool cascUnitDependenciesOk = validateCascUnitDependencies(manifestRoot);
+
+    return classicOk && broodWarOk && cascClassicOk && cascExcludedOk &&
+        cascBroodWarOk && cascBroodWarExcludedOk && cascUnitDependenciesOk
         ? 0
         : 1;
 }

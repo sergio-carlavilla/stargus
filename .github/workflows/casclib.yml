@@ -25,6 +25,7 @@ jobs:
       CASCLIB_BUILD_DIR: ${{ github.workspace }}/casclib-source/build
       CASCLIB_INSTALL_DIR: ${{ github.workspace }}/casclib-install
       STARGUS_BUILD_DIR: ${{ github.workspace }}/build-casclib
+      STARGUS_INSTALL_DIR: ${{ github.workspace }}/install-casclib
 
     steps:
       - name: Checkout Stargus
@@ -56,16 +57,17 @@ jobs:
             libpng-dev \
             libbz2-dev \
             libmng-dev \
+            libogg-dev \
             libvorbis-dev \
             libtheora-dev \
             libsdl2-dev \
             libsdl2-mixer-dev \
             libsdl2-image-dev \
             libstorm-dev \
-            libcppunit-dev \
-            libmagick++-dev \
             nlohmann-json3-dev \
-            imagemagick
+            imagemagick \
+            ffmpeg \
+            python3
 
       - name: Set up CMake
         uses: jwlawson/actions-setup-cmake@v2
@@ -79,6 +81,11 @@ jobs:
           g++ --version
           cmake --version
           make --version
+          python3 --version
+          ffmpeg -version
+          ffmpeg -v error -f lavfi -i color=c=red:s=8x8:r=10 \
+            -frames:v 1 -codec:v libvpx-vp9 -f null -
+          convert -version
 
       - name: Configure CascLib
         run: |
@@ -173,18 +180,21 @@ jobs:
           echo "executable=${executable}" >> "${GITHUB_OUTPUT}"
           echo "include_dir=${include_dir}" >> "${GITHUB_OUTPUT}"
 
-      - name: Configure Stargus with CascLib
+      - name: Configure Startool4 and Stargus with CascLib
         run: |
           cmake \
             -S "${GITHUB_WORKSPACE}" \
             -B "${STARGUS_BUILD_DIR}" \
             -DCMAKE_BUILD_TYPE="${BUILD_TYPE}" \
             -DCMAKE_PREFIX_PATH="${CASCLIB_INSTALL_DIR}" \
+            -DCMAKE_INSTALL_PREFIX="${STARGUS_INSTALL_DIR}" \
+            -DBUILD_TESTING=ON \
+            -DPython3_EXECUTABLE="$(command -v python3)" \
             -DWITH_CASCLIB=ON \
             -DStratagus_EXECUTABLE="${{ steps.stratagus.outputs.executable }}" \
             -DStratagus_INCLUDE_DIR="${{ steps.stratagus.outputs.include_dir }}"
 
-      - name: Build Stargus
+      - name: Build Startool4 and Stargus
         run: |
           cmake --build "${STARGUS_BUILD_DIR}" --parallel 2
 
@@ -193,19 +203,28 @@ jobs:
           ctest \
             --test-dir "${STARGUS_BUILD_DIR}" \
             --build-config "${BUILD_TYPE}" \
+            --no-tests=error \
             --output-on-failure
 
-      - name: Verify CascLib-enabled startool
+      - name: Verify CascLib-enabled Startool4
         shell: bash
         run: |
           set -euo pipefail
 
-          startool="${STARGUS_BUILD_DIR}/startool"
+          startool4="${STARGUS_BUILD_DIR}/startool4"
 
-          if [[ ! -x "${startool}" ]]; then
-            echo "startool executable was not found: ${startool}"
+          if [[ ! -x "${startool4}" ]]; then
+            echo "startool4 executable was not found: ${startool4}"
             exit 1
           fi
 
-          ldd "${startool}" || true
-          "${startool}" --help >/dev/null
+          ldd "${startool4}" | tee "${RUNNER_TEMP}/startool4-libraries.txt"
+          grep -F 'libcasc.so' "${RUNNER_TEMP}/startool4-libraries.txt"
+          "${startool4}" -V
+          "${startool4}" --help >/dev/null
+
+      - name: Install Startool4 and Stargus
+        run: cmake --install "${STARGUS_BUILD_DIR}"
+
+      - name: Verify installation
+        run: python3 .github/scripts/verify_install.py "${STARGUS_INSTALL_DIR}" --desktop

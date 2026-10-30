@@ -1,0 +1,30 @@
+{
+  "format_version": 1,
+  "includes": [
+    "casc/classic/palettes.json",
+    "broodwar/palettes.json",
+    "casc/classic/fonts.json",
+    "casc/classic/video.json",
+    "casc/broodwar/video.json",
+    "classic/portraits.json",
+    "classic/audio.json",
+    "broodwar/audio.json",
+    "classic/music.json",
+    "broodwar/music.json",
+    "casc/classic/ui.json",
+    "classic/units.json",
+    "casc/classic/maps.json",
+    "casc/classic/campaigns.json",
+    "classic/campaign-audio.json",
+    "broodwar/campaigns.json",
+    "broodwar/campaign-audio.json",
+    "classic/tilesets.json",
+    "broodwar/tilesets.json",
+    "casc/classic/pcx.json",
+    "casc/broodwar/pcx.json",
+    "casc/classic/widgets.json",
+    "classic/images.json",
+    "broodwar/images.json",
+    "casc/classic/generated-ui.json"
+  ]
+}

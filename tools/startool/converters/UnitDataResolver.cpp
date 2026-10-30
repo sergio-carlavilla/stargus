@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
 #include "UnitDataResolver.h"
+#include "SourceReader.h"
 
 #include "formats/FlingyDatDecoder.h"
 #include "formats/ImagesDatDecoder.h"
@@ -15,6 +16,7 @@
 #include <cctype>
 #include <cmath>
 #include <filesystem>
+#include <iostream>
 #include <utility>
 #include <vector>
 
@@ -76,7 +78,8 @@ namespace
         const std::vector<TblEntry> &sfxTable,
         std::size_t soundId,
         std::string &sound,
-        std::string &error
+        std::string &error,
+        std::string *resource = nullptr
     )
     {
         if (soundId >= sfxData.size()) {
@@ -101,6 +104,10 @@ namespace
         std::string path = toLower(sfxTable[tableIndex].name);
 
         std::replace(path.begin(), path.end(), '\\', '/');
+
+        if (resource != nullptr) {
+            *resource = "sound/" + path;
+        }
 
         if (path.size() >= 4 && path.compare( path.size() - 4, 4, ".wav") == 0) {
             path.erase(path.size() - 4);
@@ -408,12 +415,20 @@ bool UnitDataResolver::resolve(
 
     if (unitId < 106 && unit.readySound != SoundNone) {
         std::string readySound;
+        std::string readyResource;
 
-        if (!resolveSound(mSfxData, mSoundNames, unit.readySound, readySound, error)) {
+        if (!resolveSound(mSfxData, mSoundNames, unit.readySound, readySound, error, &readyResource)) {
             return false;
         }
 
-        metadata.readySounds.push_back(std::move(readySound));
+        // Classic units.dat can name an optional creation voice shipped only
+        // with Brood War (e.g. pdtrdy00.wav). Emit it only when the actual source
+        // has it. Declared audio tasks remain mandatory and fail normally.
+        if (mSource == nullptr || mSource->contains(readyResource)) {
+            metadata.readySounds.push_back(std::move(readySound));
+        } else {
+            std::cerr << "Unit " << ident << ": optional ready voice absent from source, omitted: " << readyResource << '\n';
+        }
     }
 
     if (!resolveSoundRange(mSfxData, mSoundNames, unit.whatSoundStart, unit.whatSoundEnd, metadata.whatSounds, error)) {
@@ -442,7 +457,7 @@ bool UnitDataResolver::resolve(
     std::string &error
 ) const
 {
-    UnitDataResolver resolver;
+    UnitDataResolver resolver(mSource);
 
     if (!resolver.load(files, error)) {
         return false;
